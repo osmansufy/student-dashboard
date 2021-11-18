@@ -1,6 +1,9 @@
   <?php
+  $activeClass = 'active';
+
   ?>
   <nav class="navbar-primary">
+
       <a href="#" class="btn-expand-collapse"><span class="glyphicon glyphicon-menu-left"></span></a>
       <ul class="navbar-primary-menu navbar-nav">
           <a class="navbar-brand" href="#">
@@ -9,11 +12,12 @@
               <img class="collapse-img-collapse"
                   src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/Screenshot_1.png" alt="" />
           </a>
-          <li class="nav-item">
+          <li class="nav-item <?php echo is_page_template( 'learners-dashboard.php' ) ? $activeClass:"" ?>">
               <a href="<?php echo get_site_url() . '/learners-dashboard' ?>"><span
-                      class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Dashboard</span></a>
+                      class="glyphicon glyphicon-list-alt"></span><span
+                      class="nav-label <?php echo $activeClass ?>">Dashboard</span></a>
           </li>
-          <li class="nav-item active"><a href="<?php echo get_site_url() . '/my-courses' ?>"><span
+          <li class="nav-item "><a href="<?php echo get_site_url() . '/my-courses-dashboard' ?>"><span
                       class="glyphicon glyphicon-envelope"></span><span class="nav-label">My Courses</span></a>
           </li>
           <li class="nav-item"> <a href="MyCertificates.html"><span class="glyphicon glyphicon-cog"></span><span

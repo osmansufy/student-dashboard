@@ -14,6 +14,7 @@
     <div class="sidebar-menu-farhan">
         <?php include_once('template-parts/dashboard-sidebar.php'); ?>
         <?php include_once('template-parts/dashboard-top-nav.php'); ?>
+
         <div class="main-content">
             <section class="page-title">
                 <div class="container-fluid">
@@ -27,7 +28,19 @@
                         <a href="#"><i class="fad fa-medal"></i>
                             Get access to all 700+ courses (and MORE) for only £12 per
                             month. Find out more.
+
                         </a>
+                        <?php
+       $user_id=get_current_user_id();
+       print_r($user_id);
+        $args = array(
+            'post_type'   => 'course',
+            'numberposts' => - 1,
+            'post_status' => 'publish'
+        );
+
+        $allCourses = get_posts( $args );
+        ?>
                     </div>
                     <!-- percentage circle -->
                     <div class="circle-box-percentage">

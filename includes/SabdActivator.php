@@ -6,7 +6,7 @@ class SaLearnersDbActivator
     }
 
     public static function activate() {
-        self::SaLearnersDbCreate(['title'=>'Courses','slug'=>'my-courses','template'=>'my-courses-dashboard']);
+        self::SaLearnersDbCreate(['title'=>'My Courses','slug'=>'my-courses-dashboard','template'=>'my-courses-dashboard']);
         self::SaLearnersDbCreate(['title'=>'Learners Dashboard','slug'=>'learners-dashboard','template'=>'learners-dashboard']);
     
     }
