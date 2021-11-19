@@ -8,6 +8,7 @@ class SaLearnersDbActivator
     public static function activate() {
         self::SaLearnersDbCreate(['title'=>'My Courses','slug'=>'my-courses-dashboard','template'=>'my-courses-dashboard']);
         self::SaLearnersDbCreate(['title'=>'Learners Dashboard','slug'=>'learners-dashboard','template'=>'learners-dashboard']);
+        self::SaLearnersDbCreate(['title'=>'Learners Profile','slug'=>'learners-profile','template'=>'learners-profile']);
     
     }
     protected function SaLearnersDbCreate($data) {

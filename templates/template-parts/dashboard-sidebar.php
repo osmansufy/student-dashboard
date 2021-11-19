@@ -14,10 +14,10 @@
           </a>
           <li class="nav-item <?php echo is_page_template( 'learners-dashboard.php' ) ? $activeClass:"" ?>">
               <a href="<?php echo get_site_url() . '/learners-dashboard' ?>"><span
-                      class="glyphicon glyphicon-list-alt"></span><span
-                      class="nav-label <?php echo $activeClass ?>">Dashboard</span></a>
+                      class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Dashboard</span></a>
           </li>
-          <li class="nav-item "><a href="<?php echo get_site_url() . '/my-courses-dashboard' ?>"><span
+          <li class="nav-item <?php echo is_page_template( 'my-courses-dashboard.php' ) ? $activeClass:"" ?>"><a
+                  href="<?php echo get_site_url() . '/my-courses-dashboard' ?>"><span
                       class="glyphicon glyphicon-envelope"></span><span class="nav-label">My Courses</span></a>
           </li>
           <li class="nav-item"> <a href="MyCertificates.html"><span class="glyphicon glyphicon-cog"></span><span
@@ -43,8 +43,9 @@
           <li class="nav-item"><a href="MyOrders.html"><span class="glyphicon glyphicon-tag"></span><span
                       class="nav-label">My Orders</span></a>
           </li>
-          <li class="nav-item "><a href="MyProfile.html"><span class="glyphicon glyphicon-user"></span><span
-                      class="nav-label">My Profile.</span></a>
+          <li class="nav-item <?php echo is_page_template( 'learners-profile.php' ) ? $activeClass:"" ?>"><a
+                  href="<?php echo get_site_url() . '/learners-profile' ?>"><span
+                      class="glyphicon glyphicon-user"></span><span class="nav-label">My Profile.</span></a>
           </li>
           <li class="nav-item "><a href="StudentPortal.html"><span class="glyphicon glyphicon-import"></span><span
                       class="nav-label">Student Portal</span></a>

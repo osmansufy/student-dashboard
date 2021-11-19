@@ -14,7 +14,7 @@ p {
   background-color: #003a59;
   border: #003a59;
 }
-.sidebar-menu-farhan  span.nav-label {
+.sidebar-menu-farhan span.nav-label {
   margin-left: 12px;
 }
 .sidebar-menu-farhan .navbar-global .navbar-brand {
@@ -35,7 +35,7 @@ p {
   top: 50px;
   width: 250px;
   z-index: 8;
- /* overflow: hidden; */
+  /* overflow: hidden; */
   -webkit-transition: all 0.1s ease-in-out;
   -moz-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
@@ -44,23 +44,33 @@ p {
 .sidebar-menu-farhan .navbar-primary.collapsed {
   width: 60px;
 }
-nav.navbar-primary.collapsed a.btn-expand-collapse span.glyphicon.glyphicon-menu-left:before {
+nav.navbar-primary.collapsed
+  a.btn-expand-collapse
+  span.glyphicon.glyphicon-menu-left:before {
   content: "\e258";
 }
-nav.navbar-primary.collapsed a.btn-expand-collapse ul.navbar-primary-menu.navbar-nav a .collapse-img {
+nav.navbar-primary.collapsed
+  a.btn-expand-collapse
+  ul.navbar-primary-menu.navbar-nav
+  a
+  .collapse-img {
   width: 100px !important;
 }
 nav.navbar-primary.collapsed ul.navbar-primary-menu.navbar-nav li {
   padding: 0 !important;
 }
-nav.navbar-primary.collapsed ul.navbar-primary-menu.navbar-nav img.collapse-img {
+nav.navbar-primary.collapsed
+  ul.navbar-primary-menu.navbar-nav
+  img.collapse-img {
   display: none;
 }
 
 img.collapse-img-collapse {
   display: none;
 }
-nav.navbar-primary.collapsed ul.navbar-primary-menu.navbar-nav img.collapse-img-collapse {
+nav.navbar-primary.collapsed
+  ul.navbar-primary-menu.navbar-nav
+  img.collapse-img-collapse {
   display: block;
   width: 50px;
 }
@@ -100,15 +110,13 @@ ul.navbar-primary-menu.navbar-nav {
   width: 90%;
   float: right;
 }
-ul.navbar-primary-menu.navbar-nav  li.nav-item {
+ul.navbar-primary-menu.navbar-nav li.nav-item {
   display: inline-block;
   width: 100%;
   padding-left: 10px;
   margin-bottom: 5px;
-
-
 }
-ul.navbar-primary-menu.navbar-nav  li.nav-item.active{
+ul.navbar-primary-menu.navbar-nav li.nav-item.active {
   background-color: #ffffff;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
@@ -118,7 +126,7 @@ ul.navbar-primary-menu.navbar-nav li.nav-item.active a {
 }
 .sidebar-menu-farhan .btn-expand-collapse:hover,
 .btn-expand-collapse:focus {
-  background-color:   white;
+  background-color: white;
   color: #004463;
 }
 
@@ -199,7 +207,6 @@ section.content-main-body {
   font-size: 25px;
   font-weight: 600;
   margin: 20px 0;
-
 }
 .sidebar-menu-farhan .subscribeUpsell a {
   font-family: "Catamaran", sans-serif;
@@ -208,10 +215,6 @@ section.content-main-body {
 
   color: #f8f8f8;
 }
-
-
-
-
 
 /* percentage circle */
 
@@ -242,7 +245,7 @@ html {
 }
 
 .progress_bar .bar {
-  stroke: #D9D9D9;
+  stroke: #d9d9d9;
 }
 .progressdiv {
   position: relative;
@@ -276,7 +279,6 @@ html {
 }
 /* percentage circle end */
 
-
 /* Log-section */
 .sidebar-menu-farhan .white-rounded {
   background-color: #ffffff;
@@ -294,48 +296,50 @@ html {
   font-weight: 500;
 }
 
-.sidebar-menu-farhan  .white-rounded.dash-details span{
+.sidebar-menu-farhan .white-rounded.dash-details span {
   font-size: 50px;
   font-weight: 500;
   line-height: 1.2;
 }
-.sidebar-menu-farhan  .white-rounded.dash-details sup svg {
+.sidebar-menu-farhan .white-rounded.dash-details sup svg {
   color: #004463;
 }
 .white-rounded.dash-banner {
-  background: url(https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/xo-bg-1.png) no-repeat;
+  background: url(https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/xo-bg-1.png)
+    no-repeat;
   padding: 15px 15px 15px 15px;
   background-size: cover;
   border-radius: 15px;
   color: #ffffff;
 }
-.sidebar-menu-farhan   .white-rounded.dash-banner p {
+.sidebar-menu-farhan .white-rounded.dash-banner p {
   font-family: inherit !important;
   font-size: 21px;
   color: #fff;
 }
 
-.sidebar-menu-farhan   .white-rounded.dash-banner a.btn.btn-outline-light {
+.sidebar-menu-farhan .white-rounded.dash-banner a.btn.btn-outline-light {
   color: #f8f9fa;
   border-radius: 25px;
   border-width: 2px;
   background-color: transparent;
   background-image: none;
   border-color: #f8f9fa;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.sidebar-menu-farhan   .white-rounded.dash-banner .btn-outline-light:hover {
-  color: #1A1A1A !important;
+.sidebar-menu-farhan .white-rounded.dash-banner .btn-outline-light:hover {
+  color: #1a1a1a !important;
   background-color: #f8f9fa !important;
-    border-color: #f8f9fa !important;
+  border-color: #f8f9fa !important;
 }
 
-.sidebar-menu-farhan   .white-rounded.dash-banner .banner-number img {
+.sidebar-menu-farhan .white-rounded.dash-banner .banner-number img {
   height: 80px;
 }
 
-.sidebar-menu-farhan  .banner-offer {
+.sidebar-menu-farhan .banner-offer {
   margin: 40px 0;
 }
 
@@ -351,7 +355,7 @@ html {
   margin: 40px 0;
 }
 .other-course h3.Title {
-  font-family: 'Caveat Brush';
+  font-family: "Caveat Brush";
   font-size: 32px;
   text-align: left;
   margin-bottom: 40px;
@@ -375,7 +379,7 @@ html {
   font-weight: 300;
   border-top-left-radius: 20px;
   opacity: 1;
-  transition: .6s ease;
+  transition: 0.6s ease;
   color: #ffffff;
   position: absolute;
   top: 0;
@@ -390,26 +394,28 @@ html {
   font-weight: 300;
   border-bottom-left-radius: 20px;
   opacity: 1;
-  transition: .6s ease;
+  transition: 0.6s ease;
   position: absolute;
   bottom: 0;
   width: 100%;
 }
-.sidebar-menu-farhan  .category-box  .Popular-title-bottom h3 {
+.sidebar-menu-farhan .category-box .Popular-title-bottom h3 {
   color: #fff;
   font-size: 32px;
 }
 
-.sidebar-menu-farhan  .category-box   .category-box:hover .popular-box-overlay {
+.sidebar-menu-farhan .category-box .category-box:hover .popular-box-overlay {
   opacity: 1;
   cursor: pointer;
 }
-.sidebar-menu-farhan  .category-box   .popular-box-overlay {
+.sidebar-menu-farhan .category-box .popular-box-overlay {
   opacity: 0;
-  transition: .6s ease;
+  transition: 0.6s ease;
   text-align: center;
   color: #ffffff;
-  background: #248cab url('https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/courses-overlay-bg.png') no-repeat;
+  background: #248cab
+    url("https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/courses-overlay-bg.png")
+    no-repeat;
   background-position: left bottom;
   padding: 15px 0;
   font-weight: 300;
@@ -417,7 +423,7 @@ html {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   padding: 30px 0;
-  transition: .6s ease;
+  transition: 0.6s ease;
   position: absolute;
   left: 0;
   top: 0;
@@ -426,31 +432,38 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-    justify-content: center;
+  justify-content: center;
 }
 
-.sidebar-menu-farhan  .category-box   .img img {
+.sidebar-menu-farhan .category-box .img img {
   width: 100%;
   max-width: 100%;
 }
 
-
-.sidebar-menu-farhan  .category-box:hover .popular-box-overlay {
+.sidebar-menu-farhan .category-box:hover .popular-box-overlay {
   opacity: 1;
   cursor: pointer;
 }
 /* box hover side flip */
-.sidebar-menu-farhan  .category-box .popular-box-overlay .button-box {
+.sidebar-menu-farhan .category-box .popular-box-overlay .button-box {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.sidebar-menu-farhan .category-box .popular-box-overlay .button-box button.btn.btn-outline-primary.btn-lg.extra-radius:hover {
-  color: #1A1A1A !important;
+.sidebar-menu-farhan
+  .category-box
+  .popular-box-overlay
+  .button-box
+  button.btn.btn-outline-primary.btn-lg.extra-radius:hover {
+  color: #1a1a1a !important;
   border-color: #ffffff;
   background-color: #ffffff;
 }
-.sidebar-menu-farhan  .category-box .popular-box-overlay .button-box button.btn.btn-outline-primary.btn-lg.extra-radius {
+.sidebar-menu-farhan
+  .category-box
+  .popular-box-overlay
+  .button-box
+  button.btn.btn-outline-primary.btn-lg.extra-radius {
   color: #ffffff !important;
   border-color: #ffffff;
   border-width: 2px;
@@ -458,9 +471,13 @@ html {
   margin-bottom: 5px;
   background: transparent;
   border-radius: 30px;
-  margin: 0  5px 5px;
+  margin: 0 5px 5px;
 }
-.sidebar-menu-farhan  .category-box .popular-box-overlay .popular-overlay-btn-btm .btn-outline-primary {
+.sidebar-menu-farhan
+  .category-box
+  .popular-box-overlay
+  .popular-overlay-btn-btm
+  .btn-outline-primary {
   color: #ffffff !important;
   border-color: #ffffff;
   background-color: #b2d489;
@@ -472,22 +489,22 @@ html {
   margin: 0 5px;
 }
 
-.sidebar-menu-farhan  .category-box .popular-box-overlay h3 {
+.sidebar-menu-farhan .category-box .popular-box-overlay h3 {
   color: #fff;
   font-size: 32px;
-} 
-.sidebar-menu-farhan  .popular-box-overlay p strong {
+}
+.sidebar-menu-farhan .popular-box-overlay p strong {
   font-size: 16px;
-  font-family: 'Catamaran', sans-serif;
+  font-family: "Catamaran", sans-serif;
   color: #fff;
 }
 
 /* LeaderBoard */
-.sidebar-menu-farhan  .leaderBoard {
+.sidebar-menu-farhan .leaderBoard {
   display: flex;
   justify-content: space-between;
 }
-.sidebar-menu-farhan  .leaderBoard {
+.sidebar-menu-farhan .leaderBoard {
   display: flex;
   justify-content: space-between;
   margin: 40px 0;
@@ -501,23 +518,27 @@ html {
   margin-right: 0;
 }
 
-.sidebar-menu-farhan .leaderBoard   .leaderboard {
+.sidebar-menu-farhan .leaderBoard .leaderboard {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 95%;
 }
-.leaderBoard   .leaderboard  a#drop6 {
-    font-family: 'Catamaran', sans-serif;
-    color: #1A1A1A;
-    font-weight: bold;
-    background-color: transparent;
-    font-size: 16px;
+.leaderBoard .leaderboard a#drop6 {
+  font-family: "Catamaran", sans-serif;
+  color: #1a1a1a;
+  font-weight: bold;
+  background-color: transparent;
+  font-size: 16px;
 }
-.sidebar-menu-farhan .leaderBoard  .leaderboard .dropdown-menu.dropdown-menu-right  label.dropdown-item {
+.sidebar-menu-farhan
+  .leaderBoard
+  .leaderboard
+  .dropdown-menu.dropdown-menu-right
+  label.dropdown-item {
   display: block;
   width: 100%;
-  padding: .25rem 1.5rem;
+  padding: 0.25rem 1.5rem;
   clear: both;
   font-weight: 400;
   color: #212529;
@@ -526,18 +547,16 @@ html {
   background-color: transparent;
   border: 0;
 }
-.sidebar-menu-farhan .leaderBoard   .white-rounded.notification {
+.sidebar-menu-farhan .leaderBoard .white-rounded.notification {
   display: flex;
   justify-content: flex-start;
 }
-.sidebar-menu-farhan .leaderBoard    table.table tbody tr th {
+.sidebar-menu-farhan .leaderBoard table.table tbody tr th {
   border: none;
 }
-.sidebar-menu-farhan .leaderBoard   .table tbody tr td {
-  
+.sidebar-menu-farhan .leaderBoard .table tbody tr td {
   text-align: left;
 }
-
 
 /*=======================
            👇 COURSE PAGE CODE 👇
@@ -545,7 +564,7 @@ html {
 .sidebar-menu-farhan .search-field form button.btn.btn-primary {
   width: 100px;
   text-align: center;
-  background: #259CC0;
+  background: #259cc0;
   height: 70px;
   line-height: 70px;
   font-size: 22px;
@@ -556,7 +575,7 @@ html {
 
 .sidebar-menu-farhan .search-field form input#txtSearch {
   border: 1px solid #f0eded;
-  color: #1A1A1A;
+  color: #1a1a1a;
   font-size: 22px;
   height: 70px;
   padding: 18px 0 18px 40px;
@@ -565,13 +584,12 @@ html {
 }
 
 .sidebar-menu-farhan .search-field form input#txtSearch::placeholder {
-  color: #1A1A1A;
+  color: #1a1a1a;
   font-size: 22px;
 }
-.sidebar-menu-farhan .search-field{
+.sidebar-menu-farhan .search-field {
   margin: 40px 0;
 }
-
 
 .sidebar-menu-farhan .progress-box {
   width: 100%;
@@ -585,7 +603,6 @@ html {
   background-repeat: no-repeat;
 }
 
-
 .sidebar-menu-farhan .progress-box .Popular-title-top {
   background: #259cc0;
   border-top-right-radius: 20px;
@@ -593,24 +610,22 @@ html {
   font-weight: 300;
   border-top-left-radius: 20px;
   opacity: 1;
-  transition: .6s ease;
+  transition: 0.6s ease;
   color: #ffffff;
   position: absolute;
   top: 0;
   width: 100%;
 }
-.sidebar-menu-farhan .progress-box .Popular-title-bottom  {
-
+.sidebar-menu-farhan .progress-box .Popular-title-bottom {
   background: rgb(0 58 89 / 67%);
   border-bottom-right-radius: 20px;
   padding: 10px 0;
   border-bottom-left-radius: 20px;
   opacity: 1;
-  transition: .6s ease;
+  transition: 0.6s ease;
   position: absolute;
   bottom: 0;
   width: 100%;
-  
 }
 .sidebar-menu-farhan .progress-box .Popular-title-bottom h3 {
   text-align: center;
@@ -620,7 +635,7 @@ html {
   font-weight: 300;
 }
 .sidebar-menu-farhan .progress-box .progressbar {
-  background-color: #a3cd8c!important;
+  background-color: #a3cd8c !important;
   padding: 0;
   text-indent: 10px;
   display: flex;
@@ -634,7 +649,9 @@ html {
   display: flex;
 }
 
-.sidebar-menu-farhan .progress-box a.btn.btn-outline-primary.btn-lg.extra-radius {
+.sidebar-menu-farhan
+  .progress-box
+  a.btn.btn-outline-primary.btn-lg.extra-radius {
   color: #f8f9fa;
   background-color: transparent;
   background-image: none;
@@ -646,12 +663,14 @@ html {
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 1.5;
-  padding: .375rem .75rem;
+  padding: 0.375rem 0.75rem;
 }
 
-.sidebar-menu-farhan .progress-box a.btn.btn-outline-primary.btn-lg.extra-radius:hover {
+.sidebar-menu-farhan
+  .progress-box
+  a.btn.btn-outline-primary.btn-lg.extra-radius:hover {
   background-color: #ffffff;
-  color: #1A1A1A;
+  color: #1a1a1a;
 }
 /*=======================
            👇 My Certificates PAGE CODE 👇
@@ -662,7 +681,7 @@ html {
   padding: 25px 15px 15px 25px;
   margin-bottom: 25px;
 }
-.sidebar-menu-farhan .certificate-list{
+.sidebar-menu-farhan .certificate-list {
   overflow-y: scroll;
 }
 /*=======================
@@ -670,9 +689,9 @@ html {
 ======================== */
 
 .sidebar-menu-farhan .pointsEarned.pointPicker {
-    display: block;
-    padding: 6px 25px;
-    color: #ffffff;
+  display: block;
+  padding: 6px 25px;
+  color: #ffffff;
 }
 .col-12.col-md-2.text-center img {
   width: 70%;
@@ -680,39 +699,38 @@ html {
 .link-box a {
   color: #f8f8f8;
 }
-.sidebar-menu-farhan  .row.align-items-center {
+.sidebar-menu-farhan .row.align-items-center {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 .sidebar-menu-farhan .pointsEarned {
-    background-color: #248cab;
-    border-radius: 10px;
-    padding: 10px 20px 10px 20px;
-
+  background-color: #248cab;
+  border-radius: 10px;
+  padding: 10px 20px 10px 20px;
 }
 .sidebar-menu-farhan .regular-full {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 .sidebar-menu-farhan .text-center {
-    text-align: center!important;
+  text-align: center !important;
 }
 .sidebar-menu-farhan .pointPicker .dropdown-toggle::after {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    margin-left: .255em;
-    vertical-align: .255em;
-    content: "";
-    border-top: .3em solid;
-    border-right: .3em solid transparent;
-    border-bottom: 0;
-    border-left: .3em solid transparent;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
 }
 .sidebar-menu-farhan .dropdown-item {
   display: block;
   width: 100%;
-  padding: .25rem 1.5rem;
+  padding: 0.25rem 1.5rem;
   clear: both;
   font-weight: 400;
   color: #212529;
@@ -732,23 +750,22 @@ html {
   text-decoration: none;
   background-color: #f8f9fa;
 }
-.sidebar-menu-farhan  .col-12.col-md-10 .pointsEarned {
+.sidebar-menu-farhan .col-12.col-md-10 .pointsEarned {
   padding: 25px 20px 25px 40px;
 }
 
 .sidebar-menu-farhan .points.mr-0 h2 {
   margin: 0;
-  color:#ffffff;
+  color: #ffffff;
   font-family: inherit;
 }
 .sidebar-menu-farhan .points p {
   font-size: 20px;
   font-weight: 300;
   margin-bottom: 0;
-  color:#ffffff;
+  color: #ffffff;
   font-family: inherit;
 }
-
 
 .sidebar-menu-farhan .white-rounded.achievements {
   background-color: #ffffff;
@@ -758,24 +775,25 @@ html {
   display: inherit;
 }
 
-
-.sidebar-menu-farhan .achievements h3, .sidebar-menu-farhan .claimed-rewards h3 {
+.sidebar-menu-farhan .achievements h3,
+.sidebar-menu-farhan .claimed-rewards h3 {
   font-weight: 500;
   font-size: 35px;
   margin-top: 20px;
   margin-bottom: 20px;
-  font-family: 'Caveat Brush';
+  font-family: "Caveat Brush";
   text-align: left;
 }
 
 .sidebar-menu-farhan .achievements li {
   padding-left: 40px;
-  background: url('https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy-blue.png') no-repeat left center;
+  background: url("https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy-blue.png")
+    no-repeat left center;
   margin-bottom: 20px;
   list-style: none;
 }
 .col-12.regular-full.white-rounded.achievements ul li a:hover {
-  color: #1A1A1A;
+  color: #1a1a1a;
   text-decoration: underline;
   outline: 0;
 }
@@ -784,7 +802,8 @@ html {
   text-decoration: none;
 }
 .achievements li:hover {
-  background: url('https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy-grey.png') no-repeat left center;
+  background: url("https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy-grey.png")
+    no-repeat left center;
 }
 .sidebar-menu-farhan .achievements ul {
   margin: 0;
@@ -793,24 +812,23 @@ html {
   text-align: left;
 }
 
-.sidebar-menu-farhan .achievements  p {
-
+.sidebar-menu-farhan .achievements p {
   font-size: 16px;
   font-family: inherit;
 }
 
 .sidebar-menu-farhan .Claim-reward .white-rounded {
   background-color: #ffffff;
-  
+
   padding: 7px 30px 10px 30px;
   text-align: left;
   display: inherit;
 }
 
-.sidebar-menu-farhan .Claim-reward .white-rounded  h3{
+.sidebar-menu-farhan .Claim-reward .white-rounded h3 {
   font-size: 30px;
 }
-.sidebar-menu-farhan  .Claim-reward {
+.sidebar-menu-farhan .Claim-reward {
   margin: 40px 0;
 }
 
@@ -842,7 +860,6 @@ html {
   opacity: 1;
 }
 
-
 .sidebar-menu-farhan .find-bg {
   width: 100%;
   margin-left: 15px;
@@ -869,17 +886,19 @@ html {
 }
 
 .sidebar-menu-farhan .redeem {
-  background: #ffffff url('https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/gift-box.png') no-repeat;
+  background: #ffffff
+    url("https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/gift-box.png")
+    no-repeat;
   background-position: 10px center;
 }
-.sidebar-menu-farhan .mycertificate{
+.sidebar-menu-farhan .mycertificate {
   display: block;
 }
 /*====================================
            👇 Saved Courses PAGE CODE 👇
 =====================================*/
 
-.sidebar-menu-farhan  .saveHeart {
+.sidebar-menu-farhan .saveHeart {
   color: #fff;
   display: block;
   position: absolute;
@@ -894,18 +913,18 @@ html {
 /*====================================
            👇 message box PAGE CODE 👇
 =====================================*/
-.sidebar-menu-farhan  .message .panel-heading .accordion-toggle:after {
+.sidebar-menu-farhan .message .panel-heading .accordion-toggle:after {
   /* symbol for "opening" panels */
-  font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
-  content: "\e114";    /* adjust as needed, taken from bootstrap.css */
-  float: right;        /* adjust as needed */
-  color: grey;         /* adjust as needed */
+  font-family: "Glyphicons Halflings"; /* essential for enabling glyphicon */
+  content: "\e114"; /* adjust as needed, taken from bootstrap.css */
+  float: right; /* adjust as needed */
+  color: grey; /* adjust as needed */
 }
-.sidebar-menu-farhan .message  .panel-heading .accordion-toggle.collapsed:after {
+.sidebar-menu-farhan .message .panel-heading .accordion-toggle.collapsed:after {
   /* symbol for "collapsed" panels */
-  content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+  content: "\e080"; /* adjust as needed, taken from bootstrap.css */
 }
-.sidebar-menu-farhan .message  .panel-heading {
+.sidebar-menu-farhan .message .panel-heading {
   display: flex;
   align-items: center;
   border: none;
@@ -917,19 +936,19 @@ html {
   border-radius: 15px;
   cursor: pointer;
 }
-.sidebar-menu-farhan  .message .panel-group .panel {
+.sidebar-menu-farhan .message .panel-group .panel {
   margin-bottom: 40px;
   border-radius: 10px;
   border: none;
   position: relative;
 }
-.sidebar-menu-farhan .message  .accordion-toggle:after {
+.sidebar-menu-farhan .message .accordion-toggle:after {
   position: absolute;
   right: -3%;
 }
-.message .panel-default>.panel-heading+.panel-collapse>.panel-body {
-    border: none;
-    text-align: left;
+.message .panel-default > .panel-heading + .panel-collapse > .panel-body {
+  border: none;
+  text-align: left;
 }
 .sidebar-menu-farhan .message #accordion {
   width: 80%;
@@ -943,19 +962,21 @@ html {
   background: #004463;
   font-family: inherit;
 }
-.sidebar-menu-farhan  .message .panel-heading  h3{
-    padding: 0;
-    margin: 0;
+.sidebar-menu-farhan .message .panel-heading h3 {
+  padding: 0;
+  margin: 0;
 }
 /*=======================
            👇 UNLIMITED CODE 👇
 ======================== */
 
-.wider-container h2,.wider-container p,.wider-container h1{
+.wider-container h2,
+.wider-container p,
+.wider-container h1 {
   color: #fff;
 }
 .sidebar-menu-farhan #hero {
-  background: #259CC0;
+  background: #259cc0;
   color: #fff;
   padding: 70px 0px;
   margin-top: 15px;
@@ -1035,7 +1056,7 @@ html {
   font-family: inherit;
   font-size: 20px;
 }
-.sidebar-menu-farhan .white-roundedd{
+.sidebar-menu-farhan .white-roundedd {
   background-color: #ffffff;
   border-radius: 15px;
 }
@@ -1063,7 +1084,7 @@ html {
   font-family: inherit;
 }
 .sidebar-menu-farhan .landing-stats {
-  background-image: url('https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/landing-stats-bg-1.png');
+  background-image: url("https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/landing-stats-bg-1.png");
   background-size: cover;
   background-position: center center;
   color: #fff;
@@ -1128,7 +1149,8 @@ html {
   align-items: center;
 }
 
-.sidebar-menu-farhan .question-asked h5,.question-asked p{
+.sidebar-menu-farhan .question-asked h5,
+.question-asked p {
   font-family: inherit;
 }
 
@@ -1156,16 +1178,16 @@ html {
   justify-content: center;
   align-items: center;
 }
-.sidebar-menu-farhan .row.align-items-center h1,.row.align-items-center h2,.row.align-items-center p{
-  color: #FFF;
+.sidebar-menu-farhan .row.align-items-center h1,
+.row.align-items-center h2,
+.row.align-items-center p {
+  color: #fff;
   font-family: inherit;
 }
 
 /*=======================
       👇 offer CODE 👇
 ======================== */
-
-
 
 .sidebar-menu-farhan a.btn.btn-outline-primary.offer-btn {
   color: #259cc0 !important;
@@ -1179,7 +1201,6 @@ html {
   border-width: 2px;
   margin: 15px 0;
 }
-
 
 .sidebar-menu-farhan span.underlined {
   text-decoration: underline;
@@ -1202,7 +1223,8 @@ html {
 }
 
 .sidebar-menu-farhan .student-card-black {
-  background: url('https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/student-card-bg.jpg') no-repeat;
+  background: url("https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/student-card-bg.jpg")
+    no-repeat;
   background-size: cover;
   border-radius: 25px;
   padding: 30px 30px 30px 30px !important;
@@ -1273,7 +1295,7 @@ html {
   background: #f1efec;
   border-radius: 35px;
   text-align: center;
-  color: #1A1A1A;
+  color: #1a1a1a;
 }
 .sidebar-menu-farhan .brand-text {
   padding: 20px 20px;
@@ -1375,20 +1397,21 @@ html {
   border: none;
   background-color: transparent;
 }
-.sidebar-menu-farhan ul#myTab li.active,ul#myTab li:hover {
+.sidebar-menu-farhan ul#myTab li.active,
+ul#myTab li:hover {
   border-bottom: 3px solid #259cc0;
-  
 }
-.sidebar-menu-farhan ul#myTab li.active:after , ul#myTab li:hover:after  {
+.sidebar-menu-farhan ul#myTab li.active:after,
+ul#myTab li:hover:after {
   content: "";
-    width: 0px;
-    height: 0px;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-bottom: 6px solid #259cc0;
-    position: absolute;
-    bottom: -1px;
-    left: calc(50% - 6px);
+  width: 0px;
+  height: 0px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #259cc0;
+  position: absolute;
+  bottom: -1px;
+  left: calc(50% - 6px);
 }
 .sidebar-menu-farhan #PD {
   background: white;
@@ -1403,7 +1426,9 @@ html {
 .sidebar-menu-farhan input.form-check-input {
   margin-right: 10px;
 }
-.sidebar-menu-farhan .myDetail button.btn.btn-primary, .change button.btn.btn-primary ,.sidebar-menu-farhan .preferences button.btn.btn-primary {
+.sidebar-menu-farhan .myDetail button.btn.btn-primary,
+.change button.btn.btn-primary,
+.sidebar-menu-farhan .preferences button.btn.btn-primary {
   background-color: #248cab;
   border-color: #248cab;
   width: 100%;
@@ -1438,7 +1463,7 @@ html {
   color: #495057;
   background-color: #fff;
   border: 1px solid #ced4da;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   padding: 13px;
   width: 50%;
   position: relative;
@@ -1452,7 +1477,7 @@ html {
   margin: 20px 0;
 }
 /* swtich */
- .sidebar-menu-farhan .preferences .nsa-switch input:checked + .slider {
+.sidebar-menu-farhan .preferences .nsa-switch input:checked + .slider {
   background-color: #b2d489;
 }
 .sidebar-menu-farhan .preferences .nsa-switch .slider:before {
@@ -1463,8 +1488,8 @@ html {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 .sidebar-menu-farhan .preferences .form-group.col-md-12 {
   display: flex;
@@ -1486,8 +1511,8 @@ html {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 .sidebar-menu-farhan .preferences .nsa-switch .slider {
   position: absolute;
@@ -1497,8 +1522,8 @@ html {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 .sidebar-menu-farhan .preferences .nsa-switch {
   position: relative;
@@ -1509,7 +1534,8 @@ html {
 .sidebar-menu-farhan .preferences .nsa-switch .slider.round {
   border-radius: 34px;
 }
-.sidebar-menu-farhan .preferences input[type=checkbox], input[type=radio] {
+.sidebar-menu-farhan .preferences input[type="checkbox"],
+input[type="radio"] {
   box-sizing: border-box;
   padding: 0;
 }
@@ -1519,13 +1545,13 @@ html {
   height: 0;
 }
 
-.sidebar-menu-farhan  ul#myTab li.help.active div#PD{
+.sidebar-menu-farhan ul#myTab li.help.active div#PD {
   background: transparent !important;
 }
-.sidebar-menu-farhan  .col-12.col-md-4.white-rounded {
+.sidebar-menu-farhan .col-12.col-md-4.white-rounded {
   align-items: flex-start;
 }
-.sidebar-menu-farhan  .col-12.col-md-4.white-rounded .download-o p {
+.sidebar-menu-farhan .col-12.col-md-4.white-rounded .download-o p {
   font-family: inherit !important;
   font-size: 18px;
   font-weight: 300 !important;
@@ -1533,20 +1559,19 @@ html {
   line-height: 34px;
 }
 
-
 /* accordian box */
-.sidebar-menu-farhan  .faqq .panel-heading .accordion-toggle:after {
+.sidebar-menu-farhan .faqq .panel-heading .accordion-toggle:after {
   /* symbol for "opening" panels */
-  font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
-  content: "\e114";    /* adjust as needed, taken from bootstrap.css */
-  float: right;        /* adjust as needed */
-  color: grey;         /* adjust as needed */
+  font-family: "Glyphicons Halflings"; /* essential for enabling glyphicon */
+  content: "\e114"; /* adjust as needed, taken from bootstrap.css */
+  float: right; /* adjust as needed */
+  color: grey; /* adjust as needed */
 }
-.sidebar-menu-farhan  .faqq .panel-heading .accordion-toggle.collapsed:after {
+.sidebar-menu-farhan .faqq .panel-heading .accordion-toggle.collapsed:after {
   /* symbol for "collapsed" panels */
-  content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+  content: "\e080"; /* adjust as needed, taken from bootstrap.css */
 }
-.sidebar-menu-farhan  .faqq .panel-heading {
+.sidebar-menu-farhan .faqq .panel-heading {
   padding: 22px;
 }
 /*===============================
@@ -1558,230 +1583,227 @@ html {
     justify-content: space-around;
     flex-wrap: wrap;
   }
-  .sidebar-menu-farhan  .row.award-section .col-md-4 {
+  .sidebar-menu-farhan .row.award-section .col-md-4 {
     margin: 40px 0;
+  }
+  .sidebar-menu-farhan .btn-expand-collapse {
+    top: 7%;
+  }
+  .sidebar-menu-farhan .col-12.col-md-4.no-padding {
+    padding: 0;
+    margin: 15px 0;
+  }
+  .sidebar-menu-farhan .find-bg {
+    margin-left: 0px;
+  }
+  .sidebar-menu-farhan #hero img {
+    position: inherit;
+    top: inherit;
+    left: inherit;
+    margin-top: 20px;
+  }
+  .sidebar-menu-farhan .landingCourses .single {
+    width: 100%;
+  }
+  .sidebar-menu-farhan #hero .cta {
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 8px 30px;
+    border-radius: 41px;
+    border: 3px solid #fff;
+    color: #fff;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+  .sidebar-menu-farhan .col-12.col-md-2.text-center img {
+    width: inherit;
+  }
+  .sidebar-menu-farhan .brand-log {
+    width: 50px;
+    height: 50px;
+    margin-top: -20px;
+  }
+  .sidebar-menu-farhan .wishlist {
+    height: 30px;
+    width: 30px;
+    line-height: 36px;
+  }
+  .sidebar-menu-farhan .img-box-gal img {
+    height: 100px;
+    border-radius: 20px;
+    margin: 2%;
+  }
+  .sidebar-menu-farhan .col-6.col-md-2.col-lg-2.mb-3.col-sm-3 {
+    margin: 10px 0;
+  }
+  .sidebar-menu-farhan a.btn.btn-primary.text-uppercase.extra-radius.visit-xo {
+    width: 100%;
+    padding: 3% 0;
+    margin: 3% 0;
+    border-radius: 25px;
+    font-size: 12px;
+  }
 }
-.sidebar-menu-farhan .btn-expand-collapse {
-  top: 7%;
-}
-.sidebar-menu-farhan .col-12.col-md-4.no-padding {
-  padding: 0;
-  margin: 15px 0;
-}
-.sidebar-menu-farhan .find-bg{
-  margin-left: 0px;
-}
-.sidebar-menu-farhan #hero img {
-  position: inherit;
-  top: inherit;
-  left: inherit;
-  margin-top: 20px;
-}
-.sidebar-menu-farhan .landingCourses .single {
-
-  width: 100%;
-}
-.sidebar-menu-farhan #hero .cta {
-  text-transform: uppercase;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 8px 30px;
-  border-radius: 41px;
-  border: 3px solid #fff;
-  color: #fff;
-  margin-top: 16px;
-  margin-bottom: 16px;
-}
-.sidebar-menu-farhan .col-12.col-md-2.text-center img {
-  width: inherit;
-}
-.sidebar-menu-farhan  .brand-log {
-  width: 50px;
-  height: 50px;
-  margin-top: -20px;
-}
-.sidebar-menu-farhan  .wishlist {
-
-  height: 30px;
-  width: 30px;
-  line-height: 36px;
-}
-.sidebar-menu-farhan  .img-box-gal img {
-
-  height: 100px;
-  border-radius: 20px;
-  margin: 2%;
-}
-.sidebar-menu-farhan  .col-6.col-md-2.col-lg-2.mb-3.col-sm-3 {
-  margin: 10px 0;
-}
-.sidebar-menu-farhan  a.btn.btn-primary.text-uppercase.extra-radius.visit-xo {
-  width: 100%;
-  padding: 3% 0;
-  margin: 3% 0;
-  border-radius: 25px;
-  font-size: 12px;
-}
-
-}
-
 
 /*===============================
               🎆 MEDIA MOBILE QUERY 🎆
 ================================ */
 @media (min-width: 320px) and (max-width: 767px) {
-  .sidebar-menu-farhan  .circle-box-percentage {
+  .sidebar-menu-farhan .circle-box-percentage {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
-  .sidebar-menu-farhan  .row.award-section .col-md-4 {
+  .sidebar-menu-farhan .row.award-section .col-md-4 {
     margin: 40px 0;
-}
-  .sidebar-menu-farhan  .leaderBoard .useFlex {
+  }
+  .sidebar-menu-farhan .leaderBoard .useFlex {
     flex: 0 0 100%;
     max-width: 100%;
     margin-right: 0%;
   }
-  .sidebar-menu-farhan  .leaderBoard  {
+  .sidebar-menu-farhan .leaderBoard {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-}
-  .sidebar-menu-farhan .leaderBoard   .notification {
-  padding: 35px 15px 15px 25px;
-  margin-bottom: 25px;
-}
-.sidebar-menu-farhan .btn-expand-collapse {
-  top: 7%;
-}
-.sidebar-menu-farhan .col-12.col-md-4.no-padding {
-  padding: 0;
-  margin: 15px 0;
-}
-.sidebar-menu-farhan .find-bg{
-  margin-left: 0px;
-}
-.sidebar-menu-farhan .panel-heading{
-  flex-direction: column;
-}
-.sidebar-menu-farhan #accordion {
-  width: 90%;
-}
-.sidebar-menu-farhan #hero img {
-  position: inherit;
-  top: inherit;
-  left: inherit;
-  width: 100%;
-  display: block;
-  margin-top: 31%;
-}
-.sidebar-menu-farhan .landingCourses .single {
+  }
+  .sidebar-menu-farhan .leaderBoard .notification {
+    padding: 35px 15px 15px 25px;
+    margin-bottom: 25px;
+  }
+  .sidebar-menu-farhan .btn-expand-collapse {
+    top: 7%;
+  }
+  .sidebar-menu-farhan .col-12.col-md-4.no-padding {
+    padding: 0;
+    margin: 15px 0;
+  }
+  .sidebar-menu-farhan .find-bg {
+    margin-left: 0px;
+  }
+  .sidebar-menu-farhan .panel-heading {
+    flex-direction: column;
+  }
+  .sidebar-menu-farhan #accordion {
+    width: 90%;
+  }
+  .sidebar-menu-farhan #hero img {
+    position: inherit;
+    top: inherit;
+    left: inherit;
+    width: 100%;
+    display: block;
+    margin-top: 31%;
+  }
+  .sidebar-menu-farhan .landingCourses .single {
+    width: 100%;
+  }
+  .sidebar-menu-farhan #hero h1 {
+    font-size: 20px;
+  }
+  .sidebar-menu-farhan #hero .cta {
+    font-size: 10px;
+    padding: 10px;
+  }
+  .sidebar-menu-farhan .access-box .row {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    flex-direction: column;
+  }
+  .sidebar-menu-farhan .con-box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .sidebar-menu-farhan .landing-stats {
+    padding: 20px;
+  }
+  .sidebar-menu-farhan .wider-container {
+    padding: 20px;
+  }
+  .sidebar-menu-farhan .landing-stats .stat {
+    font-size: 20px;
+  }
+  .sidebar-menu-farhan .landingCourses .single .img {
+    width: 100%;
+  }
+  .sidebar-menu-farhan .landingCourses .single .title {
+    width: 100%;
+  }
+  .sidebar-menu-farhan h2.section-title.wow.fadeIn {
+    font-size: 18px;
+  }
+  .sidebar-menu-farhan #landing {
+    padding: 0 20px;
+  }
+  .sidebar-menu-farhan #hero .cta {
+    display: block;
+  }
+  .sidebar-menu-farhan .row.align-items-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .sidebar-menu-farhan h1.text-uppercase {
+    font-size: 16px;
+  }
+  .sidebar-menu-farhan .col-12.col-md-5.text-center.recommend-text {
+    width: 100%;
+  }
+  .sidebar-menu-farhan .col-6.col-md-2.col-lg-2.mb-3.col-sm-3 {
+    margin: 10px 0;
+  }
+  .sidebar-menu-farhan .img-box-gal img {
+    width: 80%;
+    height: 100px;
+    border-radius: 20px;
+    margin: 2%;
+  }
+  .sidebar-menu-farhan .img-box-gal .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .sidebar-menu-farhan .brand-log {
+    width: 50px;
+    height: 50px;
+    margin-top: -20px;
+  }
 
-  width: 100%;
+  .sidebar-menu-farhan .wishlist {
+    height: 30px;
+    width: 30px;
+    line-height: 33px;
+    font-size: 12px;
+  }
+  .sidebar-menu-farhan a.btn.btn-primary.text-uppercase.extra-radius.visit-xo {
+    width: 100%;
+    padding: 3% 0;
+    margin: 3% 0;
+    border-radius: 25px;
+    font-size: 12px;
+  }
+  .sidebar-menu-farhan #PD {
+    background: white;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+  }
+  .sidebar-menu-farhan label.custom-file-label {
+    width: 100%;
+  }
+  .sidebar-menu-farhan .Profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
-.sidebar-menu-farhan #hero h1 {
-  font-size: 20px;
-}
-.sidebar-menu-farhan #hero .cta {
-  font-size: 10px;
-  padding: 10px;
-}
-.sidebar-menu-farhan .access-box .row {
-  display: flex;
-  justify-content: center;
-  margin: 0;
-  flex-direction: column;
-}
-.sidebar-menu-farhan .con-box {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-.sidebar-menu-farhan .landing-stats{
-  padding: 20px;
-}
-.sidebar-menu-farhan .wider-container{
-  padding: 20px;
-}
-.sidebar-menu-farhan .landing-stats .stat {
-  font-size: 20px;
-}
-.sidebar-menu-farhan .landingCourses .single .img {
-
-  width: 100%;
-}
-.sidebar-menu-farhan .landingCourses .single .title {
-  width:100%;
-}
-.sidebar-menu-farhan  h2.section-title.wow.fadeIn {
-  font-size: 18px;
-}
-.sidebar-menu-farhan  #landing {
-  padding: 0 20px;
-}
-.sidebar-menu-farhan #hero .cta{
-  display: block;
-}
-.sidebar-menu-farhan  .row.align-items-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.sidebar-menu-farhan  h1.text-uppercase {
-  font-size: 16px;
-}
-.sidebar-menu-farhan  .col-12.col-md-5.text-center.recommend-text {
-  width: 100%;
-}
-.sidebar-menu-farhan  .col-6.col-md-2.col-lg-2.mb-3.col-sm-3 {
-  margin: 10px 0;
-}
-.sidebar-menu-farhan .img-box-gal img {
-  width: 80%;
-  height: 100px;
-  border-radius: 20px;
-  margin: 2%;
-}
-.sidebar-menu-farhan  .img-box-gal .row{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.sidebar-menu-farhan  .brand-log {
-  width: 50px;
-  height: 50px;
-  margin-top: -20px;
-}
-
-.sidebar-menu-farhan  .wishlist {
-  height: 30px;
-  width: 30px;
-  line-height: 33px;
-  font-size: 12px;
-}
-.sidebar-menu-farhan  a.btn.btn-primary.text-uppercase.extra-radius.visit-xo {
-  width: 100%;
-  padding: 3% 0;
-  margin: 3% 0;
-  border-radius: 25px;
-  font-size: 12px;
-}
-.sidebar-menu-farhan  #PD {
-  background: white;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 15px;
-}
-.sidebar-menu-farhan  label.custom-file-label {
-
-  width: 100%;
-}
-.sidebar-menu-farhan  .Profile {
+/* Custom New Edit */
+form.sa-learners-edit-user {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
 }

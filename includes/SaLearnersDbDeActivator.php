@@ -1,6 +1,6 @@
 <?php
 
-class SabdDeactivator
+class SaLearnersDbDeActivator
 {
     public static function deactivate(){
         $page1 =  get_page_by_title('My Courses');
