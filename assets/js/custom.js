@@ -30,6 +30,114 @@ function simple_ajax_call() {
   );
 }
 $(document).ready(function () {
+  // upload image preview in form
+  // $(".sal_profile_picture").on("change", function () {
+  //   var input = $(this)[0];
+  //   var file = input.files[0];
+  //   var reader = new FileReader();
+  //   reader.onload = function (e) {
+  //     $(".upload_image_preview_img").attr("src", e.target.result);
+  //   };
+  //   reader.readAsDataURL(file);
+  // });
+  // update user profile picture on change
+  let profile_picture;
+  $("#sal_profile_picture").change(function () {
+    profile_picture = this.files[0];
+    let fileType = profile_picture?.type;
+    let fileSize = profile_picture?.size;
+    let validImageTypes = ["image/gif", "image/jpeg", "image/png", "image/jpg"];
+    if ($.inArray(fileType, validImageTypes) < 0) {
+      alert("Please upload a valid image file (jpg, jpeg, png, gif)");
+      $("#sal_profile_picture").val("");
+      return false;
+    }
+    if (fileSize > 1000000) {
+      console.log(fileSize);
+      alert("Please upload a file less than 1MB");
+      $("#sal_profile_picture").val("");
+      return false;
+    }
+
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $(".upload_image_preview_img").attr("src", e.target.result);
+    };
+    reader.readAsDataURL(profile_picture);
+  });
+  // update user profile picture on submit form
+  $("#sal_user_form").submit(function (e) {
+    e.preventDefault();
+    // let profile_picture = $("#sal_profile_picture").files[0];
+    let formData = new FormData(this);
+    formData.append("action", "sa_learners_update_profile_picture");
+    formData.append("profile_picture", profile_picture);
+    let user_profile_picture_nonce = $("#user_profile_picture_nonce").val();
+    formData.append("nonce", user_profile_picture_nonce);
+    $.ajax({
+      url: pluginData.ajax_url,
+      type: "POST",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (data) {
+        console.log(data);
+        if (data.success) {
+          $(".upload_image_preview_img").attr("src", data.url);
+          alert("Profile picture updated successfully");
+        } else {
+          alert("Error updating profile picture");
+        }
+      },
+    });
+  });
+  // user password change with ajax input validation
+  $("form#sal_user_pass_from").submit(function (e) {
+    e.preventDefault();
+
+    let old_password = $("#sal_old_password").val();
+    // $user_id = $("#sal_user_id").val();
+    // $use_email = $("#sal_user_email").val();
+    let new_password = $("#sal_new_password").val();
+    let confirm_password = $("#sal_confirm_password").val();
+    let nonce = $("#sal_user").val();
+
+    if (old_password == "") {
+      alert("Please enter old password");
+      return false;
+    }
+    if (new_password == "") {
+      alert("Please enter new password");
+      return false;
+    }
+    if (confirm_password == "") {
+      return false;
+    }
+    if (new_password != confirm_password) {
+      alert("New password and confirm password does not match");
+      return false;
+    }
+
+    $.ajax({
+      url: pluginData.ajax_url,
+      type: "POST",
+      data: {
+        action: "sa_learners_change_password",
+        old_password: old_password,
+        new_password: new_password,
+        confirm_password: confirm_password,
+        sal_nonce: nonce,
+      },
+      success: function (data) {
+        console.log(data);
+        if (data.success) {
+          alert("Password updated successfully");
+        } else {
+          alert("Error updating password");
+        }
+      },
+    });
+  });
   // When the page first loads
   $("form.sa-learners-edit-user").on("submit", function (e) {
     e.preventDefault();
@@ -52,6 +160,7 @@ $(document).ready(function () {
         email: email,
         description: description,
         displayName: displayName,
+        sal_nonce: pluginData.sal_nonce,
       },
       beforeSend: function () {
         // $("#sa-loading-state").style.display = "block";

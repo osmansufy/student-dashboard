@@ -7,8 +7,8 @@ h4,
 h5,
 h6,
 p {
-  font-family: "Caveat Brush", cursive;
-  color: #1a1a1a;
+  font-family: "Caveat Brush", cursive !important;
+  color: #1a1a1a !important;
 }
 .sidebar-menu-farhan .navbar-global {
   background-color: #003a59;
