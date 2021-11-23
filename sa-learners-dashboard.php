@@ -14,6 +14,7 @@
  * Text Domain:       sa-learners-dashboard
  */
 include_once 'controllers/SaLearners.php';
+include_once 'controllers/SaCourse.php';
 function sa_learners_dashboard_activate_sabd()
 {
     require_once plugin_dir_path(__FILE__) . 'includes/SaLearnersDbActivator.php';

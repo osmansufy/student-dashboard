@@ -4,7 +4,6 @@
 <head>
 
     <?php
-
     wp_head();
     add_filter('show_admin_bar', '__return_false');
     ?>
@@ -32,7 +31,7 @@
                         </a>
                         <?php
                         $user_id = get_current_user_id();
-                        print_r($user_id);
+                        // print_r($user_id);
                         $args = array(
                             'post_type'   => 'course',
                             'numberposts' => -1,
@@ -43,6 +42,12 @@
                         $user_all_courses =  bp_course_get_user_courses($user_id);
                         $user_course_completed_list = bp_course_get_user_courses($user_id, array('completed' => 1));
                         $user_course_certificate = bp_course_get_user_certificates($user_id);
+
+                        $recomended_courses = SaCourse::get_recommended_courses($user_id);
+                        echo "<pre>";
+                        print_r($recomended_courses);
+                        echo "</pre>";
+
                         ?>
                     </div>
                     <!-- percentage circle -->
@@ -83,7 +88,7 @@
                             </div>
                         </div>
                         <div class="allcourse">
-                            <h2>All course</h2>
+                            <h2>Course Certificate</h2>
                             <div class="progressdiv" data-percent="10">
                                 <svg class="progress_bar" height="250" width="250" id="svg">
                                     <circle id="progressbg" cx="125" cy="125" r="85" stroke-width="29" fill="transparent" stroke-dasharray="753.9822368615503" />
@@ -132,114 +137,50 @@
                     <div class="other-course">
                         <h3 class="Title">Other courses you might like...</h3>
                         <div class="row">
-                            <div class="col-12 col-md-6 col-lg-3 col-sm-6">
-                                <!-- col-start  -->
-                                <div class="category-box" style="background-image: url('https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/shutterstock_332643533-1709b6af0cc58bf0030a64336c112d8a-1.png');">
-                                    <div class="Popular-title-top"><i class="far fa-user"></i> 149 students enrolled
-                                    </div>
-                                    <div class="Popular-title-bottom">Emergency Procedures in the Workplace Certificate
-                                        <h3>£20.00</h3>
-                                    </div>
-                                    <div class="popular-box-overlay">
-                                        <p><strong>Emergency Procedures in the Workplace Certificate</strong></p>
-                                        <div class="button-box">
-                                            <div class="popular-overlay-btn">
-                                                <button type="button" class="btn btn-outline-primary btn-lg extra-radius">1 Modules
-                                                </button>
-                                            </div>
-                                            <div class="popular-overlay-btn">
-                                                <button type="button" class="btn btn-outline-primary btn-lg extra-radius"> 0% Finance
-                                                </button>
-                                            </div>
+                            <?php
+                            foreach ($recomended_courses as $course) {
+                            ?>
+                                <div class="col-12 col-md-6 col-lg-3 col-sm-6">
+                                    <!-- col-start  -->
+                                    <div class="category-box" style="background-image: url('<?php echo $course->featured_image ?>');">
+                                        <div class="Popular-title-top"><i class="far fa-user"></i> <?php
+                                                                                                    echo $course->student_count;
+                                                                                                    ?> students enrolled
                                         </div>
-                                        <h3>£20.00</h3>
-                                        <div class="popular-overlay-btn-btm"> <a href="#" role="button" class="btn btn-outline-primary btn-lg extra-radius nsa_course_more_info">More
-                                                Info</a> <a href="#" role="button" class="btn btn-outline-primary btn-lg extra-radius">Add to Cart</a>
+                                        <div class="Popular-title-bottom">Emergency Procedures in the Workplace Certificate
+                                            <h3><?php
+                                                echo $course->sale_price;
+                                                ?></h3>
                                         </div>
-                                    </div>
-                                </div>
-                            </div><!-- col-end  -->
-                            <div class="col-12 col-md-6 col-lg-3 col-sm-6">
-                                <!-- col-start  -->
-                                <div class="category-box" style="background-image: url('https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/shutterstock_332643533-1709b6af0cc58bf0030a64336c112d8a-1.png');">
-                                    <div class="Popular-title-top"><i class="far fa-user"></i> 149 students enrolled
-                                    </div>
-                                    <div class="Popular-title-bottom">Emergency Procedures in the Workplace Certificate
-                                        <h3>£20.00</h3>
-                                    </div>
-                                    <div class="popular-box-overlay">
-                                        <p><strong>Emergency Procedures in the Workplace Certificate</strong></p>
-                                        <div class="button-box">
-                                            <div class="popular-overlay-btn">
-                                                <button type="button" class="btn btn-outline-primary btn-lg extra-radius">1 Modules
-                                                </button>
+                                        <div class="popular-box-overlay">
+                                            <p><strong><?php echo $course->post_title ?></strong></p>
+                                            <div class="button-box">
+                                                <div class="popular-overlay-btn">
+                                                    <button type="button" class="btn btn-outline-primary btn-lg extra-radius">
+
+                                                        Modules
+                                                    </button>
+                                                </div>
+                                                <div class="popular-overlay-btn">
+                                                    <button type="button" class="btn btn-outline-primary btn-lg extra-radius"> 0% Finance
+                                                    </button>
+                                                </div>
                                             </div>
-                                            <div class="popular-overlay-btn">
-                                                <button type="button" class="btn btn-outline-primary btn-lg extra-radius"> 0% Finance
-                                                </button>
+                                            <h3><?php
+                                                echo $course->sale_price;
+                                                ?></h3>
+                                            <div class="popular-overlay-btn-btm"> <a href="#" role="button" class="btn btn-outline-primary btn-lg extra-radius nsa_course_more_info">More
+                                                    Info</a> <a href="#" role="button" class="btn btn-outline-primary btn-lg extra-radius">Add to Cart</a>
                                             </div>
                                         </div>
-                                        <h3>£20.00</h3>
-                                        <div class="popular-overlay-btn-btm"> <a href="#" role="button" class="btn btn-outline-primary btn-lg extra-radius nsa_course_more_info">More
-                                                Info</a> <a href="#" role="button" class="btn btn-outline-primary btn-lg extra-radius">Add to Cart</a>
-                                        </div>
                                     </div>
-                                </div>
-                            </div><!-- col-end  -->
-                            <div class="col-12 col-md-6 col-lg-3 col-sm-6">
-                                <!-- col-start  -->
-                                <div class="category-box" style="background-image: url('https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/shutterstock_332643533-1709b6af0cc58bf0030a64336c112d8a-1.png');">
-                                    <div class="Popular-title-top"><i class="far fa-user"></i> 149 students enrolled
-                                    </div>
-                                    <div class="Popular-title-bottom">Emergency Procedures in the Workplace Certificate
-                                        <h3>£20.00</h3>
-                                    </div>
-                                    <div class="popular-box-overlay">
-                                        <p><strong>Emergency Procedures in the Workplace Certificate</strong></p>
-                                        <div class="button-box">
-                                            <div class="popular-overlay-btn">
-                                                <button type="button" class="btn btn-outline-primary btn-lg extra-radius">1 Modules
-                                                </button>
-                                            </div>
-                                            <div class="popular-overlay-btn">
-                                                <button type="button" class="btn btn-outline-primary btn-lg extra-radius"> 0% Finance
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <h3>£20.00</h3>
-                                        <div class="popular-overlay-btn-btm"> <a href="#" role="button" class="btn btn-outline-primary btn-lg extra-radius nsa_course_more_info">More
-                                                Info</a> <a href="#" role="button" class="btn btn-outline-primary btn-lg extra-radius">Add to Cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- col-end  -->
-                            <div class="col-12 col-md-6 col-lg-3 col-sm-6">
-                                <!-- col-start  -->
-                                <div class="category-box" style="background-image: url('https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/shutterstock_332643533-1709b6af0cc58bf0030a64336c112d8a-1.png');">
-                                    <div class="Popular-title-top"><i class="far fa-user"></i> 149 students enrolled
-                                    </div>
-                                    <div class="Popular-title-bottom">Emergency Procedures in the Workplace Certificate
-                                        <h3>£20.00</h3>
-                                    </div>
-                                    <div class="popular-box-overlay">
-                                        <p><strong>Emergency Procedures in the Workplace Certificate</strong></p>
-                                        <div class="button-box">
-                                            <div class="popular-overlay-btn">
-                                                <button type="button" class="btn btn-outline-primary btn-lg extra-radius">1 Modules
-                                                </button>
-                                            </div>
-                                            <div class="popular-overlay-btn">
-                                                <button type="button" class="btn btn-outline-primary btn-lg extra-radius"> 0% Finance
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <h3>£20.00</h3>
-                                        <div class="popular-overlay-btn-btm"> <a href="#" role="button" class="btn btn-outline-primary btn-lg extra-radius nsa_course_more_info">More
-                                                Info</a> <a href="#" role="button" class="btn btn-outline-primary btn-lg extra-radius">Add to Cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- col-end  -->
+                                </div><!-- col-end  -->
+                            <?php
+                            }
+                            ?>
+
+                            ?>
+
 
                         </div><!-- row--end  -->
                     </div>
