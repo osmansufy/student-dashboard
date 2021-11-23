@@ -8,7 +8,7 @@ h5,
 h6,
 p {
   font-family: "Caveat Brush", cursive !important;
-  color: #1a1a1a !important;
+  color: #1a1a1a;
 }
 .sidebar-menu-farhan .navbar-global {
   background-color: #003a59;
@@ -1806,4 +1806,49 @@ input[type="radio"] {
 form.sa-learners-edit-user {
   display: flex;
   flex-direction: column;
+}
+/* toast */
+.alert-container,
+a {
+  font-family: helvetica, arial;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.alert-container,
+a {
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.alert-container,
+a {
+  /* background-color: #5f7c8a; */
+  /* color: #f8f8f8; */
+  /* border: 1px solid #516a76; */
+}
+
+.alert-container {
+  position: fixed;
+  top: 5%;
+  right: 1%;
+  /* width: 50%; */
+  /* margin: 0 25% 0 25%; */
+  z-index: 9999;
+}
+.alert-container .alert {
+  text-align: center;
+  padding: 17px 0 50px 0;
+  /* margin: 0 25% 0 25%; */
+  height: 54px;
+  font-size: 18px;
+  width: 30rem;
 }

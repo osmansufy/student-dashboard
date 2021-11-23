@@ -52,10 +52,6 @@
                                     // $displayName=     $user_meta['display_name'][0];
                                     // $email=           $user_meta['user_email'][0];
 
-                                    echo "<pre>";
-                                    // print_r($user_meta);
-                                    print_r(bp_course_get_total_course_count());
-                                    echo "</pre>";
 
                                     ?>
                                     <form action="" class="sa-learners-edit-user d-flex flex-column" method="post">

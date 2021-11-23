@@ -30,16 +30,43 @@ function simple_ajax_call() {
   );
 }
 $(document).ready(function () {
-  // upload image preview in form
-  // $(".sal_profile_picture").on("change", function () {
-  //   var input = $(this)[0];
-  //   var file = input.files[0];
-  //   var reader = new FileReader();
-  //   reader.onload = function (e) {
-  //     $(".upload_image_preview_img").attr("src", e.target.result);
-  //   };
-  //   reader.readAsDataURL(file);
-  // });
+  // add to cart product on woocommerce with ajax
+  var alert = $(".alert-container");
+  alert.hide();
+  $(".sal_add_to_cart_button").click(function (e) {
+    e.preventDefault();
+
+    // alert.hide();
+    let $ = jQuery;
+    let product_id = $(this).attr("data-product_id");
+    let course_title = $(this).attr("data-course-title");
+    $.ajax({
+      url: pluginData.ajax_url,
+      type: "POST",
+      data: {
+        action: "sa_learners_add_to_cart",
+        product_id: product_id,
+      },
+      success: function (data) {
+        // alert.slideLeft();
+        $(`.sa-cart-btn_${product_id}`).css("display", "none");
+        $(`.sa-gotoCart-btn_${product_id}`).css("display", "inline-block");
+        alert.animate({
+          width: "toggle",
+        });
+        $alert_html = `<strong>${course_title}</strong> course has been added to your cart.`;
+        $(".sa-alert-text").html($alert_html);
+        window.setTimeout(function () {
+          alert.animate({
+            width: "toggle",
+          });
+          // alert.slideRight();
+        }, 3000);
+        console.log(data);
+      },
+    });
+  });
+
   // update user profile picture on change
   let profile_picture;
   $("#sal_profile_picture").change(function () {

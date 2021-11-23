@@ -71,3 +71,4 @@ add_action('wp_enqueue_scripts', 'sa_learners_dashboard_plugin_scripts_and_style
 add_action('wp_ajax_sa_learners_update', array('SaLearners', 'sa_learners_update_callback'));
 add_action('wp_ajax_sa_learners_update_profile_picture', array('SaLearners', 'sa_learners_update_profile_picture_callback'));
 add_action('wp_ajax_sa_learners_change_password', array('SaLearners', 'sa_learners_change_password_callback'));
+add_action('wp_ajax_sa_learners_add_to_cart', array('SaCourse', 'sa_learners_add_to_cart'));
