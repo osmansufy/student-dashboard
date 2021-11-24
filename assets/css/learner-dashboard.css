@@ -561,7 +561,7 @@ html {
 /*=======================
            👇 COURSE PAGE CODE 👇
 ======================== */
-.sidebar-menu-farhan .search-field form button.btn.btn-primary {
+.sidebar-menu-farhan .search-field button.btn.btn-primary {
   width: 100px;
   text-align: center;
   background: #259cc0;
@@ -573,7 +573,7 @@ html {
   border-bottom-right-radius: 40px;
 }
 
-.sidebar-menu-farhan .search-field form input#txtSearch {
+.sidebar-menu-farhan .search-field input#txtSearch {
   border: 1px solid #f0eded;
   color: #1a1a1a;
   font-size: 22px;
@@ -583,7 +583,7 @@ html {
   border-bottom-left-radius: 40px;
 }
 
-.sidebar-menu-farhan .search-field form input#txtSearch::placeholder {
+.sidebar-menu-farhan .search-field input#txtSearch::placeholder {
   color: #1a1a1a;
   font-size: 22px;
 }
@@ -1851,4 +1851,8 @@ a {
   height: 54px;
   font-size: 18px;
   width: 30rem;
+}
+.leaderBoard th,
+.leaderBoard h3 {
+  color: black;
 }

@@ -15,6 +15,7 @@
  */
 include_once 'controllers/SaLearners.php';
 include_once 'controllers/SaCourse.php';
+include_once 'controllers/SaOrders.php';
 function sa_learners_dashboard_activate_sabd()
 {
     require_once plugin_dir_path(__FILE__) . 'includes/SaLearnersDbActivator.php';
@@ -38,6 +39,16 @@ function sa_learners_dashboard_including($template)
         $template = $plugindir . '/templates/learners-dashboard.php';
     } elseif (is_page_template('learners-profile.php')) {
         $template = $plugindir . '/templates/learners-profile.php';
+    } elseif (is_page_template('learners-orders.php')) {
+        $template = $plugindir . '/templates/learners-orders.php';
+    } elseif (is_page_template('learners-certificates.php')) {
+        $template = $plugindir . '/templates/learners-certificates.php';
+    } elseif (is_page_template('learners-rewards.php')) {
+        $template = $plugindir . '/templates/learners-rewards.php';
+    } elseif (is_page_template('learners-saved-courses.php')) {
+        $template = $plugindir . '/templates/saved-courses.php';
+    } elseif (is_page_template('learners-support.php')) {
+        $template = $plugindir . '/templates/learners-support.php';
     }
     return $template;
 }

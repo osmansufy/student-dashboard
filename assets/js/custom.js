@@ -30,6 +30,21 @@ function simple_ajax_call() {
   );
 }
 $(document).ready(function () {
+  // filter content with search hide parent
+  $("#txtSearch").keyup(function () {
+    var search_content = $(this).val();
+
+    $("#sal-my-course .sal-course-wrapper").filter(function () {
+      $(this).toggle(
+        $(this)
+          .find(".sal-course-title")
+          .text()
+          .toLowerCase()
+          .indexOf(search_content) > -1
+      );
+    });
+  });
+
   // add to cart product on woocommerce with ajax
   var alert = $(".alert-container");
   alert.hide();

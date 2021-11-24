@@ -44,61 +44,9 @@
                         </div>
                         <?php
                         $user_id = get_current_user_id();
+                        $my_courses = new SaCourse();
+                        $user_courses = $my_courses->sa_get_courses_by_user($user_id);
 
-                        $args = array(
-                            'post_type'   => 'course',
-                            'numberposts' => -1,
-                            'post_status' => 'publish'
-                        );
-                        $enrolledCourses = array();
-                        $allCourses = get_posts($args);
-                        foreach ($allCourses as $allCourse) {
-                            if (wplms_user_course_check($user_id, $allCourse->ID) == 1) {
-                                $enrolledCourses[] = $allCourse->ID;
-                            }
-                        }
-
-                        $course_data = array();
-                        if ($enrolledCourses) :
-                            foreach ($enrolledCourses as $enrolledCourse) :
-
-                                $product_id = get_post_meta($enrolledCourse, 'vibe_product', true);
-
-                                $curriculums               = bp_course_get_full_course_curriculum($enrolledCourse);
-                                $total_duration_in_seconds = 0;
-                                foreach ($curriculums as $curriculum) {
-                                    if (array_key_exists('id', $curriculum)) $total_duration_in_seconds += bp_course_get_unit_duration($curriculum['id']);
-                                }
-
-                                $enrolledCourse_details = get_post($enrolledCourse);
-                                $author_id = $enrolledCourse_details->post_author;
-
-                                $course_data[] = array(
-                                    'id'                        => $enrolledCourse,
-                                    'title'                     => get_the_title($enrolledCourse),
-                                    'featured_image'            => get_the_post_thumbnail_url($enrolledCourse),
-                                    'progress'                  => bp_course_get_user_progress($user_id, $enrolledCourse),
-                                    'category'                  => array(),
-                                    'sale_price'                => get_post_meta($product_id, '_sale_price', true),
-                                    'regular_price'             => get_post_meta($product_id, '_regular_price', true),
-                                    'student_count'             => get_post_meta($enrolledCourse, 'vibe_students', true),
-                                    'review_count'              => get_post_meta($enrolledCourse, 'rating_count', true),
-                                    'average_rating'            => get_post_meta($enrolledCourse, 'average_rating', true),
-                                    'slug'                      => get_post_field('post_name', $enrolledCourse),
-                                    'course_status'             => get_user_meta(
-                                        $user_id,
-                                        'course_status' . $enrolledCourse,
-                                        true
-                                    ),
-                                    'total_duration_in_seconds' => $total_duration_in_seconds,
-                                    'author_name'               => get_userdata($author_id)->display_name
-
-                                );
-
-
-
-                            endforeach;
-                        endif;
                         ?>
                         <div class="col-md-4">
                             <div class="white-rounded dash-details">
@@ -123,32 +71,30 @@
                     </div> <!-- Award days banner section END -->
                     <!-- Search Field Start -->
                     <div class="search-field">
-                        <form action="https://www.trainingexpress.org.uk/?s=&post_type=course" method="GET">
-                            <div class="input-group ">
-                                <input type="text" class="form-control" placeholder="Search my courses..." id="txtSearch" />
-                                <div class="input-group-btn ">
-                                    <button class="btn btn-primary" type="submit">
-                                        <span class="glyphicon glyphicon-search"></span>
-                                    </button>
-                                </div>
+                        <div class="input-group ">
+                            <input type="text" class="form-control" placeholder="Search my courses..." id="txtSearch" />
+                            <div class="input-group-btn ">
+                                <button class="btn btn-primary" style="margin: 0;">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
                             </div>
-                        </form>
+                        </div>
                     </div>
                     <!-- Search Field END -->
                     <div class="my-course">
                         <?php
-                        if ($enrolledCourses) {
+                        if ($user_courses) {
                         ?>
-                            <div class="row">
+                            <div class="row" id="sal-my-course">
                                 <?php
-                                foreach ($course_data as $course) {
+                                foreach ($user_courses as $course) {
                                     $course_progress = $course['progress'];
                                     if (empty($course_progress)) {
                                         $course_progress = 0;
                                     }
                                 ?>
 
-                                    <div class="col-12 col-md-6 col-lg-4 col-sm-6">
+                                    <div class="col-12 col-md-6 col-lg-4 col-sm-6 sal-course-wrapper">
                                         <!-- col-start  -->
                                         <div class="progress-box" style="  background-image: url('<?php echo $course['featured_image'] ?>');">
                                             <div class="Popular-title-top">
@@ -158,8 +104,8 @@
                                                 </div>
                                             </div>
                                             <div class="Popular-title-bottom">
-                                                <h3> <?php $course['title'] ?> </h3>
-                                                <a href="#" role="button" class="btn btn-outline-primary btn-lg extra-radius">Add to Cart</a>
+                                                <h3 class="sal-course-title"> <?php echo $course['title'] ?> </h3>
+                                                <a href="<?php echo get_site_url() . '/course/' . $course['slug']  ?>" target="_blank" role="button" class="btn btn-outline-primary btn-lg extra-radius">Start Course</a>
                                             </div>
 
                                         </div>
