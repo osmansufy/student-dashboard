@@ -20,7 +20,7 @@
           <li class="nav-item"><a href="UnlimitedLearning.html"><span class="glyphicon glyphicon-calendar"></span><span class="nav-label">Unlimited
                       Learning</span></a></li>
           <li class="nav-item <?php echo is_page_template('learners-saved-courses.php') ? $activeClass : "" ?>"><a href="<?php echo get_site_url() . '/learners-saved-courses' ?>"><span class="glyphicon glyphicon-floppy-saved"></span><span class="nav-label">Saved
-                          Courses</span></a>
+                      Courses</span></a>
           </li>
           <li class="nav-item  "><a href="Messages.html"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Messages</span></a>
           </li>
@@ -34,7 +34,7 @@
           </li>
           <li class="nav-item "><a href="StudentPortal.html"><span class="glyphicon glyphicon-import"></span><span class="nav-label">Student Portal</span></a>
           </li>
-          <li class="nav-item  "><a href="support.html"><span class="far fa-comments"> </span><span class="nav-label">
+          <li class="nav-item <?php echo is_page_template('learners-support.php') ? $activeClass : "" ?> "><a href="<?php echo get_site_url() . '/learners-support' ?>"><span class="far fa-comments"> </span><span class="nav-label">
                       Support</span></a>
           </li>
       </ul>

@@ -48,6 +48,19 @@ $(document).ready(function () {
   // add to cart product on woocommerce with ajax
   var alert = $(".alert-container");
   alert.hide();
+  // toaster function
+  function toaster(message) {
+    alert.animate({
+      width: "toggle",
+    });
+    $(".sa-alert-text").html(message);
+    window.setTimeout(function () {
+      alert.animate({
+        width: "toggle",
+      });
+      // alert.slideRight();
+    }, 3000);
+  }
   $(".sal_add_to_cart_button").click(function (e) {
     e.preventDefault();
 
@@ -66,18 +79,8 @@ $(document).ready(function () {
         // alert.slideLeft();
         $(`.sa-cart-btn_${product_id}`).css("display", "none");
         $(`.sa-gotoCart-btn_${product_id}`).css("display", "inline-block");
-        alert.animate({
-          width: "toggle",
-        });
-        $alert_html = `<strong>${course_title}</strong> course has been added to your cart.`;
-        $(".sa-alert-text").html($alert_html);
-        window.setTimeout(function () {
-          alert.animate({
-            width: "toggle",
-          });
-          // alert.slideRight();
-        }, 3000);
-        console.log(data);
+        let alert_html = `<strong>${course_title}</strong> course has been added to your cart.`;
+        toaster(alert_html);
       },
     });
   });
@@ -126,7 +129,9 @@ $(document).ready(function () {
         console.log(data);
         if (data.success) {
           $(".upload_image_preview_img").attr("src", data.url);
-          alert("Profile picture updated successfully");
+          let message = `<strong>${data?.data.message}</strong>`;
+          toaster(message);
+          // alert("Profile picture updated successfully");
         } else {
           alert("Error updating profile picture");
         }
@@ -139,24 +144,29 @@ $(document).ready(function () {
 
     let old_password = $("#sal_old_password").val();
     // $user_id = $("#sal_user_id").val();
-    // $use_email = $("#sal_user_email").val();
+    $user_email = $("#sal_user_email").val();
     let new_password = $("#sal_new_password").val();
     let confirm_password = $("#sal_confirm_password").val();
     let nonce = $("#sal_user").val();
 
     if (old_password == "") {
-      alert("Please enter old password");
+      let message = `<strong>Current Password is required</strong>`;
+      toaster(message);
       return false;
     }
     if (new_password == "") {
-      alert("Please enter new password");
+      let message = `<strong>New Password is required</strong>`;
+      toaster(message);
       return false;
     }
     if (confirm_password == "") {
+      let message = `<strong>Confirm Password is required</strong>`;
+      toaster(message);
       return false;
     }
     if (new_password != confirm_password) {
-      alert("New password and confirm password does not match");
+      let message = `<strong>New password and confirm password does not match</strong>`;
+      toaster(message);
       return false;
     }
 
@@ -168,16 +178,25 @@ $(document).ready(function () {
         old_password: old_password,
         new_password: new_password,
         confirm_password: confirm_password,
+        user_email: $user_email,
         sal_nonce: nonce,
       },
       success: function (data) {
         console.log(data);
         if (data.success) {
-          alert("Password updated successfully");
+          // alert("Password updated successfully");
+          let message = `<strong>Password updated successfully</strong>`;
+          toaster(message);
         } else {
-          alert("Error updating password");
+          let message = `<strong>${data?.data.message}</strong>`;
+          toaster(message);
         }
       },
+      // error: function (data) {
+      //   let message = `<strong>${data.data.message}</strong>`;
+      //   toaster(message);
+      //   console.log(data);
+      // },
     });
   });
   // When the page first loads
@@ -212,7 +231,8 @@ $(document).ready(function () {
         console.log(data);
         let message = `<h4 class="text-danger">${data.data.message}</h4`;
         // $("#sa-loading-state").hide();
-        $("#sa-data-div").html(message); // Replace the div with the retrieved data
+        // $("#sa-data-div").html(message); // Replace the div with the retrieved data
+        toaster(message);
       },
       error: function (errorThrown) {
         console.log(errorThrown);

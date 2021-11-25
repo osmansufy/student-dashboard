@@ -22,13 +22,7 @@
             </section>
             <section class="content-main-body">
                 <div class="container-fluid">
-                    <div class="alert-container">
-                        <div class="alert alert-warning">
-                            <a class="sa-alert-text" style="color: chocolate;">
 
-                            </a>
-                        </div>
-                    </div>
                     <!-- container-fluid-start  -->
                     <div class="subscribeUpsell">
                         <a href="#"><i class="fad fa-medal"></i>

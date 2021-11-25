@@ -1,3 +1,8 @@
+<?php
+$user_id = get_current_user_id();
+$user = get_user_by('id', $user_id);
+$user_email = $user->user_email;
+?>
 <div class="tab-pane" id="Change">
     <div class="change">
         <form name="editPassword " id="sal_user_pass_from">
@@ -22,6 +27,7 @@
                         Password</label>
                     <input type="password" id="sal_confirm_password" class="form-control" name="passwordConfirm">
                 </div>
+                <input type="hidden" name="" id="sal_user_email" value="<?php echo $user_email  ?>">
             </div>
             <?php
             wp_nonce_field('sa_learners_change_password', "sal_user");

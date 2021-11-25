@@ -81,6 +81,7 @@
                                 $current_order_item->order_item_quantity = $order_item->get_quantity();
                                 $current_order_item->order_item_price = $order_item->get_total() / $order_item->get_quantity();
                                 $current_order_item->order_item_total_price = $order_item->get_total();
+                                $current_order->order_items[] = $current_order_item;
                             }
                         }
                         $orders_data[] = $current_order;

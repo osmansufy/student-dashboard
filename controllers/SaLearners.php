@@ -76,26 +76,32 @@ class SALearners
     static  function sa_learners_change_password_callback()
     {
         $user_id = get_current_user_id();
+        $user = get_user_by('id', $user_id);
         $action = 'sa_learners_change_password';
         $nonce = $_POST['sal_nonce'];
         if (!wp_verify_nonce($nonce, $action)) {
             wp_send_json_error(['message' => 'You are not authorized', 'success' => false, 'data' => $_POST['sal_nonce']]);
             die();
         }
-        if (wp_authenticate_email_password($user_id, $_POST['email'], $_POST['old_password']) == false) {
-            wp_send_json_error(['message' => 'Old password is incorrect']);
-        } elseif ($_POST['new_password'] != $_POST['confirm_password']) {
-            wp_send_json_error(['message' => 'New password and confirm password does not match']);
-        } else {
-            $user_data = wp_update_user(array(
-                'ID' => $user_id,
-                'user_pass' => $_POST['new_password']
-            ));
-            if (is_wp_error($user_data)) {
-                wp_send_json_error(['message' => $user_data->get_error_message()]);
+        // authenticate user email and password
+        if (wp_check_password($_POST['old_password'], $user->data->user_pass, $user->ID)) {
+            // check if new password and confirm password match
+            if ($_POST['new_password'] == $_POST['confirm_password']) {
+                // update user password
+                $user_data = wp_update_user([
+                    'ID' => $user_id,
+                    'user_pass' => $_POST['new_password']
+                ]);
+                if (is_wp_error($user_data)) {
+                    wp_send_json_error(['message' => $user_data->get_error_message()]);
+                } else {
+                    wp_send_json_success(['message' => 'Password updated successfully']);
+                }
             } else {
-                wp_send_json_success(['message' => 'Password updated successfully']);
+                wp_send_json_error(['message' => 'New password and confirm password do not match']);
             }
+        } else {
+            wp_send_json_error(['message' => 'Current password is incorrect']);
         }
 
         die();
