@@ -15,7 +15,7 @@
           </li>
           <li class="nav-item <?php echo is_page_template('my-courses-dashboard.php') ? $activeClass : "" ?>"><a href="<?php echo get_site_url() . '/my-courses-dashboard' ?>"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">My Courses</span></a>
           </li>
-          <li class="nav-item"> <a href="MyCertificates.html"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">My Certificates</span></a></li>
+          <li class="nav-item <?php echo is_page_template('learners-certificates.php') ? $activeClass : "" ?>"> <a href="<?php echo get_site_url() . '/learners-certificates' ?>"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">My Certificates</span></a></li>
           <li class="nav-item <?php echo is_page_template('learners-rewards.php') ? $activeClass : "" ?>"><a href="<?php echo get_site_url() . '/learners-rewards' ?>"><span class="glyphicon glyphicon-film"></span><span class="nav-label">My Rewards</span></a></li>
           <li class="nav-item"><a href="UnlimitedLearning.html"><span class="glyphicon glyphicon-calendar"></span><span class="nav-label">Unlimited
                       Learning</span></a></li>

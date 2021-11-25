@@ -31,7 +31,53 @@
                         </a>
                     </div>
 
+                    <?php
+                    $user_id = get_current_user_id();
+                    $all_certificates = bp_course_get_user_certificates($user_id);
+                    $certificate_link_list = array();
+                    foreach ($all_certificates as $certificate) {
+                        $args = array(
+                            'course_id' => $certificate,
+                            'user_id' => $user_id
+                        );
+                        $certificate_link = bp_get_course_certificate($args);
+                        $certificate_link_list[] = $certificate_link;
+                    }
 
+                    echo '<pre>';
+                    print_r($user_id);
+                    print_r($all_certificates);
+                    echo '</pre>';
+                    ?>
+                    <?php
+                    $user_id = get_current_user_id();
+                    $all_course_ids = bp_course_get_user_certificates($user_id);
+                    $server_url = site_url() . '/wp-content/uploads/course_certificates/';
+                    $aws_url = '********************************************/course_certificates/';
+                    $certificate_link_list = array();
+                    foreach ($all_course_ids as $course_id) {
+                        $certificate_meta = 'course_' . $course_id . '_certificate_pdf_url';
+                        $certificate_purchased = get_user_meta($user_id, $certificate_meta, true);
+                        if ($certificate_purchased) {
+                            $check_on_server = $server_url . $course_id . 'c' . $user_id;
+                            if (file_get_contents($certificate_purchased)) {
+                                $certificate_link = '<a href="' . $certificate_purchased . '" target="_blank">Download Certificate</a>';
+                            } else {
+                                $check_on_aws = $aws_url . $course_id . 'c' . $user_id;
+                                if (file_get_contents($check_on_aws)) {
+                                    $certificate_link = '<a href="' . $check_on_aws . '" target="_blank">Download Certificate</a>';
+                                } else {
+                                    $certificate_link = '<a href="' . site_url() . '/claim-your-certificate" target="_blank">Claim Your Certificate</a>';
+                                }
+                            }
+                        } else {
+                            $certificate_link = '<a href="' . site_url() . '/certificate" target="_blank">Purchase Your Certificate</a>';
+                        }
+                        echo $certificate_link;
+                    }
+
+
+                    ?>
                     <div class="my-certificate">
                         <!-- banner offer -->
                         <div class="banner-offer">

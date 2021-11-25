@@ -42,12 +42,6 @@
                                 </div>
                             </div>
                         </div>
-                        <?php
-                        $user_id = get_current_user_id();
-                        $my_courses = new SaCourse();
-                        $user_courses = $my_courses->sa_get_courses_by_user($user_id);
-
-                        ?>
                         <div class="col-md-4">
                             <div class="white-rounded dash-details">
                                 <div class="Reward-number">
