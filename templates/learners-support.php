@@ -27,6 +27,7 @@
                     </ul>
                 </div>
             </section>
+
             <section class="content-main-body text-left">
                 <div class="container-fluid " id="PD">
                     <!-- container-fluid-start  -->
@@ -35,7 +36,8 @@
                             <div class="tab-pane active " id="submitATicket">
                                 <h1>Create a Ticket</h1>
                                 <div class="myDetail">
-                                    <div class="form-row">
+                                    <?php gravity_form(33, false, false, false, '', false); ?>
+                                    <!-- <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="firstName">First name</label>
                                             <input type="text" id="firstName" class="form-control" name="firstname" value="">
@@ -69,13 +71,14 @@
                                         </div>
 
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Create Ticket</button>
+                                    <button type="submit" class="btn btn-primary">Create Ticket</button> -->
                                 </div>
                             </div>
                             <div class="tab-pane " id="Coursefeedback">
-                                <h1>Create a Ticket</h1>
+                                <h1>Submit your feedback</h1>
                                 <div class="myDetail">
-                                    <div class="form-row">
+                                    <?php gravity_form(35, false, false, false, '', false); ?>
+                                    <!-- <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="firstName">First name</label>
                                             <input type="text" id="firstName" class="form-control" name="firstname" value="">
@@ -112,7 +115,7 @@
                                         </div>
 
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Create Ticket</button>
+                                    <button type="submit" class="btn btn-primary">Create Ticket</button> -->
                                 </div>
                             </div>
                             <div class="tab-pane" id="HelpVideos">

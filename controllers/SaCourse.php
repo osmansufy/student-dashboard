@@ -118,5 +118,36 @@ class SaCourse
         endif;
         return $course_data;
     }
+    function sa_get_courses_certificates($user_id)
+    {
+        $user_id = get_current_user_id();
+        $all_course_ids = bp_course_get_user_certificates($user_id);
+
+        $certificate_link_list = array();
+        foreach ($all_course_ids as $course_id) {
+            $certificate_meta = 'course_' . $course_id . '_certificate_pdf_url';
+            $certificate_purchased = get_user_meta($user_id, $certificate_meta, true);
+
+
+            $certificate_info = new stdClass();
+            if ($certificate_purchased) {
+
+                $certificate_info->course_id = $course_id;
+                $certificate_info->title = get_the_title($course_id);
+                $certificate_info->featured_image = get_the_post_thumbnail_url($course_id);
+                $certificate_info->slug = get_post_field('post_name', $course_id);
+                $certificate_info->certificate_url = $certificate_purchased;
+                $certificate_info->course_duration = get_post_meta($course_id, 'vibe_duration', true);
+            } else {
+                $certificate_info->id = $course_id;
+                $certificate_info->title = get_the_title($course_id);
+                $certificate_info->featured_image = get_the_post_thumbnail_url($course_id);
+                $certificate_info->slug = get_post_field('post_name', $course_id);
+                $certificate_info->certificate_url = '';
+            }
+            $certificate_link_list[] = $certificate_info;
+        }
+        return $certificate_link_list;
+    }
 }
 // new SaCourse();
