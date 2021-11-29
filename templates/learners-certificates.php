@@ -101,7 +101,7 @@
                                                 <th scope="row">
                                                     <a href="<?php echo $certificate->slug ?>">
                                                         <div>
-                                                            <img style="height: 100px; width:100px; display:block" src="<?php echo $certificate->featured_image ?>" alt="">
+                                                            <!-- <img style="height: 100px; width:100px; display:block" src="<?php echo $certificate->featured_image ?>" alt=""> -->
                                                             <?php echo $certificate->title ?>
                                                         </div>
 

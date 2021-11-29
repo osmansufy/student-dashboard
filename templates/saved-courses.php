@@ -21,6 +21,24 @@
                     <h1>Saved Courses</h1>
                 </div>
             </section>
+            <?php
+            $new_wishlist = get_user_meta($user_id, 'wishlist_course', false);
+            foreach ($new_wishlist as $i => $cid) {
+                if ($i >= $paged) {
+                    $wishlist[] = $cid;
+                }
+            }
+            $args = array('post_type' => 'course', 'post__in' => $wishlist, 'orderby' => 'post__in', 'posts_per_page' => -1);
+            $the_query = new WP_Query($args);
+            while ($the_query->have_posts()) {
+                $the_query->the_post();
+                global $post;
+                echo '<pre>';
+                print_r($post->ID);
+                echo '</pre>';
+            }
+
+            ?>
             <section class="content-main-body">
                 <div class="container-fluid">
                     <!-- container-fluid-start  -->

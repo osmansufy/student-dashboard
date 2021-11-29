@@ -1,3 +1,10 @@
+<?php
+// if user not logged in redirect to login page
+if (!is_user_logged_in()) {
+    wp_redirect(site_url() . '/wp-login.php');
+}
+
+?>
 <nav class="navbar navbar-inverse navbar-global navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
