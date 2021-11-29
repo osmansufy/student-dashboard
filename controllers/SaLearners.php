@@ -6,17 +6,17 @@ class SALearners
     }
     static function sa_learners_update_callback()
     {
-
-        $email = $_POST['email'];
+        // verify input post data
+        $email = sanitize_text_field($_POST['email']);;
         $user_id = get_current_user_id();
         $action = 'sa_learners_update';
         $nonce = $_POST['sal_nonce'];
         $args = [
             'ID' => $_POST['id'],
-            'first_name' => $_POST['firstName'],
-            'last_name' => $_POST['lastName'],
-            'display_name' => $_POST['displayName'],
-            'description' => $_POST['description'],
+            'first_name' => sanitize_text_field($_POST['firstName']),
+            'last_name' => sanitize_text_field($_POST['lastName']),
+            'display_name' => sanitize_text_field($_POST['displayName']),
+            'description' => sanitize_text_field($_POST['description']),
         ];
         if (!wp_verify_nonce($nonce, $action)) {
             wp_send_json_error(['message' => 'You are not authorized']);
@@ -57,7 +57,7 @@ class SALearners
             $movefile = wp_handle_upload($file, $upload_overrides);
             if ($movefile && !isset($movefile['error'])) {
                 // echo "File is valid, and was successfully uploaded.\n";
-                $user_data =  update_user_meta($user_id, 'profile_picture', $movefile['url']);
+                $user_data =  update_user_meta($user_id, 'profile_picture', esc_url($movefile['url']));
                 //   send json success with object
                 wp_send_json_success([
                     'message' => 'Profile picture updated successfully',
@@ -83,14 +83,17 @@ class SALearners
             wp_send_json_error(['message' => 'You are not authorized', 'success' => false, 'data' => $_POST['sal_nonce']]);
             die();
         }
+        $current_password = sanitize_text_field($_POST['old_password']);
+        $new_password = sanitize_text_field($_POST['new_password']);
+        $confirm_password = sanitize_text_field($_POST['confirm_password']);
         // authenticate user email and password
-        if (wp_check_password($_POST['old_password'], $user->data->user_pass, $user->ID)) {
+        if (wp_check_password($current_password, $user->data->user_pass, $user->ID)) {
             // check if new password and confirm password match
-            if ($_POST['new_password'] == $_POST['confirm_password']) {
+            if ($new_password == $confirm_password) {
                 // update user password
                 $user_data = wp_update_user([
                     'ID' => $user_id,
-                    'user_pass' => $_POST['new_password']
+                    'user_pass' => $new_password
                 ]);
                 if (is_wp_error($user_data)) {
                     wp_send_json_error(['message' => $user_data->get_error_message()]);

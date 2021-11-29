@@ -22,21 +22,18 @@
                 </div>
             </section>
             <?php
-            $new_wishlist = get_user_meta($user_id, 'wishlist_course', false);
-            foreach ($new_wishlist as $i => $cid) {
-                if ($i >= $paged) {
-                    $wishlist[] = $cid;
+            $user_id = get_current_user_id();
+            $saved_courses = SaCourse::sa_get_saved_courses($user_id);
+            //  check product is in cart or not
+            function is_product_in_cart($product_id)
+            {
+                $product_cart_id = WC()->cart->generate_cart_id($product_id);
+                if (WC()->cart->find_product_in_cart($product_cart_id)) {
+                    return true;
                 }
+                return false;
             }
-            $args = array('post_type' => 'course', 'post__in' => $wishlist, 'orderby' => 'post__in', 'posts_per_page' => -1);
-            $the_query = new WP_Query($args);
-            while ($the_query->have_posts()) {
-                $the_query->the_post();
-                global $post;
-                echo '<pre>';
-                print_r($post->ID);
-                echo '</pre>';
-            }
+
 
             ?>
             <section class="content-main-body">
@@ -45,74 +42,66 @@
                     <div class="other-course">
 
                         <div class="row">
-                            <div class="col-12 col-md-6 col-lg-4 col-sm-6">
-                                <!-- col-start  -->
-                                <div class="category-box" style="background-image: url('https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/shutterstock_332643533-1709b6af0cc58bf0030a64336c112d8a-1.png');">
-                                    <div class="Popular-title-top"><i class="far fa-user"></i> 149 students enrolled </div>
-                                    <div class="Popular-title-bottom">Emergency Procedures in the Workplace Certificate
-                                        <h3>£20.00</h3>
-                                    </div>
-                                    <div class="popular-box-overlay">
-                                        <p><strong>Emergency Procedures in the Workplace Certificate</strong></p>
-                                        <div class="button-box">
-                                            <div class="popular-overlay-btn">
-                                                <button type="button" class="btn btn-outline-primary btn-lg extra-radius">1 Modules </button>
+                            <?php
+                            foreach ($saved_courses as $course) {
+                            ?>
+                                <div class="col-12 col-md-6 col-lg-4 col-sm-6 sal-save-course-wrap_<?php echo $course->ID ?>">
+                                    <!-- col-start  -->
+                                    <div class="category-box" style="background-image: url('<?php echo $course->featured_image ?>');">
+                                        <div class="Popular-title-top"><i class="far fa-user"></i> 149 students enrolled </div>
+                                        <div class="Popular-title-bottom"><?php echo $course->post_title; ?>
+                                            <h3>£<?php
+                                                    echo $course->sale_price;
+                                                    ?></h3>
+                                        </div>
+                                        <div class="popular-box-overlay">
+                                            <p><strong><?php echo $course->post_title; ?></strong></p>
+                                            <div class="button-box">
+                                                <div class="popular-overlay-btn">
+                                                    <button type="button" class="btn btn-outline-primary btn-lg extra-radius"> <?php echo count($course->curriculums) ?> Modules </button>
+                                                </div>
+                                                <div class="popular-overlay-btn">
+                                                    <button type="button" class="btn btn-outline-primary btn-lg extra-radius"> 0% Finance </button>
+                                                </div>
                                             </div>
-                                            <div class="popular-overlay-btn">
-                                                <button type="button" class="btn btn-outline-primary btn-lg extra-radius"> 0% Finance </button>
+                                            <h3>£<?php
+                                                    echo $course->sale_price;
+                                                    ?></h3>
+                                            <div class="popular-overlay-btn-btm">
+
+                                                <a href="<?php echo get_site_url() . '/course/' . $course->post_name ?>" role="button" class="btn btn-outline-primary btn-lg extra-radius nsa_course_more_info">More Info</a>
+
+                                                <?php
+                                                if (!is_product_in_cart($course->product_id)) {
+
+                                                ?>
+                                                    <a role="button" data-course-title="<?php echo $course->post_title ?>" data-product_id="<?php echo $course->product_id ?>" class="btn btn-outline-primary btn-lg extra-radius sal_add_to_cart_button
+                                                    sa-cart-btn_<?php echo $course->product_id ?>
+                                                    ">Add to Cart</a>
+                                                <?php
+                                                } else {
+                                                ?>
+                                                    <a href="<?php echo wc_get_cart_url() ?>" target="_blank" role="button" class="btn sa-go-to-cart btn-outline-primary btn-lg extra-radius">
+                                                        Go to cart
+                                                    </a>
+                                                <?php
+                                                }
+
+                                                ?>
+                                                <a href="<?php echo wc_get_cart_url() ?>" role="button" target="_blank" class="btn sa-go-to-cart btn-outline-primary btn-lg extra-radius  sa-gotoCart-btn_<?php echo $course->product_id ?>" style="display:none">
+                                                    Go to cart
+                                                </a>
+                                                <a class="saveHeart sal-remove-wishlist saveCourse29 nav-item  active " data-user_id="<?php echo $user_id ?>" data-course_id="<?php echo $course->ID ?>">
+
+                                                    <i class="far fa-heart"></i> </a>
                                             </div>
                                         </div>
-                                        <h3>£20.00</h3>
-                                        <div class="popular-overlay-btn-btm"> <a href="#" role="button" class="btn btn-outline-primary btn-lg extra-radius nsa_course_more_info">More Info</a> <a href="#" role="button" class="btn btn-outline-primary btn-lg extra-radius">Add to Cart</a>
-                                            <a class="saveHeart saveCourse29 nav-item " href="javascript:;" role="button" onclick="saveCourse(29); $('#courseRemove45300').remove();"> <i class="far fa-heart"></i> </a>
-                                        </div>
                                     </div>
-                                </div>
-                            </div><!-- col-end  -->
-                            <div class="col-12 col-md-6 col-lg-4 col-sm-6">
-                                <!-- col-start  -->
-                                <div class="category-box" style="background-image: url('https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/shutterstock_332643533-1709b6af0cc58bf0030a64336c112d8a-1.png');">
-                                    <div class="Popular-title-top"><i class="far fa-user"></i> 149 students enrolled </div>
-                                    <div class="Popular-title-bottom">Emergency Procedures in the Workplace Certificate
-                                        <h3>£20.00</h3>
-                                    </div>
-                                    <div class="popular-box-overlay">
-                                        <p><strong>Emergency Procedures in the Workplace Certificate</strong></p>
-                                        <div class="button-box">
-                                            <div class="popular-overlay-btn">
-                                                <button type="button" class="btn btn-outline-primary btn-lg extra-radius">1 Modules </button>
-                                            </div>
-                                            <div class="popular-overlay-btn">
-                                                <button type="button" class="btn btn-outline-primary btn-lg extra-radius"> 0% Finance </button>
-                                            </div>
-                                        </div>
-                                        <h3>£20.00</h3>
-                                        <div class="popular-overlay-btn-btm"> <a href="#" role="button" class="btn btn-outline-primary btn-lg extra-radius nsa_course_more_info">More Info</a> <a href="#" role="button" class="btn btn-outline-primary btn-lg extra-radius">Add to Cart</a> </div>
-                                    </div>
-                                </div>
-                            </div><!-- col-end  -->
-                            <div class="col-12 col-md-6 col-lg-4 col-sm-6">
-                                <!-- col-start  -->
-                                <div class="category-box" style="background-image: url('https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/shutterstock_332643533-1709b6af0cc58bf0030a64336c112d8a-1.png');">
-                                    <div class="Popular-title-top"><i class="far fa-user"></i> 149 students enrolled </div>
-                                    <div class="Popular-title-bottom">Emergency Procedures in the Workplace Certificate
-                                        <h3>£20.00</h3>
-                                    </div>
-                                    <div class="popular-box-overlay">
-                                        <p><strong>Emergency Procedures in the Workplace Certificate</strong></p>
-                                        <div class="button-box">
-                                            <div class="popular-overlay-btn">
-                                                <button type="button" class="btn btn-outline-primary btn-lg extra-radius">1 Modules </button>
-                                            </div>
-                                            <div class="popular-overlay-btn">
-                                                <button type="button" class="btn btn-outline-primary btn-lg extra-radius"> 0% Finance </button>
-                                            </div>
-                                        </div>
-                                        <h3>£20.00</h3>
-                                        <div class="popular-overlay-btn-btm"> <a href="#" role="button" class="btn btn-outline-primary btn-lg extra-radius nsa_course_more_info">More Info</a> <a href="#" role="button" class="btn btn-outline-primary btn-lg extra-radius">Add to Cart</a> </div>
-                                    </div>
-                                </div>
-                            </div><!-- col-end  -->
+                                </div><!-- col-end  -->
+                            <?php
+                            }
+                            ?>
+
 
                         </div><!-- row--end  -->
                     </div>

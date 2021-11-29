@@ -45,6 +45,7 @@ class SaCourse
             $recommended_course->curriculums = bp_course_get_full_course_curriculum($recommended_course->ID);
             $recommended_course->product_id = $product_id;
         }
+        wp_reset_query();
         return $recommended_courses->posts;
         // return $recommended_courses;
     }
@@ -115,6 +116,7 @@ class SaCourse
 
 
             endforeach;
+            wp_reset_query();
         endif;
         return $course_data;
     }
@@ -147,7 +149,44 @@ class SaCourse
             }
             $certificate_link_list[] = $certificate_info;
         }
+        wp_reset_query();
         return $certificate_link_list;
+    }
+    static function sa_get_saved_courses($user_id)
+    {
+        $new_wishlist = get_user_meta($user_id, 'wishlist_course', false);
+        $values = array_values($new_wishlist);
+        $args = array('post_type' => 'course', 'post__in' => $values, 'orderby' => 'post__in', 'posts_per_page' => -1);
+
+        $saved_courses = new WP_Query($args);
+        foreach ($saved_courses->posts as $saved_course) {
+            $saved_course->featured_image = get_the_post_thumbnail_url($saved_course->ID);
+            $saved_course->student_count = get_post_meta($saved_course->ID, 'vibe_students', true);
+            $saved_course->average_rating = get_post_meta($saved_course->ID, 'average_rating', true);
+            $product_id = get_post_meta($saved_course->ID, 'vibe_product', true);
+            $saved_course->sale_price = get_post_meta($product_id, '_sale_price', true);
+            $saved_course->regular_price = get_post_meta($product_id, '_regular_price', true);
+            $saved_course->curriculums = bp_course_get_full_course_curriculum($saved_course->ID);
+            $saved_course->product_id = $product_id;
+        }
+        wp_reset_query();
+        return $saved_courses->posts;
+    }
+    // remove course from wishlist 
+    static function sa_remove_from_wishlist()
+    {
+        $course_id = $_POST['course_id'];
+        $user_id = $_POST['user_id'];
+        $new_wishlist = get_user_meta($user_id, 'wishlist_course', false);
+        $values = array_values($new_wishlist);
+        $key = array_search($course_id, $values);
+        if ($key !== false) {
+            delete_user_meta($user_id, 'wishlist_course', $course_id);
+            wp_send_json_success(['message' => 'Course Deleted from wishlist', 'status' => 'success']);
+        } else {
+            wp_send_json_error(['message' => 'Error during remove course from wishlist ', 'status' => 'error']);
+        }
+        die();
     }
 }
 // new SaCourse();

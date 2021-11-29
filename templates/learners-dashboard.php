@@ -168,8 +168,8 @@
                                                                                                     echo $course->student_count;
                                                                                                     ?> students enrolled
                                         </div>
-                                        <div class="Popular-title-bottom">Emergency Procedures in the Workplace Certificate
-                                            <h3>$<?php
+                                        <div class="Popular-title-bottom"><?php echo $course->post_title; ?>
+                                            <h3>£<?php
                                                     echo $course->sale_price;
                                                     ?></h3>
                                         </div>

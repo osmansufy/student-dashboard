@@ -83,3 +83,4 @@ add_action('wp_ajax_sa_learners_update', array('SaLearners', 'sa_learners_update
 add_action('wp_ajax_sa_learners_update_profile_picture', array('SaLearners', 'sa_learners_update_profile_picture_callback'));
 add_action('wp_ajax_sa_learners_change_password', array('SaLearners', 'sa_learners_change_password_callback'));
 add_action('wp_ajax_sa_learners_add_to_cart', array('SaCourse', 'sa_learners_add_to_cart'));
+add_action('wp_ajax_sa_learners_remove_wishlist', array('SaCourse', 'sa_remove_from_wishlist'));

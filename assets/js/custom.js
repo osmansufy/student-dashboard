@@ -93,13 +93,16 @@ $(document).ready(function () {
     let fileSize = profile_picture?.size;
     let validImageTypes = ["image/gif", "image/jpeg", "image/png", "image/jpg"];
     if ($.inArray(fileType, validImageTypes) < 0) {
-      alert("Please upload a valid image file (jpg, jpeg, png, gif)");
+      let message = `<strong>"Please upload a valid image file (jpg, jpeg, png, gif</strong>`;
+      toaster(message);
       $("#sal_profile_picture").val("");
       return false;
     }
     if (fileSize > 1000000) {
       console.log(fileSize);
-      alert("Please upload a file less than 1MB");
+      // alert("Please upload a file less than 1MB");
+      let message = `<strong>"Please upload a file less than 1MB</strong>`;
+      toaster(message);
       $("#sal_profile_picture").val("");
       return false;
     }
@@ -133,11 +136,44 @@ $(document).ready(function () {
           toaster(message);
           // alert("Profile picture updated successfully");
         } else {
-          alert("Error updating profile picture");
+          let message = `<strong>Error updating profile picture</strong>`;
+          toaster(message);
         }
       },
     });
   });
+  // remove course from wishlist
+  $(".sal-remove-wishlist").click(function (e) {
+    e.preventDefault();
+
+    let course_id = $(this).attr("data-course_id");
+    let user_id = $(this).attr("data-user_id");
+    // let nonce = $(this).attr("data-nonce");
+    $.ajax({
+      url: pluginData.ajax_url,
+      type: "POST",
+      data: {
+        action: "sa_learners_remove_wishlist",
+        course_id: course_id,
+        user_id: user_id,
+        // nonce: nonce,
+      },
+      success: function (data) {
+        console.log(data);
+        if (data.success) {
+          // $(`.sal-wishlist-btn_${course_id}`).css("display", "inline-block");
+          // $(`.sal-remove-wishlist_${course_id}`).css("display", "none");
+          let message = `<strong>${data?.data.message}</strong>`;
+          $(`sal-save-course-wrap_${course_id}`).css("display", "none");
+          toaster(message);
+          console.log($(`sal-save-course-wrap_${course_id}`));
+        } else {
+          toaster("<strong>Error removing course from wishlist</strong>");
+        }
+      },
+    });
+  });
+
   // user password change with ajax input validation
   $("form#sal_user_pass_from").submit(function (e) {
     e.preventDefault();
