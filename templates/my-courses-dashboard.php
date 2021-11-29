@@ -5,6 +5,8 @@
     <?php
     wp_head();
     add_filter('show_admin_bar', '__return_false');
+    $user_id = get_current_user_id();
+    $user_courses = SaCourse::sa_get_courses_by_user($user_id);
     ?>
 </head>
 

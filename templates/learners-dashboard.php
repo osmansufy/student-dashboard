@@ -30,35 +30,26 @@
                             month. Find out more.
 
                         </a>
+
                         <?php
                         $user_id = get_current_user_id();
-                        // print_r($user_id);
-                        $args = array(
-                            'post_type'   => 'course',
-                            'numberposts' => -1,
-                            'post_status' => 'publish'
-                        );
 
-                        $allCourses = get_posts($args);
-                        $user_all_courses =  bp_course_get_user_courses($user_id);
+                        // print_r($user_id);
+                        $enrolledCourses = SaCourse::sa_get_courses_by_user($user_id);
+                        $complete_courses = array();
+                        foreach ($enrolledCourses as $course) {
+                            $progress = bp_course_get_user_progress($user_id, $course['id']);
+                            if ($progress > 99) {
+                                $complete_courses[] =  $course['id'];
+                            }
+                        }
+                        $certificate_list = bp_course_get_user_certificates($user_id);
                         $user_course_completed_list = bp_course_get_user_courses($user_id, array('completed' => 1));
                         $user_course_certificate = bp_course_get_user_certificates($user_id);
 
                         $recomended_courses = SaCourse::get_recommended_courses($user_id);
 
-                        function add_to_cart_programmatically($product_id)
-                        {
 
-                            $product_cart_id = WC()->cart->generate_cart_id($product_id);
-                            if (!WC()->cart->find_product_in_cart($product_cart_id)) {
-                                WC()->cart->add_to_cart($product_id);
-                                wp_safe_redirect(wc_get_checkout_url());
-                                exit();
-                            }
-                            echo "<pre>";
-                            print_r($product_id);
-                            echo "</pre>";
-                        }
                         //  check product is in cart or not
                         function is_product_in_cart($product_id)
                         {
@@ -68,54 +59,57 @@
                             }
                             return false;
                         }
-                        echo "<pre>";
-                        print_r(wc_get_cart_url());
-                        echo "</pre>";
+                        // echo "<pre>";
+                        // // print_r($enrolledCourses);
+                        // print_r($certificate_list);
+                        // echo "</pre>";
 
                         ?>
                     </div>
-                    <!-- percentage circle -->
+
+
                     <div class="circle-box-percentage">
                         <div class="allcourse">
                             <h2>All course</h2>
-                            <div class="progressdiv" data-percent="<?php
-                                                                    echo bp_course_get_total_course_count() ?>">
-                                <svg class="progress_bar" height="250" width="250" id="svg">
-                                    <circle id="progressbg" cx="125" cy="125" r="85" stroke-width="29" fill="transparent" stroke-dasharray="753.9822368615503" />
-                                    <circle id="progress" class="bar" cx="125" cy="125" r="85" stroke-width="30" fill="transparent" stroke-dasharray="553.9822368615503" />
-                                </svg>
+                            <div class="circular-progress" data-percent="<?php
+                                                                            echo bp_course_get_total_course_count() ?>">
+                                >
+                                <div class="value-container">0%</div>
                             </div>
+
                         </div>
+
                         <div class="allcourse">
                             <h2>Enroll Courses</h2>
-                            <div class="progressdiv" data-percent="<?php
-                                                                    is_array($user_all_courses) ? print_r(count($user_all_courses)) : print_r(0); ?>">
-                                <svg class="progress_bar" height="250" width="250" id="svg">
-                                    <circle id="progressbg" cx="125" cy="125" r="85" stroke-width="29" fill="transparent" stroke-dasharray="753.9822368615503" />
-                                    <circle id="progress" class="bar" cx="125" cy="125" r="85" stroke-width="30" fill="transparent" stroke-dasharray="553.9822368615503" />
-                                </svg>
+                            <div class="circular-progress" data-percent="<?php
+                                                                            echo  is_array($enrolledCourses) ? count($enrolledCourses) : 0; ?>">
+                                >
+                                <div class="value-container">0%</div>
                             </div>
+
                         </div>
                         <div class="allcourse">
                             <h2>Course Completed</h2>
-                            <div class="progressdiv" data-percent="<?php
-                                                                    is_array($user_course_completed_list) ? print_r(count($user_course_completed_list)) : print_r(0); ?>">
-                                <svg class="progress_bar" height="250" width="250" id="svg">
-                                    <circle id="progressbg" cx="125" cy="125" r="85" stroke-width="29" fill="transparent" stroke-dasharray="753.9822368615503" />
-                                    <circle id="progress" class="bar" cx="125" cy="125" r="85" stroke-width="30" fill="transparent" stroke-dasharray="553.9822368615503" />
-                                </svg>
-
-
+                            <div class="circular-progress" data-percent="<?php
+                                                                            echo  is_array($complete_courses) ? count($complete_courses) : 0; ?>">
+                                >
+                                <div class="value-container">0%</div>
                             </div>
+
                         </div>
                         <div class="allcourse">
                             <h2>Course Certificate</h2>
-                            <div class="progressdiv" data-percent="10">
+                            <div class="circular-progress" data-percent="<?php
+                                                                            echo  is_array($certificate_list) ? count($certificate_list) : 0; ?>">
+                                >
+                                <div class="value-container">0%</div>
+                            </div>
+                            <!-- <div class="progressdiv" data-percent="10">
                                 <svg class="progress_bar" height="250" width="250" id="svg">
                                     <circle id="progressbg" cx="125" cy="125" r="85" stroke-width="29" fill="transparent" stroke-dasharray="753.9822368615503" />
                                     <circle id="progress" class="bar" cx="125" cy="125" r="85" stroke-width="30" fill="transparent" stroke-dasharray="553.9822368615503" />
                                 </svg>
-                            </div>
+                            </div> -->
                         </div>
                     </div><!-- percentage circle end-->
                     <!-- Award days banner section -->

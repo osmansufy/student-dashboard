@@ -5,19 +5,19 @@ $(".btn-expand-collapse").click(function (e) {
 // percentage
 (function () {
   window.onload = function () {
-    var totalProgress, progress;
-    const circles = document.querySelectorAll(".progress_bar");
-    for (var i = 0; i < circles.length; i++) {
-      totalProgress = circles[i]
-        .querySelector("circle")
-        .getAttribute("stroke-dasharray");
-      progress = circles[i].parentElement.getAttribute("data-percent");
-
-      circles[i].querySelector(".bar").style["stroke-dashoffset"] =
-        (totalProgress * progress) / 100;
-    }
+    // var totalProgress, progress;
+    // const circles = document.querySelectorAll(".progress_bar");
+    // for (var i = 0; i < circles.length; i++) {
+    //   totalProgress = circles[i]
+    //     .querySelector("circle")
+    //     .getAttribute("stroke-dasharray");
+    //   progress = circles[i].parentElement.getAttribute("data-percent");
+    //   circles[i].querySelector(".bar").style["stroke-dashoffset"] =
+    //     (totalProgress * progress) / 100;
+    // }
   };
 })();
+
 function simple_ajax_call() {
   let $ = jQuery;
   let name = prompt("What is your Name?");
@@ -29,8 +29,31 @@ function simple_ajax_call() {
     }
   );
 }
+
 $(document).ready(function () {
   // filter content with search hide parent
+  let progressBars = document.querySelectorAll(".circular-progress");
+  console.log(progressBars);
+  for (var i = 0; i < progressBars.length; i++) {
+    let progressBar = progressBars[i];
+    let value = progressBar.getAttribute("data-percent");
+    let progressValue = 0;
+    let progressEndValue = parseInt(value) ? parseInt(value) : 0;
+    let speed = 50;
+
+    let progress = setInterval(() => {
+      let valueContainer = progressBar.querySelector(".value-container");
+      valueContainer.textContent = `${progressValue}`;
+      progressBar.style.background = `conic-gradient(
+    #4d5bf9 ${progressValue * 3.6}deg,
+    #cadcff ${progressValue * 3.6}deg
+)`;
+      if (progressValue == progressEndValue || progressEndValue == 0) {
+        clearInterval(progress);
+      }
+      progressValue++;
+    }, speed);
+  }
   $("#txtSearch").keyup(function () {
     var search_content = $(this).val();
 
@@ -44,6 +67,7 @@ $(document).ready(function () {
       );
     });
   });
+  // percentage
 
   // add to cart product on woocommerce with ajax
   var alert = $(".alert-container");

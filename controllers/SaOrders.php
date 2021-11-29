@@ -26,7 +26,7 @@ class SaOrders
             $current_order->order_status = $order->get_status();
             $current_order->order_payment_method = $order->get_payment_method_title();
             $order_itemsObj = $order->get_items();
-            $current_order->order_item_count = count($current_order->order_items);
+            $current_order->order_item_count = count($order_itemsObj);
             if (!is_wp_error($order_itemsObj)) {
                 $current_order->order_item_total = 0;
                 foreach ($order_itemsObj as $order_item) {

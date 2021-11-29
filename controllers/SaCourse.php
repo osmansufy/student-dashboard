@@ -61,7 +61,7 @@ class SaCourse
             // exit();
         }
     }
-    function sa_get_courses_by_user($user_id)
+    static function sa_get_courses_by_user($user_id)
     {
         $args = array(
             'post_type'   => 'course',

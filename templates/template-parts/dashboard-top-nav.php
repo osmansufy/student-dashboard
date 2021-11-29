@@ -3,7 +3,9 @@
 if (!is_user_logged_in()) {
     wp_redirect(site_url() . '/wp-login.php');
 }
-
+$user_id = get_current_user_id();
+$user_info = get_userdata($user_id);
+$displayName =     $user_info->display_name;
 ?>
 <nav class="navbar navbar-inverse navbar-global navbar-fixed-top">
     <div class="container-fluid">
@@ -18,10 +20,10 @@ if (!is_user_logged_in()) {
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-user navbar-right">
                 <li>
-                    <a href="#"><span class="glyphicon glyphicon-user"></span>Sakib Ahmed</a>
+                    <a href="#"><span class="glyphicon glyphicon-user"></span><?php echo $displayName ?></a>
                 </li>
                 <li>
-                    <a href="#about"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                    <a href="<?php echo wp_logout_url() ?>"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
                 </li>
             </ul>
         </div>
