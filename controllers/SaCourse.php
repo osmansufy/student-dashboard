@@ -152,6 +152,27 @@ class SaCourse
         wp_reset_query();
         return $certificate_link_list;
     }
+    function sal_get_wplms_certificates($user_id)
+    {
+        $user_id = get_current_user_id();
+        $all_course_ids = bp_course_get_user_certificates($user_id);
+
+        $certificate_link_list = array();
+        foreach ($all_course_ids as $course_id) {
+            $certificate_info = new stdClass();
+            $args = array(
+                'course_id' => $course_id,
+                'user_id' => $user_id
+            );
+            $certificate_link = bp_get_course_certificate($args);
+            $certificate_info->course_id = $course_id;
+            $certificate_info->title = get_the_title($course_id);
+            $certificate_info->link = $certificate_link;
+            $certificate_info->slug = get_post_field('post_name', $course_id);
+            $certificate_link_list[] = $certificate_info;
+        }
+        return $certificate_link_list;
+    }
     static function sa_get_saved_courses($user_id)
     {
         $new_wishlist = get_user_meta($user_id, 'wishlist_course', false);
@@ -187,6 +208,26 @@ class SaCourse
             wp_send_json_error(['message' => 'Error during remove course from wishlist ', 'status' => 'error']);
         }
         die();
+    }
+    static function sa_get_user_courses_by_status($user_id)
+    {
+        $enrolledCourses = self::sa_get_courses_by_user($user_id);
+        $complete_courses = array();
+        $inprogress_courses = array();
+        foreach ($enrolledCourses as $course) {
+            $progress = bp_course_get_user_progress($user_id, $course['id']);
+            if ($progress > 99) {
+                $complete_courses[] =  $course['id'];
+            } else {
+                $inprogress_courses[] = $course['id'];
+            }
+        }
+        $courses_status = array(
+            'complete_courses' => $complete_courses,
+            'enrolled_courses' => $enrolledCourses,
+            'inprogress_courses' => $inprogress_courses
+        );
+        return $courses_status;
     }
 }
 // new SaCourse();

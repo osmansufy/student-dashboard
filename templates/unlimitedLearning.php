@@ -12,8 +12,8 @@
 
 <body>
     <div class="sidebar-menu-farhan">
-        <?php include_once('template-parts/dashboard-sidebar.php'); ?>
         <?php include_once('template-parts/dashboard-top-nav.php'); ?>
+        <?php include_once('template-parts/dashboard-sidebar.php'); ?>
 
         <div class="main-content">
             <section class="page-title">

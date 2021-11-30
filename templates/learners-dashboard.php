@@ -6,13 +6,16 @@
     <?php
     wp_head();
     add_filter('show_admin_bar', '__return_false');
+
+
+
     ?>
 </head>
 
 <body>
     <div class="sidebar-menu-farhan">
-        <?php include_once('template-parts/dashboard-sidebar.php'); ?>
         <?php include_once('template-parts/dashboard-top-nav.php'); ?>
+        <?php include_once('template-parts/dashboard-sidebar.php'); ?>
 
         <div class="main-content">
             <section class="page-title">
@@ -32,10 +35,18 @@
                         </a>
 
                         <?php
+
                         $user_id = get_current_user_id();
+                        // woocommerce user  subscription page display
+                        $user_subscription_page = get_option('woocommerce_myaccount_subscriptions_endpoint');
+                        $user_subscription_page_url = get_permalink(get_option('woocommerce_myaccount_subscriptions_endpoint'));
+                        $user_subscription_page_url = add_query_arg('subscription_key', $subscription_key, $user_subscription_page_url);
+
+
+
 
                         // print_r($user_id);
-                        $enrolledCourses = SaCourse::sa_get_courses_by_user($user_id);
+                        $userCourses = SaCourse::sa_get_user_courses_by_status($user_id);
                         $complete_courses = array();
                         foreach ($enrolledCourses as $course) {
                             $progress = bp_course_get_user_progress($user_id, $course['id']);
@@ -44,8 +55,6 @@
                             }
                         }
                         $certificate_list = bp_course_get_user_certificates($user_id);
-                        $user_course_completed_list = bp_course_get_user_courses($user_id, array('completed' => 1));
-                        $user_course_certificate = bp_course_get_user_certificates($user_id);
 
                         $recomended_courses = SaCourse::get_recommended_courses($user_id);
 
@@ -59,9 +68,13 @@
                             }
                             return false;
                         }
+
+
+
+
                         // echo "<pre>";
-                        // // print_r($enrolledCourses);
-                        // print_r($certificate_list);
+                        // print_r($enrolledCourses);
+                        // print_r($subscription_users);
                         // echo "</pre>";
 
                         ?>
@@ -69,7 +82,7 @@
 
 
                     <div class="circle-box-percentage">
-                        <div class="allcourse">
+                        <!-- <div class="allcourse">
                             <h2>All course</h2>
                             <div class="circular-progress" data-percent="<?php
                                                                             echo bp_course_get_total_course_count() ?>">
@@ -77,12 +90,12 @@
                                 <div class="value-container">0%</div>
                             </div>
 
-                        </div>
+                        </div> -->
 
                         <div class="allcourse">
                             <h2>Enroll Courses</h2>
                             <div class="circular-progress" data-percent="<?php
-                                                                            echo  is_array($enrolledCourses) ? count($enrolledCourses) : 0; ?>">
+                                                                            echo  is_array($userCourses['enrolled_courses']) ? count($userCourses['enrolled_courses']) : 0; ?>">
                                 >
                                 <div class="value-container">0%</div>
                             </div>
@@ -91,7 +104,7 @@
                         <div class="allcourse">
                             <h2>Course Completed</h2>
                             <div class="circular-progress" data-percent="<?php
-                                                                            echo  is_array($complete_courses) ? count($complete_courses) : 0; ?>">
+                                                                            echo  is_array($userCourses['complete_courses']) ? count($userCourses['complete_courses']) : 0; ?>">
                                 >
                                 <div class="value-container">0%</div>
                             </div>
@@ -155,61 +168,10 @@
                             <?php
                             foreach ($recomended_courses as $course) {
                             ?>
+
                                 <div class="col-12 col-md-6 col-lg-3 col-sm-6">
                                     <!-- col-start  -->
-                                    <div class="category-box" style="background-image: url('<?php echo $course->featured_image ?>');">
-                                        <div class="Popular-title-top"><i class="far fa-user"></i> <?php
-                                                                                                    echo $course->student_count;
-                                                                                                    ?> students enrolled
-                                        </div>
-                                        <div class="Popular-title-bottom"><?php echo $course->post_title; ?>
-                                            <h3>£<?php
-                                                    echo $course->sale_price;
-                                                    ?></h3>
-                                        </div>
-                                        <div class="popular-box-overlay">
-                                            <p><strong><?php echo $course->post_title ?></strong></p>
-                                            <div class="button-box">
-                                                <div class="popular-overlay-btn">
-                                                    <button type="button" class="btn btn-outline-primary btn-lg extra-radius">
-                                                        <?php echo count($course->curriculums) ?>
-                                                        Modules
-                                                    </button>
-                                                </div>
-                                                <div class="popular-overlay-btn">
-                                                    <button type="button" class="btn btn-outline-primary btn-lg extra-radius"> 0% Finance
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <h3>$<?php
-                                                    echo $course->sale_price;
-                                                    ?></h3>
-                                            <div class="popular-overlay-btn-btm sa-btn_<?php echo $course->product_id ?>"> <a target="_blank" href="<?php echo get_site_url() . '/course/' . $course->post_name ?>" role="button" class="btn btn-outline-primary btn-lg extra-radius nsa_course_more_info">More
-                                                    Info</a>
-                                                <?php
-                                                if (!is_product_in_cart($course->product_id)) {
-
-                                                ?>
-                                                    <a role="button" data-course-title="<?php echo $course->post_title ?>" data-product_id="<?php echo $course->product_id ?>" class="btn btn-outline-primary btn-lg extra-radius sal_add_to_cart_button
-                                                    sa-cart-btn_<?php echo $course->product_id ?>
-                                                    ">Add to Cart</a>
-                                                <?php
-                                                } else {
-                                                ?>
-                                                    <a href="<?php echo wc_get_cart_url() ?>" target="_blank" role="button" class="btn sa-go-to-cart btn-outline-primary btn-lg extra-radius">
-                                                        Go to cart
-                                                    </a>
-                                                <?php
-                                                }
-
-                                                ?>
-
-                                                <a href="<?php echo wc_get_cart_url() ?>" role="button" target="_blank" class="btn sa-go-to-cart btn-outline-primary btn-lg extra-radius  sa-gotoCart-btn_<?php echo $course->product_id ?>" style="display:none">
-                                                    Go to cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <?php include_once('template-parts/course-card.php'); ?>
                                 </div><!-- col-end  -->
                             <?php
                             }

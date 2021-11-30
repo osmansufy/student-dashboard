@@ -34,6 +34,9 @@ class Learners {
       "submit",
       this.onSubmitEditUser.bind(this)
     );
+    $(".btn-expand-collapse").click(function (e) {
+      $(".navbar-primary").toggleClass("collapsed");
+    });
   }
   circularProgress() {
     let progressBars = document.querySelectorAll(".circular-progress");

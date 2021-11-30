@@ -6,14 +6,14 @@
     wp_head();
     add_filter('show_admin_bar', '__return_false');
     $user_id = get_current_user_id();
-    $user_courses = SaCourse::sa_get_courses_by_user($user_id);
+    $user_courses = SaCourse::sa_get_user_courses_by_status($user_id);
     ?>
 </head>
 
 <body>
     <div class="sidebar-menu-farhan">
-        <?php include_once('template-parts/dashboard-sidebar.php'); ?>
         <?php include_once('template-parts/dashboard-top-nav.php'); ?>
+        <?php include_once('template-parts/dashboard-sidebar.php'); ?>
 
         <div class="main-content">
             <section class="page-title">
@@ -37,30 +37,30 @@
                         <div class="col-md-4 ">
                             <div class="white-rounded dash-details">
                                 <div class="count-number">
-                                    <span>2 <sup><i class="fas fa-arrow-up"></i></sup></span>
+                                    <span><?php echo count($user_courses['enrolled_courses']) ?></span>
                                 </div>
                                 <div class="number-text">
-                                    <p>Days Logged In</p>
+                                    <p>Enrolled Courses</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="white-rounded dash-details">
                                 <div class="Reward-number">
-                                    <span>2</span>
+                                    <span><?php echo count($user_courses['complete_courses']) ?></span>
                                 </div>
                                 <div class="number-text">
-                                    <p>Reward Points</p>
+                                    <p>Completed Courses</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="white-rounded dash-details">
                                 <div class="Reward-number">
-                                    <span>2</span>
+                                    <span><?php echo count($user_courses['inprogress_courses']) ?></span>
                                 </div>
                                 <div class="number-text">
-                                    <p>Reward Points</p>
+                                    <p>Inprogress Courses</p>
                                 </div>
                             </div>
                         </div>
@@ -79,11 +79,11 @@
                     <!-- Search Field END -->
                     <div class="my-course">
                         <?php
-                        if ($user_courses) {
+                        if ($user_courses['enrolled_courses']) {
                         ?>
                             <div class="row" id="sal-my-course">
                                 <?php
-                                foreach ($user_courses as $course) {
+                                foreach ($user_courses['enrolled_courses'] as $course) {
                                     $course_progress = $course['progress'];
                                     if (empty($course_progress)) {
                                         $course_progress = 0;

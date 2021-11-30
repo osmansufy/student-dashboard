@@ -1879,3 +1879,12 @@ a {
   font-size: 50px;
   color: #231c3d;
 }
+
+.sal-subscription-wrap table {
+  /* border-collapse: collapse; */
+  width: 100%;
+}
+
+.sal-subscription-wrap td {
+  text-align: left;
+}

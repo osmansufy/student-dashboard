@@ -28,12 +28,12 @@ $displayName =     $user_info->display_name;
             </ul>
         </div>
         <!--/.nav-collapse -->
+        <div class="alert-container">
+            <div class="alert alert-warning">
+                <a class="sa-alert-text" style="color: chocolate;">
+
+                </a>
+            </div>
+        </div>
     </div>
 </nav>
-<div class="alert-container">
-    <div class="alert alert-warning">
-        <a class="sa-alert-text" style="color: chocolate;">
-
-        </a>
-    </div>
-</div>

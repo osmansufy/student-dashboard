@@ -12,8 +12,8 @@
 
 <body>
     <div class="sidebar-menu-farhan">
-        <?php include_once('template-parts/dashboard-sidebar.php'); ?>
         <?php include_once('template-parts/dashboard-top-nav.php'); ?>
+        <?php include_once('template-parts/dashboard-sidebar.php'); ?>
 
         <div class="main-content">
             <section class="page-title">
@@ -34,7 +34,7 @@
                     <?php
                     $user_id = get_current_user_id();
                     $course_controller = new SaCourse();
-                    $all_certificates = $course_controller->sa_get_courses_certificates($user_id);
+                    $all_certificates = $course_controller->sal_get_wplms_certificates($user_id);
 
 
                     // echo '<pre>';
@@ -108,7 +108,7 @@
 
                                                     </a>
                                                 </th>
-                                                <th><a class="btn btn-primary" href="<?php echo $certificate->certificate_url ?>" target="_blank"><i class="far fa-file-pdf" style="margin-right:7px;"></i> View PDF</a></th>
+                                                <th><a class="btn btn-primary" href="<?php echo $certificate->link ?>" target="_blank"><i class="far fa-file-pdf" style="margin-right:7px;"></i> View Certificate</a></th>
                                             </tr><?
                                                     ?>
                                         <?php } ?>

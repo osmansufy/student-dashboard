@@ -7,13 +7,16 @@
 
     wp_head();
     add_filter('show_admin_bar', '__return_false');
+    // woocommere subscription page display style
+
+
     ?>
 </head>
 
 <body>
     <div class="sidebar-menu-farhan">
-        <?php include_once('template-parts/dashboard-sidebar.php'); ?>
         <?php include_once('template-parts/dashboard-top-nav.php'); ?>
+        <?php include_once('template-parts/dashboard-sidebar.php'); ?>
 
         <div class="main-content">
             <section class="page-title">
@@ -37,11 +40,11 @@
                     $order_controller = new SaOrders();
                     $orders = $order_controller->get_orders_for_user($user_id);
 
-
+                    // $subscription_users = wcs_get_users_subscriptions($user_id);
 
 
                     // echo '<pre>';
-                    // print_r($orders_data);
+                    // print_r($subscription_users);
                     // echo '</pre>';
 
                     ?>
@@ -92,6 +95,17 @@
 
                                     </tbody>
                                 </table>
+
+                            </div>
+                            <div class="col-md-12">
+                                <h2>Subscription Status</h2>
+                                <hr>
+                                <div class="sal-subscription-wrap">
+                                    <?php
+
+                                    echo  WC_Subscriptions::get_my_subscriptions_template();;
+                                    ?>
+                                </div>
                             </div>
                         </div><!-- row--end  -->
                     </div>
