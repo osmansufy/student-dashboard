@@ -69,7 +69,7 @@ function sa_learners_dashboard_plugin_scripts_and_styles()
     wp_enqueue_style('bootstrap-css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', array(), time(), 'all');
     wp_enqueue_script('bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), time(), true);
     wp_enqueue_script('googleapis-js', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js', array('jquery'), time(), true);
-    wp_enqueue_script('sa-learner-dashboard-js', plugins_url('assets/js/custom.js', __FILE__), array('jquery'), time(), true);
+    wp_enqueue_script('sa-learner-dashboard-js', plugins_url('assets/js/Learners.js', __FILE__), array('jquery'), time(), true);
     wp_enqueue_style('sabd-fontawesome-css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css');
     $action = 'sa_learners_update';
     $sal_nonce = wp_create_nonce($action);

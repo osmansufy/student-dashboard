@@ -1846,9 +1846,9 @@ a {
 }
 .alert-container .alert {
   text-align: center;
-  padding: 17px 0 50px 0;
+  padding: 17px 0 15px 0;
   /* margin: 0 25% 0 25%; */
-  height: 54px;
+  /* height: 54px; */
   font-size: 18px;
   width: 30rem;
 }

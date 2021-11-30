@@ -6,9 +6,9 @@
 
       <a href="#" class="btn-expand-collapse"><span class="glyphicon glyphicon-menu-left"></span></a>
       <ul class="navbar-primary-menu navbar-nav">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="<?php echo get_site_url() . '/' ?>">
               <img class="collapse-img" src="https://www.trainingexpress.org.uk/wp-content/uploads/2020/12/tx-logo.png" alt="" />
-              <img class="collapse-img-collapse" src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/Screenshot_1.png" alt="" />
+              <!-- <img class="collapse-img-collapse" src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/Screenshot_1.png" alt="" /> -->
           </a>
           <li class="nav-item <?php echo is_page_template('learners-dashboard.php') ? $activeClass : "" ?>">
               <a href="<?php echo get_site_url() . '/learners-dashboard' ?>"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Dashboard</span></a>

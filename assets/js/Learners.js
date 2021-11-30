@@ -1,40 +1,67 @@
 class Learners {
   $ = jQuery;
   constructor() {
-    this.init();
-    var alert = $(".alert-container");
-    alert.hide();
-  }
+    this.events();
 
+    this.alertContainer.hide();
+    this.circularProgress();
+  }
+  profile_picture = "";
+  alertContainer = $(".alert-container");
   // toaster function
   toaster(message) {
-    alert.animate({
+    this.alertContainer.animate({
       width: "toggle",
     });
     $(".sa-alert-text").html(message);
-    window.setTimeout(function () {
-      alert.animate({
+    window.setTimeout(() => {
+      this.alertContainer.animate({
         width: "toggle",
       });
       // alert.slideRight();
     }, 3000);
   }
   events() {
-    $("#txtSearch").on("keyup", this.onSearch.bind(this));
-    $(".sal_add_to_cart_button").on("click", this.addToCart.bind(this));
+    $("#txtSearch").on("keyup", this.onSearch);
+    $(".sal_add_to_cart_button").click(this.addToCart.bind(this));
     $("#sal_profile_picture").on(
       "change",
       this.onChangeProfilePicture.bind(this)
     );
-    $("#sal_user_form").on("submit", this.onSubmitProfile.bind(this));
+    $("#sal_user_form").on("submit", this.onSubmitProfilePicture.bind(this));
     $("form#sal_user_pass_from").on("submit", this.onSubmitPassword.bind(this));
     $("form.sa-learners-edit-user").on(
       "submit",
       this.onSubmitEditUser.bind(this)
     );
   }
+  circularProgress() {
+    let progressBars = document.querySelectorAll(".circular-progress");
+    console.log(progressBars);
+    for (var i = 0; i < progressBars.length; i++) {
+      let progressBar = progressBars[i];
+      let value = progressBar.getAttribute("data-percent");
+      let progressValue = 0;
+      let progressEndValue = parseInt(value) ? parseInt(value) : 0;
+      let speed = 50;
+
+      let progress = setInterval(() => {
+        let valueContainer = progressBar.querySelector(".value-container");
+        valueContainer.textContent = `${progressValue}`;
+        progressBar.style.background = `conic-gradient(
+                  #4d5bf9 ${progressValue * 3.6}deg,
+                  #cadcff ${progressValue * 3.6}deg
+                  )`;
+        if (progressValue == progressEndValue || progressEndValue == 0) {
+          clearInterval(progress);
+        }
+        progressValue++;
+      }, speed);
+    }
+  }
   onSubmitEditUser(e) {
     e.preventDefault();
+    console.log(e);
     // When the button is clicked
     let firstName = $("#sa-firstName").val();
     let lastName = $("#sa-lastName").val();
@@ -60,12 +87,12 @@ class Learners {
         // $("#sa-loading-state").style.display = "block";
         // $("#sa-user-update-btn").style.display = "none";
       },
-      success: function (data) {
+      success: (data) => {
         console.log(data);
         let message = `<h4 class="text-danger">${data.data.message}</h4`;
         // $("#sa-loading-state").hide();
         // $("#sa-data-div").html(message); // Replace the div with the retrieved data
-        toaster(message);
+        this.toaster(message);
       },
       error: function (errorThrown) {
         console.log(errorThrown);
@@ -77,7 +104,7 @@ class Learners {
 
     let old_password = $("#sal_old_password").val();
     // $user_id = $("#sal_user_id").val();
-    $user_email = $("#sal_user_email").val();
+    let user_email = $("#sal_user_email").val();
     let new_password = $("#sal_new_password").val();
     let confirm_password = $("#sal_confirm_password").val();
     let nonce = $("#sal_user").val();
@@ -111,10 +138,10 @@ class Learners {
         old_password: old_password,
         new_password: new_password,
         confirm_password: confirm_password,
-        user_email: $user_email,
+        user_email: user_email,
         sal_nonce: nonce,
       },
-      success: function (data) {
+      success: (data) => {
         console.log(data);
         if (data.success) {
           // alert("Password updated successfully");
@@ -132,38 +159,13 @@ class Learners {
       // },
     });
   }
-  onSubmitProfile(e) {
-    e.preventDefault();
-    let formData = new FormData(this);
-    formData.append("action", "sa_learners_update_profile_picture");
-    formData.append("profile_picture", profile_picture);
-    let user_profile_picture_nonce = $("#user_profile_picture_nonce").val();
-    formData.append("nonce", user_profile_picture_nonce);
-    $.ajax({
-      url: pluginData.ajax_url,
-      type: "POST",
-      data: formData,
-      processData: false,
-      contentType: false,
-      success: function (data) {
-        console.log(data);
-        if (data.success) {
-          $(".upload_image_preview_img").attr("src", data.url);
-          let message = `<strong>${data?.data.message}</strong>`;
-          toaster(message);
-          // alert("Profile picture updated successfully");
-        } else {
-          let message = `<strong>Error updating profile picture</strong>`;
-          toaster(message);
-        }
-      },
-    });
-  }
-  onChangeProfilePicture(e) {
-    let profile_picture;
-    profile_picture = this.files[0];
-    let fileType = profile_picture?.type;
-    let fileSize = profile_picture?.size;
+
+  onChangeProfilePicture() {
+    this.profile_picture = $("#sal_profile_picture").prop("files")[0];
+    console.log(this.profile_picture);
+
+    let fileType = this.profile_picture?.type;
+    let fileSize = this.profile_picture?.size;
     let validImageTypes = ["image/gif", "image/jpeg", "image/png", "image/jpg"];
     if ($.inArray(fileType, validImageTypes) < 0) {
       let message = `<strong>"Please upload a valid image file (jpg, jpeg, png, gif</strong>`;
@@ -184,10 +186,38 @@ class Learners {
     reader.onload = function (e) {
       $(".upload_image_preview_img").attr("src", e.target.result);
     };
-    reader.readAsDataURL(profile_picture);
+    reader.readAsDataURL(this.profile_picture);
+  }
+  onSubmitProfilePicture(e) {
+    e.preventDefault();
+    let formData = new FormData();
+    formData.append("action", "sa_learners_update_profile_picture");
+    formData.append("profile_picture", this.profile_picture);
+    let user_profile_picture_nonce = $("#user_profile_picture_nonce").val();
+    formData.append("nonce", user_profile_picture_nonce);
+    $.ajax({
+      url: pluginData.ajax_url,
+      type: "POST",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: (data) => {
+        console.log(data);
+        if (data.success) {
+          $(".upload_image_preview_img").attr("src", data.url);
+          let message = `<strong>${data?.data.message}</strong>`;
+          console.log(this);
+          this.toaster(message);
+          // alert("Profile picture updated successfully");
+        } else {
+          let message = `<strong>Error updating profile picture</strong>`;
+          this.toaster(message);
+        }
+      },
+    });
   }
   onSearch(e) {
-    var search_content = $(this).val();
+    let search_content = $(this).val().toLowerCase();
 
     $("#sal-my-course .sal-course-wrapper").filter(function () {
       $(this).toggle(
@@ -201,11 +231,9 @@ class Learners {
   }
   addToCart(e) {
     e.preventDefault();
-
-    // alert.hide();
-    let $ = jQuery;
-    let product_id = $(this).attr("data-product_id");
-    let course_title = $(this).attr("data-course-title");
+    console.log(e.target.getAttribute("data-product_id"));
+    let product_id = e.target.getAttribute("data-product_id");
+    let course_title = e.target.getAttribute("data-course-title");
     $.ajax({
       url: pluginData.ajax_url,
       type: "POST",
@@ -213,13 +241,15 @@ class Learners {
         action: "sa_learners_add_to_cart",
         product_id: product_id,
       },
-      success: function (data) {
+      success: (data) => {
         // alert.slideLeft();
+        console.log(data);
         $(`.sa-cart-btn_${product_id}`).css("display", "none");
         $(`.sa-gotoCart-btn_${product_id}`).css("display", "inline-block");
         let alert_html = `<strong>${course_title}</strong> course has been added to your cart.`;
-        toaster(alert_html);
+        this.toaster(alert_html);
       },
     });
   }
 }
+new Learners();
