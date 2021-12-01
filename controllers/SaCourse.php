@@ -6,14 +6,14 @@ class SaCourse
     }
     static function get_recommended_courses($user_id)
     {
-        $args = array(
+        $all_args = array(
             'post_type' => 'course',
             'posts_per_page' => -1,
             'post_status' => 'publish',
         );
 
 
-        $allCourses = get_posts($args);
+        $allCourses = get_posts($all_args);
         $enrolledCourses = array();
         foreach ($allCourses as $allCourse) {
             if (wplms_user_course_check($user_id, $allCourse->ID) == 1) {
@@ -45,7 +45,7 @@ class SaCourse
             $recommended_course->curriculums = bp_course_get_full_course_curriculum($recommended_course->ID);
             $recommended_course->product_id = $product_id;
         }
-        wp_reset_query();
+
         return $recommended_courses->posts;
         // return $recommended_courses;
     }

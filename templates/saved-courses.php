@@ -47,7 +47,7 @@
                             ?>
                                 <div class="col-12 col-md-6 col-lg-4 col-sm-6 sal-save-course-wrap_<?php echo $course->ID ?>">
                                     <!-- col-start  -->
-                                    <?php include_once('template-parts/course-card.php'); ?>
+                                    <?php include('template-parts/course-card.php'); ?>
                                 </div><!-- col-end  -->
                             <?php
                             }

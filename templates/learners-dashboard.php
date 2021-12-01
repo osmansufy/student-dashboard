@@ -165,7 +165,7 @@
 
                                 <div class="col-12 col-md-6 col-lg-3 col-sm-6">
                                     <!-- col-start  -->
-                                    <?php include_once('template-parts/course-card.php'); ?>
+                                    <?php include('template-parts/course-card.php'); ?>
                                 </div><!-- col-end  -->
                             <?php
                             }
