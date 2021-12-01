@@ -53,6 +53,35 @@
 
                         $recomended_courses = SaCourse::get_recommended_courses($user_id);
 
+                        $last_login = get_the_author_meta('last_login');
+
+                        $the_login_date = human_time_diff($last_login);
+                        // if time diff is less than 10 mints  then show the time diff
+                        if ($the_login_date > 21) {
+                            $the_login_date = $the_login_date . ' minutes ago';
+                        } else {
+                            $the_login_date = human_time_diff($last_login);
+                        }
+                        $diff = round(abs(time() - $last_login) / (60), 0);
+                        // if ($the_login_date < 24) {
+                        //     $the_login_date = $the_login_date . ' ago';
+                        // } else {
+                        //     $the_login_date = date('d M Y', $last_login);
+                        // }
+                        // get date difference between last login and current date
+                        $current_date = date('d-m-Y');
+                        $last_login_date = date('d-m-Y', $last_login);
+                        $date_diff = date_diff(date_create($current_date), date_create($last_login_date));
+
+                        // if date difference is greater than 30 days then show the message
+                        if ($date_diff->days > 1) {
+                            $show_message = true;
+                        } else {
+                            $show_message = false;
+                        }
+
+
+                        $login_day_count = get_user_meta($user_id, 'login_day_count', true);
 
                         //  check product is in cart or not
                         function is_product_in_cart($product_id)
@@ -64,12 +93,16 @@
                             return false;
                         }
 
+                        $rewards = get_user_meta($user_id, 'rewards', true);
 
 
-
-                        // echo "<pre>";
-                        // print_r($recomended_courses);
-                        // echo "</pre>";
+                        echo "<pre>";
+                        print_r("rewards: " . $rewards);
+                        echo "<hr>";
+                        print_r("login day: " . $login_day_count);
+                        echo "<hr>";
+                        print_r("time: " . $diff);
+                        echo "</pre>";
 
                         ?>
                     </div>

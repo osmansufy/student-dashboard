@@ -16,6 +16,7 @@
 include_once 'controllers/SaLearners.php';
 include_once 'controllers/SaCourse.php';
 include_once 'controllers/SaOrders.php';
+include_once 'controllers/SaRewards.php';
 function sa_learners_dashboard_activate_sabd()
 {
     require_once plugin_dir_path(__FILE__) . 'includes/SaLearnersDbActivator.php';
@@ -78,6 +79,8 @@ function sa_learners_dashboard_plugin_scripts_and_styles()
         'sal_nonce' => $sal_nonce
     ));
 }
+
+add_action('wp_login', array('SaRewards', 'sa_user_last_login'), 10, 2);
 add_action('wp_enqueue_scripts', 'sa_learners_dashboard_plugin_scripts_and_styles');
 add_action('wp_ajax_sa_learners_update', array('SaLearners', 'sa_learners_update_callback'));
 add_action('wp_ajax_sa_learners_update_profile_picture', array('SaLearners', 'sa_learners_update_profile_picture_callback'));
