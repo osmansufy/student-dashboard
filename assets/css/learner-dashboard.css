@@ -647,6 +647,7 @@ html {
   border-radius: 25px;
   margin: 0 13px;
   display: flex;
+  width: auto;
 }
 
 .sidebar-menu-farhan

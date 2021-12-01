@@ -48,12 +48,7 @@
                         // print_r($user_id);
                         $userCourses = SaCourse::sa_get_user_courses_by_status($user_id);
                         $complete_courses = array();
-                        foreach ($enrolledCourses as $course) {
-                            $progress = bp_course_get_user_progress($user_id, $course['id']);
-                            if ($progress > 99) {
-                                $complete_courses[] =  $course['id'];
-                            }
-                        }
+
                         $certificate_list = bp_course_get_user_certificates($user_id);
 
                         $recomended_courses = SaCourse::get_recommended_courses($user_id);
