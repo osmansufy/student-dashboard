@@ -68,8 +68,7 @@
 
 
                         // echo "<pre>";
-                        // print_r($enrolledCourses);
-                        // print_r($subscription_users);
+                        // print_r($recomended_courses);
                         // echo "</pre>";
 
                         ?>

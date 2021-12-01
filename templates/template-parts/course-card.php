@@ -21,7 +21,16 @@
             </div>
             <div class="popular-overlay-btn">
                 <button type="button" class="btn btn-outline-primary btn-lg extra-radius">
-                    <?php echo bp_course_get_course_reviews($course->id)  ?>
+                    Rating <?php $average_rating = get_post_meta($course->ID, 'average_rating', true);
+
+                            for ($i = 1; $i <= 5; $i++) {
+                                if ($i <= $average_rating) {
+                                    echo '<i class="fas fa-star" style="color: orange;"></i>';
+                                } else {
+                                    echo '<i class="far fa-star"></i>';
+                                }
+                            }
+                            ?>
                 </button>
             </div>
         </div>
