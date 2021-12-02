@@ -101,8 +101,9 @@
                         echo "<hr>";
                         print_r("login day: " . $login_day_count);
                         echo "<hr>";
-                        print_r("time: " . $diff);
+                        print_r("time: " . $dataUnit);
                         echo "</pre>";
+                        echo $datit
 
                         ?>
                     </div>

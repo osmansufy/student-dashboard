@@ -17,6 +17,12 @@ include_once 'controllers/SaLearners.php';
 include_once 'controllers/SaCourse.php';
 include_once 'controllers/SaOrders.php';
 include_once 'controllers/SaRewards.php';
+
+define('SA_LEARNERS_DASHBOARD_PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('SA_LEARNERS_DASHBOARD_PLUGIN_URL', plugin_dir_url(__FILE__));
+define('SA_LEARNERS_DASHBOARD_PLUGIN_VERSION', '1.0.0');
+
+
 function sa_learners_dashboard_activate_sabd()
 {
     require_once plugin_dir_path(__FILE__) . 'includes/SaLearnersDbActivator.php';
@@ -81,6 +87,8 @@ function sa_learners_dashboard_plugin_scripts_and_styles()
 }
 
 add_action('wp_login', array('SaRewards', 'sa_user_last_login'), 10, 2);
+add_action('badgeos_wplms_submit_course', array('SaRewards', 'sa_badgeos_wplms_submit_course'));
+add_action('wplms_unit_complete', array('SaRewards', 'sa_wplms_unit_complete'), 5, 4);
 add_action('wp_enqueue_scripts', 'sa_learners_dashboard_plugin_scripts_and_styles');
 add_action('wp_ajax_sa_learners_update', array('SaLearners', 'sa_learners_update_callback'));
 add_action('wp_ajax_sa_learners_update_profile_picture', array('SaLearners', 'sa_learners_update_profile_picture_callback'));

@@ -83,4 +83,45 @@ class SaRewards
             update_user_meta($user->ID, 'rewards', 1);
         }
     }
+    function sa_badgeos_wplms_submit_course($course_id)
+    {
+        echo '<pre>';
+        print_r($course_id);
+        echo '</pre>';
+    }
+    function sa_wplms_unit_complete($unit_id, $course_progress, $course_id, $user_id)
+    {
+        $courses = SaCourse::sa_get_user_courses_by_status($user_id);
+        $completed_courses = $courses['complete_courses'];
+        $curriculums = 0;
+        foreach ($completed_courses as $key => $value) {
+            $courseId = $value;
+            $curriculums = $curriculums + count(bp_course_get_full_course_curriculum($courseId));
+        }
+        $curriculums = $curriculums + count(bp_course_get_full_course_curriculum($course_id));
+
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'sa_learner_achievements_mapping';
+        $wpdb->insert(
+            $table_name,
+            [
+                'user_id' => $user_id,
+                'achievement_id' => 25,
+                'achievement_name' => 'Complete 10 modules',
+                'achievement_type' => 'Complete  modules',
+                'reward_points' => 1,
+                'reward_type' => 'points',
+                'created_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                '%d',
+                '%d',
+                '%s',
+                '%s',
+                '%d',
+                '%s',
+                '%s',
+            ]
+        );
+    }
 }
