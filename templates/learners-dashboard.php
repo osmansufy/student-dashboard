@@ -36,7 +36,7 @@
 
                         <?php
 
-                        $user_id = get_current_user_id();
+
                         // woocommerce user  subscription page display
                         $user_subscription_page = get_option('woocommerce_myaccount_subscriptions_endpoint');
                         $user_subscription_page_url = get_permalink(get_option('woocommerce_myaccount_subscriptions_endpoint'));
@@ -53,16 +53,9 @@
 
                         $recomended_courses = SaCourse::get_recommended_courses($user_id);
 
-                        $last_login = get_the_author_meta('last_login');
+                        $last_login = get_user_meta($user_id, 'last_login', true);
 
-                        $the_login_date = human_time_diff($last_login);
-                        // if time diff is less than 10 mints  then show the time diff
-                        if ($the_login_date > 21) {
-                            $the_login_date = $the_login_date . ' minutes ago';
-                        } else {
-                            $the_login_date = human_time_diff($last_login);
-                        }
-                        $diff = round(abs(time() - $last_login) / (60), 0);
+                        $diff_min = round(abs(time() - $last_login) / 60, 1);
                         // if ($the_login_date < 24) {
                         //     $the_login_date = $the_login_date . ' ago';
                         // } else {
@@ -93,17 +86,42 @@
                             return false;
                         }
 
-                        $rewards = get_user_meta($user_id, 'rewards', true);
+                        $user_registration_rewards = SaRewards::get_rewards_by_user_id($user_id);
 
 
                         echo "<pre>";
-                        print_r("rewards: " . $rewards);
+                        foreach ($user_registration_rewards as $reward) {
+                            $rewards = SaRewards::get_rewards_from_acchivement_table($reward->achievement_id);
+                            print_r($rewards[0]->achievement_name);
+                            echo "<br>";
+                        }
+
+                        $courses = SaCourse::sa_get_user_courses_by_status($user_id);
+                        $enrolled_courses = $courses['enrolled_courses'];
+
+                        $done_units = [];
+                        $incomplete_units = [];
+                        foreach ($enrolled_courses as $enrolled_course) {
+                            $curriculums_enrolled = bp_course_get_full_course_curriculum($enrolled_course['id']);
+
+                            foreach ($curriculums_enrolled as $curriculum) {
+                                if ($curriculum['type'] == 'unit') {
+                                    if (get_user_meta($user_id, 'complete_unit_' . $curriculum['id'] . '_' . $enrolled_course['id'], true) != "") {
+                                        $done_units[] = $curriculum['id'];
+                                    } else {
+                                        $incomplete_units[] = $curriculum['id'];
+                                    }
+                                }
+                            }
+                        }
+
+                        $curriculums = count($done_units);
                         echo "<hr>";
                         print_r("login day: " . $login_day_count);
                         echo "<hr>";
-                        print_r("time: " . $dataUnit);
+                        print_r("module: " . $curriculums);
                         echo "</pre>";
-                        echo $datit
+
 
                         ?>
                     </div>

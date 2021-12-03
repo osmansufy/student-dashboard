@@ -68,34 +68,94 @@
                     <div class="col-12 regular-full white-rounded achievements">
                         <h3>Your Achievements</h3>
                         <div class="row">
+                            <?php
+                            $achievements = SaRewards::get_all_rewards();
+                            $signedInRewards =  array_filter($achievements, function ($achievement) {
+                                if ($achievement->rewards_type == "Signed in") {
+                                    return $achievement;
+                                }
+                            });
+                            $unitRewards =  array_filter($achievements, function ($achievement) {
+                                if ($achievement->rewards_type == "Complete modules") {
+                                    return $achievement;
+                                }
+                            });
+                            $otherRewards =  array_filter($achievements, function ($achievement) {
+                                if ($achievement->rewards_type != "Complete modules" && $achievement->rewards_type != "Signed in") {
+                                    return $achievement;
+                                }
+                            });
+                            // echo "<pre>";
+                            // print_r($signedInRewards);
+                            // echo "</pre>";
+                            ?>
                             <div class="col-12 col-md-4">
                                 <ul>
-                                    <li><a href="javascript:;">Signed in 2 days in a row</a></li>
-                                    <li><a href="javascript:;">Signed in 5 days in a row</a></li>
-                                    <li style="opacity: 0.5;"><a href="javascript:;">Signed in 7 days in a row</a></li>
-                                    <li style="opacity: 0.5;"><a href="javascript:;">Signed in 14 days in a row</a></li>
-                                    <li style="opacity: 0.5;"><a href="javascript:;">Signed in 21 days in a row</a></li>
-                                    <li style="opacity: 0.5;"><a href="javascript:;">2 rewards for every consecutive day after</a></li>
+                                    <?php
+                                    $user_id = get_current_user_id();
+                                    foreach ($signedInRewards as $signedInReward) {
+
+                                        $isActive = SaRewards::get_rewards_from_acchivement_id($user_id, $signedInReward->achievement_id)[0];
+
+                                    ?>
+                                        <li <?php
+                                            if ($isActive) {
+                                                echo 'style="opacity: 0.5;"';
+                                            }
+                                            ?>>
+                                            <?php echo $signedInReward->achievement_name ?>
+                                        </li>
+                                    <?php
+
+                                    }
+                                    ?>
+
                                 </ul>
                             </div>
                             <div class="col-12 col-md-4">
                                 <ul>
-                                    <li style="opacity: 0.5;"><a href="javascript:;">Complete 10 modules</a></li>
-                                    <li style="opacity: 0.5;"><a href="javascript:;">Complete 25 modules</a></li>
-                                    <li style="opacity: 0.5;"><a href="javascript:;">Complete 50 modules</a></li>
-                                    <li style="opacity: 0.5;"><a href="javascript:;">Complete 75 modules</a></li>
-                                    <li style="opacity: 0.5;"><a href="javascript:;">Complete 100 modules</a></li>
-                                    <li style="opacity: 0.5;"><a href="javascript:;">2 rewards for every module after</a></li>
+                                    <?php
+                                    foreach ($unitRewards as $reward) {
+
+                                        $isActive = SaRewards::get_rewards_from_acchivement_id($user_id, $reward->achievement_id)[0];
+
+                                    ?>
+                                        <li <?php
+                                            if ($isActive) {
+                                                echo 'style="opacity: 0.5;"';
+                                            }
+                                            ?>>
+                                            <?php echo $reward->achievement_name ?>
+                                        </li>
+                                    <?php
+
+                                    }
+                                    ?>
+
+
                                 </ul>
                             </div>
                             <div class="col-12 col-md-4">
                                 <ul>
-                                    <li style="opacity: 0.5;"><a href="javascript:;">Complete 1 course</a></li>
-                                    <li style="opacity: 0.5;"><a href="javascript:;">Complete 2 courses</a></li>
-                                    <li style="opacity: 0.5;"><a href="javascript:;">Complete 3 courses</a></li>
-                                    <li style="opacity: 0.5;"><a href="javascript:;">3 rewards for every course completion after</a></li>
-                                    <li class="mt-2"><a href="javascript:;">Register an Account</a></li>
-                                    <li class="light-trophy"><a href="https://newskillsacademy.co.uk/get-our-newsletter" style="opacity: 0.5;">Subscribe to our newsletter</a></li>
+                                    <?php
+                                    foreach ($otherRewards as $reward) {
+
+                                        $isActive = SaRewards::get_rewards_from_acchivement_id($user_id, $reward->achievement_id)[0];
+
+                                    ?>
+                                        <li <?php
+                                            if ($isActive) {
+                                                echo 'style="opacity: 0.5;"';
+                                            }
+                                            ?>>
+                                            <?php echo $reward->achievement_name ?>
+                                        </li>
+                                    <?php
+
+                                    }
+                                    ?>
+
+
                                 </ul>
                             </div>
                             <div class="col-12 retext">
