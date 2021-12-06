@@ -7,6 +7,27 @@
 
     wp_head();
     add_filter('show_admin_bar', '__return_false');
+
+    $previous_month = date('Y-m-d', strtotime('first day of previous  month'));
+    $last_day_prev_month = date('Y-m-d', strtotime('last day of previous  month'));
+    $current_month = date('Y-m-d', strtotime('first day of this month'));
+    $last_day_current_month = date('Y-m-d', strtotime('last day of this month'));
+    $current_date_is = date('Y-m-d');
+    $day_start = date('Y-m-d 00:00:00');
+    $results = SaRewards::get_reward_by_date_range($user_id, $day_start, $current_date_is);
+
+    $total_reward_today = intval($results[0]->total_reward);
+    if ($total_reward_today == null) {
+        $total_reward_today = 0;
+    }
+    $leaderBoard = SaRewards::get_all_rewards_of_user_id_with_time_range($current_month, $current_date_is);
+    // short  leaderBoard with rewards
+    function cmp($a, $b)
+    {
+        return strcmp($b->total_reward, $a->total_reward);
+    }
+
+    usort($leaderBoard, "cmp");
     ?>
 </head>
 
@@ -27,25 +48,44 @@
                     <div class="row pl-3 pr-3">
                         <div class="col-12 col-md-2">
                             <div class="regular-full pointsEarned text-center pointPicker">
-                                <div class="dropdown">
-                                    <label type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"> This Month </label>
-                                    <div aria-labelledby="dropdownMenuButton" class="dropdown-menu ">
-                                        <label href="#" class="dropdown-item">Today</label>
-                                        <label href="#" class="dropdown-item">This Week</label>
-                                        <label href="#" class="dropdown-item">This Month</label>
-                                        <label href="#" class="dropdown-item">This Year</label>
-                                        <label href="#" class="dropdown-item">All Time</label>
-                                    </div>
+                                <div>
+                                    <!-- <label class="control-label" for="user_reward">Company</label> -->
+                                    <select id="sa_user_reward" data-userid="<?php echo $user_id ?>" class="sal-reward-select" name="sa_user_reward">
+                                        <option value="today">Today</option>
+                                        <option value="week">This week</option>
+                                        <option value="month">This Month</option>
+                                        <option value="year">This Year</option>
+                                        <option value="allTime">All Time</option>
+                                    </select>
                                 </div>
                                 <div class="points mr-0">
                                     <p>Points Earned</p>
-                                    <h2>1</h2>
+                                    <h2 id="sal_user_point_earned">
+                                        <?php echo $total_reward_today  ?>
+                                    </h2>
                                 </div>
                             </div>
                         </div><!-- col end -->
                         <div class="col-12 col-md-10">
                             <div class=" regular-full pointsEarned align-items-center">
                                 <div class="trophy">
+                                    <?php
+                                    $total_rewards = SaRewards::get_all_rewards_by_user_id($user_id);
+                                    $total_reward = $total_rewards[0]->total_reward;
+                                    // var_dump($total_rewards);
+                                    if ($total_reward == null) {
+                                        $total_reward = 0;
+                                    }
+                                    if ($total_reward > 12) {
+                                        $total_reward = 12;
+                                    }
+                                    for ($i = 0; $i < $total_reward; $i++) {
+                                    ?>
+                                        <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy.png" alt="trophy">
+                                    <?php
+
+                                    }
+                                    ?>
                                     <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy.png" alt="trophy">
                                     <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy.png" alt="trophy">
                                     <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy.png" alt="trophy">
@@ -57,10 +97,7 @@
                                     <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy.png" alt="trophy" class="not-earned">
                                     <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy.png" alt="trophy" class="not-earned">
                                     <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy.png" alt="trophy" class="not-earned">
-                                    <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy.png" alt="trophy" class="not-earned">
-                                    <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy.png" alt="trophy" class="not-earned">
-                                    <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy.png" alt="trophy" class="not-earned">
-                                    <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy.png" alt="trophy" class="not-earned">
+
                                 </div>
                             </div>
                         </div> <!--  col end -->
@@ -207,9 +244,17 @@
                         <!--leader-Board -->
                         <div class="row">
                             <div class="col-12 col-md-8  white-rounded notification ">
+
                                 <div class="leaderboard">
                                     <h3>Student leaderboard</h3>
-                                    <div class="bs-dropdown" style="float: right;">
+                                    <div class="form-group">
+                                        <select id="monthly" class="form-control" name="monthly">
+                                            <option value="small">This Month</option>
+                                            <option value="medium">Last Month</option>
+
+                                        </select>
+                                    </div>
+                                    <!-- <div class="bs-dropdown" style="float: right;">
                                         <ul class="nav nav-pills" role="tablist">
                                             <li role="presentation" class="dropdown"> <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Dropdown <span class="caret"></span> </a>
                                                 <ul class="dropdown-menu" id="menu3" aria-labelledby="drop6">
@@ -218,110 +263,29 @@
                                                 </ul>
                                             </li>
                                         </ul>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <table class="table">
                                     <tbody>
-                                        <tr class="">
-                                            <th><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award"> 1</th>
-                                            <th>Thilliar V
-                                                <!---->
-                                            </th>
-                                            <th>5224 pts</th>
-                                            <th>
-                                                <!---->
-                                            </th>
-                                        </tr>
-                                        <tr class="">
-                                            <th><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award"> 2</th>
-                                            <th>Paul Martyn S
-                                                <!---->
-                                            </th>
-                                            <th>783 pts</th>
-                                            <th>
-                                                <!---->
-                                            </th>
-                                        </tr>
-                                        <tr class="">
-                                            <th><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award"> 3</th>
-                                            <th>amelia w
-                                                <!---->
-                                            </th>
-                                            <th>644 pts</th>
-                                            <th>
-                                                <!---->
-                                            </th>
-                                        </tr>
-                                        <tr class="">
-                                            <th><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award"> 4</th>
-                                            <th>Leanne A
-                                                <!---->
-                                            </th>
-                                            <th>486 pts</th>
-                                            <th>
-                                                <!---->
-                                            </th>
-                                        </tr>
-                                        <tr class="">
-                                            <th><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award"> 5</th>
-                                            <th>Zoe B
-                                                <!---->
-                                            </th>
-                                            <th>417 pts</th>
-                                            <th>
-                                                <!---->
-                                            </th>
-                                        </tr>
-                                        <tr class="">
-                                            <th><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award"> 6</th>
-                                            <th>Aneta K
-                                                <!---->
-                                            </th>
-                                            <th>393 pts</th>
-                                            <th>
-                                                <!---->
-                                            </th>
-                                        </tr>
-                                        <tr class="">
-                                            <th><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award"> 7</th>
-                                            <th>Janine O
-                                                <!---->
-                                            </th>
-                                            <th>382 pts</th>
-                                            <th>
-                                                <!---->
-                                            </th>
-                                        </tr>
-                                        <tr class="">
-                                            <th><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award"> 8</th>
-                                            <th>Angela M
-                                                <!---->
-                                            </th>
-                                            <th>375 pts</th>
-                                            <th>
-                                                <!---->
-                                            </th>
-                                        </tr>
-                                        <tr class="">
-                                            <th><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award"> 9</th>
-                                            <th>Parveen B
-                                                <!---->
-                                            </th>
-                                            <th>363 pts</th>
-                                            <th>
-                                                <!---->
-                                            </th>
-                                        </tr>
-                                        <tr class="">
-                                            <th><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award"> 10</th>
-                                            <th>Tina C
-                                                <!---->
-                                            </th>
-                                            <th>360 pts</th>
-                                            <th>
-                                                <!---->
-                                            </th>
-                                        </tr>
+                                        <?php
+                                        $i = 1;
+                                        foreach ($leaderBoard as $leader) {
+                                        ?>
+                                            <tr class="">
+                                                <th><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award"> <?php echo _e($i) ?></th>
+                                                <th><?php echo _e(strtoupper($leader->display_name)) ?>
+                                                    <!---->
+                                                </th>
+                                                <th><?php echo $leader->total_reward ?> pts</th>
+                                                <th>
+                                                    <!---->
+                                                </th>
+                                            </tr>
+                                        <?php
+                                            $i++;
+                                        }
+                                        ?>
+
                                     </tbody>
                                 </table>
                             </div><!-- col-notification-end  -->
@@ -332,6 +296,7 @@
                     <div class="last-line">
                         <p style="margin: 30px 0; font-size: 16px;   text-align: left;">
                             <em>Please note that language courses do not count towards your rewards totals.</em>
+
                         </p>
                     </div>
                 </div><!-- container-fluid-end  -->

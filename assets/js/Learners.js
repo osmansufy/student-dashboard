@@ -34,8 +34,33 @@ class Learners {
       "submit",
       this.onSubmitEditUser.bind(this)
     );
+    $("#sa_user_reward").on("change", this.onChangeReward);
     $(".btn-expand-collapse").click(function (e) {
       $(".navbar-primary").toggleClass("collapsed");
+    });
+  }
+  onChangeReward(e) {
+    console.log(e.target.value);
+    // get data attribute
+    console.log(e.target.dataset.userid);
+    let userId = e.target.dataset.userid;
+    let reward = e.target.value;
+    $.ajax({
+      // Send the username to the php file
+      type: "POST",
+      url: pluginData.ajax_url,
+      data: {
+        action: "sa_learners_change_reward",
+        user_id: userId,
+        date_range: reward,
+      },
+      beforeSend: function () {
+        $("#sal_user_point_earned").html('<i class="fas fa-spinner"></i>');
+      },
+      success: (data) => {
+        console.log(data);
+        $("#sal_user_point_earned").text(data);
+      },
     });
   }
   circularProgress() {

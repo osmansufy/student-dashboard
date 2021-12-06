@@ -31,8 +31,95 @@ class SaRewards
     public static function get_rewards_by_user_id($user_id)
     {
         global $wpdb;
-        $table_name = $wpdb->prefix . 'sa_learner_achievements_mapping';
-        $sql = "SELECT * FROM $table_name WHERE user_id = $user_id";
+        $table_name_map = $wpdb->prefix . 'sa_learner_achievements_mapping';
+        $table_name = $wpdb->prefix . 'sa_learner_achievements';
+        $sql = "SELECT * FROM $table_name_map join $table_name on $table_name_map.achievement_id = $table_name.achievement_id WHERE $table_name_map.user_id = $user_id";
+        $results = $wpdb->get_results($sql);
+        return $results;
+    }
+    public static function get_all_rewards_by_user_id($user_id)
+    {
+        global $wpdb;
+        $table_name_map = $wpdb->prefix . 'sa_learner_achievements_mapping';
+        $table_name = $wpdb->prefix . 'sa_learner_achievements';
+        $sql = "SELECT SUM($table_name.rewards_points) as total_reward FROM $table_name_map join $table_name on $table_name_map.achievement_id = $table_name.achievement_id WHERE $table_name_map.user_id = $user_id";
+        $results = $wpdb->get_results($sql);
+        return $results;
+    }
+    public static function get_all_rewards_of_user_id_with_time_range($start_date, $end_date)
+    {
+        global $wpdb;
+        $table_name_map = $wpdb->prefix . 'sa_learner_achievements_mapping';
+        $table_name = $wpdb->prefix . 'sa_learner_achievements';
+        $table_user = $wpdb->prefix . 'users';
+        // return $end_date;
+        $sql = "SELECT SUM($table_name.rewards_points)as total_reward,$table_name_map.user_id,$table_user.display_name  FROM $table_name_map join $table_name on $table_name_map.achievement_id = $table_name.achievement_id join $table_user on $table_user.ID=$table_name_map.user_id  WHERE  $table_name_map.created_at BETWEEN '$start_date' AND '$end_date' GROUP BY $table_name_map.user_id";
+        $results = $wpdb->get_results($sql);
+        return $results;
+    }
+    public static function get_reward_by_date_range($user_id, $start_date, $end_date)
+    {
+        global $wpdb;
+        $table_name_map = $wpdb->prefix . 'sa_learner_achievements_mapping';
+        $table_name = $wpdb->prefix . 'sa_learner_achievements';
+
+        $sql = "SELECT SUM($table_name.rewards_points) as total_reward FROM $table_name_map join $table_name on $table_name_map.achievement_id = $table_name.achievement_id WHERE $table_name_map.user_id = $user_id AND $table_name_map.created_at BETWEEN '$start_date' AND '$end_date'";
+        // return $sql;
+        $results = $wpdb->get_results($sql);
+        return $results;
+    }
+    public static function sal_ajax_get_reward_by_date_range()
+    {
+        $first_day_week = date('Y-m-d', strtotime('monday this week'));
+        $first_day_year = date('Y-m-d', strtotime('first day of january this year'));
+        $day_start = date('Y-m-d 00:00:00');
+        $current_month = date('Y-m-d', strtotime('first day of this month'));
+        $current_date_is = date('Y-m-d');
+        $date_range = $_POST['date_range'];
+        $user_id = $_POST['user_id'];
+        if ($date_range != "allTime") {
+            switch ($date_range) {
+                case 'week':
+                    $start_date = $first_day_week;
+                    $end_date = $current_date_is;
+                    break;
+                case 'month':
+                    $start_date = $current_month;
+                    $end_date = $current_date_is;
+                    break;
+                case 'year':
+                    $start_date = $first_day_year;
+                    $end_date = $current_date_is;
+                    break;
+                case 'today':
+                    $start_date = $day_start;
+                    $end_date = $current_date_is;
+                    break;
+                default:
+                    $start_date = $first_day_week;
+                    $end_date = $current_date_is;
+                    break;
+            }
+            $results = self::get_reward_by_date_range($user_id, $start_date, $end_date);
+        } elseif ($date_range == "allTime") {
+            $results = self::get_all_rewards_by_user_id($user_id);
+        }
+        // string to number
+
+        $total_reward = intval($results[0]->total_reward);
+        if ($total_reward == null) {
+            $total_reward = 0;
+        }
+        echo json_encode($total_reward);
+        wp_die();
+    }
+    public static function get_all_user_reward_with_date_range($start_date, $end_date)
+    {
+        global $wpdb;
+        $table_name_map = $wpdb->prefix . 'sa_learner_achievements_mapping';
+        $table_name = $wpdb->prefix . 'sa_learner_achievements';
+
+        $sql = "SELECT SUM($table_name.rewards_points) as total_reward, $table_name_map.user_id FROM $table_name_map join $table_name on $table_name_map.achievement_id = $table_name.achievement_id  GROUP BY $table_name_map.user_id BETWEEN '$start_date' AND '$end_date'";
         $results = $wpdb->get_results($sql);
         return $results;
     }
@@ -78,6 +165,17 @@ class SaRewards
             ));
         }
     }
+    public static function sal_insert_reward_repeat($user_id, $achievement_id)
+    {
+        global $wpdb;
+        $table_rewards = $wpdb->prefix . 'sa_learner_achievements_mapping';
+        $wpdb->insert($table_rewards, array(
+            'user_id' => $user_id,
+            'achievement_id' => $achievement_id,
+            'created_at' => date('Y-m-d H:i:s')
+        ));
+    }
+
     static function sa_user_last_login($user_login, $user)
     {
 
@@ -175,13 +273,14 @@ class SaRewards
                     $achievement_id = self::$course_id_3;
                     break;
             }
+            if (!empty($achievement_id)) {
+                self::sal_insert_reward($user_id, $achievement_id);
+            }
         } elseif ($total_courses > 3) {
             $achievement_id = self::$course_id_4;
+            self::sal_insert_reward_repeat($user_id, $achievement_id);
         } else {
             return;
-        }
-        if (!empty($achievement_id)) {
-            self::sal_insert_reward($user_id, $achievement_id);
         }
     }
 
@@ -258,6 +357,9 @@ class SaRewards
                     $unit_id_3 = self::$unit_id_3;
                     break;
             }
+            if (!empty($achievement_id)) {
+                self::sal_insert_reward($user_id, $achievement_id);
+            }
         } elseif ($curriculums > 100) {
             $unit_id_1 = self::$unit_id_1;
             self::sal_insert_reward($user_id, $unit_id_1);
@@ -268,12 +370,9 @@ class SaRewards
             $unit_id_4 = self::$unit_id_4;
             self::sal_insert_reward($user_id, $unit_id_4);
             $achievement_id = self::$unit_id_6;
+            self::sal_insert_reward_repeat($user_id, $achievement_id);
         } else {
             return;
-        }
-
-        if (!empty($achievement_id)) {
-            self::sal_insert_reward($user_id, $achievement_id);
         }
     }
 }

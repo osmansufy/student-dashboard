@@ -89,37 +89,45 @@
                         $user_registration_rewards = SaRewards::get_rewards_by_user_id($user_id);
 
 
-                        echo "<pre>";
+                        // echo "<pre>";
+                        // var_dump($user_registration_rewards);
+                        // echo "</pre>";
+                        $total_rewards = 0;
                         foreach ($user_registration_rewards as $reward) {
-                            $rewards = SaRewards::get_rewards_from_acchivement_table($reward->achievement_id);
-                            print_r($rewards[0]->achievement_name);
+                            // $rewards = SaRewards::get_rewards_from_acchivement_table($reward->achievement_id);
+                            echo "<br>";
+                            print_r($reward->achievement_name);
+                            $total_rewards += $reward->rewards_points;
                             echo "<br>";
                         }
+                        // date string date('Y-m-d H:i:s')
+                        // day start
 
-                        $courses = SaCourse::sa_get_user_courses_by_status($user_id);
-                        $enrolled_courses = $courses['enrolled_courses'];
+                        $current_date_is = date('Y-m-d');
+                        // $date_start = date('Y-m-d H:i:s', strtotime('-1 day', strtotime($current_date_is)));
+                        $seven_days_ago = date('Y-m-d H:i:s', strtotime('-3 days'));
+                        $today = date('Y-m-d H:i:s', strtotime('-1 days'));
+                        $start_date = date('Y-m-d H:i:s', strtotime('-5 days'));
+                        $previous_month = date('Y-m-d H:i:s', strtotime('first day of previous  month'));
+                        $last_day_prev_month = date('Y-m-d H:i:s', strtotime('last day of previous  month'));
+                        $range_reward =  SaRewards::get_reward_by_date_range($user_id, $start_date, $today);
+                        $start_of_month = date('Y-m-d H:i:s', strtotime('first day of this month'));
+                        $end_of_month = date('Y-m-d H:i:s', strtotime('-1 day'));
+                        $all_user = SaRewards::get_all_user_reward_with_date_range($today, $current_date_is);
+                        $all_user_reward = SaRewards::get_all_rewards_of_user_id_with_time_range($start_date, $current_date_is);
+                        $user_reward = SaRewards::get_all_rewards_by_user_id($user_id);
 
-                        $done_units = [];
-                        $incomplete_units = [];
-                        foreach ($enrolled_courses as $enrolled_course) {
-                            $curriculums_enrolled = bp_course_get_full_course_curriculum($enrolled_course['id']);
-
-                            foreach ($curriculums_enrolled as $curriculum) {
-                                if ($curriculum['type'] == 'unit') {
-                                    if (get_user_meta($user_id, 'complete_unit_' . $curriculum['id'] . '_' . $enrolled_course['id'], true) != "") {
-                                        $done_units[] = $curriculum['id'];
-                                    } else {
-                                        $incomplete_units[] = $curriculum['id'];
-                                    }
-                                }
-                            }
-                        }
-
-                        $curriculums = count($done_units);
-                        echo "<hr>";
-                        print_r("login day: " . $login_day_count);
-                        echo "<hr>";
-                        print_r("module: " . $curriculums);
+                        echo "<pre>";
+                        // echo "test" . date('Y-m-d', strtotime('-4 days'));
+                        var_dump($user_reward);
+                        // echo "</pre>";
+                        // print_r("current_date_is: " . $current_date_is);
+                        // echo "<br>";
+                        print_r("today: " . $today);
+                        echo "<br>";
+                        // print_r("previous_month: " . $previous_month);
+                        // echo "<br>";
+                        // print_r("last_day_prev_month: " . $last_day_prev_month);
                         echo "</pre>";
 
 
