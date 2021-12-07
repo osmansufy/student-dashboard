@@ -70,11 +70,11 @@ class SaRewards
     }
     public static function sal_ajax_get_reward_by_date_range()
     {
-        $first_day_week = date('Y-m-d', strtotime('monday this week'));
-        $first_day_year = date('Y-m-d', strtotime('first day of january this year'));
+        $first_day_week = date('Y-m-d H:i:s', strtotime('monday this week'));
+        $first_day_year = date('Y-m-d H:i:s', strtotime('first day of january this year'));
         $day_start = date('Y-m-d 00:00:00');
-        $current_month = date('Y-m-d', strtotime('first day of this month'));
-        $current_date_is = date('Y-m-d');
+        $current_month = date('Y-m-d H:i:s', strtotime('first day of this month'));
+        $current_date_is = date('Y-m-d H:i:s');
         $date_range = $_POST['date_range'];
         $user_id = $_POST['user_id'];
         if ($date_range != "allTime") {
@@ -164,6 +164,16 @@ class SaRewards
                 'created_at' => date('Y-m-d H:i:s')
             ));
         }
+        self::sal_update_remaining_rewards($user_id);
+    }
+    public static function sal_update_remaining_rewards($user_id)
+    {
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'sa_learner_achievements';
+        $table_rewards = $wpdb->prefix . 'sa_learner_achievements_mapping';
+        $sql = "SELECT SUM($table_name.rewards_points) as total_reward FROM $table_rewards join $table_name on $table_rewards.achievement_id = $table_name.achievement_id WHERE $table_rewards.user_id = $user_id";
+        $results = $wpdb->get_results($sql);
+        update_user_meta($user_id, 'user_reward', $results[0]->total_reward);
     }
     public static function sal_insert_reward_repeat($user_id, $achievement_id)
     {
@@ -174,6 +184,7 @@ class SaRewards
             'achievement_id' => $achievement_id,
             'created_at' => date('Y-m-d H:i:s')
         ));
+        self::sal_update_remaining_rewards($user_id);
     }
 
     static function sa_user_last_login($user_login, $user)
@@ -222,14 +233,14 @@ class SaRewards
 
     static function sa_user_rewards_for_login($user)
     {
-        $login_day_count = get_user_meta($user->ID, 'login_day_count', true);
+        $login_day_count = 22;
+        // $login_day_count = get_user_meta($user->ID, 'login_day_count', true);
         $achievement_id = '';
 
         if ($login_day_count <= 21) {
             switch ($login_day_count) {
                 case 2:
                     $achievement_id = self::$sign_in_id_1;
-
                     break;
                 case 5:
                     $achievement_id = self::$sign_in_id_2;
@@ -246,13 +257,12 @@ class SaRewards
                 default:
                     break;
             }
+            self::sal_insert_reward($user->ID, $achievement_id);
         } elseif ($login_day_count > 21) {
-            $achievement_id = self::$sign_in_id_6;
+            $achievement_repeat_id = self::$sign_in_id_6;
+            self::sal_insert_reward_repeat($user->ID, $achievement_repeat_id);
         } else {
             return;
-        }
-        if (!empty($achievement_id)) {
-            self::sal_insert_reward($user->ID, $achievement_id);
         }
     }
     function sa_badgeos_wplms_submit_course($course_id)

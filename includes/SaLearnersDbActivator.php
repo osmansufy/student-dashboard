@@ -149,6 +149,7 @@ class SaLearnersDbActivator
         self::SaLearnersDbCreate(['title' => 'Learners saved courses', 'slug' => 'learners-saved-courses', 'template' => 'learners-saved-courses']);
         self::SaLearnersDbCreate(['title' => 'Learners support', 'slug' => 'learners-support', 'template' => 'learners-support']);
         self::sal_create_table();
+        self::sal_create_woocomerce_coupons();
     }
     protected function SaLearnersDbCreate($data)
     {
@@ -172,7 +173,71 @@ class SaLearnersDbActivator
             }
         }
     }
+    static function sal_create_woocomerce_coupons()
+    {
+        // if woocommerce is not active
+        if (!class_exists('WooCommerce')) {
+            return;
+        }
 
+        $coupons = new SaCommon();
+        $all_coupons =  $coupons->all_coupons;
+        foreach ($all_coupons as $coupon) {
+
+            self::sal_create_coupon($coupon);
+        }
+    }
+    static  function sal_create_coupon($coupon)
+    {
+        // create random 6 digit 
+
+
+        $isMultiple = $coupon['isMultiple'];
+        $amount = $coupon['coupon_discount'];
+        $discount_type = 'percent';
+        $coupon_code = $coupon['coupon_code'];
+        $coupon_description = $coupon['coupon_description'];
+        $coupon_minimum_amount = $coupon['coupon_minimum_amount'];
+        $coupon_maximum_amount = $coupon['coupon_maximum_amount'];
+        $reward_type = $coupon['rewards_type'];
+        $reward_id = $coupon['rewards_id'];
+        $reward_points_need = $coupon['rewards_points_need'];
+        $coupon_individual_use = false;
+        $coupon_exclude_sale_items = false;
+        $coupon_expiry_date = '';
+        $coupon = array(
+            'post_title' => $coupon_code,
+            'post_content' => $coupon_description,
+            // 'post_excerpt' => $coupon_description,
+            'post_status' => 'publish',
+            'post_author' => 1,
+            'post_type' => 'shop_coupon'
+        );
+
+
+        try {
+            $new_coupon_id = wp_insert_post($coupon);
+            update_post_meta($new_coupon_id, 'discount_type', $discount_type);
+            update_post_meta($new_coupon_id, 'coupon_amount', $amount);
+            update_post_meta($new_coupon_id, 'individual_use', $coupon_individual_use);
+            // update_post_meta($new_coupon_id, 'product_ids', $coupon_product_ids);
+            // update_post_meta($new_coupon_id, 'exclude_product_ids', $coupon_exclude_product_ids);
+            update_post_meta($new_coupon_id, 'usage_limit', '1');
+            update_post_meta($new_coupon_id, 'usage_limit_per_user', '1');
+            update_post_meta($new_coupon_id, 'expiry_date', $coupon_expiry_date);
+
+            // update_post_meta($new_coupon_id, 'minimum_amount', $coupon_minimum_amount);
+            update_post_meta($new_coupon_id, 'maximum_amount', $coupon_maximum_amount);
+            update_post_meta($new_coupon_id, 'exclude_sale_items', $coupon_exclude_sale_items);
+            update_post_meta($new_coupon_id, 'reward_type', $reward_type);
+            update_post_meta($new_coupon_id, 'reward_count', $reward_points_need);
+            update_post_meta($new_coupon_id, 'isMultiple', $isMultiple);
+        } catch (Exception $e) {
+        }
+
+
+        return $coupon_code;
+    }
     static function sal_create_table()
     {
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');

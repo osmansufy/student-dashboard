@@ -62,16 +62,16 @@
                         //     $the_login_date = date('d M Y', $last_login);
                         // }
                         // get date difference between last login and current date
-                        $current_date = date('d-m-Y');
-                        $last_login_date = date('d-m-Y', $last_login);
+                        $current_date = date('d-m-Y H:i:s');
+                        $last_login_date = date('d-m-Y H:i:s', $last_login);
                         $date_diff = date_diff(date_create($current_date), date_create($last_login_date));
 
                         // if date difference is greater than 30 days then show the message
-                        if ($date_diff->days > 1) {
-                            $show_message = true;
-                        } else {
-                            $show_message = false;
-                        }
+                        // if ($date_diff->days > 1) {
+                        //     $show_message = true;
+                        // } else {
+                        //     $show_message = false;
+                        // }
 
 
                         $login_day_count = get_user_meta($user_id, 'login_day_count', true);
@@ -108,9 +108,11 @@
                         $seven_days_ago = date('Y-m-d H:i:s', strtotime('-3 days'));
                         $today = date('Y-m-d H:i:s', strtotime('-1 days'));
                         $start_date = date('Y-m-d H:i:s', strtotime('-5 days'));
+                        $first_day_week = date('Y-m-d H:i:s', strtotime('monday this week'));
+                        $current_date_is = date('Y-m-d H:i:s');
                         $previous_month = date('Y-m-d H:i:s', strtotime('first day of previous  month'));
                         $last_day_prev_month = date('Y-m-d H:i:s', strtotime('last day of previous  month'));
-                        $range_reward =  SaRewards::get_reward_by_date_range($user_id, $start_date, $today);
+                        $range_reward =  SaRewards::get_reward_by_date_range($user_id, $first_day_week, $current_date_is);
                         $start_of_month = date('Y-m-d H:i:s', strtotime('first day of this month'));
                         $end_of_month = date('Y-m-d H:i:s', strtotime('-1 day'));
                         $all_user = SaRewards::get_all_user_reward_with_date_range($today, $current_date_is);
@@ -118,14 +120,12 @@
                         $user_reward = SaRewards::get_all_rewards_by_user_id($user_id);
 
                         echo "<pre>";
-                        // echo "test" . date('Y-m-d', strtotime('-4 days'));
-                        var_dump($user_reward);
+                        var_dump($range_reward);
                         // echo "</pre>";
-                        // print_r("current_date_is: " . $current_date_is);
+                        print_r("range_reward: " . $range_reward);
                         // echo "<br>";
-                        print_r("today: " . $today);
                         echo "<br>";
-                        // print_r("previous_month: " . $previous_month);
+                        print_r("first_day_week: " . $first_day_week);
                         // echo "<br>";
                         // print_r("last_day_prev_month: " . $last_day_prev_month);
                         echo "</pre>";

@@ -8,26 +8,9 @@
     wp_head();
     add_filter('show_admin_bar', '__return_false');
 
-    $previous_month = date('Y-m-d', strtotime('first day of previous  month'));
-    $last_day_prev_month = date('Y-m-d', strtotime('last day of previous  month'));
-    $current_month = date('Y-m-d', strtotime('first day of this month'));
-    $last_day_current_month = date('Y-m-d', strtotime('last day of this month'));
-    $current_date_is = date('Y-m-d');
-    $day_start = date('Y-m-d 00:00:00');
-    $results = SaRewards::get_reward_by_date_range($user_id, $day_start, $current_date_is);
 
-    $total_reward_today = intval($results[0]->total_reward);
-    if ($total_reward_today == null) {
-        $total_reward_today = 0;
-    }
-    $leaderBoard = SaRewards::get_all_rewards_of_user_id_with_time_range($current_month, $current_date_is);
-    // short  leaderBoard with rewards
-    function cmp($a, $b)
-    {
-        return strcmp($b->total_reward, $a->total_reward);
-    }
 
-    usort($leaderBoard, "cmp");
+
     ?>
 </head>
 
@@ -35,11 +18,28 @@
     <div class="sidebar-menu-farhan">
         <?php include_once('template-parts/dashboard-top-nav.php'); ?>
         <?php include_once('template-parts/dashboard-sidebar.php'); ?>
+        <?php
+        $previous_month = date('Y-m-d', strtotime('first day of previous  month'));
+        $last_day_prev_month = date('Y-m-d', strtotime('last day of previous  month'));
+        $current_month = date('Y-m-d', strtotime('first day of this month'));
+        $last_day_current_month = date('Y-m-d H:i:s', strtotime('last day of this month'));
+        $day_start = date('Y-m-d 00:00:00');
+        $current_date_is = date('Y-m-d H:i:s');
+        $results = SaRewards::get_reward_by_date_range($user_id, $day_start, $current_date_is);
 
+
+        $total_reward_today = intval($results[0]->total_reward);
+        if ($total_reward_today == null) {
+            $total_reward_today = 0;
+        };
+        // var_dump($results);
+        ?>
         <div class="main-content">
             <section class="page-title">
                 <div class="container-fluid">
-                    <h1>My Rewards</h1>
+                    <h1>My Rewards
+
+                    </h1>
                 </div>
             </section>
             <section class="content-main-body">
@@ -101,6 +101,15 @@
                                 </div>
                             </div>
                         </div> <!--  col end -->
+                        <div>
+                            <?php
+                            $user_reward =  get_user_meta($user_id, 'user_reward', true);
+                            if ($user_reward == null) {
+                                $user_reward = 0;
+                            }
+                            echo '<h2> Reward Reaimaing: ' . $user_reward . '</h2>';
+                            ?>
+                        </div>
                     </div> <!-- row end -->
                     <div class="col-12 regular-full white-rounded achievements">
                         <h3>Your Achievements</h3>
@@ -203,11 +212,45 @@
                     <div class="Claim-reward">
                         <div class="col-12 col-md-8 white-rounded">
                             <h3>Claimed Rewards</h3>
-                            <div class="rewards-inner nav-item ">
-                                <a class="btn btn-primary"><img src="https://newskillsacademy.co.uk/assets/user/images/trophy-white.png" alt="trophy">X2</a>
-                                <p> 80% off coupon code: 5bc4c87070b76 - <span class="unclaimed">Unclaimed</span></p>
-                            </div>
-                            <div class="rewards-inner">
+                            <?php
+                            $user_id = get_current_user_id();
+                            $user_info = get_userdata($user_id);
+                            $user_email =      $user_info->user_email;
+                            $all_coupons = new SaCommon();
+                            $coupons = $all_coupons->all_coupons;
+                            $user_reward =  get_user_meta($user_id, 'user_reward', true);
+
+                            foreach ($coupons as $coupon) {
+                                $check_user_email_exist = SaCoupon::check_email_exist_coupon($coupon['coupon_code'], $user_email);
+                                $nonce = wp_create_nonce($coupon['coupon_code']);
+                            ?>
+                                <div class="rewards-inner nav-item <?php if ($user_reward >= $coupon['rewards_points_need'] || $check_user_email_exist) {
+                                                                        echo "sal-active";
+                                                                    } else {
+                                                                        echo "sal-not-active";
+                                                                    }
+                                                                    ?> ">
+                                    <a class="btn btn-primary"><img src="https://newskillsacademy.co.uk/assets/user/images/trophy-white.png" alt="trophy">X<?php echo $coupon['rewards_points_need'] ?></a>
+                                    <p id="sal_reward_btn_text"> <?php echo $coupon['coupon_description'] ?> -> <?php if ($check_user_email_exist) { ?>
+                                            <span>Already Claimed</span>
+                                        <?php } elseif ($user_reward >= $coupon['rewards_points_need']) { ?>
+                                            <a class="btn btn-primary sal-claim-reward" data-nonce="<?php echo $nonce ?>" data-userid="<?php echo $user_id ?>" data-user_email="<?php echo $user_email ?>" data-couponcode="<?php echo $coupon['coupon_code'] ?>" data-reward="<?php echo $coupon['rewards_points_need'] ?>">
+                                                Click here to claim
+                                            </a>
+
+                                        <?php
+                                                                                                                } else {
+                                                                                                                    echo   $coupon['rewards_points_need'] - $user_reward . " points needed";
+                                                                                                                }
+                                        ?>
+                                    </p>
+
+
+                                </div>
+                            <?php
+                            }
+                            ?>
+                            <!-- <div class="rewards-inner">
                                 <a class="btn btn-primary"><img src="https://newskillsacademy.co.uk/assets/user/images/trophy-white.png" alt="trophy">X5</a>
                                 <p> 90% off - 1 more trophies needed </p>
                             </div>
@@ -236,7 +279,7 @@
                                 <a href="#" class="find-btn">
                                     <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/find-btn.png" alt="Find out">
                                 </a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 
@@ -268,6 +311,14 @@
                                 <table class="table">
                                     <tbody>
                                         <?php
+                                        $leaderBoard = SaRewards::get_all_rewards_of_user_id_with_time_range($current_month, $current_date_is);
+                                        // short  leaderBoard with rewards
+                                        function cmp($a, $b)
+                                        {
+                                            return strcmp($b->total_reward, $a->total_reward);
+                                        }
+
+                                        usort($leaderBoard, "cmp");
                                         $i = 1;
                                         foreach ($leaderBoard as $leader) {
                                         ?>

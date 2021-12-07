@@ -837,6 +837,9 @@ html {
   display: inline-block;
   width: 100%;
   margin-top: 20px;
+  /* opacity: 0.5; */
+}
+.sidebar-menu-farhan .sal-not-active {
   opacity: 0.5;
 }
 
