@@ -35,7 +35,9 @@ class SaRewards
     // fired after the user has been logged in
     static function sa_user_last_login($user_login, $user)
     {
+        $registration_achievement_id = self::$registration_achievement_id;
 
+        self::sal_insert_reward($user->ID, $registration_achievement_id);
         if (get_user_meta($user->ID, 'last_login', true)) {
             $last_login = get_user_meta($user->ID, 'last_login', true);
             // time difference in hours from current time
@@ -241,8 +243,8 @@ class SaRewards
                 'achievement_id' => $achievement_id,
                 'created_at' => date('Y-m-d H:i:s')
             ));
+            self::sal_update_remaining_rewards($user_id, $achievement_id);
         }
-        self::sal_update_remaining_rewards($user_id, $achievement_id);
     }
 
     public static function sal_insert_reward_repeat($user_id, $achievement_id)

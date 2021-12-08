@@ -51,3 +51,35 @@ if ($check_user_90) {
         }
     }
 }
+?>
+<?php
+$gf = new SaGravityFormCoupon();
+$user_gf_coupons = $gf->coupon_code_for_user;
+$nonce_certificate = wp_create_nonce("sa_gf_coupon_nonce");
+?>
+<div class="rewards-inner <?php if ($user_reward >= 1) {
+                                echo "sal-active";
+                            } else {
+                                echo "sal-not-active";
+                            }
+                            ?>">
+    <a class="btn btn-primary"><img src="https://newskillsacademy.co.uk/assets/user/images/trophy-white.png" alt="trophy">X12</a>
+    <p class="sal_gf_coupon_code"> Free Certificate -> <?php if ($user_gf_coupons) { ?>
+            <span>Coupon code: <strong> <?php echo $user_gf_coupons ?></strong> </span>
+        <?php } elseif ($user_reward >= 1) { ?>
+            <a class="btn btn-primary" id="sal_gf_coupon" data-nonce="<?php echo $nonce_certificate ?>" data-userid="<?php echo $user_id ?>" data-reward="12">
+                Click here to claim
+            </a>
+
+        <?php
+                                                        } else {
+                                                            if ($user_reward) {
+                                                                echo "You need " . ($coupon_rewards - $user_reward) . " more points to claim this coupon";
+                                                            } else {
+                                                                echo "You need " . ($coupon_rewards) . " points to claim this coupon";
+                                                            }
+                                                        }
+        ?>
+    </p>
+</div>
+</div>

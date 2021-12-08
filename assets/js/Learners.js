@@ -39,6 +39,44 @@ class Learners {
       $(".navbar-primary").toggleClass("collapsed");
     });
     $(".sal-claim-reward").on("click", this.onClaimReward);
+    $("#sal_gf_coupon").on("click", this.onClaimRewardGfCoupon);
+  }
+  onClaimRewardGfCoupon(e) {
+    e.preventDefault();
+
+    let nonce = e.target.dataset.nonce;
+    let userId = e.target.dataset.userid;
+    let reward_used = e.target.dataset.reward;
+    console.log(reward_used, userId, nonce);
+    $.ajax({
+      // Send the username to the php file
+      type: "POST",
+      url: pluginData.ajax_url,
+      data: {
+        action: "sa_learners_claim_gf_reward",
+        user_id: userId,
+        reward_used: reward_used,
+        sal_nonce: nonce,
+      },
+      beforeSend: function () {
+        let content = `<div>
+    <span>Coupon Code:<i class="fas fa-spinner"></i></span>
+        </div>`;
+        $(".sal_gf_coupon_code").html(content);
+      },
+      success: (data) => {
+        console.log(data);
+        if (data.success) {
+          console.log(data.data.message);
+          let content = `<div>
+    <span>Coupon Code:${data.data.coupon_code}</span>
+    </div>`;
+          $(".sal_gf_coupon_code").html(content);
+        } else {
+          console.log(data.message);
+        }
+      },
+    });
   }
   onClaimReward(e) {
     // $userId = $(e.target).data("userid");

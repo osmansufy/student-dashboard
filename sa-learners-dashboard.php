@@ -20,6 +20,7 @@ include_once 'controllers/SaOrders.php';
 include_once 'controllers/SaRewards.php';
 include_once 'controllers/SaCommon.php';
 include_once 'controllers/SaCoupon.php';
+include_once 'controllers/SaGravityFormCoupon.php';
 
 define('SA_LEARNERS_DASHBOARD_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('SA_LEARNERS_DASHBOARD_PLUGIN_URL', plugin_dir_url(__FILE__));
@@ -101,3 +102,4 @@ add_action('wp_ajax_sa_learners_add_to_cart', array('SaCourse', 'sa_learners_add
 add_action('wp_ajax_sa_learners_remove_wishlist', array('SaCourse', 'sa_remove_from_wishlist'));
 add_action('wp_ajax_sa_learners_change_reward', array('SaRewards', 'sal_ajax_get_reward_by_date_range'));
 add_action('wp_ajax_sa_learners_claim_reward', array('SaCoupon', 'sa_learners_claim_reward'));
+add_action('wp_ajax_sa_learners_claim_gf_reward', array('SaCoupon', 'sal_gf_coupon_generator'));

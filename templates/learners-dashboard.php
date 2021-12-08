@@ -86,7 +86,9 @@
                             return false;
                         }
 
-
+                        $testCop = new SaGravityFormCoupon();
+                        $test = $testCop->create_coupon_gf("test", "testforcertificate", "10", "percentage", "20");
+                        var_dump($test);
 
                         ?>
                     </div>
@@ -163,7 +165,8 @@
                                 <div class="banner-number">
                                     <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2019/10/cpd-member.png" alt="cpd">
                                     <p>Get access to exclusive student discounts</p>
-                                    <a href="#" class="btn btn-outline-light">GET YOUR STUDENT CARD NOW</a>
+                                    <a href="
+                                    <?php echo get_site_url() . '/student-id-card' ?>" class="btn btn-outline-light">GET YOUR STUDENT CARD NOW</a>
                                 </div>
                             </div>
                         </div>
