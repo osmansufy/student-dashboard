@@ -4,13 +4,15 @@ class SaCoupon
     // insert user email in coupon code
     public static function sa_learners_claim_reward()
     {
-        $coupon_code = $_POST['coupon_code'];
+        $coupon_id = $_POST['coupon_id'];
         $reward_used = $_POST['reward_used'];
         $user_id = $_POST['userId'];
         $email = $_POST['user_email'];
         $nonce = $_POST['nonce'];
 
-
+        $common = new SaCommon();
+        $get_coupon = $common->get_single_coupon($coupon_id);
+        $coupon_code = $get_coupon['coupon_code'];
         try {
             if (!wp_verify_nonce($nonce, $coupon_code)) {
                 throw new Exception('Sorry, your nonce did not verify.');
@@ -23,16 +25,21 @@ class SaCoupon
             $coupon->save();
             self::update_user_reward_meta($user_id, $reward_used);
             // return $emails;
-            echo json_encode(array('status' => 'success', 'message' => 'Reward Successfully Claimed .', 'coupon_code' => $coupon_code));
+            wp_send_json_success([
+                'message' => 'Reward Successfully Claimed .', 'coupon_code' => $coupon_code,
+                'success' => true
+            ]);
         } catch (Exception $e) {
-            echo json_encode(array('status' => 'error', 'message' => 'Error in claiming reward coupon.'));
+            wp_send_json_error([
+                'message' => $e->getMessage(), 'success' => false
+            ]);
         }
     }
     public static function update_user_reward_meta($user_id, $reward_used)
     {
-        $user_reward =  get_user_meta($user_id, 'user_reward', true);
+        $user_reward =  get_user_meta($user_id, 'user_remaining_rewards', true);
         $user_reward = $user_reward - $reward_used;
-        update_user_meta($user_id, 'user_reward', $user_reward);
+        update_user_meta($user_id, 'user_remaining_rewards', $user_reward);
     }
     public static function check_email_exist_coupon($coupon_code, $email)
     {

@@ -103,7 +103,7 @@
                         </div> <!--  col end -->
                         <div>
                             <?php
-                            $user_reward =  get_user_meta($user_id, 'user_reward', true);
+                            $user_reward =  get_user_meta($user_id, 'user_remaining_rewards', true);
                             if ($user_reward == null) {
                                 $user_reward = 0;
                             }
@@ -212,44 +212,7 @@
                     <div class="Claim-reward">
                         <div class="col-12 col-md-8 white-rounded">
                             <h3>Claimed Rewards</h3>
-                            <?php
-                            $user_id = get_current_user_id();
-                            $user_info = get_userdata($user_id);
-                            $user_email =      $user_info->user_email;
-                            $all_coupons = new SaCommon();
-                            $coupons = $all_coupons->all_coupons;
-                            $user_reward =  get_user_meta($user_id, 'user_reward', true);
-
-                            foreach ($coupons as $coupon) {
-                                $check_user_email_exist = SaCoupon::check_email_exist_coupon($coupon['coupon_code'], $user_email);
-                                $nonce = wp_create_nonce($coupon['coupon_code']);
-                            ?>
-                                <div class="rewards-inner nav-item <?php if ($user_reward >= $coupon['rewards_points_need'] || $check_user_email_exist) {
-                                                                        echo "sal-active";
-                                                                    } else {
-                                                                        echo "sal-not-active";
-                                                                    }
-                                                                    ?> ">
-                                    <a class="btn btn-primary"><img src="https://newskillsacademy.co.uk/assets/user/images/trophy-white.png" alt="trophy">X<?php echo $coupon['rewards_points_need'] ?></a>
-                                    <p id="sal_reward_btn_text"> <?php echo $coupon['coupon_description'] ?> -> <?php if ($check_user_email_exist) { ?>
-                                            <span>Already Claimed</span>
-                                        <?php } elseif ($user_reward >= $coupon['rewards_points_need']) { ?>
-                                            <a class="btn btn-primary sal-claim-reward" data-nonce="<?php echo $nonce ?>" data-userid="<?php echo $user_id ?>" data-user_email="<?php echo $user_email ?>" data-couponcode="<?php echo $coupon['coupon_code'] ?>" data-reward="<?php echo $coupon['rewards_points_need'] ?>">
-                                                Click here to claim
-                                            </a>
-
-                                        <?php
-                                                                                                                } else {
-                                                                                                                    echo   $coupon['rewards_points_need'] - $user_reward . " points needed";
-                                                                                                                }
-                                        ?>
-                                    </p>
-
-
-                                </div>
-                            <?php
-                            }
-                            ?>
+                            <?php include_once('template-parts/Rewards/claimed-rewards.php'); ?>
                             <!-- <div class="rewards-inner">
                                 <a class="btn btn-primary"><img src="https://newskillsacademy.co.uk/assets/user/images/trophy-white.png" alt="trophy">X5</a>
                                 <p> 90% off - 1 more trophies needed </p>

@@ -24,9 +24,87 @@ class SaRewards
     public static $course_id_3 = 15;
     public static $course_id_4 = 16;
     public static $registration_achievement_id = 17;
+    // reward after registration
+    static function sa_user_rewards_for_registration($user_id)
+    {
 
+        $registration_achievement_id = self::$registration_achievement_id;
 
+        self::sal_insert_reward($user_id, $registration_achievement_id);
+    }
+    // fired after the user has been logged in
+    static function sa_user_last_login($user_login, $user)
+    {
 
+        if (get_user_meta($user->ID, 'last_login', true)) {
+            $last_login = get_user_meta($user->ID, 'last_login', true);
+            // time difference in hours from current time
+            $diff = round(abs(time() - $last_login) / 3600, 1);
+            // time difference in minutes from current time
+            $diff_min = round(abs(time() - $last_login) / 60, 1);
+            // if user logged in within 10 minutes
+
+            $the_login_date = human_time_diff($last_login);
+            // if time diff is less than 24 hours then show the time diff
+            if (get_user_meta($user->ID, 'login_day_count', true)) {
+                switch ($diff_min) {
+                    case $diff_min > 2 && $diff_min < 4:
+                        $login_day_count = get_user_meta($user->ID, 'login_day_count', true);
+                        $login_day_count++;
+                        update_user_meta($user->ID, 'last_login', time());
+                        update_user_meta($user->ID, 'login_day_count', $login_day_count);
+                        self::sa_user_rewards_for_login($user);
+                        break;
+                    case $diff_min < 2:
+                        $login_day_count = get_user_meta($user->ID, 'login_day_count', true);
+                        update_user_meta($user->ID, 'login_day_count', $login_day_count);
+                        break;
+                    case $diff_min > 4:
+                        $login_day_count = 1;
+                        update_user_meta($user->ID, 'login_day_count', $login_day_count);
+                        update_user_meta($user->ID, 'last_login', time());
+                }
+            } else {
+                update_user_meta($user->ID, 'login_day_count', 1);
+            }
+        } else {
+            update_user_meta($user->ID, 'last_login', time());
+        }
+    }
+    // Check user login day count and give rewards
+    static function sa_user_rewards_for_login($user)
+    {
+        $login_day_count = get_user_meta($user->ID, 'login_day_count', true);
+        $achievement_id = '';
+
+        if ($login_day_count <= 21) {
+            switch ($login_day_count) {
+                case 2:
+                    $achievement_id = self::$sign_in_id_1;
+                    break;
+                case 5:
+                    $achievement_id = self::$sign_in_id_2;
+                    break;
+                case  7:
+                    $achievement_id = self::$sign_in_id_3;
+                    break;
+                case 14:
+                    $achievement_id = self::$sign_in_id_4;
+                    break;
+                case 21:
+                    $achievement_id = self::$sign_in_id_5;
+                    break;
+                default:
+                    break;
+            }
+            self::sal_insert_reward($user->ID, $achievement_id);
+        } elseif ($login_day_count > 21) {
+            $achievement_repeat_id = self::$sign_in_id_6;
+            self::sal_insert_reward_repeat($user->ID, $achievement_repeat_id);
+        } else {
+            return;
+        }
+    }
 
     public static function get_rewards_by_user_id($user_id)
     {
@@ -164,107 +242,39 @@ class SaRewards
                 'created_at' => date('Y-m-d H:i:s')
             ));
         }
-        self::sal_update_remaining_rewards($user_id);
+        self::sal_update_remaining_rewards($user_id, $achievement_id);
     }
-    public static function sal_update_remaining_rewards($user_id)
-    {
-        global $wpdb;
-        $table_name = $wpdb->prefix . 'sa_learner_achievements';
-        $table_rewards = $wpdb->prefix . 'sa_learner_achievements_mapping';
-        $sql = "SELECT SUM($table_name.rewards_points) as total_reward FROM $table_rewards join $table_name on $table_rewards.achievement_id = $table_name.achievement_id WHERE $table_rewards.user_id = $user_id";
-        $results = $wpdb->get_results($sql);
-        update_user_meta($user_id, 'user_reward', $results[0]->total_reward);
-    }
+
     public static function sal_insert_reward_repeat($user_id, $achievement_id)
     {
         global $wpdb;
         $table_rewards = $wpdb->prefix . 'sa_learner_achievements_mapping';
-        $wpdb->insert($table_rewards, array(
+        $new_data = $wpdb->insert($table_rewards, array(
             'user_id' => $user_id,
             'achievement_id' => $achievement_id,
             'created_at' => date('Y-m-d H:i:s')
         ));
-        self::sal_update_remaining_rewards($user_id);
+        if ($new_data) {
+            self::sal_update_remaining_rewards($user_id, $achievement_id);
+        }
     }
-
-    static function sa_user_last_login($user_login, $user)
+    public static function sal_update_remaining_rewards($user_id, $achievement_id)
     {
-
-
-        $registration_achievement_id = self::$registration_achievement_id;
-
-        self::sal_insert_reward($user->ID, $registration_achievement_id);
-
-        if (get_user_meta($user->ID, 'last_login', true)) {
-            $last_login = get_user_meta($user->ID, 'last_login', true);
-            // time difference in hours from current time
-            $diff = round(abs(time() - $last_login) / 3600, 1);
-            // time difference in minutes from current time
-            $diff_min = round(abs(time() - $last_login) / 60, 1);
-            // if user logged in within 10 minutes
-
-            $the_login_date = human_time_diff($last_login);
-            // if time diff is less than 24 hours then show the time diff
-            if (get_user_meta($user->ID, 'login_day_count', true)) {
-                switch ($diff_min) {
-                    case $diff_min > 2 && $diff_min < 4:
-                        $login_day_count = get_user_meta($user->ID, 'login_day_count', true);
-                        $login_day_count++;
-                        update_user_meta($user->ID, 'last_login', time());
-                        update_user_meta($user->ID, 'login_day_count', $login_day_count);
-                        self::sa_user_rewards_for_login($user);
-                        break;
-                    case $diff_min < 2:
-                        $login_day_count = get_user_meta($user->ID, 'login_day_count', true);
-                        update_user_meta($user->ID, 'login_day_count', $login_day_count);
-                        break;
-                    case $diff_min > 4:
-                        $login_day_count = 1;
-                        update_user_meta($user->ID, 'login_day_count', $login_day_count);
-                        update_user_meta($user->ID, 'last_login', time());
-                }
-            } else {
-                update_user_meta($user->ID, 'login_day_count', 1);
-            }
+        if (get_user_meta($user_id, 'user_remaining_rewards', true) && get_user_meta($user_id, 'user_remaining_rewards', true) != "") {
+            $common = new SaCommon();
+            $remaining_rewards = get_user_meta($user_id, 'user_remaining_rewards', true);
+            $single_reward = $common->get_single_achievement($achievement_id);
+            $updated_remaining_rewards = $remaining_rewards + $single_reward['rewards_points'];
+            update_user_meta($user_id, 'user_remaining_rewards', $updated_remaining_rewards);
+            update_post_meta(1, 'tttt', $updated_remaining_rewards);
         } else {
-            update_user_meta($user->ID, 'last_login', time());
+            $results = self::get_all_rewards_by_user_id($user_id);
+            update_user_meta($user_id, 'user_remaining_rewards', $results[0]->total_reward);
         }
     }
 
-    static function sa_user_rewards_for_login($user)
-    {
-        $login_day_count = 22;
-        // $login_day_count = get_user_meta($user->ID, 'login_day_count', true);
-        $achievement_id = '';
 
-        if ($login_day_count <= 21) {
-            switch ($login_day_count) {
-                case 2:
-                    $achievement_id = self::$sign_in_id_1;
-                    break;
-                case 5:
-                    $achievement_id = self::$sign_in_id_2;
-                    break;
-                case  7:
-                    $achievement_id = self::$sign_in_id_3;
-                    break;
-                case 14:
-                    $achievement_id = self::$sign_in_id_4;
-                    break;
-                case 21:
-                    $achievement_id = self::$sign_in_id_5;
-                    break;
-                default:
-                    break;
-            }
-            self::sal_insert_reward($user->ID, $achievement_id);
-        } elseif ($login_day_count > 21) {
-            $achievement_repeat_id = self::$sign_in_id_6;
-            self::sal_insert_reward_repeat($user->ID, $achievement_repeat_id);
-        } else {
-            return;
-        }
-    }
+
     function sa_badgeos_wplms_submit_course($course_id)
     {
         $user_id = get_current_user_id();
@@ -295,22 +305,7 @@ class SaRewards
     }
 
 
-    // reward after registration
-    static function sa_user_rewards_for_registration($user_id)
-    {
-        global $wpdb;
-        $table_rewards = $wpdb->prefix . 'sa_learner_achievements_mapping';
-        $id = self::$registration_achievement_id;
-        $user_registration_rewards = $wpdb->get_results("SELECT * FROM $table_rewards WHERE user_id = $user_id and achievement_id = $id");
-        if (empty($user_registration_rewards)) {
-            $wpdb->insert($table_rewards, array(
-                'user_id' => $user_id,
-                'achievement_id' => $id,
-                'rewards' => 1,
-                'created_at' => date('Y-m-d H:i:s')
-            ));
-        }
-    }
+
     function sa_wplms_unit_complete($unit_id, $course_progress, $course_id, $user_id)
     {
 

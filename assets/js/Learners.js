@@ -43,38 +43,41 @@ class Learners {
   onClaimReward(e) {
     // $userId = $(e.target).data("userid");
     let reward_used = e.target.dataset.reward;
-    let coupon_code = e.target.dataset.couponcode;
+    let coupon_id = e.target.dataset.couponid;
 
     let userId = e.target.dataset.userid;
     let user_email = e.target.dataset.user_email;
     let nonce = e.target.dataset.nonce;
-    $("#sal_reward_btn_text").html('<i class="fas fa-spinner"></i>');
-    console.log(reward_used, coupon_code, user_email, userId);
-    // $.ajax({
-    //   // Send the username to the php file
-    //   type: "POST",
-    //   url: pluginData.ajax_url,
-    //   data: {
-    //     action: "sa_learners_claim_reward",
-    //     reward_used: reward_used,
-    //     coupon_code: coupon_code,
-    //     user_email: user_email,
-    //     userId: userId,
-    //     nonce: nonce,
-    //   },
-    //   beforeSend: function () {
-    //     // $("#sa-loading-state").style.display = "block";
-    //     // $("#sa-user-update-btn").style.display = "none";
-    //   },
-    //   success: (data) => {
-    //     console.log(data);
-    //     if (data.success) {
-    //       console.log(data.message);
-    //     } else {
-    //       console.log(data.message);
-    //     }
-    //   },
-    // });
+
+    console.log(reward_used, coupon_id, user_email, userId);
+    $.ajax({
+      // Send the username to the php file
+      type: "POST",
+      url: pluginData.ajax_url,
+      data: {
+        action: "sa_learners_claim_reward",
+        reward_used: reward_used,
+        coupon_id: coupon_id,
+        user_email: user_email,
+        userId: userId,
+        nonce: nonce,
+      },
+      beforeSend: function () {
+        $(`.sal_coupon_${coupon_id}`).html('<i class="fas fa-spinner"></i>');
+      },
+      success: (data) => {
+        console.log(data);
+        if (data.success) {
+          console.log(data.data.message);
+          let content = `<div>
+    <span>Coupon Code:${data.data.coupon_code}</span>
+    </div>`;
+          $(`.sal_coupon_${coupon_id}`).html(content);
+        } else {
+          console.log(data.message);
+        }
+      },
+    });
   }
   onChangeReward(e) {
     console.log(e.target.value);

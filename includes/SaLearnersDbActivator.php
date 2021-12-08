@@ -5,139 +5,7 @@ class SaLearnersDbActivator
     public function __construct()
     {
     }
-    public static $achievements = [
-        [
-            'achievement_id' => 1,
-            'achievement_name' => 'Signed in 2 days in a row',
-            'achievement_description' => 'Signed in 2 days in a row',
-            'rewards_points' => 1,
-            'rewards_type' => 'Signed in',
 
-
-        ],
-        [
-            'achievement_id' => 2,
-            'achievement_name' => 'Signed in 5 days in a row',
-            'achievement_description' => 'Signed in 2 days in a row',
-            'rewards_points' => 1,
-            'rewards_type' => 'Signed in',
-
-
-        ],
-        [
-            'achievement_id' => 3,
-            'achievement_name' => 'Signed in 7 days in a row',
-            'achievement_description' => 'Signed in 7 days in a row',
-            'rewards_points' => 1,
-            'rewards_type' => 'Signed in',
-        ],
-        [
-            'achievement_id' => 4,
-            'achievement_name' => 'Signed in 14 days in a row',
-            'achievement_description' => 'Signed in 14 days in a row',
-            'rewards_points' => 1,
-            'rewards_type' => 'Signed in',
-        ],
-        [
-            'achievement_id' => 5,
-            'achievement_name' => 'Signed in 21 days in a row',
-            'achievement_description' => 'Signed in 21 days in a row',
-            'rewards_points' => 1,
-            'rewards_type' => 'Signed in',
-        ],
-        [
-            'achievement_id' => 6,
-            'achievement_name' => '2 rewards for every consecutive day after',
-            'achievement_description' => '2 rewards for every consecutive day after',
-            'rewards_points' => 2,
-            'rewards_type' => 'Signed in',
-        ],
-        [
-            'achievement_id' => 7,
-            'achievement_name' => 'Complete 10 modules',
-            'achievement_description' => 'Complete 10 modules',
-            'rewards_points' => 1,
-            'rewards_type' => 'Complete modules',
-        ],
-        [
-            'achievement_id' => 8,
-            'achievement_name' => 'Complete 25 modules',
-            'achievement_description' => 'Complete 25 modules',
-            'rewards_points' => 1,
-            'rewards_type' => 'Complete modules',
-        ],
-        [
-            'achievement_id' => 9,
-            'achievement_name' => 'Complete 50 modules',
-            'achievement_description' => 'Complete 50 modules',
-            'rewards_points' => 1,
-            'rewards_type' => 'Complete modules',
-        ],
-        [
-            'achievement_id' => 10,
-            'achievement_name' => 'Complete 75 modules',
-            'achievement_description' => 'Complete 75 modules',
-            'rewards_points' => 1,
-            'rewards_type' => 'Complete modules',
-        ],
-        [
-            'achievement_id' => 11,
-            'achievement_name' => 'Complete 100 modules',
-            'achievement_description' => 'Complete 100 modules',
-            'rewards_points' => 1,
-            'rewards_type' => 'Complete modules',
-        ],
-        [
-            'achievement_id' => 12,
-            'achievement_name' => '2 rewards for every module after',
-            'achievement_description' => '2 rewards for every module after',
-            'rewards_points' => 2,
-            'rewards_type' => 'Complete modules',
-        ],
-        [
-            'achievement_id' => 13,
-            'achievement_name' => 'Complete 1 course',
-            'achievement_description' => 'Complete 1 course',
-            'rewards_points' => 1,
-            'rewards_type' => 'Complete courses',
-        ],
-        [
-            'achievement_id' => 14,
-            'achievement_name' => 'Complete 2 course',
-            'achievement_description' => 'Complete 2 course',
-            'rewards_points' => 1,
-            'rewards_type' => 'Complete courses',
-        ],
-        [
-            'achievement_id' => 15,
-            'achievement_name' => 'Complete 3 course',
-            'achievement_description' => 'Complete 3 course',
-            'rewards_points' => 1,
-            'rewards_type' => 'Complete courses',
-        ],
-        [
-            'achievement_id' => 16,
-            'achievement_name' => '3 rewards for every course completion after',
-            'achievement_description' => '3 rewards for every course completion after',
-            'rewards_points' => 3,
-            'rewards_type' => 'Complete courses',
-        ],
-        [
-            'achievement_id' => 17,
-            'achievement_name' => 'Register an Account',
-            'achievement_description' => 'Register an Account',
-            'rewards_points' => 1,
-            'rewards_type' => 'Registeration',
-        ],
-        [
-            'achievement_id' => 18,
-            'achievement_name' => 'Subscribe to our newsletter',
-            'achievement_description' => 'Subscribe to our newsletter',
-            'rewards_points' => 1,
-            'rewards_type' => 'Subscribe',
-        ],
-
-    ];
     public static function activate()
     {
         self::SaLearnersDbCreate(['title' => 'My Courses', 'slug' => 'my-courses-dashboard', 'template' => 'my-courses-dashboard']);
@@ -272,7 +140,9 @@ class SaLearnersDbActivator
         // if sa_learner_achievements is empty then insert default data
         $achievements = $wpdb->get_results("SELECT * FROM {$table_name}");
         if (empty($achievements)) {
-            foreach (self::$achievements as $achievement) {
+            $common = new SaCommon();
+            $all_achievements = $common->achievements;
+            foreach ($all_achievements as $achievement) {
                 $wpdb->insert($table_name, $achievement);
             }
         }

@@ -86,49 +86,6 @@
                             return false;
                         }
 
-                        $user_registration_rewards = SaRewards::get_rewards_by_user_id($user_id);
-
-
-                        // echo "<pre>";
-                        // var_dump($user_registration_rewards);
-                        // echo "</pre>";
-                        $total_rewards = 0;
-                        foreach ($user_registration_rewards as $reward) {
-                            // $rewards = SaRewards::get_rewards_from_acchivement_table($reward->achievement_id);
-                            echo "<br>";
-                            print_r($reward->achievement_name);
-                            $total_rewards += $reward->rewards_points;
-                            echo "<br>";
-                        }
-                        // date string date('Y-m-d H:i:s')
-                        // day start
-
-                        $current_date_is = date('Y-m-d');
-                        // $date_start = date('Y-m-d H:i:s', strtotime('-1 day', strtotime($current_date_is)));
-                        $seven_days_ago = date('Y-m-d H:i:s', strtotime('-3 days'));
-                        $today = date('Y-m-d H:i:s', strtotime('-1 days'));
-                        $start_date = date('Y-m-d H:i:s', strtotime('-5 days'));
-                        $first_day_week = date('Y-m-d H:i:s', strtotime('monday this week'));
-                        $current_date_is = date('Y-m-d H:i:s');
-                        $previous_month = date('Y-m-d H:i:s', strtotime('first day of previous  month'));
-                        $last_day_prev_month = date('Y-m-d H:i:s', strtotime('last day of previous  month'));
-                        $range_reward =  SaRewards::get_reward_by_date_range($user_id, $first_day_week, $current_date_is);
-                        $start_of_month = date('Y-m-d H:i:s', strtotime('first day of this month'));
-                        $end_of_month = date('Y-m-d H:i:s', strtotime('-1 day'));
-                        $all_user = SaRewards::get_all_user_reward_with_date_range($today, $current_date_is);
-                        $all_user_reward = SaRewards::get_all_rewards_of_user_id_with_time_range($start_date, $current_date_is);
-                        $user_reward = SaRewards::get_all_rewards_by_user_id($user_id);
-
-                        echo "<pre>";
-                        var_dump($range_reward);
-                        // echo "</pre>";
-                        print_r("range_reward: " . $range_reward);
-                        // echo "<br>";
-                        echo "<br>";
-                        print_r("first_day_week: " . $first_day_week);
-                        // echo "<br>";
-                        // print_r("last_day_prev_month: " . $last_day_prev_month);
-                        echo "</pre>";
 
 
                         ?>
