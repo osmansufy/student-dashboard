@@ -13,7 +13,6 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       sa-learners-dashboard
  */
-include_once 'includes/sal_common.php';
 include_once 'controllers/SaLearners.php';
 include_once 'controllers/SaCourse.php';
 include_once 'controllers/SaOrders.php';

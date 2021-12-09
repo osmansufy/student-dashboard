@@ -56,24 +56,10 @@
                         $last_login = get_user_meta($user_id, 'last_login', true);
 
                         $diff_min = round(abs(time() - $last_login) / 60, 1);
-                        // if ($the_login_date < 24) {
-                        //     $the_login_date = $the_login_date . ' ago';
-                        // } else {
-                        //     $the_login_date = date('d M Y', $last_login);
-                        // }
-                        // get date difference between last login and current date
-                        $current_date = date('d-m-Y H:i:s');
-                        $last_login_date = date('d-m-Y H:i:s', $last_login);
-                        $date_diff = date_diff(date_create($current_date), date_create($last_login_date));
-
-                        // if date difference is greater than 30 days then show the message
-                        // if ($date_diff->days > 1) {
-                        //     $show_message = true;
-                        // } else {
-                        //     $show_message = false;
-                        // }
 
 
+                        $rewards = SaRewards::get_all_rewards_by_user_id($user_id);
+                        $total_rewards = $rewards['total_reward'];
                         $login_day_count = get_user_meta($user_id, 'login_day_count', true);
 
                         //  check product is in cart or not
@@ -141,7 +127,7 @@
                         <div class="col-md-4 ">
                             <div class="white-rounded dash-details">
                                 <div class="count-number">
-                                    <span>2 <sup><i class="fas fa-arrow-up"></i></sup></span>
+                                    <span><?php echo $login_day_count ?> <sup><i class="fas fa-arrow-up"></i></sup></span>
                                 </div>
                                 <div class="number-text">
                                     <p>Days Logged In</p>
@@ -151,7 +137,7 @@
                         <div class="col-md-4">
                             <div class="white-rounded dash-details">
                                 <div class="Reward-number">
-                                    <span><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award" /> 2</span>
+                                    <span><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award" /> <?php var_dump($total_rewards) ?></span>
                                 </div>
                                 <div class="number-text">
                                     <p>Reward Points</p>

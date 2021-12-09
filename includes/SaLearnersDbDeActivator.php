@@ -9,7 +9,8 @@ class SaLearnersDbDeActivator
         if (is_user_logged_in()) {
             wp_delete_post($pid1, true);
         }
-        self::delete_coupon_code();
+        // Testing Purposes only - Delete all coupons
+        // self::delete_coupon_code();
     }
 
     public static function delete_coupon_code()
