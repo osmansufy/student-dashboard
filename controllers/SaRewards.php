@@ -43,25 +43,24 @@ class SaRewards
             // time difference in hours from current time
             $diff = round(abs(time() - $last_login) / 3600, 1);
             // time difference in minutes from current time
-            $diff_min = round(abs(time() - $last_login) / 60, 1);
-            // if user logged in within 10 minutes
+            // $diff_min = round(abs(time() - $last_login) / 60, 1);
 
-            $the_login_date = human_time_diff($last_login);
             // if time diff is less than 24 hours then show the time diff
             if (get_user_meta($user->ID, 'login_day_count', true)) {
-                switch ($diff_min) {
-                    case $diff_min > 2 && $diff_min < 4:
+                switch ($diff) {
+                    case $diff < 24:
+                        // $login_day_count = get_user_meta($user->ID, 'login_day_count', true);
+                        // update_user_meta($user->ID, 'login_day_count', $login_day_count);
+                        break;
+                    case $diff > 24 && $diff < 48:
                         $login_day_count = get_user_meta($user->ID, 'login_day_count', true);
                         $login_day_count++;
                         update_user_meta($user->ID, 'last_login', time());
                         update_user_meta($user->ID, 'login_day_count', $login_day_count);
                         self::sa_user_rewards_for_login($user);
                         break;
-                    case $diff_min < 2:
-                        $login_day_count = get_user_meta($user->ID, 'login_day_count', true);
-                        update_user_meta($user->ID, 'login_day_count', $login_day_count);
-                        break;
-                    case $diff_min > 4:
+
+                    case $diff > 48:
                         $login_day_count = 1;
                         update_user_meta($user->ID, 'login_day_count', $login_day_count);
                         update_user_meta($user->ID, 'last_login', time());
@@ -107,7 +106,84 @@ class SaRewards
             return;
         }
     }
+    // Course completion rewards for user
+    function sa_badgeos_wplms_submit_course($course_id)
+    {
+        $user_id = get_current_user_id();
+        $courses = SaCourse::sa_get_user_courses_by_status($user_id);
+        $completed_courses = $courses['complete_courses'];
+        $total_courses = count($completed_courses);
+        if ($total_courses <= 3) {
+            $achievement_id = '';
+            switch ($total_courses) {
+                case 1:
+                    $achievement_id = self::$course_id_1;
+                    break;
+                case 2:
+                    $achievement_id = self::$course_id_2;
+                    break;
+                case 3:
+                    $achievement_id = self::$course_id_3;
+                    break;
+            }
+            if (!empty($achievement_id)) {
+                self::sal_insert_reward($user_id, $achievement_id);
+            }
+        } elseif ($total_courses > 3) {
+            $achievement_id_repeat = self::$course_id_4;
+            self::sal_insert_reward_repeat($user_id, $achievement_id_repeat);
+        } else {
+            return;
+        }
+    }
 
+    // Reward for unit completion
+
+    function sa_wplms_unit_complete($unit_id, $course_progress, $course_id, $user_id)
+    {
+
+        $courses = SaCourse::get_completed_unit($user_id);
+        $done_units = $courses['done_units'];
+
+
+        $curriculums = count($done_units);
+
+
+        if ($curriculums <= 100) {
+            switch ($curriculums) {
+                case 10:
+                    $unit_id_1 = self::$unit_id_1;
+                    self::sal_insert_reward($user_id, $unit_id_1);
+                    break;
+                case 25:
+                    $unit_id_2 = self::$unit_id_2;
+                    self::sal_insert_reward($user_id, $unit_id_2);
+                    break;
+                case 75:
+                    $unit_id_3 = self::$unit_id_3;
+                    self::sal_insert_reward($user_id, $unit_id_3);
+                    break;
+                case 100:
+                    $unit_id_4 = self::$unit_id_4;
+                    self::sal_insert_reward($user_id, $unit_id_4);
+                    break;
+            }
+        } elseif ($curriculums > 100) {
+            // $unit_id_1 = self::$unit_id_1;
+            // self::sal_insert_reward($user_id, $unit_id_1);
+            // $unit_id_2 = self::$unit_id_2;
+            // self::sal_insert_reward($user_id, $unit_id_2);
+            // $unit_id_3 = self::$unit_id_3;
+            // self::sal_insert_reward($user_id, $unit_id_3);
+            // $unit_id_4 = self::$unit_id_4;
+            // self::sal_insert_reward($user_id, $unit_id_4);
+            $achievement_id = self::$unit_id_6;
+            self::sal_insert_reward_repeat($user_id, $achievement_id);
+        } else {
+            return;
+        }
+    }
+    // get reward for user achievement
     public static function get_rewards_by_user_id($user_id)
     {
         global $wpdb;
@@ -117,6 +193,7 @@ class SaRewards
         $results = $wpdb->get_results($sql);
         return $results;
     }
+    // get all rewards for user 
     public static function get_all_rewards_by_user_id($user_id)
     {
         global $wpdb;
@@ -126,6 +203,7 @@ class SaRewards
         $results = $wpdb->get_results($sql);
         return $results;
     }
+    //  get all rewards for user with time range
     public static function get_all_rewards_of_user_id_with_time_range($start_date, $end_date)
     {
         global $wpdb;
@@ -137,6 +215,7 @@ class SaRewards
         $results = $wpdb->get_results($sql);
         return $results;
     }
+    // get all rewards for all user with time range
     public static function get_reward_by_date_range($user_id, $start_date, $end_date)
     {
         global $wpdb;
@@ -148,6 +227,7 @@ class SaRewards
         $results = $wpdb->get_results($sql);
         return $results;
     }
+    // Ajax call for user reward for date range
     public static function sal_ajax_get_reward_by_date_range()
     {
         $first_day_week = date('Y-m-d H:i:s', strtotime('monday this week'));
@@ -193,6 +273,7 @@ class SaRewards
         echo json_encode($total_reward);
         wp_die();
     }
+    // get all rewards for all user with time range
     public static function get_all_user_reward_with_date_range($start_date, $end_date)
     {
         global $wpdb;
@@ -203,7 +284,7 @@ class SaRewards
         $results = $wpdb->get_results($sql);
         return $results;
     }
-
+    // check if user has already earned the achievement
     public static function get_rewards_from_acchivement_id($user_id, $achievement_id)
     {
         global $wpdb;
@@ -212,7 +293,7 @@ class SaRewards
         return $results;
     }
 
-
+    // get achievement by id from achievement table
     public static function get_rewards_from_acchivement_table($reward_id)
     {
         global $wpdb;
@@ -221,6 +302,7 @@ class SaRewards
         $results = $wpdb->get_results($sql);
         return $results;
     }
+    // Get all rewards 
     public static function get_all_rewards()
     {
         global $wpdb;
@@ -230,6 +312,7 @@ class SaRewards
         $results = $wpdb->get_results($sql);
         return $results;
     }
+    // insert rewards to mapping table one time
     public static function sal_insert_reward($user_id, $achievement_id)
     {
         global $wpdb;
@@ -246,7 +329,7 @@ class SaRewards
             self::sal_update_remaining_rewards($user_id, $achievement_id);
         }
     }
-
+    // insert rewards to mapping table recursively
     public static function sal_insert_reward_repeat($user_id, $achievement_id)
     {
         global $wpdb;
@@ -260,126 +343,18 @@ class SaRewards
             self::sal_update_remaining_rewards($user_id, $achievement_id);
         }
     }
+    // update remaining rewards meta after inserting reward
     public static function sal_update_remaining_rewards($user_id, $achievement_id)
     {
-        if (get_user_meta($user_id, 'user_remaining_rewards', true) && get_user_meta($user_id, 'user_remaining_rewards', true) != "") {
+        if (get_user_meta($user_id, 'user_remaining_rewards', true) != "") {
             $common = new SaCommon();
             $remaining_rewards = get_user_meta($user_id, 'user_remaining_rewards', true);
             $single_reward = $common->get_single_achievement($achievement_id);
             $updated_remaining_rewards = $remaining_rewards + $single_reward['rewards_points'];
             update_user_meta($user_id, 'user_remaining_rewards', $updated_remaining_rewards);
-            update_post_meta(1, 'tttt', $updated_remaining_rewards);
         } else {
             $results = self::get_all_rewards_by_user_id($user_id);
             update_user_meta($user_id, 'user_remaining_rewards', $results[0]->total_reward);
-        }
-    }
-
-
-
-    function sa_badgeos_wplms_submit_course($course_id)
-    {
-        $user_id = get_current_user_id();
-        $courses = SaCourse::sa_get_user_courses_by_status($user_id);
-        $completed_courses = $courses['complete_courses'];
-        $total_courses = count($completed_courses);
-        if ($total_courses <= 3) {
-            switch ($total_courses) {
-                case 1:
-                    $achievement_id = self::$course_id_1;
-                    break;
-                case 2:
-                    $achievement_id = self::$course_id_2;
-                    break;
-                case 3:
-                    $achievement_id = self::$course_id_3;
-                    break;
-            }
-            if (!empty($achievement_id)) {
-                self::sal_insert_reward($user_id, $achievement_id);
-            }
-        } elseif ($total_courses > 3) {
-            $achievement_id = self::$course_id_4;
-            self::sal_insert_reward_repeat($user_id, $achievement_id);
-        } else {
-            return;
-        }
-    }
-
-
-
-    function sa_wplms_unit_complete($unit_id, $course_progress, $course_id, $user_id)
-    {
-
-        $courses = SaCourse::sa_get_user_courses_by_status($user_id);
-        $enrolled_courses = $courses['enrolled_courses'];
-
-        $done_units = [];
-        $incomplete_units = [];
-        foreach ($enrolled_courses as $enrolled_course) {
-            $curriculums_enrolled = bp_course_get_full_course_curriculum($enrolled_course['id']);
-
-            foreach ($curriculums_enrolled as $curriculum) {
-                if ($curriculum['type'] == 'unit') {
-                    if (get_user_meta($user_id, 'complete_unit_' . $curriculum['id'] . '_' . $enrolled_course['id'], true) != "") {
-                        $done_units[] = $curriculum['id'];
-                    } else {
-                        $incomplete_units[] = $curriculum['id'];
-                    }
-                }
-            }
-        }
-
-        $curriculums = count($done_units);
-
-        $achievement_id = '';
-
-        // string to integer
-
-        update_user_meta($user_id, 'login_day_count', $curriculums);
-        if ($curriculums <= 100) {
-            switch ($curriculums) {
-                case 10:
-                    $achievement_id = self::$unit_id_1;
-                    break;
-                case 25:
-                    $achievement_id = self::$unit_id_2;
-                    $unit_id_1 = self::$unit_id_1;
-                    self::sal_insert_reward($user_id, $unit_id_1);
-
-                    break;
-                case 75:
-                    $achievement_id = self::$unit_id_3;
-                    $unit_id_1 = self::$unit_id_1;
-                    self::sal_insert_reward($user_id, $unit_id_1);
-                    $unit_id_2 = self::$unit_id_2;
-                    self::sal_insert_reward($user_id, $unit_id_2);
-                    break;
-                case 100:
-                    $achievement_id = self::$unit_id_4;
-                    $unit_id_1 = self::$unit_id_1;
-                    self::sal_insert_reward($user_id, $unit_id_1);
-                    $unit_id_2 = self::$unit_id_2;
-                    self::sal_insert_reward($user_id, $unit_id_2);
-                    $unit_id_3 = self::$unit_id_3;
-                    break;
-            }
-            if (!empty($achievement_id)) {
-                self::sal_insert_reward($user_id, $achievement_id);
-            }
-        } elseif ($curriculums > 100) {
-            $unit_id_1 = self::$unit_id_1;
-            self::sal_insert_reward($user_id, $unit_id_1);
-            $unit_id_2 = self::$unit_id_2;
-            self::sal_insert_reward($user_id, $unit_id_2);
-            $unit_id_3 = self::$unit_id_3;
-            self::sal_insert_reward($user_id, $unit_id_3);
-            $unit_id_4 = self::$unit_id_4;
-            self::sal_insert_reward($user_id, $unit_id_4);
-            $achievement_id = self::$unit_id_6;
-            self::sal_insert_reward_repeat($user_id, $achievement_id);
-        } else {
-            return;
         }
     }
 }

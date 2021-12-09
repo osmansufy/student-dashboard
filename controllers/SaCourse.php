@@ -229,5 +229,31 @@ class SaCourse
         );
         return $courses_status;
     }
+    public static function get_completed_unit($user_id)
+    {
+        $courses = self::sa_get_user_courses_by_status($user_id);
+        $enrolled_courses = $courses['enrolled_courses'];
+
+        $done_units = [];
+        $incomplete_units = [];
+        foreach ($enrolled_courses as $enrolled_course) {
+            $curriculums_enrolled = bp_course_get_full_course_curriculum($enrolled_course['id']);
+
+            foreach ($curriculums_enrolled as $curriculum) {
+                if ($curriculum['type'] == 'unit') {
+                    if (get_user_meta($user_id, 'complete_unit_' . $curriculum['id'] . '_' . $enrolled_course['id'], true) != "") {
+                        $done_units[] = $curriculum['id'];
+                    } else {
+                        $incomplete_units[] = $curriculum['id'];
+                    }
+                }
+            }
+        }
+        $completed_units = array(
+            'done_units' => $done_units,
+            'incomplete_units' => $incomplete_units
+        );
+        return $completed_units;
+    }
 }
 // new SaCourse();

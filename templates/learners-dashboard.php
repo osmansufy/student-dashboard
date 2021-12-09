@@ -86,9 +86,7 @@
                             return false;
                         }
 
-                        $testCop = new SaGravityFormCoupon();
-                        $test = $testCop->create_coupon_gf("test", "testforcertificate", "10", "percentage", "20");
-                        var_dump($test);
+
 
                         ?>
                     </div>

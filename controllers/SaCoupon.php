@@ -57,7 +57,7 @@ class SaCoupon
     {
 
         $user_id = $_POST['user_id'];
-        $reward_used = 1;
+        $reward_used = $_POST['reward_used'];
         $sal_nonce = $_POST['sal_nonce'];
         $amount = "100";
         $type = 'percentage';
@@ -70,20 +70,32 @@ class SaCoupon
 
 
         $nonce_name = "sa_gf_coupon_nonce";
-        if (!wp_verify_nonce($sal_nonce, $nonce_name)) {
+        try {
+            if (wp_verify_nonce($sal_nonce, $nonce_name)) {
+                $gf_coupon_code = new SaGravityFormCoupon();
+                $gf_coupon_code->create_coupon_gf($coupon_name, $coupon_code, $amount, $type, $form);
+                self::update_user_reward_meta($user_id, $reward_used);
+
+
+                if (get_user_meta($user_id, 'gf_user_coupon', true) == '' || get_user_meta($user_id, 'gf_user_coupon', true) == null) {
+                    update_user_meta($user_id, "gf_user_coupon", $coupon_code);
+                } else {
+                    throw new Exception('Sorry, coupon already created.');
+                }
+                wp_send_json_success(array(
+                    'message' => 'coupon created',
+                    'success' => true,
+                    'coupon_code' => $coupon_code
+                ));
+            } else {
+                throw new Exception('Sorry, your nonce did not verify.');
+            }
+        } catch (Exception $e) {
             wp_send_json_error(array(
-                'message' => 'nonce error'
+                'message' => $e->getMessage(),
+                'success' => false
             ));
         }
-        $gf_coupon_code = new SaGravityFormCoupon();
-        $gf_coupon_code->create_coupon_gf($coupon_name, $coupon_code, $amount, $type, $form);
-        self::update_user_reward_meta($user_id, $reward_used);
-
-        wp_send_json_success(array(
-            'message' => 'coupon created',
-            'success' => true,
-            'coupon_code' => $coupon_code
-        ));
 
         wp_die();
     }

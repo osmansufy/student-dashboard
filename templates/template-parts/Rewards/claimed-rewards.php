@@ -54,10 +54,10 @@ if ($check_user_90) {
 ?>
 <?php
 $gf = new SaGravityFormCoupon();
-$user_gf_coupons = $gf->coupon_code_for_user;
+$user_gf_coupons = get_user_meta($user_id, 'gf_user_coupon', true);
 $nonce_certificate = wp_create_nonce("sa_gf_coupon_nonce");
 ?>
-<div class="rewards-inner <?php if ($user_reward >= 1) {
+<div class="rewards-inner <?php if ($user_reward >= 1 || $user_gf_coupons) {
                                 echo "sal-active";
                             } else {
                                 echo "sal-not-active";
