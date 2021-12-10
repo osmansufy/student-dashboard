@@ -59,7 +59,7 @@
 
 
                         $rewards = SaRewards::get_all_rewards_by_user_id($user_id);
-                        $total_rewards = $rewards['total_reward'];
+                        $total_rewards = $rewards[0]->total_reward;
                         $login_day_count = get_user_meta($user_id, 'login_day_count', true);
 
                         //  check product is in cart or not
@@ -137,7 +137,7 @@
                         <div class="col-md-4">
                             <div class="white-rounded dash-details">
                                 <div class="Reward-number">
-                                    <span><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award" /> <?php var_dump($total_rewards) ?></span>
+                                    <span><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award" /> <?php echo $total_rewards ?></span>
                                 </div>
                                 <div class="number-text">
                                     <p>Reward Points</p>
