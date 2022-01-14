@@ -8,18 +8,16 @@ class SaLearnersDbActivator
 
     public static function activate()
     {
-        self::SaLearnersDbCreate(['title' => 'My Courses', 'slug' => 'my-courses-dashboard', 'template' => 'my-courses-dashboard']);
-        self::SaLearnersDbCreate(['title' => 'Learners Dashboard', 'slug' => 'learners-dashboard', 'template' => 'learners-dashboard']);
-        self::SaLearnersDbCreate(['title' => 'Learners Profile', 'slug' => 'learners-profile', 'template' => 'learners-profile']);
-        self::SaLearnersDbCreate(['title' => 'Learners Orders', 'slug' => 'learners-orders', 'template' => 'learners-orders']);
-        self::SaLearnersDbCreate(['title' => 'Learners Certificates', 'slug' => 'learners-certificates', 'template' => 'learners-certificates']);
-        self::SaLearnersDbCreate(['title' => 'Learners Rewards', 'slug' => 'learners-rewards', 'template' => 'learners-rewards']);
-        self::SaLearnersDbCreate(['title' => 'Learners saved courses', 'slug' => 'learners-saved-courses', 'template' => 'learners-saved-courses']);
-        self::SaLearnersDbCreate(['title' => 'Learners support', 'slug' => 'learners-support', 'template' => 'learners-support']);
+        $common = new SaCommon();
+        $page_templates = $common->all_page_templates;
+        foreach ($page_templates as $page_template) {
+            self::SaLearnersPageTemplateCreate($page_template);
+        }
+
         self::sal_create_table();
         self::sal_create_woocomerce_coupons();
     }
-    protected function SaLearnersDbCreate($data)
+    protected function SaLearnersPageTemplateCreate($data)
     {
         $post_id = -1;
         $slug = $data['slug'];
@@ -51,19 +49,29 @@ class SaLearnersDbActivator
         $coupons = new SaCommon();
         $all_coupons =  $coupons->all_coupons;
         foreach ($all_coupons as $coupon) {
-
-            self::sal_create_coupon($coupon);
+            // if coupon is not exist in woocommerce
+            $code = $coupon['coupon_code'];
+            $coupon_title = SaCommon::coupon_prefix($code);
+            if (!self::coupon_title_exists($coupon_title)) {
+                self::sal_create_coupon($coupon);
+            }
         }
+    }
+    static function coupon_title_exists($title)
+    {
+        global $wpdb;
+        $coupon_title = $wpdb->get_var($wpdb->prepare("SELECT post_title FROM $wpdb->posts WHERE post_title = %s AND post_type = 'shop_coupon'", $title));
+        return $coupon_title;
     }
     static  function sal_create_coupon($coupon)
     {
         // create random 6 digit 
-
-
+        $code = $coupon['coupon_code'];
+        $coupon_title = SaCommon::coupon_prefix($code);
         $isMultiple = $coupon['isMultiple'];
         $amount = $coupon['coupon_discount'];
         $discount_type = 'percent';
-        $coupon_code = $coupon['coupon_code'];
+        $coupon_code = $coupon_title;
         $coupon_description = $coupon['coupon_description'];
         $coupon_minimum_amount = $coupon['coupon_minimum_amount'];
         $coupon_maximum_amount = $coupon['coupon_maximum_amount'];
@@ -92,6 +100,7 @@ class SaLearnersDbActivator
             // update_post_meta($new_coupon_id, 'exclude_product_ids', $coupon_exclude_product_ids);
             update_post_meta($new_coupon_id, 'usage_limit', '1');
             update_post_meta($new_coupon_id, 'usage_limit_per_user', '1');
+            update_post_meta($new_coupon_id, 'limit_usage_to_x_items', '1');
             update_post_meta($new_coupon_id, 'expiry_date', $coupon_expiry_date);
 
             // update_post_meta($new_coupon_id, 'minimum_amount', $coupon_minimum_amount);

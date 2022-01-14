@@ -210,36 +210,7 @@
                         <div class="col-12 col-md-8 white-rounded">
                             <h3>Claimed Rewards</h3>
                             <?php include_once('template-parts/Rewards/claimed-rewards.php'); ?>
-                            <!-- <div class="rewards-inner">
-                                <a class="btn btn-primary"><img src="https://newskillsacademy.co.uk/assets/user/images/trophy-white.png" alt="trophy">X5</a>
-                                <p> 90% off - 1 more trophies needed </p>
-                            </div>
-                            <div class="rewards-inner">
-                                <a class="btn btn-primary"><img src="https://newskillsacademy.co.uk/assets/user/images/trophy-white.png" alt="trophy">X8</a>
-                                <p> Free Course (up to £100.00) - 4 more trophies needed </p>
-                            </div>
-                            <div class="rewards-inner">
-                                <a class="btn btn-primary"><img src="https://newskillsacademy.co.uk/assets/user/images/trophy-white.png" alt="trophy">X12</a>
-                                <p> Free Certificate - 8 more trophies needed </p>
-                            </div>
-                            <div class="rewards-inner">
-                                <a class="btn btn-primary"><img src="https://newskillsacademy.co.uk/assets/user/images/trophy-white.png" alt="trophy">X15</a>
-                                <p> Free Mega Course (up to £240.00) - 11 more trophies needed </p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-4 no-padding">
-                            <div class="trophy find-bg">
-                                <p>Find out how to earn trophies</p>
-                                <a href="#" class="find-btn">
-                                    <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/find-btn.png" alt="Find out">
-                                </a>
-                            </div>
-                            <div class="redeem find-bg">
-                                <p>Find out how to redeem your rewards</p>
-                                <a href="#" class="find-btn">
-                                    <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/find-btn.png" alt="Find out">
-                                </a>
-                            </div> -->
+
                         </div>
                     </div>
 
@@ -250,10 +221,11 @@
 
                                 <div class="leaderboard">
                                     <h3>Student leaderboard</h3>
+                                    <div id="leader_board_table_loading"></div>
                                     <div class="form-group">
-                                        <select id="monthly" class="form-control" name="monthly">
-                                            <option value="small">This Month</option>
-                                            <option value="medium">Last Month</option>
+                                        <select id="monthly_leaderBoard" class="form-control" name="monthly">
+                                            <option value="this_month">This Month</option>
+                                            <option value="last_month">Last Month</option>
 
                                         </select>
                                     </div>
@@ -269,7 +241,7 @@
                                     </div> -->
                                 </div>
                                 <table class="table">
-                                    <tbody>
+                                    <tbody id="leader_board_table">
                                         <?php
                                         $leaderBoard = SaRewards::get_all_rewards_of_user_id_with_time_range($current_month, $current_date_is);
                                         // short  leaderBoard with rewards
@@ -283,7 +255,8 @@
                                         foreach ($leaderBoard as $leader) {
                                         ?>
                                             <tr class="">
-                                                <th><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award"> <?php echo _e($i) ?></th>
+                                                <th><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award">
+                                                    <?php echo _e($i) ?></th>
                                                 <th><?php echo _e(strtoupper($leader->display_name)) ?>
                                                     <!---->
                                                 </th>

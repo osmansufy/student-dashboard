@@ -14,12 +14,13 @@ class SaCoupon
         $common = new SaCommon();
         $get_coupon = $common->get_single_coupon($coupon_id);
         $coupon_code = $get_coupon['coupon_code'];
+        $coupon_title = $common::coupon_prefix($coupon_code);
         try {
             if (!wp_verify_nonce($nonce, $coupon_code)) {
                 throw new Exception('Sorry, your nonce did not verify.');
             }
             global $woocommerce;
-            $coupon = new WC_Coupon($coupon_code);
+            $coupon = new WC_Coupon($coupon_title);
             $emails = $coupon->get_email_restrictions();
             array_push($emails, $email);
             $coupon->set_email_restrictions($emails);
@@ -27,7 +28,7 @@ class SaCoupon
             self::update_user_reward_meta($user_id, $reward_used);
             // return $emails;
             wp_send_json_success([
-                'message' => 'Reward Successfully Claimed .', 'coupon_code' => $coupon_code,
+                'message' => 'Reward Successfully Claimed .', 'coupon_code' => $coupon_title,
                 'success' => true
             ]);
         } catch (Exception $e) {

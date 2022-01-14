@@ -74,7 +74,15 @@ add_action('plugins_loaded', 'sa_learners_dashboard_load_plugin_textdomain');
 
 function sa_learners_dashboard_plugin_scripts_and_styles()
 {
-    wp_enqueue_style('sa-learner-dashboard-style', plugins_url('assets/css/learner-dashboard.css', __FILE__), array(), time(), 'all');
+    $common = new SaCommon();
+    $page_template = $common->all_page_templates;
+    $plugin_page = array_map(function ($page) {
+        $page_with_php = $page['template'] . '.php';
+        return $page_with_php;
+    }, $page_template);
+    if (is_page_template($plugin_page)) {
+        wp_enqueue_style('sa-learner-dashboard-style', plugins_url('assets/css/learner-dashboard.css', __FILE__), array(), time(), 'all');
+    }
     // cdn load css from bootstrap
     wp_enqueue_style('bootstrap-css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', array(), time(), 'all');
     wp_enqueue_script('googleapis-js', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js', array('jquery'), "", false);
@@ -102,3 +110,4 @@ add_action('wp_ajax_sa_learners_remove_wishlist', array('SaCourse', 'sa_remove_f
 add_action('wp_ajax_sa_learners_change_reward', array('SaRewards', 'sal_ajax_get_reward_by_date_range'));
 add_action('wp_ajax_sa_learners_claim_reward', array('SaCoupon', 'sa_learners_claim_reward'));
 add_action('wp_ajax_sa_learners_claim_gf_reward', array('SaCoupon', 'sal_gf_coupon_generator'));
+add_action('wp_ajax_sa_learners_change_leaderBoard_reward', array('SaRewards', 'sa_learners_change_leaderBoard_reward'));

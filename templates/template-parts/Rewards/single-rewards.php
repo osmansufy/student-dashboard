@@ -1,10 +1,12 @@
 <?php
-$coupon_code = $coupon['coupon_code'];
+$siteName = strtolower(get_bloginfo('name'));
+$code = $coupon['coupon_code'];
+$coupon_code = SaCommon::coupon_prefix($code);
 $coupon_rewards = $coupon['rewards_points_need'];
 $rewards_coupon_id = $coupon['rewards_coupon_id'];
 $coupon_description = $coupon['coupon_description'];
 $coupon_id = $coupon['rewards_coupon_id'];
-$check_user_email_exist = SaCoupon::check_email_exist_coupon($coupon['coupon_code'], $user_email);
+$check_user_email_exist = SaCoupon::check_email_exist_coupon($coupon_code, $user_email);
 $nonce = wp_create_nonce($coupon['coupon_code']);
 ?>
 <div class="rewards-inner nav-item <?php if ($user_reward >= $coupon_rewards || $check_user_email_exist) {

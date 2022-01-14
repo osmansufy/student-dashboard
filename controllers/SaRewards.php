@@ -215,6 +215,42 @@ class SaRewards
         $results = $wpdb->get_results($sql);
         return $results;
     }
+    // Get Leaderboard for rewards with time range
+    public static function sa_learners_change_leaderBoard_reward()
+    {
+        $month = $_POST['month'];
+        $start_date = "";
+        $end_date = "";
+        switch ($month) {
+            case 'this_month':
+                $start_date = date('Y-m-01');
+                $end_date = date('Y-m-t');
+                break;
+            case 'last_month':
+                $start_date = date('Y-m-01', strtotime('-1 month'));
+                $end_date = date('Y-m-t', strtotime('-1 month'));
+                break;
+            default:
+                $start_date = date('Y-m-01');
+                $end_date = date('Y-m-t');
+                break;
+        }
+        $results = self::get_all_rewards_of_user_id_with_time_range($start_date, $end_date);
+        function cmp($a, $b)
+        {
+            return strcmp($b->total_reward, $a->total_reward);
+        }
+
+        usort($leaderBoard, "cmp");
+        $data = array();
+        foreach ($results as $key => $value) {
+            $data[$key]['user_id'] = $value->user_id;
+            $data[$key]['display_name'] = $value->display_name;
+            $data[$key]['total_reward'] = $value->total_reward;
+        }
+        echo json_encode($data);
+        wp_die();
+    }
     // get all rewards for all user with time range
     public static function get_reward_by_date_range($user_id, $start_date, $end_date)
     {
