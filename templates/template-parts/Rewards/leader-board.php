@@ -28,7 +28,7 @@ $current_date_is = date('Y-m-d H:i:s');
         foreach ($leaderBoard as $leader) {
         ?>
             <tr class="">
-                <th><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award">
+                <th><img src="<?php echo plugin_dir_url(dirname(__FILE__)) . '../../assets/images/award.png' ?>" alt="award">
                     <?php echo _e($i) ?></th>
                 <th><?php echo _e(strtoupper($leader->display_name)) ?>
                     <!---->

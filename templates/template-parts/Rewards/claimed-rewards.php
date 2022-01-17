@@ -65,7 +65,7 @@ if (class_exists('GFCoupons')) {
                                     echo "sal-not-active";
                                 }
                                 ?>">
-        <a class="btn btn-primary"><img src="https://newskillsacademy.co.uk/assets/user/images/trophy-white.png" alt="trophy">X12</a>
+        <a class="btn btn-primary"><img src="<?php plugin_dir_url(dirname(__FILE__)) . '../../assets/images/trophy-white.png' ?>" alt="trophy">X12</a>
         <p class="sal_gf_coupon_code"> Free Certificate -> <?php if ($user_gf_coupons) { ?>
                 <span>Coupon code: <strong> <?php echo $user_gf_coupons ?></strong> </span>
             <?php } elseif ($user_reward >= 1) { ?>

@@ -15,7 +15,7 @@ $nonce = wp_create_nonce($coupon['coupon_code']);
                                         echo "sal-not-active";
                                     }
                                     ?> ">
-    <a class="btn btn-primary"><img src="https://newskillsacademy.co.uk/assets/user/images/trophy-white.png" alt="trophy">X<?php echo $coupon['rewards_points_need'] ?></a>
+    <a class="btn btn-primary"><img src="<?php echo plugin_dir_url(dirname(__FILE__)) . '../../assets/images/trophy-white.png' ?>" alt="trophy">X<?php echo $coupon['rewards_points_need'] ?></a>
     <p id="sal_reward_btn_text" class="sal_coupon_<?php echo $rewards_coupon_id ?>"> <?php echo $coupon_description ?> -> <?php if ($check_user_email_exist) { ?>
             <span>Coupon code: <strong style="color: #0099ff"> <?php echo $coupon_code ?></strong> </span>
         <?php } elseif ($user_reward >= $coupon['rewards_points_need']) { ?>
