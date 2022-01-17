@@ -158,40 +158,46 @@ class SaCourse
         $all_course_ids = bp_course_get_user_certificates($user_id);
 
         $certificate_link_list = array();
-        foreach ($all_course_ids as $course_id) {
-            $certificate_info = new stdClass();
-            $args = array(
-                'course_id' => $course_id,
-                'user_id' => $user_id
-            );
-            $certificate_link = bp_get_course_certificate($args);
-            $certificate_info->course_id = $course_id;
-            $certificate_info->title = get_the_title($course_id);
-            $certificate_info->link = $certificate_link;
-            $certificate_info->slug = get_post_field('post_name', $course_id);
-            $certificate_link_list[] = $certificate_info;
+        if (!empty($all_course_ids)) {
+            foreach ($all_course_ids as $course_id) {
+                $certificate_info = new stdClass();
+                $args = array(
+                    'course_id' => $course_id,
+                    'user_id' => $user_id
+                );
+                $certificate_link = bp_get_course_certificate($args);
+                $certificate_info->course_id = $course_id;
+                $certificate_info->title = get_the_title($course_id);
+                $certificate_info->link = $certificate_link;
+                $certificate_info->slug = get_post_field('post_name', $course_id);
+                $certificate_link_list[] = $certificate_info;
+            }
         }
+
         return $certificate_link_list;
     }
     static function sa_get_saved_courses($user_id)
     {
         $new_wishlist = get_user_meta($user_id, 'wishlist_course', false);
-        $values = array_values($new_wishlist);
-        $args = array('post_type' => 'course', 'post__in' => $values, 'orderby' => 'post__in', 'posts_per_page' => -1);
-
-        $saved_courses = new WP_Query($args);
-        foreach ($saved_courses->posts as $saved_course) {
-            $saved_course->featured_image = get_the_post_thumbnail_url($saved_course->ID);
-            $saved_course->student_count = get_post_meta($saved_course->ID, 'vibe_students', true);
-            $saved_course->average_rating = get_post_meta($saved_course->ID, 'average_rating', true);
-            $product_id = get_post_meta($saved_course->ID, 'vibe_product', true);
-            $saved_course->sale_price = get_post_meta($product_id, '_sale_price', true);
-            $saved_course->regular_price = get_post_meta($product_id, '_regular_price', true);
-            $saved_course->curriculums = bp_course_get_full_course_curriculum($saved_course->ID);
-            $saved_course->product_id = $product_id;
+        // $values = array_values($new_wishlist);
+        $args = array('post_type' => 'course', 'post__in' => $new_wishlist, 'orderby' => 'post__in', 'posts_per_page' => -1);
+        if (!empty($new_wishlist)) {
+            $saved_courses = new WP_Query($args);
+            foreach ($saved_courses->posts as $saved_course) {
+                $saved_course->featured_image = get_the_post_thumbnail_url($saved_course->ID);
+                $saved_course->student_count = get_post_meta($saved_course->ID, 'vibe_students', true);
+                $saved_course->average_rating = get_post_meta($saved_course->ID, 'average_rating', true);
+                $product_id = get_post_meta($saved_course->ID, 'vibe_product', true);
+                $saved_course->sale_price = get_post_meta($product_id, '_sale_price', true);
+                $saved_course->regular_price = get_post_meta($product_id, '_regular_price', true);
+                $saved_course->curriculums = bp_course_get_full_course_curriculum($saved_course->ID);
+                $saved_course->product_id = $product_id;
+            }
+            wp_reset_query();
+            return $saved_courses->posts;
+        } else {
+            return array();
         }
-        wp_reset_query();
-        return $saved_courses->posts;
     }
     // remove course from wishlist 
     static function sa_remove_from_wishlist()
