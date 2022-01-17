@@ -219,59 +219,7 @@
                         <div class="row">
                             <div class="col-12 col-md-8  white-rounded notification ">
 
-                                <div class="leaderboard">
-                                    <h3>Student leaderboard</h3>
-                                    <div id="leader_board_table_loading"></div>
-                                    <div class="form-group">
-                                        <select id="monthly_leaderBoard" class="form-control" name="monthly">
-                                            <option value="this_month">This Month</option>
-                                            <option value="last_month">Last Month</option>
-
-                                        </select>
-                                    </div>
-                                    <!-- <div class="bs-dropdown" style="float: right;">
-                                        <ul class="nav nav-pills" role="tablist">
-                                            <li role="presentation" class="dropdown"> <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Dropdown <span class="caret"></span> </a>
-                                                <ul class="dropdown-menu" id="menu3" aria-labelledby="drop6">
-                                                    <li><a href="#">This Month</a></li>
-                                                    <li><a href="#">Last Month</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div> -->
-                                </div>
-                                <table class="table">
-                                    <tbody id="leader_board_table">
-                                        <?php
-                                        $leaderBoard = SaRewards::get_all_rewards_of_user_id_with_time_range($current_month, $current_date_is);
-                                        // short  leaderBoard with rewards
-                                        function cmp($a, $b)
-                                        {
-                                            return strcmp($b->total_reward, $a->total_reward);
-                                        }
-
-                                        usort($leaderBoard, "cmp");
-                                        $i = 1;
-                                        foreach ($leaderBoard as $leader) {
-                                        ?>
-                                            <tr class="">
-                                                <th><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award">
-                                                    <?php echo _e($i) ?></th>
-                                                <th><?php echo _e(strtoupper($leader->display_name)) ?>
-                                                    <!---->
-                                                </th>
-                                                <th><?php echo $leader->total_reward ?> pts</th>
-                                                <th>
-                                                    <!---->
-                                                </th>
-                                            </tr>
-                                        <?php
-                                            $i++;
-                                        }
-                                        ?>
-
-                                    </tbody>
-                                </table>
+                                <?php include_once('template-parts/Rewards/leader-board.php'); ?>
                             </div><!-- col-notification-end  -->
                         </div> <!-- row -->
                         <!-- </div>row--end  -->

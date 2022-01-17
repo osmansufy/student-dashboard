@@ -97,9 +97,9 @@ function sa_learners_dashboard_plugin_scripts_and_styles()
     ));
 }
 
-add_action('wp_login', array('SaRewards', 'sa_user_last_login'), 10, 2);
+add_action('wp_login', array('SaLoginRewards', 'sa_user_last_login'), 10, 2);
 add_action("user_register", array('SaRewards', 'sa_user_rewards_for_registration'));
-add_action('badgeos_wplms_submit_course', array('SaRewards', 'sa_badgeos_wplms_submit_course'));
+add_action('badgeos_wplms_submit_course', array('CourseCompleteRewards', 'sa_badgeos_wplms_submit_course'));
 add_action('wplms_unit_complete', array('SaRewards', 'sa_wplms_unit_complete'), 5, 4);
 add_action('wp_enqueue_scripts', 'sa_learners_dashboard_plugin_scripts_and_styles');
 add_action('wp_ajax_sa_learners_update', array('SaLearners', 'sa_learners_update_callback'));

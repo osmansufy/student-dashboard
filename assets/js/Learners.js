@@ -58,13 +58,12 @@ class Learners {
         );
       },
       success: (data) => {
-        console.log(data);
         if (data) {
-          console.log(typeof data);
           let data_get = JSON.parse(data);
           let board_list_content = "";
-          data_get.forEach((item, index) => {
-            board_list_content += `
+          if (data_get.length > 0) {
+            data_get.forEach((item, index) => {
+              board_list_content += `
             
             <tr class="">
             <th><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award">
@@ -74,7 +73,14 @@ class Learners {
     <th>${item.total_reward}</th>
 
     </tr>`;
-          });
+            });
+          } else {
+            board_list_content = `<tr class="text-center">
+            <th>No data found</th>
+       
+            </tr>`;
+          }
+
           $("#leader_board_table").html(board_list_content);
 
           console.log(board_list_content);
