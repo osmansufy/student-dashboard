@@ -43,21 +43,34 @@
                     if (is_plugin_active('wplms-wishlist/wplms-wishlist.php')) {
                     ?>
                         <div class="other-course">
+                            <?php if (!empty($saved_courses)) { ?>
+                                <div class="row">
+                                    <?php
+                                    foreach ($saved_courses as $course) {
+                                    ?>
+                                        <div class="col-12 col-md-6 col-lg-4 col-sm-6 sal-save-course-wrap_<?php echo $course->ID ?>">
+                                            <!-- col-start  -->
+                                            <?php include('template-parts/course-card.php'); ?>
+                                        </div><!-- col-end  -->
+                                    <?php
+                                    }
+                                    ?>
 
-                            <div class="row">
-                                <?php
-                                foreach ($saved_courses as $course) {
-                                ?>
-                                    <div class="col-12 col-md-6 col-lg-4 col-sm-6 sal-save-course-wrap_<?php echo $course->ID ?>">
-                                        <!-- col-start  -->
-                                        <?php include('template-parts/course-card.php'); ?>
-                                    </div><!-- col-end  -->
-                                <?php
-                                }
-                                ?>
 
-
-                            </div><!-- row--end  -->
+                                </div><!-- row--end  -->
+                            <?php
+                            } else {
+                            ?>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="alert alert-info">
+                                            <p>You have not saved any courses yet.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php
+                            }
+                            ?>
                         </div>
                     <?php } else { ?>
                         <div class="not-active-wishlist">

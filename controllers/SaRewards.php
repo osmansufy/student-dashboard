@@ -46,7 +46,7 @@ class SaRewards
         $table_name = $wpdb->prefix . 'sa_learner_achievements';
         $table_user = $wpdb->prefix . 'users';
         // return $end_date;
-        $sql = "SELECT SUM($table_name.rewards_points)as total_reward,$table_name_map.user_id,$table_user.display_name  FROM $table_name_map join $table_name on $table_name_map.achievement_id = $table_name.achievement_id join $table_user on $table_user.ID=$table_name_map.user_id  WHERE  $table_name_map.created_at BETWEEN '$start_date' AND '$end_date' GROUP BY $table_name_map.user_id";
+        $sql = "SELECT SUM($table_name.rewards_points)as total_reward,$table_name_map.user_id,$table_user.display_name  FROM $table_name_map join $table_name on $table_name_map.achievement_id = $table_name.achievement_id join $table_user on $table_user.ID=$table_name_map.user_id  WHERE  $table_name_map.created_at BETWEEN '$start_date' AND '$end_date' GROUP BY $table_name_map.user_id ORDER BY total_reward DESC LIMIT 10";
         $results = $wpdb->get_results($sql);
         return $results;
     }
@@ -71,15 +71,14 @@ class SaRewards
                 break;
         }
         $results = self::get_all_rewards_of_user_id_with_time_range($start_date, $end_date);
-        function cmp($a, $b)
-        {
-            return strcmp($b->total_reward, $a->total_reward);
-        }
+        // function cmp($a, $b)
+        // {
+        //     return strcmp($b->total_reward, $a->total_reward);
+        // }
 
-        usort($leaderBoard, "cmp");
+        // usort($results, "cmp");
         $data = array();
         foreach ($results as $key => $value) {
-            $data[$key]['user_id'] = $value->user_id;
             $data[$key]['display_name'] = $value->display_name;
             $data[$key]['total_reward'] = $value->total_reward;
         }
@@ -93,7 +92,7 @@ class SaRewards
         $table_name_map = $wpdb->prefix . 'sa_learner_achievements_mapping';
         $table_name = $wpdb->prefix . 'sa_learner_achievements';
 
-        $sql = "SELECT SUM($table_name.rewards_points) as total_reward FROM $table_name_map join $table_name on $table_name_map.achievement_id = $table_name.achievement_id WHERE $table_name_map.user_id = $user_id AND $table_name_map.created_at BETWEEN '$start_date' AND '$end_date'";
+        $sql = "SELECT SUM($table_name.rewards_points) as total_reward FROM $table_name_map ORDER BY total_reward join $table_name on $table_name_map.achievement_id = $table_name.achievement_id WHERE $table_name_map.user_id = $user_id AND $table_name_map.created_at BETWEEN '$start_date' AND '$end_date'";
         // return $sql;
         $results = $wpdb->get_results($sql);
         return $results;
@@ -246,18 +245,18 @@ class SaLoginRewards
         if (get_user_meta($user->ID, 'last_login', true)) {
             $last_login = get_user_meta($user->ID, 'last_login', true);
             // time difference in hours from current time
-            $diff = round(abs(time() - $last_login) / 60, 1);
+            $diff = round(abs(time() - $last_login) / 3660, 1);
             // time difference in minutes from current time
             // $diff_min = round(abs(time() - $last_login) / 60, 1);
 
             // if time diff is less than 24 hours then show the time diff
             if (get_user_meta($user->ID, 'login_day_count', true)) {
                 switch ($diff) {
-                    case $diff < 1:
+                    case $diff < 24:
                         // $login_day_count = get_user_meta($user->ID, 'login_day_count', true);
                         // update_user_meta($user->ID, 'login_day_count', $login_day_count);
                         break;
-                    case $diff > 1 && $diff < 3:
+                    case $diff > 24 && $diff < 48:
                         $login_day_count = get_user_meta($user->ID, 'login_day_count', true);
                         $login_day_count++;
                         update_user_meta($user->ID, 'last_login', time());
@@ -265,7 +264,7 @@ class SaLoginRewards
                         self::sa_user_rewards_for_login($user);
                         break;
 
-                    case $diff > 4:
+                    case $diff > 48:
                         $login_day_count = 1;
                         update_user_meta($user->ID, 'login_day_count', $login_day_count);
                         update_user_meta($user->ID, 'last_login', time());
@@ -303,7 +302,8 @@ class SaLoginRewards
                 default:
                     break;
             }
-            SaRewards::sal_insert_reward($user->ID, $achievement_id);
+            // SaRewards::sal_insert_reward($user->ID, $achievement_id);
+            SaRewards::sal_insert_reward_repeat($user->ID, $achievement_id);
         } elseif ($login_day_count > 21) {
             $achievement_repeat_id = self::$sign_in_id_6;
             SaRewards::sal_insert_reward_repeat($user->ID, $achievement_repeat_id);

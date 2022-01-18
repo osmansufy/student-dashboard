@@ -18,12 +18,12 @@ $current_date_is = date('Y-m-d H:i:s');
         <?php
         $leaderBoard = SaRewards::get_all_rewards_of_user_id_with_time_range($current_month, $current_date_is);
         // short  leaderBoard with rewards
-        function cmp($a, $b)
-        {
-            return strcmp($b->total_reward, $a->total_reward);
-        }
+        // function cmp($a, $b)
+        // {
+        //     return strcmp($b->total_reward, $a->total_reward);
+        // }
 
-        usort($leaderBoard, "cmp");
+        // usort($leaderBoard, "cmp");
         $i = 1;
         foreach ($leaderBoard as $leader) {
         ?>
