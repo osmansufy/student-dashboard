@@ -17,7 +17,7 @@ $nonce = wp_create_nonce($coupon['coupon_code']);
                                     ?> ">
     <a class="btn btn-primary"><img src="<?php echo plugin_dir_url(dirname(__FILE__)) . '../../assets/images/trophy-white.png' ?>" alt="trophy">X<?php echo $coupon['rewards_points_need'] ?></a>
     <p id="sal_reward_btn_text" class="sal_coupon_<?php echo $rewards_coupon_id ?>"> <?php echo $coupon_description ?> -> <?php if ($check_user_email_exist) { ?>
-            <span>Coupon code: <strong style="color: #0099ff"> <?php echo $coupon_code ?></strong> </span>
+            <span>Coupon code: <strong style="color: #0099ff"> <?php echo $coupon_code ?> </strong> --Unclaimed </span>
         <?php } elseif ($user_reward >= $coupon['rewards_points_need']) { ?>
             <a class="btn btn-primary sal-claim-reward" data-nonce="<?php echo $nonce ?>" data-userid="<?php echo $user_id ?>" data-user_email="<?php echo $user_email ?>" data-couponid="<?php echo $coupon_id ?>" data-reward="<?php echo $coupon_rewards ?>">
                 Click here to claim
