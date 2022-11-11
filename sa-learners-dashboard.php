@@ -64,7 +64,13 @@ function sa_learners_dashboard_including($template)
 }
 add_action('template_include', 'sa_learners_dashboard_including');
 
+// $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
+// if ($uri == '/wplms/learners-dashboard/') {
+//     add_action('template_include', function ($template) {
+//         return SA_LEARNERS_DASHBOARD_PLUGIN_DIR . '/templates/learners-dashboard.php';
+//     });
+// }
 
 function sa_learners_dashboard_load_plugin_textdomain()
 {

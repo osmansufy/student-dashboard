@@ -50,7 +50,7 @@ class SaRewards
         $results = $wpdb->get_results($sql);
         return $results;
     }
-    // Get Leaderboard for rewards with time range
+    // Get LeaderBoard for rewards with time range
     public static function sa_learners_change_leaderBoard_reward()
     {
         $month = $_POST['month'];
