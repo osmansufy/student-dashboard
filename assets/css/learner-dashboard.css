@@ -7,7 +7,7 @@ h4,
 h5,
 h6,
 p {
-  font-family: "Caveat Brush", cursive !important;
+  font-family: "Caveat Brush", cursive ;
   color: #1a1a1a;
 }
 .sidebar-menu-farhan .navbar-global {
@@ -915,20 +915,20 @@ html {
   padding-top: 2px;
 }
 /*====================================
-           👇 message box PAGE CODE 👇
+           👇 sal-message box PAGE CODE 👇
 =====================================*/
-.sidebar-menu-farhan .message .panel-heading .accordion-toggle:after {
+.sidebar-menu-farhan .sal-message .panel-heading .accordion-toggle:after {
   /* symbol for "opening" panels */
   font-family: "Glyphicons Halflings"; /* essential for enabling glyphicon */
   content: "\e114"; /* adjust as needed, taken from bootstrap.css */
   float: right; /* adjust as needed */
   color: grey; /* adjust as needed */
 }
-.sidebar-menu-farhan .message .panel-heading .accordion-toggle.collapsed:after {
+.sidebar-menu-farhan .sal-message .panel-heading .accordion-toggle.collapsed:after {
   /* symbol for "collapsed" panels */
   content: "\e080"; /* adjust as needed, taken from bootstrap.css */
 }
-.sidebar-menu-farhan .message .panel-heading {
+.sidebar-menu-farhan .sal-message .panel-heading {
   display: flex;
   align-items: center;
   border: none;
@@ -940,25 +940,25 @@ html {
   border-radius: 15px;
   cursor: pointer;
 }
-.sidebar-menu-farhan .message .panel-group .panel {
+.sidebar-menu-farhan .sal-message .panel-group .panel {
   margin-bottom: 40px;
   border-radius: 10px;
   border: none;
   position: relative;
 }
-.sidebar-menu-farhan .message .accordion-toggle:after {
+.sidebar-menu-farhan .sal-message .accordion-toggle:after {
   position: absolute;
   right: -3%;
 }
-.message .panel-default > .panel-heading + .panel-collapse > .panel-body {
+.sal-message .panel-default > .panel-heading + .panel-collapse > .panel-body {
   border: none;
   text-align: left;
 }
-.sidebar-menu-farhan .message #accordion {
+.sidebar-menu-farhan .sal-message #accordion {
   width: 80%;
   margin: 0 auto;
 }
-.sidebar-menu-farhan .message .panel-heading a.btn.btn-primary {
+.sidebar-menu-farhan .sal-message .panel-heading a.btn.btn-primary {
   margin-right: 20px;
   padding: 0px 10px;
   font-size: 20px;
@@ -966,7 +966,7 @@ html {
   background: #004463;
   font-family: inherit;
 }
-.sidebar-menu-farhan .message .panel-heading h3 {
+.sidebar-menu-farhan .sal-message .panel-heading h3 {
   padding: 0;
   margin: 0;
 }

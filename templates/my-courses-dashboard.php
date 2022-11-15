@@ -10,15 +10,15 @@ include_once('common-parts/dashboard-head.php');
 
 
 <?php
-// include_once('views/my-courses-dashboard.view.php');
+include_once('views/my-courses-dashboard.view.php');
 
-function show_post($path)
-{
-    $post = get_page_by_path($path);
-    $content = apply_filters('the_content', $post->post_content);
-    echo $content;
-}
+// function show_post($path)
+// {
+//     $post = get_page_by_path($path);
+//     $content = apply_filters('the_content', $post->post_content);
+//     echo $content;
+// }
 
-show_post('subscription-offer');
+// show_post('subscription-offer');
 ?>
 <?php include_once('common-parts/dashboard-footer.php') ?>

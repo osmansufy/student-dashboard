@@ -40,7 +40,17 @@ function is_product_in_cart($product_id)
     return false;
 }
 
+$args = array(
+    'post_type' => 'message',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'orderby' => 'date',
+    'order' => 'DESC',
+    'author' => $user_id,
+);
 
+$messages = get_posts($args);
+wp_reset_query();
 
 ?>
 <?php include_once('views/learners-dashboard.view.php'); ?>

@@ -30,7 +30,7 @@
     <li class="nav-item <?php echo is_page_template('learners-saved-courses.php') ? $activeClass : "" ?>"><a href="<?php echo get_site_url() . '/learners-saved-courses' ?>"><span class="glyphicon glyphicon-floppy-saved"></span><span class="nav-label">Saved
           Courses</span></a>
     </li>
-    <li class="nav-item  "><a href="Messages.html"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Messages</span></a>
+    <li class="nav-item <?php echo is_page_template('learners-messages.php') ? $activeClass : "" ?> "><a href="<?php echo get_site_url() . '/learners-messages' ?>"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Messages</span></a>
     </li>
     <li class="nav-item"><a href="RecommendFriends.html"><span class="glyphicon glyphicon-fire"></span><span class="nav-label">Recommend Friends</span></a>
     </li>

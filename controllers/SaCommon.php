@@ -46,6 +46,12 @@ class SaCommon
             'title' => 'Special Offers',
             'slug' => 'special-offers',
             'template' => 'special-offers'
+        ],
+        [
+            'title' => 'Learners Messages',
+            'slug' => 'learners-messages',
+            'template' => 'learners-messages'
+
         ]
     ];
 

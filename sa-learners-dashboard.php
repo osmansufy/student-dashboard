@@ -20,6 +20,8 @@ include_once 'controllers/SaRewards.php';
 include_once 'controllers/SaCommon.php';
 include_once 'controllers/SaCoupon.php';
 include_once 'controllers/SaGravityFormCoupon.php';
+include_once 'controllers/SaOptionPage.php';
+include_once 'controllers/SaCPT.php';
 
 define('SA_LEARNERS_DASHBOARD_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('SA_LEARNERS_DASHBOARD_PLUGIN_URL', plugin_dir_url(__FILE__));
@@ -59,6 +61,10 @@ function sa_learners_dashboard_including($template)
         $template = $plugindir . '/templates/saved-courses.php';
     } elseif (is_page_template('learners-support.php')) {
         $template = $plugindir . '/templates/learners-support.php';
+    } elseif (is_page_template('special-offers.php')) {
+        $template = $plugindir . '/templates/special-offers.php';
+    } elseif (is_page_template('learners-messages.php')) {
+        $template = $plugindir . '/templates/learners-messages.php';
     }
     return $template;
 }
@@ -95,6 +101,8 @@ function sa_learners_dashboard_plugin_scripts_and_styles()
     wp_enqueue_script('bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), "", true);
     wp_enqueue_script('sa-learner-dashboard-js', plugins_url('assets/js/Learners.js', __FILE__), array('jquery'), time(), true);
     wp_enqueue_style('sabd-fontawesome-css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css');
+
+
     $action = 'sa_learners_update';
     $sal_nonce = wp_create_nonce($action);
     wp_localize_script('sa-learner-dashboard-js', 'pluginData', array(
@@ -103,6 +111,16 @@ function sa_learners_dashboard_plugin_scripts_and_styles()
     ));
 }
 
+add_action('admin_enqueue_scripts', 'sa_learners_dashboard_plugin_scripts_and_styles_admin');
+function sa_learners_dashboard_plugin_scripts_and_styles_admin()
+{
+    //Add the Select2 CSS file
+    wp_enqueue_style('select2-css', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css', array(), '4.1.0-rc.0');
+    //Add the Select2 JavaScript file
+    wp_enqueue_script('select2-js', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', 'jquery', '4.1.0-rc.0');
+
+    wp_enqueue_script('sa-learner-dashboard-admin-js', plugins_url('assets/js/admin/admin.js', __FILE__), array('jquery'), time(), true);
+}
 add_action('wp_login', array('SaLoginRewards', 'sa_user_last_login'), 10, 2);
 add_action("user_register", array('SaRewards', 'sa_user_rewards_for_registration'));
 add_action('badgeos_wplms_submit_course', array('CourseCompleteRewards', 'sa_badgeos_wplms_submit_course'));

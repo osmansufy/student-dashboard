@@ -118,7 +118,7 @@
             <!--leader-Board -->
             <!-- <div class="row" > -->
             <div class="col-12 col-md-5  white-rounded notification useFlex">
-                <?php include('template-parts/Rewards/leader-board.php'); ?>
+                <?php include(plugin_dir_path(__FILE__) . '../template-parts/Rewards/leader-board.php'); ?>
             </div><!-- col-notification-end  -->
             <div class="col-12 col-md-5  white-rounded notification useFlex">
                 <div class="leaderboard">
@@ -130,18 +130,23 @@
                             <th>Subject</th>
                             <th>Date</th>
                         </tr>
-                        <tr>
-                            <td><a href="#">Get Access to All of Our Courses</a></td>
-                            <td>16/08/2021 @ 14:31</td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">Module time limits</a></td>
-                            <td>16/06/2021 @ 11:10</td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">Welcome to our new website</a></td>
-                            <td>01/06/2021 @ 07:19</td>
-                        </tr>
+                        <?php
+
+                        foreach ($messages as $message) {
+                            $message_id = $message->ID;
+                            $message_title = $message->post_title;
+                            $message_content = $message->post_content;
+                            $message_date = $message->post_date;
+                            $url = get_site_url() . '/message/' . $message->post_name;
+                        ?>
+                            <tr>
+                                <td><a href="<?php echo $url ?>"><?php echo $message_title ?></a></td>
+                                <td style="color:black"><?php echo $message_date ?></td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+
                     </tbody>
                 </table>
             </div><!-- col-notification-end  -->
