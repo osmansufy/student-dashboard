@@ -34,19 +34,20 @@ class SaCourse
                 'post_status' => 'publish',
             );
         }
-        $recommended_courses = new WP_Query($args);
-        foreach ($recommended_courses->posts as $recommended_course) {
-            $recommended_course->featured_image = get_the_post_thumbnail_url($recommended_course->ID);
-            $recommended_course->student_count = get_post_meta($recommended_course->ID, 'vibe_students', true);
-            $recommended_course->average_rating = get_post_meta($recommended_course->ID, 'average_rating', true);
-            $product_id = get_post_meta($recommended_course->ID, 'vibe_product', true);
-            $recommended_course->sale_price = get_post_meta($product_id, '_sale_price', true);
-            $recommended_course->regular_price = get_post_meta($product_id, '_regular_price', true);
-            $recommended_course->curriculums = bp_course_get_full_course_curriculum($recommended_course->ID);
-            $recommended_course->product_id = $product_id;
-        }
+        return SaHelper::convert_to_viewCourses($args);
+        // $recommended_courses = new WP_Query($args);
+        // foreach ($recommended_courses->posts as $recommended_course) {
+        //     $recommended_course->featured_image = get_the_post_thumbnail_url($recommended_course->ID);
+        //     $recommended_course->student_count = get_post_meta($recommended_course->ID, 'vibe_students', true);
+        //     $recommended_course->average_rating = get_post_meta($recommended_course->ID, 'average_rating', true);
+        //     $product_id = get_post_meta($recommended_course->ID, 'vibe_product', true);
+        //     $recommended_course->sale_price = get_post_meta($product_id, '_sale_price', true);
+        //     $recommended_course->regular_price = get_post_meta($product_id, '_regular_price', true);
+        //     $recommended_course->curriculums = bp_course_get_full_course_curriculum($recommended_course->ID);
+        //     $recommended_course->product_id = $product_id;
+        // }
 
-        return $recommended_courses->posts;
+        // return $recommended_courses->posts;
         // return $recommended_courses;
     }
     static function sa_learners_add_to_cart()

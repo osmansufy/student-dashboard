@@ -48,6 +48,9 @@ class OptionsDemoTwo
         if (isset($_POST['sal_banner_image_url'])) {
             update_option('sal_banner_image_url', sanitize_text_field($_POST['sal_banner_image_url']));
         }
+        if (isset($_POST['sal_banner_image_id'])) {
+            update_option('sal_banner_image_id', sanitize_text_field($_POST['sal_banner_image_id']));
+        }
         wp_redirect('admin.php?page=saldashboard');
         // wp_redirect(admin_url('options-general.php?page=optionsdemopage'));
     }

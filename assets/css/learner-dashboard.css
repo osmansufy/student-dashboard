@@ -10,6 +10,11 @@ p {
   font-family: "Caveat Brush", cursive ;
   color: #1a1a1a;
 }
+img{
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
 .sidebar-menu-farhan .navbar-global {
   background-color: #003a59;
   border: #003a59;

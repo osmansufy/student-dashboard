@@ -245,29 +245,34 @@ class SaLoginRewards
         if (get_user_meta($user->ID, 'last_login', true)) {
             $last_login = get_user_meta($user->ID, 'last_login', true);
             // time difference in hours from current time
-            $diff = round(abs(time() - $last_login) / 3660, 1);
+            // $diff = round(abs(time() - $last_login) / 3660, 1);
             // time difference in minutes from current time
-            // $diff_min = round(abs(time() - $last_login) / 60, 1);
+            $diff = round(abs(time() - $last_login) / 60, 1);
 
             // if time diff is less than 24 hours then show the time diff
             if (get_user_meta($user->ID, 'login_day_count', true)) {
                 switch ($diff) {
-                    case $diff < 24:
-                        // $login_day_count = get_user_meta($user->ID, 'login_day_count', true);
-                        // update_user_meta($user->ID, 'login_day_count', $login_day_count);
-                        break;
-                    case $diff > 24 && $diff < 48:
+                        // case $diff < 24:
+                        //     // $login_day_count = get_user_meta($user->ID, 'login_day_count', true);
+                        //     // update_user_meta($user->ID, 'login_day_count', $login_day_count);
+                        //     break;
+                    case $diff > 3:
+                        // user logged in 2 days in a row
                         $login_day_count = get_user_meta($user->ID, 'login_day_count', true);
+                        // if user logged in 2 days in a row then update the login day count
                         $login_day_count++;
                         update_user_meta($user->ID, 'last_login', time());
                         update_user_meta($user->ID, 'login_day_count', $login_day_count);
+                        // if user logged in 2 days in a row then insert reward
+
                         self::sa_user_rewards_for_login($user);
                         break;
 
-                    case $diff > 48:
-                        $login_day_count = 1;
-                        update_user_meta($user->ID, 'login_day_count', $login_day_count);
-                        update_user_meta($user->ID, 'last_login', time());
+                        // case $diff > 48:
+                        //     // user has not logged in for 2 days so reset the login day count
+                        //     $login_day_count = 1;
+                        //     update_user_meta($user->ID, 'login_day_count', $login_day_count);
+                        //     update_user_meta($user->ID, 'last_login', time());
                 }
             } else {
                 update_user_meta($user->ID, 'login_day_count', 1);
@@ -283,6 +288,7 @@ class SaLoginRewards
         $achievement_id = '';
 
         if ($login_day_count <= 21) {
+            // if login day count is less than 21 then give rewards
             switch ($login_day_count) {
                 case 2:
                     $achievement_id = self::$sign_in_id_1;
@@ -305,6 +311,7 @@ class SaLoginRewards
             // SaRewards::sal_insert_reward($user->ID, $achievement_id);
             SaRewards::sal_insert_reward_repeat($user->ID, $achievement_id);
         } elseif ($login_day_count > 21) {
+            // if login day count is greater than 21 then give rewards every day
             $achievement_repeat_id = self::$sign_in_id_6;
             SaRewards::sal_insert_reward_repeat($user->ID, $achievement_repeat_id);
         } else {

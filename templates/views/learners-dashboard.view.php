@@ -91,15 +91,21 @@
             </div>
         </div> <!-- Award days banner section END -->
         <!-- banner offer -->
+
         <div class="banner-offer">
             <a href="#">
-                <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/study-group-banner-1-1.png" alt="Offer"></a>
+                <img style="
+    max-height: 280px;
+    width: 100%;
+    border-radius: 20px;
+" src="<?php echo $ads_banner_url ?>" alt="Offer">
+            </a>
         </div>
         <div class="other-course">
             <h3 class="Title">Other courses you might like...</h3>
             <div class="row">
                 <?php
-                foreach ($recomended_courses as $course) {
+                foreach ($get_recomended_courses as $course) {
                 ?>
 
                     <div class="col-12 col-md-6 col-lg-3 col-sm-6">

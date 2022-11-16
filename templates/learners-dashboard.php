@@ -19,7 +19,6 @@ $complete_courses = array();
 
 $certificate_list = bp_course_get_user_certificates($user_id);
 
-$recomended_courses = SaCourse::get_recommended_courses($user_id);
 
 $last_login = get_user_meta($user_id, 'last_login', true);
 
@@ -52,6 +51,21 @@ $args = array(
 $messages = get_posts($args);
 wp_reset_query();
 
+// get all recomended courses from option
+$recomended_courses = get_option('recomended_courses');
+// get all courses from database and show them in a select form element
+$all_args = array(
+    'post_type' => 'course',
+    'posts_per_page' => -1,
+    'post_status' => 'publish',
+    'post__in' => $recomended_courses,
+);
+$get_recomended_courses =  SaHelper::convert_to_viewCourses($all_args);
+$ads_banner_id = get_option('sal_banner_image_id');
+$ads_banner_url = wp_get_attachment_url($ads_banner_id);
+// echo '<pre>';
+// var_dump($ads_banner_url);
+// echo '</pre>';
 ?>
 <?php include_once('views/learners-dashboard.view.php'); ?>
 <?php include_once('common-parts/dashboard-footer.php') ?>

@@ -1,4 +1,4 @@
-<h4>Recomended Courses for user</h4>
+<h4>Recomended Courses for users</h4>
 
 <form method="post" action="<?php echo admin_url('admin-post.php') ?>">
     <?php

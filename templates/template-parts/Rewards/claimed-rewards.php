@@ -58,7 +58,7 @@ $user_gf_coupons = get_user_meta($user_id, 'gf_user_coupon', true);
 $nonce_certificate = wp_create_nonce("sa_gf_coupon_nonce");
 if (class_exists('GFCoupons')) {
 ?>
-    <div class="rewards-inner <?php if ($user_reward >= 1 || $user_gf_coupons) {
+    <div class="rewards-inner <?php if ($user_reward >= 12 || $user_gf_coupons) {
                                     echo "sal-active";
                                 } else {
                                     echo "sal-not-active";
@@ -67,7 +67,7 @@ if (class_exists('GFCoupons')) {
         <a class="btn btn-primary"><img src="<?php echo plugin_dir_url(dirname(__FILE__)) . '../../assets/images/trophy-white.png' ?>" alt="trophy">X12</a>
         <p class="sal_gf_coupon_code"> Free Certificate -> <?php if ($user_gf_coupons) { ?>
                 <span>Coupon code: <strong> <?php echo $user_gf_coupons ?></strong> </span>
-            <?php } elseif ($user_reward >= 1) { ?>
+            <?php } elseif ($user_reward >= 12) { ?>
                 <a class="btn btn-primary" id="sal_gf_coupon" data-nonce="<?php echo $nonce_certificate ?>" data-userid="<?php echo $user_id ?>" data-reward="12">
                     Click here to claim
                 </a>
