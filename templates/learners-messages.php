@@ -11,7 +11,6 @@ $args = array(
     'posts_per_page' => -1,
     'orderby' => 'date',
     'order' => 'DESC',
-    'author' => $user_id,
 );
 
 $messages = get_posts($args);

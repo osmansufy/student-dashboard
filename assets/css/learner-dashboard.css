@@ -1199,8 +1199,8 @@ html {
 ======================== */
 
 .sidebar-menu-farhan a.btn.btn-outline-primary.offer-btn {
-  color: #259cc0 !important;
-  background-color: transparent;
+  /* color: #259cc0 !important;
+  background-color: transparent; */
   background-image: none;
   border-color: #259cc0;
   font-weight: 700;

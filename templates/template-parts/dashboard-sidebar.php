@@ -35,7 +35,7 @@
       </li>
       <li class="nav-item"><a href="RecommendFriends.html"><span class="glyphicon glyphicon-fire"></span><span class="nav-label">Recommend Friends</span></a>
       </li>
-      <li class="nav-item "><a href="SpecialOffers.html"><span class="glyphicon glyphicon-star"></span><span class="nav-label">Special Offers</span></a>
+      <li class="nav-item <?php echo is_page_template('special-offers.php') ? $activeClass : "" ?>"><a href="<?php echo get_site_url() . '/special-offers' ?>"><span class="glyphicon glyphicon-star"></span><span class="nav-label">Special Offers</span></a>
       </li>
       <li class="nav-item <?php echo is_page_template('learners-orders.php') ? $activeClass : "" ?>"><a href="<?php echo get_site_url() . '/learners-orders' ?>"><span class="glyphicon glyphicon-tag"></span><span class="nav-label">My Orders</span></a>
       </li>

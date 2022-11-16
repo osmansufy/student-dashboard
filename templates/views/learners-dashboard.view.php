@@ -143,7 +143,7 @@
                             $message_title = $message->post_title;
                             $message_content = $message->post_content;
                             $message_date = $message->post_date;
-                            $url = get_site_url() . '/message/' . $message->post_name;
+                            $url = get_permalink($message_id);
                         ?>
                             <tr>
                                 <td><a href="<?php echo $url ?>"><?php echo $message_title ?></a></td>

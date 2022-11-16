@@ -1,6 +1,6 @@
 <?php
 // Register Custom Post Type Special Offer
-function create_specialoffer_cpt()
+function create_cpt_sal_dashboard()
 {
 
     $labels = array(
@@ -104,6 +104,6 @@ function create_specialoffer_cpt()
         'capability_type' => 'post',
     );
     register_post_type('message', $messageArgs);
-    register_post_type('specialoffer', $args);
+    register_post_type('offer', $args);
 }
-add_action('init', 'create_specialoffer_cpt', 0);
+add_action('init', 'create_cpt_sal_dashboard', 0);
