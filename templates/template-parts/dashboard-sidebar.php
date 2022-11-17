@@ -26,14 +26,14 @@
       </li>
       <li class="nav-item <?php echo $_SERVER['REQUEST_URI'] ===  "/wplms/learners-certificates/" ? $activeClass : "" ?>"> <a href="<?php echo get_site_url() . '/learners-certificates' ?>"><span class="glyphicon glyphicon-cog"></span><span class="nav-label">My Certificates</span></a></li>
       <li class="nav-item <?php echo is_page_template('learners-rewards.php') ? $activeClass : "" ?>"><a href="<?php echo get_site_url() . '/learners-rewards' ?>"><span class="glyphicon glyphicon-film"></span><span class="nav-label">My Rewards</span></a></li>
-      <li class="nav-item"><a href="UnlimitedLearning.html"><span class="glyphicon glyphicon-calendar"></span><span class="nav-label">Unlimited
+      <li class="nav-item <?php echo is_page_template('unlimited-learning.php') ? $activeClass : "" ?>"><a href="<?php echo get_site_url() . '/unlimited-learning' ?>"><span class="glyphicon glyphicon-calendar"></span><span class="nav-label">Unlimited
             Learning</span></a></li>
       <li class="nav-item <?php echo is_page_template('learners-saved-courses.php') ? $activeClass : "" ?>"><a href="<?php echo get_site_url() . '/learners-saved-courses' ?>"><span class="glyphicon glyphicon-floppy-saved"></span><span class="nav-label">Saved
             Courses</span></a>
       </li>
       <li class="nav-item <?php echo is_page_template('learners-messages.php') ? $activeClass : "" ?> "><a href="<?php echo get_site_url() . '/learners-messages' ?>"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Messages</span></a>
       </li>
-      <li class="nav-item"><a href="RecommendFriends.html"><span class="glyphicon glyphicon-fire"></span><span class="nav-label">Recommend Friends</span></a>
+      <li class="nav-item <?php echo is_page_template('learners-recommend-friends.php') ? $activeClass : "" ?>"><a href="<?php echo get_site_url() . '/learners-recommend-friends' ?>"><span class="glyphicon glyphicon-fire"></span><span class="nav-label">Recommend Friends</span></a>
       </li>
       <li class="nav-item <?php echo is_page_template('special-offers.php') ? $activeClass : "" ?>"><a href="<?php echo get_site_url() . '/special-offers' ?>"><span class="glyphicon glyphicon-star"></span><span class="nav-label">Special Offers</span></a>
       </li>
@@ -41,7 +41,7 @@
       </li>
       <li class="nav-item <?php echo is_page_template('learners-profile.php') ? $activeClass : "" ?>"><a href="<?php echo get_site_url() . '/learners-profile' ?>"><span class="glyphicon glyphicon-user"></span><span class="nav-label">My Profile.</span></a>
       </li>
-      <li class="nav-item "><a href="StudentPortal.html"><span class="glyphicon glyphicon-import"></span><span class="nav-label">Student Portal</span></a>
+      <li class="nav-item <?php echo is_page_template('student-portal.php') ? $activeClass : "" ?>"><a href="<?php echo get_site_url() . '/student-portal' ?>"><span class="glyphicon glyphicon-import"></span><span class="nav-label">Student Portal</span></a>
       </li>
       <li class="nav-item <?php echo is_page_template('learners-support.php') ? $activeClass : "" ?> "><a href="<?php echo get_site_url() . '/learners-support' ?>"><span class="far fa-comments"> </span><span class="nav-label">
             Support</span></a>

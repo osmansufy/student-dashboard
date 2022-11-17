@@ -3,7 +3,7 @@
 /**
  * Plugin Name:      SA Learners Dashboard
  * Plugin URI:        https://staffasia.org
- * Description:       This plugin  for custom learners dashboard for wplms theme . DO NOT DEACTIVATE THIS PLUGIN UNDER ANY CIRCUMSTANCE. Please contact the Technology Team for anything. 
+ * Description:       This plugin  for custom learners dashboard for wplms theme . 
  * Version:           1.0.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
@@ -66,6 +66,12 @@ function sa_learners_dashboard_including($template)
         $template = $plugindir . '/templates/special-offers.php';
     } elseif (is_page_template('learners-messages.php')) {
         $template = $plugindir . '/templates/learners-messages.php';
+    } elseif (is_page_template('student-portal.php')) {
+        $template = $plugindir . '/templates/student-portal.php';
+    } elseif (is_page_template('unlimited-learning.php')) {
+        $template = $plugindir . '/templates/unlimitedLearning.php';
+    } elseif (is_page_template('learners-recommend-friends.php')) {
+        $template = $plugindir . '/templates/learners-recommend-friends.php';
     }
     return $template;
 }
@@ -84,23 +90,47 @@ function sa_learners_dashboard_load_plugin_textdomain()
     load_plugin_textdomain('sa-learners-dashboard', false, basename(dirname(__FILE__)) . '/languages');
 }
 add_action('plugins_loaded', 'sa_learners_dashboard_load_plugin_textdomain');
+// load Jquery from google cdn 
+function use_jquery_from_google()
+{
+    if (is_admin()) {
+        return;
+    }
 
+    global $wp_scripts;
+    if (isset($wp_scripts->registered['jquery']->ver)) {
+        $ver = $wp_scripts->registered['jquery']->ver;
+        $ver = str_replace("-wp", "", $ver);
+    } else {
+        $ver = '1.12.4';
+    }
+
+    wp_deregister_script('jquery');
+    wp_register_script('jquery', "//ajax.googleapis.com/ajax/libs/jquery/$ver/jquery.min.js", false, $ver);
+}
+add_action('init', 'use_jquery_from_google');
 function sa_learners_dashboard_plugin_scripts_and_styles()
 {
     $common = new SaCommon();
     $page_template = $common->all_page_templates;
+
     $plugin_page = array_map(function ($page) {
         $page_with_php = $page['template'] . '.php';
         return $page_with_php;
     }, $page_template);
+
+
+
     if (is_page_template($plugin_page)) {
         wp_enqueue_style('sa-learner-dashboard-style', plugins_url('assets/css/learner-dashboard.css', __FILE__), array(), time(), 'all');
     }
     // cdn load css from bootstrap
     wp_enqueue_style('bootstrap-css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', array(), time(), 'all');
-    wp_enqueue_script('googleapis-js', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js', array('jquery'), "", false);
-    wp_enqueue_script('bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), "", true);
+    // check if page is learners dashboard page ,
+
+    wp_enqueue_script('google-js', 'https://code.jquery.com/jquery-3.5.1.min.js', array('jquery'));
     wp_enqueue_script('sa-learner-dashboard-js', plugins_url('assets/js/Learners.js', __FILE__), array('jquery'), time(), true);
+    wp_enqueue_script('bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), "", true);
     wp_enqueue_style('sabd-fontawesome-css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css');
 
 
@@ -112,10 +142,10 @@ function sa_learners_dashboard_plugin_scripts_and_styles()
     ));
 }
 
+
 add_action('admin_enqueue_scripts', 'sa_learners_dashboard_plugin_scripts_and_styles_admin');
 function sa_learners_dashboard_plugin_scripts_and_styles_admin($screen)
 {
-    $_allScreen = get_current_screen();
     // echo '<pre>';
     // print_r($screen);
     // echo '</pre>';

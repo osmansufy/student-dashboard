@@ -52,6 +52,22 @@ class SaCommon
             'slug' => 'learners-messages',
             'template' => 'learners-messages'
 
+        ],
+        [
+            'title' => 'Student Portal',
+            'slug' => 'student-portal',
+            'template' => 'student-portal'
+        ],
+        [
+            'title' => 'Unlimited Learning',
+            'slug' => 'unlimited-learning',
+            'template' => 'unlimited-learning'
+
+        ],
+        [
+            'title' => 'Learners Recommend Friends',
+            'slug' => 'learners-recommend-friends',
+            'template' => 'learners-recommend-friends'
         ]
     ];
 

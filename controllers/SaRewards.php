@@ -245,18 +245,18 @@ class SaLoginRewards
         if (get_user_meta($user->ID, 'last_login', true)) {
             $last_login = get_user_meta($user->ID, 'last_login', true);
             // time difference in hours from current time
-            // $diff = round(abs(time() - $last_login) / 3660, 1);
+            $diff = round(abs(time() - $last_login) / 3660, 1);
             // time difference in minutes from current time
-            $diff = round(abs(time() - $last_login) / 60, 1);
+            // $diff = round(abs(time() - $last_login) / 60, 1);
 
             // if time diff is less than 24 hours then show the time diff
             if (get_user_meta($user->ID, 'login_day_count', true)) {
                 switch ($diff) {
-                        // case $diff < 24:
-                        //     // $login_day_count = get_user_meta($user->ID, 'login_day_count', true);
-                        //     // update_user_meta($user->ID, 'login_day_count', $login_day_count);
-                        //     break;
-                    case $diff > 3:
+                    case $diff < 24:
+                        // $login_day_count = get_user_meta($user->ID, 'login_day_count', true);
+                        // update_user_meta($user->ID, 'login_day_count', $login_day_count);
+                        break;
+                    case $diff > 24:
                         // user logged in 2 days in a row
                         $login_day_count = get_user_meta($user->ID, 'login_day_count', true);
                         // if user logged in 2 days in a row then update the login day count
@@ -268,11 +268,11 @@ class SaLoginRewards
                         self::sa_user_rewards_for_login($user);
                         break;
 
-                        // case $diff > 48:
-                        //     // user has not logged in for 2 days so reset the login day count
-                        //     $login_day_count = 1;
-                        //     update_user_meta($user->ID, 'login_day_count', $login_day_count);
-                        //     update_user_meta($user->ID, 'last_login', time());
+                    case $diff > 48:
+                        // user has not logged in for 2 days so reset the login day count
+                        $login_day_count = 1;
+                        update_user_meta($user->ID, 'login_day_count', $login_day_count);
+                        update_user_meta($user->ID, 'last_login', time());
                 }
             } else {
                 update_user_meta($user->ID, 'login_day_count', 1);

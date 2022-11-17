@@ -4,7 +4,7 @@ class OptionsDemoTwo
     public function __construct()
     {
         add_action('admin_menu', array($this, 'sal_dashboard_page'));
-        add_action('admin_post_sal_admin_page', array($this, 'sal_save_form'));
+        add_action('admin_post_sal_admin_page', array($this, 'sal_save_main_form'));
         add_action('admin_post_sal_recomended_courses', array($this, 'sal_save_dashboard_management'));
     }
 
@@ -22,12 +22,12 @@ class OptionsDemoTwo
 
     public function sal_dashboard_content()
     {
-        require_once plugin_dir_path(__FILE__) . "../settings-page/form.php";
+        require_once plugin_dir_path(__FILE__) . "../settings-page/main_page.php";
     }
 
     public function sal_dashboard_management()
     {
-        require_once plugin_dir_path(__FILE__) . "../settings-page/set_courses_form.php";
+        require_once plugin_dir_path(__FILE__) . "../settings-page/dashboard_management.php";
     }
     public function sal_save_dashboard_management()
     {
@@ -36,9 +36,21 @@ class OptionsDemoTwo
             $recomended_courses = $_POST['recomended_courses'];
             update_option('recomended_courses', $recomended_courses);
         }
+        if (isset($_POST['student_portal_page'])) {
+            $student_portal_page = $_POST['student_portal_page'];
+            update_option('student_portal_page', $student_portal_page);
+        }
+        if (isset($_POST['unlimited_learning_page'])) {
+            $unlimited_learning_page = $_POST['unlimited_learning_page'];
+            update_option('unlimited_learning_page', $unlimited_learning_page);
+        }
+        if (isset($_POST['recomended_friends_page'])) {
+            $recomended_friends_page = $_POST['recomended_friends_page'];
+            update_option('recomended_friends_page', $recomended_friends_page);
+        }
         wp_redirect(admin_url('admin.php?page=sal-dashboard-management'));
     }
-    public function sal_save_form()
+    public function sal_save_main_form()
     {
         check_admin_referer("sal_dashboard_form");
 

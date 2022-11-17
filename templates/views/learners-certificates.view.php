@@ -21,10 +21,12 @@
                     <table class="table" id="desktopCerts">
                         <thead>
                             <tr>
-                                <th scope="col">Course Id</th>
+                                <!-- <th scope="col">Course Id</th> -->
                                 <!-- <th scope="col">Date / Time</th> -->
                                 <th scope="col">Course</th>
+                                <th scope="col">Hard copy Certificate & Transcript</th>
                                 <th scope="col">Certificate </th>
+                                <th scope="col">PDF Transcript </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -32,10 +34,13 @@
                             foreach ($all_certificates as $certificate) {
                             ?>
                                 <tr>
-                                    <th>
-                                        <?php echo $certificate->course_id; ?>
+                                    <!-- <th>
+                                        <?php
 
-                                    </th>
+                                        // echo $certificate->course_id; 
+                                        ?>
+
+                                    </th> -->
                                     <th scope="row">
                                         <a href="<?php echo $certificate->slug ?>">
                                             <div>
@@ -46,7 +51,17 @@
 
                                         </a>
                                     </th>
+                                    <th>
+                                        <a target="_blank" href="https://www.janets.org.uk/certificate">
+                                            Buy
+                                        </a>
+                                    </th>
                                     <th><a class="btn btn-primary" href="<?php echo $certificate->link ?>" target="_blank"><i class="far fa-file-pdf" style="margin-right:7px;"></i> View Certificate</a></th>
+                                    <th>
+                                        <a target="_blank" href="https://www.janets.org.uk/certificate">
+                                            Buy
+                                        </a>
+                                    </th>
                                 </tr><?
                                         ?>
                             <?php } ?>

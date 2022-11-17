@@ -1,7 +1,3 @@
-$(".btn-expand-collapse").click(function (e) {
-  $(".navbar-primary").toggleClass("collapsed");
-});
-
 // percentage
 (function () {
   window.onload = function () {
@@ -31,6 +27,10 @@ function simple_ajax_call() {
 }
 
 $(document).ready(function () {
+  $(".btn-expand-collapse").click(function (e) {
+    $(".navbar-primary").toggleClass("collapsed");
+  });
+
   // filter content with search hide parent
   let progressBars = document.querySelectorAll(".circular-progress");
   console.log(progressBars);

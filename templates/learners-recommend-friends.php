@@ -1,5 +1,4 @@
 <?php
-if (!defined('ABSPATH')) exit;
 include_once('common-parts/dashboard-head.php');
 
 $pluginElementor = \Elementor\Plugin::instance();
