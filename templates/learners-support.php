@@ -1,11 +1,9 @@
 <?php
 
-wp_head();
+get_header(vibe_get_header());
 
 // include_once('views/learners-support.view.php');
 $frontend = new \Elementor\Frontend();
-echo '<div class="elementor content-elementor">';
-$content = $frontend->get_builder_content(1050);
+$content = $frontend->get_builder_content(390878, true);
 echo $content;
-echo '</div>';
-wp_footer();
+get_footer(vibe_get_footer());

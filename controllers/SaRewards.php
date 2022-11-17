@@ -92,7 +92,7 @@ class SaRewards
         $table_name_map = $wpdb->prefix . 'sa_learner_achievements_mapping';
         $table_name = $wpdb->prefix . 'sa_learner_achievements';
 
-        $sql = "SELECT SUM($table_name.rewards_points) as total_reward FROM $table_name_map ORDER BY total_reward join $table_name on $table_name_map.achievement_id = $table_name.achievement_id WHERE $table_name_map.user_id = $user_id AND $table_name_map.created_at BETWEEN '$start_date' AND '$end_date'";
+        $sql = "SELECT SUM($table_name.rewards_points) as total_reward FROM $table_name_map  join $table_name on $table_name_map.achievement_id = $table_name.achievement_id WHERE $table_name_map.user_id = $user_id AND $table_name_map.created_at BETWEEN '$start_date' AND '$end_date'";
         // return $sql;
         $results = $wpdb->get_results($sql);
         return $results;
