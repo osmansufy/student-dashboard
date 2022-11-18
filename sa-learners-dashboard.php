@@ -108,7 +108,7 @@ function use_jquery_from_google()
     wp_deregister_script('jquery');
     wp_register_script('jquery', "//ajax.googleapis.com/ajax/libs/jquery/$ver/jquery.min.js", false, $ver);
 }
-add_action('init', 'use_jquery_from_google');
+// add_action('init', 'use_jquery_from_google');
 function sa_learners_dashboard_plugin_scripts_and_styles()
 {
     $common = new SaCommon();
@@ -121,17 +121,17 @@ function sa_learners_dashboard_plugin_scripts_and_styles()
 
 
 
+    use_jquery_from_google();
     if (is_page_template($plugin_page)) {
         wp_enqueue_style('sa-learner-dashboard-style', plugins_url('assets/css/learner-dashboard.css', __FILE__), array(), time(), 'all');
+        // cdn load css from bootstrap
+        wp_enqueue_style('bootstrap-css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', array(), time(), 'all');
+        // check if page is learners dashboard page ,
+        wp_enqueue_script('sa-learner-dashboard-js', plugins_url('assets/js/Learners.js', __FILE__), array('jquery'), time(), true);
+        wp_enqueue_script('bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), "", true);
+        wp_enqueue_style('sabd-fontawesome-css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css');
     }
-    // cdn load css from bootstrap
-    wp_enqueue_style('bootstrap-css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', array(), time(), 'all');
-    // check if page is learners dashboard page ,
 
-    wp_enqueue_script('google-js', 'https://code.jquery.com/jquery-3.5.1.min.js', array('jquery'));
-    wp_enqueue_script('sa-learner-dashboard-js', plugins_url('assets/js/Learners.js', __FILE__), array('jquery'), time(), true);
-    wp_enqueue_script('bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), "", true);
-    wp_enqueue_style('sabd-fontawesome-css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css');
 
 
     $action = 'sa_learners_update';
@@ -146,11 +146,9 @@ function sa_learners_dashboard_plugin_scripts_and_styles()
 add_action('admin_enqueue_scripts', 'sa_learners_dashboard_plugin_scripts_and_styles_admin');
 function sa_learners_dashboard_plugin_scripts_and_styles_admin($screen)
 {
-    // echo '<pre>';
-    // print_r($screen);
-    // echo '</pre>';
-    // die();
-    if ('learners-dashboard_page_sal-dashboard-management' == $screen) {
+
+
+    if ('learners-dashboard_page_sal-dashboard-management' == $screen || 'toplevel_page_saldashboard' == $screen) {
         //Add the Select2 CSS file
         wp_enqueue_style('select2-css', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css', array(), '4.1.0-rc.0');
         // Add the Select2 JavaScript file

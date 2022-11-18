@@ -52,13 +52,13 @@
                                         </a>
                                     </th>
                                     <th>
-                                        <a target="_blank" href="https://www.janets.org.uk/certificate">
+                                        <a target="_blank" href="<?php echo $certificate_page_url ?>">
                                             Buy
                                         </a>
                                     </th>
                                     <th><a class="btn btn-primary" href="<?php echo $certificate->link ?>" target="_blank"><i class="far fa-file-pdf" style="margin-right:7px;"></i> View Certificate</a></th>
                                     <th>
-                                        <a target="_blank" href="https://www.janets.org.uk/certificate">
+                                        <a target="_blank" href="<?php echo $certificate_page_url ?>">
                                             Buy
                                         </a>
                                     </th>

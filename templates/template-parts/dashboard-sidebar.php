@@ -8,7 +8,7 @@
     <ul class="navbar-primary-menu navbar-nav">
       <?php
 
-      $url = apply_filters('wplms_logo_url', VIBE_URL . '/assets/images/logo.png', 'footer');
+      $url = get_option('sal_dashboard_logo_url');
       if (!empty($url)) {
       ?>
         <a class="navbar-brand" href="<?php echo get_site_url() . '/' ?>">

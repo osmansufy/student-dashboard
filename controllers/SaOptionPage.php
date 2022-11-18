@@ -22,7 +22,7 @@ class OptionsDemoTwo
 
     public function sal_dashboard_content()
     {
-        require_once plugin_dir_path(__FILE__) . "../settings-page/main_page.php";
+        require_once plugin_dir_path(__FILE__) . "../settings-page/main_page_form.php";
     }
 
     public function sal_dashboard_management()
@@ -48,20 +48,23 @@ class OptionsDemoTwo
             $recomended_friends_page = $_POST['recomended_friends_page'];
             update_option('recomended_friends_page', $recomended_friends_page);
         }
+        if (isset($_POST['certificate_page'])) {
+            $certificate_page = $_POST['certificate_page'];
+            update_option('certificate_page', $certificate_page);
+        }
         wp_redirect(admin_url('admin.php?page=sal-dashboard-management'));
     }
     public function sal_save_main_form()
     {
         check_admin_referer("sal_dashboard_form");
-
-        if (isset($_POST['sal_title'])) {
-            update_option('sal_title', sanitize_text_field($_POST['sal_title']));
-        }
         if (isset($_POST['sal_banner_image_url'])) {
             update_option('sal_banner_image_url', sanitize_text_field($_POST['sal_banner_image_url']));
         }
         if (isset($_POST['sal_banner_image_id'])) {
             update_option('sal_banner_image_id', sanitize_text_field($_POST['sal_banner_image_id']));
+        }
+        if (isset($_POST['sal_dashboard_logo_url'])) {
+            update_option('sal_dashboard_logo_url', sanitize_text_field($_POST['sal_dashboard_logo_url']));
         }
         wp_redirect('admin.php?page=saldashboard');
         // wp_redirect(admin_url('options-general.php?page=optionsdemopage'));

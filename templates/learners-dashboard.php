@@ -22,7 +22,7 @@ $certificate_list = bp_course_get_user_certificates($user_id);
 
 $last_login = get_user_meta($user_id, 'last_login', true);
 
-$diff_min = round(abs(time() - $last_login) / 60, 1);
+// $diff_min = round(abs(time() - $last_login) / 60, 1);
 
 
 $rewards = SaRewards::get_all_rewards_by_user_id($user_id);

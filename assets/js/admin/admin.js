@@ -28,4 +28,27 @@ jQuery(document).ready(function ($) {
 
     return false;
   });
+  $("#sal_dashboard_logo").on("click", function () {
+    if (logo) {
+      logo.open();
+      return false;
+    }
+    var logo = wp.media({
+      title: "Upload Image",
+      multiple: false,
+    });
+
+    logo.on("select", function (e) {
+      var uploaded_image = logo.state().get("selection").first().toJSON();
+      var thumbnail = uploaded_image.sizes.thumbnail.url;
+      var image_url = uploaded_image.url;
+      $("#sal_dashboard_logo_url").val(thumbnail);
+      $("#sal_dashboard_logo_id").val(uploaded_image.id);
+      $("#sal_dashboard_logo_show").html(`<img src="${thumbnail}"  />`);
+    });
+
+    logo.open();
+
+    return false;
+  });
 });
