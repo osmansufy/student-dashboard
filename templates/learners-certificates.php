@@ -43,7 +43,8 @@ $all_certificates = $course_controller->sal_get_wplms_certificates($user_id);
 $head = "My Certificates";
 
 include_once('common-parts/dashboard-head.php');
-
+$certificate_page = get_option('certificate_page');
+$certificate_page_url = get_permalink($certificate_page->ID);
 ?>
 <?php include_once('views/learners-certificates.view.php'); ?>
 

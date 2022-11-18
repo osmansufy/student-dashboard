@@ -22,6 +22,7 @@
         $student_portal_page = get_option('student_portal_page');
         $unlimited_learning_page = get_option('unlimited_learning_page');
         $recomended_friends_page = get_option('recomended_friends_page');
+        $certificate_page = get_option('certificate_page');
         $all_pages = get_posts($page_args);
         ?>
         <select id="recomended_courses" name="recomended_courses[]" multiple>
@@ -60,6 +61,17 @@
         <option value="">Select page</option>
         <?php foreach ($all_pages as $page) {
             $selected = $recomended_friends_page == $page->ID ? 'selected' : '';
+        ?>
+            <option <?php echo $selected ?> value="<?php echo $page->ID ?>"><?php echo $page->post_title ?></option>
+        <?php }; ?>
+    </select>
+</div>
+<div>
+    <h4 style="margin:10px 0 ;">Certificate page</h4>
+    <select style="margin:10px 0 ;" id="certificate_page" name="certificate_page">
+        <option value="">Select page</option>
+        <?php foreach ($all_pages as $page) {
+            $selected = $certificate_page == $page->ID ? 'selected' : '';
         ?>
             <option <?php echo $selected ?> value="<?php echo $page->ID ?>"><?php echo $page->post_title ?></option>
         <?php }; ?>

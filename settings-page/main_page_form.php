@@ -1,14 +1,26 @@
-<h1>Options Demo Admin Page</h1>
+<h3>Student Dashboard</h3>
 <form method="post" action="<?php echo admin_url('admin-post.php') ?>">
     <?php
     wp_nonce_field("sal_dashboard_form");
-    $sal_title = get_option('sal_title');
     $sal_banner_image = get_option('sal_banner_image_url');
+    $sal_dashboard_logo = get_option('sal_dashboard_logo_url');
     ?>
-    <label for="sal_title"><?php _e('Title', 'sa-learners-dashboard'); ?></label>
-    <input type="text" id="sal_title" name="sal_title" value="<?php echo esc_attr($sal_title); ?>">
-    <input type="hidden" name="action" value="sal_admin_page">
 
+
+    <div style="margin:3rem 0">
+        <!--Banner Image For marketing  -->
+
+        <label for="sal_dashboard_logo"><?php _e('Dashboard Logo', 'sa-learners-dashboard'); ?></label>
+        <button class="button button-primary" id="sal_dashboard_logo"><?php _e('Dashboard logo', 'sa-learners-dashboard') ?></button>
+        <input type="hidden" name="sal_dashboard_logo_id" id="sal_dashboard_logo_id" />
+        <input type="hidden" name="sal_dashboard_logo_url" id="sal_dashboard_logo_url" />
+        <div id="sal_dashboard_logo_show">
+            <?php if ($sal_dashboard_logo) : ?>
+                <img src="<?php echo $sal_dashboard_logo; ?>" alt="Banner Image">
+            <?php endif; ?>
+
+        </div>
+    </div>
     <div>
         <!--Banner Image For marketing  -->
 
