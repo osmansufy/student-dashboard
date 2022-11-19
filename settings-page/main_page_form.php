@@ -6,7 +6,6 @@
     $sal_dashboard_logo = get_option('sal_dashboard_logo_url');
     ?>
 
-    <input type="hidden" name="action" value="sal_admin_page">
 
     <div style="margin:3rem 0">
         <!--Banner Image For marketing  -->
