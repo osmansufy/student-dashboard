@@ -32,23 +32,23 @@ class OptionsDemoTwo
     public function sal_save_dashboard_management()
     {
         check_admin_referer('sal_recomended_courses');
-        if (isset($_POST['recomended_courses'])) {
+        if (isset($_POST['recomended_courses']) && !empty($_POST['recomended_courses'])) {
             $recomended_courses = $_POST['recomended_courses'];
             update_option('recomended_courses', $recomended_courses);
         }
-        if (isset($_POST['student_portal_page'])) {
+        if (isset($_POST['student_portal_page']) && $_POST['student_portal_page'] != '') {
             $student_portal_page = $_POST['student_portal_page'];
             update_option('student_portal_page', $student_portal_page);
         }
-        if (isset($_POST['unlimited_learning_page'])) {
+        if (isset($_POST['unlimited_learning_page']) && $_POST['unlimited_learning_page'] != '') {
             $unlimited_learning_page = $_POST['unlimited_learning_page'];
             update_option('unlimited_learning_page', $unlimited_learning_page);
         }
-        if (isset($_POST['recomended_friends_page'])) {
+        if (isset($_POST['recomended_friends_page']) && $_POST['recomended_friends_page'] != '') {
             $recomended_friends_page = $_POST['recomended_friends_page'];
             update_option('recomended_friends_page', $recomended_friends_page);
         }
-        if (isset($_POST['certificate_page'])) {
+        if (isset($_POST['certificate_page']) && $_POST['certificate_page'] != '') {
             $certificate_page = $_POST['certificate_page'];
             update_option('certificate_page', $certificate_page);
         }
@@ -57,13 +57,13 @@ class OptionsDemoTwo
     public function sal_save_main_form()
     {
         check_admin_referer("sal_dashboard_form");
-        if (isset($_POST['sal_banner_image_url'])) {
+        if (isset($_POST['sal_banner_image_url']) && !empty($_POST['sal_banner_image_url'])) {
             update_option('sal_banner_image_url', sanitize_text_field($_POST['sal_banner_image_url']));
         }
-        if (isset($_POST['sal_banner_image_id'])) {
+        if (isset($_POST['sal_banner_image_id']) && !empty($_POST['sal_banner_image_id'])) {
             update_option('sal_banner_image_id', sanitize_text_field($_POST['sal_banner_image_id']));
         }
-        if (isset($_POST['sal_dashboard_logo_url'])) {
+        if (isset($_POST['sal_dashboard_logo_url']) && !empty($_POST['sal_dashboard_logo_url'])) {
             update_option('sal_dashboard_logo_url', sanitize_text_field($_POST['sal_dashboard_logo_url']));
         }
         wp_redirect('admin.php?page=saldashboard');
