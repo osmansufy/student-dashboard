@@ -43,47 +43,52 @@ function sa_learners_dashboard_deactivate_sabd()
 };
 register_deactivation_hook(__FILE__, 'sa_learners_dashboard_deactivate_sabd');
 
-function sa_learners_dashboard_including($template)
-{
-    $plugindir = dirname(__FILE__);
-    if (is_page_template('my-courses-dashboard.php')) {
-        $template = $plugindir . '/templates/my-courses-dashboard.php';
-    } elseif (is_page_template('learners-dashboard.php')) {
-        $template = $plugindir . '/templates/learners-dashboard.php';
-    } elseif (is_page_template('learners-profile.php')) {
-        $template = $plugindir . '/templates/learners-profile.php';
-    } elseif (is_page_template('learners-orders.php')) {
-        $template = $plugindir . '/templates/learners-orders.php';
-    } elseif (is_page_template('learners-certificates.php')) {
-        $template = $plugindir . '/templates/learners-certificates.php';
-    } elseif (is_page_template('learners-rewards.php')) {
-        $template = $plugindir . '/templates/learners-rewards.php';
-    } elseif (is_page_template('learners-saved-courses.php')) {
-        $template = $plugindir . '/templates/saved-courses.php';
-    } elseif (is_page_template('learners-support.php')) {
-        $template = $plugindir . '/templates/learners-support.php';
-    } elseif (is_page_template('special-offers.php')) {
-        $template = $plugindir . '/templates/special-offers.php';
-    } elseif (is_page_template('learners-messages.php')) {
-        $template = $plugindir . '/templates/learners-messages.php';
-    } elseif (is_page_template('student-portal.php')) {
-        $template = $plugindir . '/templates/student-portal.php';
-    } elseif (is_page_template('unlimited-learning.php')) {
-        $template = $plugindir . '/templates/unlimitedLearning.php';
-    } elseif (is_page_template('learners-recommend-friends.php')) {
-        $template = $plugindir . '/templates/learners-recommend-friends.php';
-    }
-    return $template;
-}
-add_action('template_include', 'sa_learners_dashboard_including');
-
-// $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-
-// if ($uri == '/wplms/learners-dashboard/') {
-//     add_action('template_include', function ($template) {
-//         return SA_LEARNERS_DASHBOARD_PLUGIN_DIR . '/templates/learners-dashboard.php';
-//     });
+// function sa_learners_dashboard_including($template)
+// {
+//     $plugindir = dirname(__FILE__);
+//     if (is_page_template('my-courses-dashboard.php')) {
+//         $template = $plugindir . '/templates/my-courses-dashboard.php';
+//     } elseif (is_page_template('learners-dashboard.php')) {
+//         $template = $plugindir . '/templates/learners-dashboard.php';
+//     } elseif (is_page_template('learners-profile.php')) {
+//         $template = $plugindir . '/templates/learners-profile.php';
+//     } elseif (is_page_template('learners-orders.php')) {
+//         $template = $plugindir . '/templates/learners-orders.php';
+//     } elseif (is_page_template('learners-certificates.php')) {
+//         $template = $plugindir . '/templates/learners-certificates.php';
+//     } elseif (is_page_template('learners-rewards.php')) {
+//         $template = $plugindir . '/templates/learners-rewards.php';
+//     } elseif (is_page_template('learners-saved-courses.php')) {
+//         $template = $plugindir . '/templates/saved-courses.php';
+//     } elseif (is_page_template('learners-support.php')) {
+//         $template = $plugindir . '/templates/learners-support.php';
+//     } elseif (is_page_template('special-offers.php')) {
+//         $template = $plugindir . '/templates/special-offers.php';
+//     } elseif (is_page_template('learners-messages.php')) {
+//         $template = $plugindir . '/templates/learners-messages.php';
+//     }
+//     return $template;
 // }
+// add_action('template_include', 'sa_learners_dashboard_including');
+function sa_elementor_pages($template)
+{
+    $common = new SaCommon();
+    $page_template_array = $common->all_page_templates;
+
+    $page_templates = array_map(function ($page) {
+        $page_with_php = $page['template'];
+        return $page_with_php;
+    }, $page_template_array);
+    foreach ($page_templates as $page) {
+        if (is_page($page)) {
+            $plugindir = dirname(__FILE__);
+            $template = $plugindir . '/templates/' . $page . '.php';
+            return $template;
+        }
+    }
+}
+
+add_action('template_include', 'sa_elementor_pages');
 
 function sa_learners_dashboard_load_plugin_textdomain()
 {
@@ -112,17 +117,24 @@ function use_jquery_from_google()
 function sa_learners_dashboard_plugin_scripts_and_styles()
 {
     $common = new SaCommon();
-    $page_template = $common->all_page_templates;
+    $page_template_array = $common->all_page_templates;
 
-    $plugin_page = array_map(function ($page) {
-        $page_with_php = $page['template'] . '.php';
+    $page_templates = array_map(function ($page) {
+        $page_with_php = $page['template'];
         return $page_with_php;
-    }, $page_template);
-
-
-
-    use_jquery_from_google();
-    if (is_page_template($plugin_page)) {
+    }, $page_template_array);
+    // $elementor_pages = ['unlimited-learning', 'student-portal', 'learners-recommend-friends'];
+    // $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+    // echo "<pre>";
+    // print_r($plugin_page);
+    // var_dump($uri == '/wplms/student-portal/');
+    // echo "</pre>";
+    // die();
+    // check current page is plugin page or not
+    $current_page_slug = basename(get_permalink());
+    $is_page_exist =  in_array($current_page_slug, $page_templates);
+    if ($is_page_exist) {
+        use_jquery_from_google();
         wp_enqueue_style('sa-learner-dashboard-style', plugins_url('assets/css/learner-dashboard.css', __FILE__), array(), time(), 'all');
         // cdn load css from bootstrap
         wp_enqueue_style('bootstrap-css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', array(), time(), 'all');
@@ -131,8 +143,6 @@ function sa_learners_dashboard_plugin_scripts_and_styles()
         wp_enqueue_script('bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), "", true);
         wp_enqueue_style('sabd-fontawesome-css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css');
     }
-
-
 
     $action = 'sa_learners_update';
     $sal_nonce = wp_create_nonce($action);

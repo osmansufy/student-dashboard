@@ -1,6 +1,7 @@
 <?php
+if (!defined('ABSPATH')) exit;
+$head = 'Unlimited Learning';
 
-$head = 'Student Portal';
 include_once('common-parts/dashboard-head.php');
 
 if (have_posts()) {
