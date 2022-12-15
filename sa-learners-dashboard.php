@@ -79,12 +79,17 @@ function sa_elementor_pages($template)
         $page_with_php = $page['template'];
         return $page_with_php;
     }, $page_template_array);
-    foreach ($page_templates as $page) {
-        if (is_page($page)) {
-            $plugindir = dirname(__FILE__);
-            $template = $plugindir . '/templates/' . $page . '.php';
-            return $template;
-        }
+    global $post;
+    $page_slug = $post->post_name;
+    // $current_page_slug = basename(get_permalink());
+    $is_page_exist =  in_array($page_slug, $page_templates);
+    if ($is_page_exist) {
+        $plugindir = dirname(__FILE__);
+        $template = $plugindir . '/templates/' . $page_slug . '.php';
+        return $template;
+    } else {
+
+        return $template;
     }
 }
 

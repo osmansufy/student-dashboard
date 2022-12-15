@@ -127,30 +127,33 @@ class SaCourse
         $all_course_ids = bp_course_get_user_certificates($user_id);
 
         $certificate_link_list = array();
-        foreach ($all_course_ids as $course_id) {
-            $certificate_meta = 'course_' . $course_id . '_certificate_pdf_url';
-            $certificate_purchased = get_user_meta($user_id, $certificate_meta, true);
+        if ($all_course_ids && is_array($all_course_ids)) {
+            foreach ($all_course_ids as $course_id) {
+                $certificate_meta = 'course_' . $course_id . '_certificate_pdf_url';
+                $certificate_purchased = get_user_meta($user_id, $certificate_meta, true);
 
 
-            $certificate_info = new stdClass();
-            if ($certificate_purchased) {
-
-                $certificate_info->course_id = $course_id;
-                $certificate_info->title = get_the_title($course_id);
-                $certificate_info->featured_image = get_the_post_thumbnail_url($course_id);
-                $certificate_info->slug = get_post_field('post_name', $course_id);
-                $certificate_info->certificate_url = $certificate_purchased;
-                $certificate_info->course_duration = get_post_meta($course_id, 'vibe_duration', true);
-            } else {
-                $certificate_info->id = $course_id;
-                $certificate_info->title = get_the_title($course_id);
-                $certificate_info->featured_image = get_the_post_thumbnail_url($course_id);
-                $certificate_info->slug = get_post_field('post_name', $course_id);
-                $certificate_info->certificate_url = '';
+                $certificate_info = new stdClass();
+                if ($certificate_purchased) {
+                    $certificate_info->course_id = $course_id;
+                    $certificate_info->title = get_the_title($course_id);
+                    $certificate_info->featured_image = get_the_post_thumbnail_url($course_id);
+                    $certificate_info->slug = get_post_field('post_name', $course_id);
+                    $certificate_info->certificate_url = $certificate_purchased;
+                    $certificate_info->course_duration = get_post_meta($course_id, 'vibe_duration', true);
+                    $certificate_info->is_course_purchased = true;
+                } else {
+                    $certificate_info->id = $course_id;
+                    $certificate_info->title = get_the_title($course_id);
+                    $certificate_info->featured_image = get_the_post_thumbnail_url($course_id);
+                    $certificate_info->slug = get_post_field('post_name', $course_id);
+                    $certificate_info->certificate_url = '';
+                    $certificate_info->is_course_purchased = false;
+                }
+                $certificate_link_list[] = $certificate_info;
             }
-            $certificate_link_list[] = $certificate_info;
+            wp_reset_query();
         }
-        wp_reset_query();
         return $certificate_link_list;
     }
     function sal_get_wplms_certificates($user_id)

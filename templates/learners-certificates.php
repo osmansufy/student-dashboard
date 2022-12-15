@@ -5,7 +5,7 @@
 
 $user_id = get_current_user_id();
 $course_controller = new SaCourse();
-$all_certificates = $course_controller->sal_get_wplms_certificates($user_id);
+$all_certificates = $course_controller->sa_get_courses_certificates($user_id);
 
 
 // echo '<pre>';

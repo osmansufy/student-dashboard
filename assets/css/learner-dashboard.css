@@ -381,7 +381,7 @@ html {
   background-repeat: no-repeat;
 }
 .sidebar-menu-farhan .category-box .Popular-title-top {
-  background: #259cc0;
+  background: rgb(123 166 49);
   border-top-right-radius: 20px;
   padding: 10px 0;
   font-weight: 300;
@@ -396,7 +396,7 @@ html {
 .sidebar-menu-farhan .category-box .Popular-title-bottom {
   text-align: center;
   color: #ffffff;
-  background: rgb(0 58 89 / 67%);
+  background: rgb(123 166 49 / 67%);
   border-bottom-right-radius: 20px;
   padding: 10px 0;
   font-weight: 300;
@@ -421,9 +421,8 @@ html {
   transition: 0.6s ease;
   text-align: center;
   color: #ffffff;
-  background: #248cab
-    url("https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/courses-overlay-bg.png")
-    no-repeat;
+  background: rgb(123 166 49 );
+    
   background-position: left bottom;
   padding: 15px 0;
   font-weight: 300;
@@ -486,9 +485,9 @@ html {
   .popular-box-overlay
   .popular-overlay-btn-btm
   .btn-outline-primary {
-  color: #ffffff !important;
-  border-color: #ffffff;
-  background-color: #b2d489;
+  color: #000 !important;
+  border-color: #F0E400;
+  background-color: #F0E400;
   border-width: 2px;
   font-size: 16px;
   margin-bottom: 10px;
@@ -499,7 +498,8 @@ html {
 
 .sidebar-menu-farhan .category-box .popular-box-overlay h3 {
   color: #fff;
-  font-size: 32px;
+  font-size: 4.5rem;
+ margin-bottom: 3rem;
 }
 .sidebar-menu-farhan .popular-box-overlay p strong {
   font-size: 16px;
@@ -612,20 +612,20 @@ html {
 }
 
 .sidebar-menu-farhan .progress-box .Popular-title-top {
-  background: #259cc0;
+  background:rgb(123 166 49 );
   border-top-right-radius: 20px;
   padding: 10px 0;
   font-weight: 300;
   border-top-left-radius: 20px;
   opacity: 1;
   transition: 0.6s ease;
-  color: #ffffff;
+  color: #000000;
   position: absolute;
   top: 0;
   width: 100%;
 }
 .sidebar-menu-farhan .progress-box .Popular-title-bottom {
-  background: rgb(0 58 89 / 67%);
+  background: rgb(123 166 49 /67%);
   border-bottom-right-radius: 20px;
   padding: 10px 0;
   border-bottom-left-radius: 20px;
