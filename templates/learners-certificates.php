@@ -44,7 +44,9 @@ $head = "My Certificates";
 
 include_once('common-parts/dashboard-head.php');
 $certificate_page = get_option('certificate_page');
-$certificate_page_url = get_permalink($certificate_page->ID);
+$certificate_page_url = get_permalink($certificate_page);
+$sal_certificate_banner_image = get_option('sal_certificate_banner_image_url');
+
 ?>
 <?php include_once('views/learners-certificates.view.php'); ?>
 

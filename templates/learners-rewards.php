@@ -47,6 +47,8 @@
         $user_reward = 0;
     }
     $head = "My Rewards";
+
+
     include_once('common-parts/dashboard-head.php');
 
     include_once('views/learners-rewards.view.php');

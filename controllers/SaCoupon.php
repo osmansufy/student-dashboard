@@ -100,4 +100,74 @@ class SaCoupon
 
         wp_die();
     }
+    static  function sal_create_coupon($couponInfo)
+    {
+        // create random 6 digit 
+        $code = $couponInfo['coupon_code'];
+        $coupon_title = SaCommon::coupon_prefix($code);
+        $isMultiple = $couponInfo['isMultiple'];
+        $amount = $couponInfo['coupon_discount'];
+        $discount_type = 'fixed_product';
+        $admin_email[] = get_bloginfo('admin_email');
+        $coupon_code = $coupon_title;
+        $coupon_description = $couponInfo['coupon_description'];
+        $coupon_minimum_amount = $couponInfo['coupon_minimum_amount'];
+        $coupon_maximum_amount = $couponInfo['coupon_maximum_amount'];
+        $reward_type = $couponInfo['rewards_type'];
+        $reward_id = $couponInfo['rewards_id'];
+        $reward_points_need = $couponInfo['rewards_points_need'];
+        $coupon_individual_use = false;
+        $coupon_exclude_sale_items = false;
+        $coupon_expiry_date = '';
+
+
+
+        try {
+            // Get an empty instance of the WC_Coupon Object
+            $coupon = new WC_Coupon();
+
+            // Set the necessary coupon data (since WC 3+)
+            $coupon->set_code($coupon_code); // (string)
+            $coupon->set_description($coupon_description); // (string)
+            $coupon->set_discount_type($discount_type); // (string)
+            $coupon->set_amount($amount); // (float)
+
+            $coupon->set_individual_use($coupon_individual_use); // (boolean) 
+
+            $coupon->set_usage_limit(1); // (integer)
+            $coupon->set_usage_limit_per_user(1); // (integer)
+            // $coupon->set_limit_usage_to_x_items(1);
+            // (integer|null)
+
+            $coupon->set_minimum_amount($coupon_minimum_amount); // (float)
+            $coupon->set_maximum_amount($coupon_maximum_amount); // (float)
+            $coupon->set_email_restrictions($admin_email); // (array)
+
+            $coupon->set_free_shipping(false); // (boolean)
+            $coupon->save();
+        } catch (Exception $e) {
+        }
+
+
+        return $coupon_code;
+    }
+
+
+    static function sal_create_coupon_from_options_values()
+    {
+        $common = new SaCommon();
+        $all_rewards_coupon = $common->all_rewards_coupon;
+        $coupon_arr = array();
+        foreach ($all_rewards_coupon as $single_coupon) {
+            $coupon_info = new stdClass();
+
+            $coupon_fields = SaCommon::option_page_coupon_fields($single_coupon['id']);
+            foreach ($coupon_fields as $field) {
+                $field_name = $field['option_name'];
+                $coupon_info->$field_name = get_option($field_name);
+            }
+            $coupon_arr[] = $coupon_info;
+        }
+        return $coupon_arr;
+    }
 }

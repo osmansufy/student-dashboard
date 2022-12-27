@@ -51,4 +51,33 @@ jQuery(document).ready(function ($) {
 
     return false;
   });
+  $("#sal_certificate_banner_image").on("click", function () {
+    if (certificate_banner_image) {
+      certificate_banner_image.open();
+      return false;
+    }
+    var certificate_banner_image = wp.media({
+      title: "Upload Image",
+      multiple: false,
+    });
+
+    certificate_banner_image.on("select", function (e) {
+      var uploaded_image = certificate_banner_image
+        .state()
+        .get("selection")
+        .first()
+        .toJSON();
+      // var thumbnail = uploaded_image.sizes.thumbnail.url;
+      var image_url = uploaded_image.url;
+      $("#sal_certificate_banner_image_url").val(image_url);
+      $("#sal_certificate_banner_image_id").val(uploaded_image.id);
+      $("#sal_certificate_banner_image_show").html(
+        `<img src="${image_url}"  />`
+      );
+    });
+
+    certificate_banner_image.open();
+
+    return false;
+  });
 });

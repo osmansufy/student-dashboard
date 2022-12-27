@@ -13,7 +13,7 @@
             <!-- banner offer -->
             <div class="banner-offer">
                 <a href="#">
-                    <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/cert-offer-1.jpg" alt="Offer">
+                    <img src="<?php echo esc_url($sal_certificate_banner_image) ?>" alt="Offer">
                 </a>
             </div>
             <div class="row">

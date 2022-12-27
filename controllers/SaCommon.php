@@ -273,7 +273,7 @@ class SaCommon
             'coupon_code' => 'reward_i1_80_r2',
             'coupon_type' => 'percentage',
             'displays_on' => '80% off courses coupon code',
-            'rewards_type' => 'percentage',
+            'rewards_type' => 'fixed_product',
             'rewards_coupon_id' => '1',
             'coupon_description' => '80% off courses coupon code',
             'coupon_discount' => '80',
@@ -437,5 +437,85 @@ class SaCommon
             'rewards_points_need' => '24',
             'isMultiple' => "no",
         ],
+    ];
+
+    // Data for creating  options page fields for coupons for rewards 
+
+    static function option_page_coupon_fields($coupon_number)
+    {
+        $fields = [
+            [
+                'option_name' => 'rewards_coupon_id' . $coupon_number,
+                'id' => 'rewards_coupon_code' . $coupon_number,
+                'title' => 'Coupon code',
+                'type' => 'text',
+                'placeholder' => 'Coupon code',
+                'desc' => 'Coupon code',
+                'default' => '',
+                'required' => true,
+            ],
+            [
+                'option_name' => 'rewards_coupon_type' . $coupon_number,
+                'id' => 'rewards_coupon_type' . $coupon_number,
+                'title' => 'Coupon code Type',
+                'type' => 'select',
+                'placeholder' => 'Coupon code Type',
+                'desc' => 'Coupon code Type',
+                'default' => '',
+                'required' => true,
+                'options' => [
+                    'percentage' => 'Percentage',
+                    'fixed_cart' => 'Fixed Cart',
+                    'fixed_product' => 'Fixed Product',
+                ],
+            ],
+            [
+                'option_name' => 'rewards_coupon_discount_amount' . $coupon_number,
+                'id' => 'coupon_discount_amount' . $coupon_number,
+                'title' => 'Coupon Discount Amount',
+                'type' => 'number',
+                'placeholder' => 'Coupon Discount Amount',
+                'desc' => 'Coupon Discount Amount',
+                'default' => '',
+                'required' => true,
+            ],
+            [
+                'option_name' => 'rewards_coupon_description' . $coupon_number,
+                'id' => 'rewards_coupon_description' . $coupon_number,
+                'title' => ' Coupon Description',
+                'type' => 'text',
+                'placeholder' => 'Coupon Description',
+                'desc' => 'Coupon Description',
+                'default' => '',
+                'required' => true,
+
+            ],
+
+        ];
+        return $fields;
+    }
+    public $all_rewards_coupon = [
+        [
+            'id' => '1',
+            'title' => 'First Reward Coupon',
+            'description' => 'This is the first reward coupon',
+
+        ],
+        [
+            'id' => '2',
+            'title' => 'Second Reward Coupon',
+            'description' => 'This is the second reward coupon',
+        ],
+        [
+            'id' => '3',
+            'title' => 'Third Reward Coupon',
+            'description' => 'This is the third reward coupon',
+        ],
+        [
+            'id' => '4',
+            'title' => 'Fourth Reward Coupon',
+            'description' => 'This is the fourth reward coupon',
+        ],
+
     ];
 }

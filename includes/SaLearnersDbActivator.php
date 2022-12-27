@@ -70,7 +70,7 @@ class SaLearnersDbActivator
         $coupon_title = SaCommon::coupon_prefix($code);
         $isMultiple = $coupon['isMultiple'];
         $amount = $coupon['coupon_discount'];
-        $discount_type = 'percent';
+        $discount_type = 'fixed_product';
         $admin_email[] = get_bloginfo('admin_email');
         $coupon_code = $coupon_title;
         $coupon_description = $coupon['coupon_description'];
@@ -110,12 +110,15 @@ class SaLearnersDbActivator
             // $coupon->set_excluded_product_ids( $excl_product_ids ); // (array)
             $coupon->set_usage_limit(1); // (integer)
             $coupon->set_usage_limit_per_user(1); // (integer)
-            $coupon->set_limit_usage_to_x_items(1); // (integer|null)
+            // $coupon->set_limit_usage_to_x_items(1);
+            // (integer|null)
 
             $coupon->set_minimum_amount($coupon_minimum_amount); // (float)
             $coupon->set_maximum_amount($coupon_maximum_amount); // (float)
             $coupon->set_email_restrictions($admin_email); // (array)
+            // set all products price of cart to 10 
 
+            $coupon->set_free_shipping(false); // (boolean)
             $coupon->save();
             // update_post_meta($new_coupon_id, 'discount_type', $discount_type);
             // update_post_meta($new_coupon_id, 'coupon_amount', $amount);

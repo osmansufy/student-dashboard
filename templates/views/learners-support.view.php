@@ -12,7 +12,15 @@
                 <div class="tab-pane active " id="submitATicket">
                     <h1>Create a Ticket</h1>
                     <div class="myDetail">
-                        <?php gravity_form(33, false, false, false, '', false); ?>
+                        <?php
+                        // gravity_form(33, false, false, false, '', false);
+
+                        ?>
+                        <a href="<?php
+                                    echo $sal_submit_ticket_page_url
+                                    ?>">
+                            Submit a Ticket
+                        </a>
                         <!-- <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="firstName">First name</label>
@@ -53,7 +61,14 @@
                 <div class="tab-pane " id="Coursefeedback">
                     <h1>Submit your feedback</h1>
                     <div class="myDetail">
-                        <?php gravity_form(35, false, false, false, '', false); ?>
+                        <?php
+                        // gravity_form(35, false, false, false, '', false); 
+                        ?>
+                        <a href="<?php
+                                    echo $sal_course_feedback_page_url
+                                    ?>">
+                            Feedback Form
+                        </a>
                         <!-- <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="firstName">First name</label>
@@ -95,7 +110,12 @@
                     </div>
                 </div>
                 <div class="tab-pane" id="HelpVideos">
-                    <div class="helpvideo">
+                    <a href="<?php
+                                echo esc_url($sal_help_n_support_page_url)
+                                ?>">
+                        Help & Support
+                    </a>
+                    <!-- <div class="helpvideo">
                         <div class="row">
                             <div class="col-12 col-md-4 white-rounded">
                                 <h3>Choose a Support Video</h3>
@@ -199,10 +219,15 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div> -->
                 </div>
                 <div class="tab-pane" id="FAQ">
-                    <div class="faqq">
+                    <a href="<?php
+                                echo $sal_faq_page_url
+                                ?>">
+                        Faq Sections
+                    </a>
+                    <!-- <div class="faqq">
                         <div class="panel-group" id="accordion">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
@@ -247,7 +272,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
