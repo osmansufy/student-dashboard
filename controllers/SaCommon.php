@@ -447,6 +447,7 @@ class SaCommon
             [
                 'option_name' => 'rewards_coupon_id' . $coupon_number,
                 'id' => 'rewards_coupon_code' . $coupon_number,
+                'name' => 'rewards_coupon_code',
                 'title' => 'Coupon code',
                 'type' => 'text',
                 'placeholder' => 'Coupon code',
@@ -457,6 +458,7 @@ class SaCommon
             [
                 'option_name' => 'rewards_coupon_type' . $coupon_number,
                 'id' => 'rewards_coupon_type' . $coupon_number,
+                'name' => 'rewards_coupon_type',
                 'title' => 'Coupon code Type',
                 'type' => 'select',
                 'placeholder' => 'Coupon code Type',
@@ -464,7 +466,7 @@ class SaCommon
                 'default' => '',
                 'required' => true,
                 'options' => [
-                    'percentage' => 'Percentage',
+                    'percent' => 'Percent',
                     'fixed_cart' => 'Fixed Cart',
                     'fixed_product' => 'Fixed Product',
                 ],
@@ -472,6 +474,7 @@ class SaCommon
             [
                 'option_name' => 'rewards_coupon_discount_amount' . $coupon_number,
                 'id' => 'coupon_discount_amount' . $coupon_number,
+                'name' => 'coupon_discount_amount',
                 'title' => 'Coupon Discount Amount',
                 'type' => 'number',
                 'placeholder' => 'Coupon Discount Amount',
@@ -482,10 +485,23 @@ class SaCommon
             [
                 'option_name' => 'rewards_coupon_description' . $coupon_number,
                 'id' => 'rewards_coupon_description' . $coupon_number,
+                'name' => 'rewards_coupon_description',
                 'title' => ' Coupon Description',
                 'type' => 'text',
                 'placeholder' => 'Coupon Description',
                 'desc' => 'Coupon Description',
+                'default' => '',
+                'required' => true,
+
+            ],
+            [
+                'option_name' => 'rewards_points_need' . $coupon_number,
+                'id' => 'rewards_points_need' . $coupon_number,
+                'name' => 'rewards_points_need',
+                'title' => 'Points Need',
+                'type' => 'text',
+                'placeholder' => 'Points Need',
+                'desc' => 'Rewards Points Need',
                 'default' => '',
                 'required' => true,
 

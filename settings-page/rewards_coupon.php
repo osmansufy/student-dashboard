@@ -1,8 +1,3 @@
-<?php
-echo '<pre>';
-print_r(SaCoupon::sal_create_coupon_from_options_values());
-echo '</pre>';
-?>
 <h3>Rewards Coupon</h3>
 <form method="post" action="<?php echo admin_url('admin-post.php') ?>">
     <input type="hidden" name="action" value="sal_rewards_coupon">
@@ -28,6 +23,6 @@ gap: 20px;
         ?>
     </div>
     <?php
-    submit_button('Create Coupon');
+    submit_button('Create/Update Coupon');
     ?>
 </form>

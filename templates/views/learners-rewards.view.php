@@ -28,20 +28,14 @@
                         <?php
 
                         for ($i = 0; $i < $total_reward; $i++) {
+                            $image_src = plugins_url('sa-learners-dashboard/assets/images/award.png');
                         ?>
-                            <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy.png" alt="trophy">
+                            <img src="<?php echo $image_src ?>" style="margin:0 5px ;" alt="trophy">
                         <?php
 
                         }
                         ?>
 
-                        <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy.png" alt="trophy" class="not-earned">
-                        <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy.png" alt="trophy" class="not-earned">
-                        <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy.png" alt="trophy" class="not-earned">
-                        <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy.png" alt="trophy" class="not-earned">
-                        <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy.png" alt="trophy" class="not-earned">
-                        <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy.png" alt="trophy" class="not-earned">
-                        <img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy.png" alt="trophy" class="not-earned">
 
                     </div>
                 </div>

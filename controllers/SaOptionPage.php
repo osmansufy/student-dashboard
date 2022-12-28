@@ -28,7 +28,7 @@ class OptionsDemoTwo
         }
         // create coupon with the option values
 
-
+        SaCoupon::sal_create_all_coupon();
         wp_redirect(admin_url('admin.php?page=sa-rewards-coupon'));
     }
 
