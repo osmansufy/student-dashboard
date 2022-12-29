@@ -15,7 +15,7 @@ class SaLearnersDbActivator
         }
 
         self::sal_create_table();
-        self::sal_create_woocomerce_coupons();
+        // self::sal_create_woocomerce_coupons();
     }
     protected function SaLearnersPageTemplateCreate($data)
     {

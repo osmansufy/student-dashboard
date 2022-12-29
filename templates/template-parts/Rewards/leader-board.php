@@ -28,12 +28,19 @@ $current_date_is = date('Y-m-d H:i:s');
         foreach ($leaderBoard as $leader) {
         ?>
             <tr class="">
-                <th><img src="<?php echo plugin_dir_url(dirname(__FILE__)) . '../../assets/images/award.png' ?>" alt="award">
+                <th style="
+    display: flex;
+    align-items: center;
+"><img style="
+    padding: 0 0.5rem;
+" src="<?php echo plugin_dir_url(dirname(__FILE__)) . '../../assets/images/award.png' ?>" alt="award">
                     <?php echo _e($i) ?></th>
-                <th><?php echo _e(strtoupper($leader->display_name)) ?>
+                <th style="text-align: center;
+                vertical-align: middle;
+                "><?php echo _e(strtoupper($leader->display_name)) ?>
                     <!---->
                 </th>
-                <th><?php echo $leader->total_reward ?> pts</th>
+                <th style="vertical-align: middle;"><?php echo $leader->total_reward ?> pts</th>
                 <th>
                     <!---->
                 </th>

@@ -18,15 +18,16 @@
             </div>
             <div class="row">
                 <div class="col-12 col-md-12 certificate-list ">
+                    <h4 style="margin-bottom: 30px;">Certificates and Transcripts</h4>
                     <table class="table" id="desktopCerts">
                         <thead>
                             <tr>
                                 <!-- <th scope="col">Course Id</th> -->
                                 <!-- <th scope="col">Date / Time</th> -->
                                 <th scope="col">Course</th>
-                                <th scope="col">Hard copy Certificate & Transcript</th>
+                                <th scope="col">Hard Copy </th>
                                 <th scope="col">Certificate </th>
-                                <th scope="col">PDF Transcript </th>
+                                <th scope="col">PDF </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -41,27 +42,27 @@
                                         ?>
 
                                     </th> -->
-                                    <th scope="row">
+                                    <td data-label="Course">
                                         <a href="<?php echo $certificate->slug ?>">
-                                            <div>
-                                                <!-- <img style="height: 100px; width:100px; display:block" src="<?php echo $certificate->featured_image ?>" alt=""> -->
-                                                <?php echo $certificate->title ?>
-                                            </div>
+                                            <!-- <img style="height: 100px; width:100px; display:block" src="<?php echo $certificate->featured_image ?>" alt=""> -->
+                                            <?php echo $certificate->title ?>
 
 
                                         </a>
-                                    </th>
-                                    <th>
+                                    </td>
+                                    <td data-label="Hard Copy">
                                         <a target="_blank" href="<?php echo site_url() . '/certificate' ?>">
                                             Buy
                                         </a>
-                                    </th>
-                                    <th><a class="btn btn-primary" href="<?php echo $certificate->certificate_url ?>" target="_blank"><i class="far fa-file-pdf" style="margin-right:7px;"></i> View Certificate</a></th>
-                                    <th>
+                                    </td>
+                                    <td data-label="Certificate">
+                                        <a class="btn btn-primary" href="<?php echo $certificate->certificate_url ?>" target="_blank"><i class="far fa-file-pdf" style="margin-right:7px;"></i> View Certificate</a>
+                                    </td>
+                                    <td data-label="PDF">
                                         <a target="_blank" href="<?php echo site_url() . '/certificate' ?>">
                                             Buy
                                         </a>
-                                    </th>
+                                    </td>
                                 </tr><?
                                         ?>
                             <?php } ?>

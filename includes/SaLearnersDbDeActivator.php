@@ -18,13 +18,13 @@ class SaLearnersDbDeActivator
         // self::delete_coupon_code();
     }
 
-    public static function delete_coupon_code()
-    {
-        $coupon = new SaCommon();
-        $coupon_data = $coupon->all_coupons;
-        foreach ($coupon_data as $coupon_code) {
-            $coupon = new WC_Coupon($coupon_code['coupon_code']);
-            $coupon->delete(true);
-        }
-    }
+    // public static function delete_coupon_code()
+    // {
+    //     $coupon = new SaCommon();
+    //     $coupon_data = $coupon->all_coupons;
+    //     foreach ($coupon_data as $coupon_code) {
+    //         $coupon = new WC_Coupon($coupon_code['coupon_code']);
+    //         $coupon->delete(true);
+    //     }
+    // }
 }

@@ -530,7 +530,8 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 95%;
+  width: 100%;
+  flex-wrap: wrap;
 }
 .leaderBoard .leaderboard a#drop6 {
   font-family: "Catamaran", sans-serif;
@@ -692,6 +693,9 @@ html {
 }
 .sidebar-menu-farhan .certificate-list {
   overflow-y: scroll;
+}
+.sidebar-menu-farhan .certificate-list td {
+text-align: left;
 }
 /*=======================
            👇 My Reward PAGE CODE 👇
@@ -1813,6 +1817,48 @@ input[type="radio"] {
     flex-direction: column;
     align-items: center;
   }
+
+  .sidebar-menu-farhan .leaderBoard table.table tbody tr th {
+    font-size: 1rem
+  }
+  .sidebar-menu-farhan .certificate-list table {
+    display: block;
+  }
+   .sidebar-menu-farhan .certificate-list tbody {
+    display: block;
+  }
+
+ .sidebar-menu-farhan .certificate-list table thead {
+    display: none;
+  }
+
+  .sidebar-menu-farhan .certificate-list table tr {
+    margin: 10px 0;
+    display: block;
+    border-bottom: 2px solid #ddd;
+  }
+
+  .sidebar-menu-farhan .certificate-list table td {
+    display: block;
+    text-align: right;
+    font-size: 13px;
+    text-align: end;
+  }
+
+  .sidebar-menu-farhan .certificate-list table td:last-child {
+    border-bottom: 0;
+  }
+
+  .sidebar-menu-farhan .certificate-list table td::before {
+    content: attr(data-label);
+    float: left;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .sidebar-menu-farhan .rewards-inner {
+
+    text-align: center;
+}
 }
 /* Custom New Edit */
 form.sa-learners-edit-user {
