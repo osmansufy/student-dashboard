@@ -28,7 +28,7 @@ img{
 }
 .sidebar-menu-farhan .navbar-brand {
   height: inherit !important;
-  width: 120px;
+  max-width: 100%;
 }
 .sidebar-menu-farhan .navbar-global .navbar-user > li > a {
   color: white;

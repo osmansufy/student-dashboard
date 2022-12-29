@@ -38,6 +38,15 @@ class Learners {
     $(".btn-expand-collapse").click(function (e) {
       $(".navbar-primary").toggleClass("collapsed");
     });
+    // add collapse class  for mobile screen and remove when others
+
+    $(window).on("load", function () {
+      if (window.matchMedia("(max-width: 992px)").matches) {
+        $(".navbar-primary").addClass("collapsed");
+      } else {
+        $(".navbar-primary").removeClass("collapsed");
+      }
+    });
     $(".sal-claim-reward").on("click", this.onClaimReward);
     $("#sal_gf_coupon").on("click", this.onClaimRewardGfCoupon);
     $("#monthly_leaderBoard").on("change", this.onChangeLeaderBoardReward);
