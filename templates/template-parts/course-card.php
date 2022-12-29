@@ -7,7 +7,7 @@
         <h3><?php
             echo  get_woocommerce_currency_symbol();
 
-            echo $course->sale_price;
+            echo $course->regular_price;
             ?></h3>
     </div>
     <div class="popular-box-overlay">
@@ -37,7 +37,7 @@
         <h3><?php
             echo  get_woocommerce_currency_symbol();
 
-            echo $course->sale_price;
+            echo $course->regular_price;
             ?></h3>
         <div class="popular-overlay-btn-btm sa-btn_<?php echo $course->product_id ?>">
             <a target="_blank" href="<?php echo get_site_url() . '/course/' . $course->post_name ?>" role="button" class="btn btn-outline-primary btn-lg extra-radius nsa_course_more_info">More

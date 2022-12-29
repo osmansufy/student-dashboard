@@ -72,7 +72,7 @@
             <div class="col-md-4">
                 <div class="white-rounded dash-details">
                     <div class="Reward-number">
-                        <span><img src="<?php echo plugins_url('sa-learners-dashboard/assets/images/award.png'); ?>" alt="award" /> <?php echo $total_rewards ?></span>
+                        <span><img src="<?php echo plugin_dir_url(dirname(__FILE__)) . '../assets/images/award.png' ?>" alt="award" /> <?php echo $total_rewards ?></span>
                     </div>
                     <div class="number-text">
                         <p>Reward Points</p>
@@ -82,7 +82,7 @@
             <div class="col-md-4">
                 <div class="white-rounded dash-banner">
                     <div class="banner-number">
-                        <img src="<?php echo plugins_url('sa-learners-dashboard/assets/images/janets-certificate-demo.webp'); ?>" alt="cpd">
+                        <img src="<?php echo  plugin_dir_url(dirname(__FILE__)) . '../assets/images/janets-certificate-demo.webp' ?>" alt="cpd">
                         <p>Get access to exclusive student discounts</p>
                         <a href="
                                     <?php echo get_site_url() . '/student-id-card' ?>" class="btn btn-outline-light">GET YOUR STUDENT CARD NOW</a>

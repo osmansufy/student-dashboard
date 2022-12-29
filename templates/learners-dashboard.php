@@ -60,7 +60,7 @@ $all_args = array(
     'post_status' => 'publish',
     'post__in' => $recomended_courses,
 );
-$get_recomended_courses =  SaHelper::convert_to_viewCourses($all_args);
+$get_recomended_courses = get_option('recomended_courses') ? SaHelper::convert_to_viewCourses($all_args) : array();
 $ads_banner_id = get_option('sal_banner_image_id');
 $ads_banner_url = wp_get_attachment_url($ads_banner_id);
 // echo '<pre>';

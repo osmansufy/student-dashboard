@@ -28,7 +28,7 @@
                         <?php
 
                         for ($i = 0; $i < $total_reward; $i++) {
-                            $image_src = plugins_url('sa-learners-dashboard/assets/images/award.png');
+                            $image_src = plugin_dir_url(dirname(__FILE__)) . '../assets/images/award.png';
                         ?>
                             <img src="<?php echo $image_src ?>" style="margin:0 5px ;" alt="trophy">
                         <?php

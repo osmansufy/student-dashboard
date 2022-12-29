@@ -7,7 +7,13 @@ $coupon_arr = SaCoupon::convert_couponInfo_from_options_values();
 
 if (is_array($coupon_arr)) {
     foreach ($coupon_arr as $coupon) {
-        include(__DIR__ . '/single-rewards.php');
+        if (!isset($coupon->rewards_coupon_code)) {
+            include(__DIR__ . '/single-rewards.php');
+        } else {
+            echo '<div class="no-rewards"> 
+            Rewards are not set from admin.
+            </div>';
+        }
     }
 } else {
     echo '<div class="no-rewards"> 
