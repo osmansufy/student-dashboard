@@ -82,7 +82,7 @@
             <div class="col-md-4">
                 <div class="white-rounded dash-banner">
                     <div class="banner-number">
-                        <img src="<?php echo  plugin_dir_url(dirname(__FILE__)) . '../assets/images/janets-certificate-demo.webp' ?>" alt="cpd">
+                        <img src="<?php echo  plugin_dir_url(dirname(__FILE__)) . '../assets/images/Janets-ID-card-front-1.webp' ?>" alt="cpd">
                         <p>Get access to exclusive student discounts</p>
                         <a href="
                                     <?php echo get_site_url() . '/student-id-card' ?>" class="btn btn-outline-light">GET YOUR STUDENT CARD NOW</a>

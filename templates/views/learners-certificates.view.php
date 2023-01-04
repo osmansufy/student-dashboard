@@ -2,9 +2,8 @@
     <div class="container-fluid">
         <!-- container-fluid-start  -->
         <div class="subscribeUpsell">
-            <a href="#"><i class="fad fa-medal"></i>
-                Get access to all 700+ courses (and MORE) for only £12 per
-                month. Find out more.
+            <a href="https://www.janets.org.uk/subscription-offer/" target="_blank"><i class="fad fa-medal"></i>
+                Get access to all 2000+ courses (and MORE) for only £49. Find out more.
             </a>
         </div>
 
@@ -26,7 +25,7 @@
                                 <!-- <th scope="col">Date / Time</th> -->
                                 <th scope="col">Course</th>
                                 <th scope="col">Hard Copy </th>
-                                <th scope="col">Certificate </th>
+                                <!-- <th scope="col">Certificate </th> -->
                                 <th scope="col">PDF </th>
                             </tr>
                         </thead>
@@ -51,15 +50,19 @@
                                         </a>
                                     </td>
                                     <td data-label="Hard Copy">
-                                        <a target="_blank" href="<?php echo site_url() . '/certificate' ?>">
+                                        <a class="btn btn-primary" target="_blank" href="<?php echo site_url() . '/certificate' ?>">
+                                            <i class="far 
+                                            fa-file-pdf
+                                            " style="margin-right:7px;"></i>
                                             Buy
                                         </a>
                                     </td>
-                                    <td data-label="Certificate">
+                                    <!-- <td data-label="Certificate">
                                         <a class="btn btn-primary" href="<?php echo $certificate->certificate_url ?>" target="_blank"><i class="far fa-file-pdf" style="margin-right:7px;"></i> View Certificate</a>
-                                    </td>
+                                    </td> -->
                                     <td data-label="PDF">
-                                        <a target="_blank" href="<?php echo site_url() . '/certificate' ?>">
+                                        <a class="btn btn-primary" target="_blank" href="<?php echo site_url() . '/certificate' ?>">
+                                            <i class="far fa-file-pdf" style="margin-right:7px;"></i>
                                             Buy
                                         </a>
                                     </td>

@@ -20,6 +20,9 @@ $displayName =     $user_info->display_name;
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-user navbar-right">
                 <li>
+                    <a href="<?php echo site_url() ?>"><span class="glyphicon glyphicon-dashboard"></span> Home</a>
+                </li>
+                <li>
                     <a href="#"><span class="glyphicon glyphicon-user"></span><?php echo $displayName ?></a>
                 </li>
                 <li>
