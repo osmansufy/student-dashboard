@@ -349,6 +349,7 @@ html {
 
 .sidebar-menu-farhan .banner-offer {
   margin: 40px 0;
+  box-shadow: -18px -18px 5px -13px rgb(107 44 44 / 37%);
 }
 
 .sidebar-menu-farhan .banner-offer a img {
