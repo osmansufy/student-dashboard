@@ -1,19 +1,26 @@
 <?php
-$head = "Special Offers";
-// get all offers post 
 
 
 
-include_once('common-parts/dashboard-head.php');
-$args = array(
-    'post_type' => 'offer',
-);
 
-$special_offers = new WP_Query($args);
-$special_offers = $special_offers->posts;
-wp_reset_query();
-// echo '<pre>';
-// var_dump($special_offers);
-// echo '</pre>';
-include_once('views/special-offers.view.php');
+if (have_posts()) {
+    include_once('common-parts/dashboard-head.php');
+    while (have_posts()) {
+        // title 
+        $head = get_the_title();
+
+        the_post();
+?>
+        <section class="content-main-body">
+            <div class="container-fluid">
+                <?php
+                the_content();
+                ?>
+            </div>
+        </section>
+<?php
+    }
+    wp_reset_postdata();
+}
 include_once('common-parts/dashboard-footer.php');
+
