@@ -7,7 +7,7 @@ $coupon_arr = SaCoupon::convert_couponInfo_from_options_values();
 
 if (is_array($coupon_arr)) {
     foreach ($coupon_arr as $coupon) {
-        if (!isset($coupon->rewards_coupon_code)) {
+        if (isset($coupon->rewards_coupon_code)) {
             include(__DIR__ . '/single-rewards.php');
         } else {
             echo '<div class="no-rewards"> 

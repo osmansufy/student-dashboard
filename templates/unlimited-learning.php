@@ -1,10 +1,11 @@
 <?php
 if (!defined('ABSPATH')) exit;
-$head = 'Unlimited Learning';
 
-include_once('common-parts/dashboard-head.php');
 
 if (have_posts()) {
+         // title 
+         $head = get_the_title();
+         include_once('common-parts/dashboard-head.php');
     while (have_posts()) {
         the_post();
 ?>
