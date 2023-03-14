@@ -58,8 +58,10 @@ class SaCourse
         $product_cart_id = WC()->cart->generate_cart_id($product_id);
         if (!WC()->cart->find_product_in_cart($product_cart_id)) {
             WC()->cart->add_to_cart($product_id);
-            // wp_safe_redirect(wc_get_checkout_url());
-            // exit();
+        //    redirect to cart page after successful add to cart
+            wp_send_json_success(array('message' => 'Successfully added to cart', 'redirect_url' => wc_get_cart_url()));
+        } else {
+            wp_send_json_error(array('message' => 'Already added to cart'));
         }
     }
     static function sa_get_courses_by_user($user_id)
@@ -203,7 +205,7 @@ class SaCourse
             return array();
         }
     }
-    // remove course from wishlist 
+    // remove course from wishlist
     static function sa_remove_from_wishlist()
     {
         $course_id = $_POST['course_id'];

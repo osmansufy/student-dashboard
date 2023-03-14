@@ -3,13 +3,9 @@
 
         <!-- container-fluid-start  -->
         <div class="subscribeUpsell">
-            <a href="#"><i class="fad fa-medal"></i>
-                Get access to all 700+ courses (and MORE) for only £12 per
-                month. Find out more.
-
+            <a href="https://www.janets.org.uk/prime-2023/" target="_blank"><i class="fas fa-medal"></i>
+                Get All Courses for lifetime only £99 with. Find out more.
             </a>
-
-
         </div>
 
 
@@ -26,7 +22,8 @@
 
             <div class="allcourse">
                 <h2>Enroll Courses</h2>
-                <div class="circular-progress" data-percent="<?php
+                <div class="circular-progress"
+                    data-percent="<?php
                                                                 echo  is_array($userCourses['enrolled_courses']) ? count($userCourses['enrolled_courses']) : 0; ?>">
                     >
                     <div class="value-container">0%</div>
@@ -35,7 +32,8 @@
             </div>
             <div class="allcourse">
                 <h2>Course Completed</h2>
-                <div class="circular-progress" data-percent="<?php
+                <div class="circular-progress"
+                    data-percent="<?php
                                                                 echo  is_array($userCourses['complete_courses']) ? count($userCourses['complete_courses']) : 0; ?>">
                     >
                     <div class="value-container">0%</div>
@@ -45,7 +43,7 @@
             <div class="allcourse">
                 <h2>Course Certificate</h2>
                 <div class="circular-progress" data-percent="<?php
-                                                                echo  is_array($certificate_list) ? count($certificate_list) : 0; ?>">
+  echo  is_array($certificate_list) ? count($certificate_list) : 0; ?>">
                     >
                     <div class="value-container">0%</div>
                 </div>
@@ -72,7 +70,8 @@
             <div class="col-md-4">
                 <div class="white-rounded dash-details">
                     <div class="Reward-number">
-                        <span><img src="<?php echo plugin_dir_url(dirname(__FILE__)) . '../assets/images/award.png' ?>" alt="award" /> <?php echo $total_rewards ?></span>
+                        <span><img src="<?php echo plugin_dir_url(dirname(__FILE__)) . '../assets/images/award.png' ?>"
+                                alt="award" /> <?php echo $total_rewards ?></span>
                     </div>
                     <div class="number-text">
                         <p>Reward Points</p>
@@ -82,10 +81,12 @@
             <div class="col-md-4">
                 <div class="white-rounded dash-banner">
                     <div class="banner-number">
-                        <img src="<?php echo  plugin_dir_url(dirname(__FILE__)) . '../assets/images/Janets-ID-card-front-1.webp' ?>" alt="cpd">
+                        <img src="<?php echo  plugin_dir_url(dirname(__FILE__)) . '../assets/images/Janets-ID-card-front-1.webp' ?>"
+                            alt="cpd">
                         <p>Get access to exclusive student discounts</p>
                         <a href="
-                                    <?php echo get_site_url() . '/student-id-card' ?>" class="btn btn-outline-light">GET YOUR STUDENT CARD NOW</a>
+                                    <?php echo get_site_url() . '/student-id-card' ?>"
+                            class="btn btn-outline-light">GET YOUR STUDENT CARD NOW</a>
                     </div>
                 </div>
             </div>
@@ -108,56 +109,18 @@
                 foreach ($get_recomended_courses as $course) {
                 ?>
 
-                    <div class="col-12 col-md-6 col-lg-3 col-sm-6">
-                        <!-- col-start  -->
-                        <?php include(plugin_dir_path(__FILE__) . '../template-parts/course-card.php'); ?>
-                    </div><!-- col-end  -->
+                <div class="col-12 col-md-6 col-lg-3 col-sm-6">
+                    <!-- col-start  -->
+                    <?php include(plugin_dir_path(__FILE__) . '../template-parts/course-card.php'); ?>
+                </div><!-- col-end  -->
                 <?php
                 }
                 ?>
-
-
-
             </div><!-- row--end  -->
         </div>
-        <div class="leaderBoard">
-            <!--leader-Board -->
-            <!-- <div class="row" > -->
-            <div class="col-12 col-md-5  white-rounded notification useFlex">
-                <?php include(plugin_dir_path(__FILE__) . '../template-parts/Rewards/leader-board.php'); ?>
-            </div><!-- col-notification-end  -->
-            <div class="col-12 col-md-5  white-rounded notification useFlex">
-                <div class="leaderboard">
-                    <h3>Messages</h3>
-                </div>
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <th>Subject</th>
-                            <th>Date</th>
-                        </tr>
-                        <?php
-
-                        foreach ($messages as $message) {
-                            $message_id = $message->ID;
-                            $message_title = $message->post_title;
-                            $message_content = $message->post_content;
-                            $message_date = $message->post_date;
-                            $url = get_permalink($message_id);
-                        ?>
-                            <tr>
-                                <td><a href="<?php echo $url ?>"><?php echo $message_title ?></a></td>
-                                <td style="color:black"><?php echo $message_date ?></td>
-                            </tr>
-                        <?php
-                        }
-                        ?>
-
-                    </tbody>
-                </table>
-            </div><!-- col-notification-end  -->
-            <!-- </div>row--end  -->
-        </div>
+        <?php
+  include(plugin_dir_path(__FILE__) . '../template-parts/dashboard/leader-board.php');
+  ?>
         <!--leader-Board  end-->
 
     </div><!-- container-fluid-end  -->

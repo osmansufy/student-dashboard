@@ -73,7 +73,7 @@ class Learners {
           if (data_get.length > 0) {
             data_get.forEach((item, index) => {
               board_list_content += `
-            
+
             <tr class="">
             <th><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award">
             ${index + 1}</th>
@@ -86,7 +86,7 @@ class Learners {
           } else {
             board_list_content = `<tr class="text-center">
             <th>No data found</th>
-       
+
             </tr>`;
           }
 
@@ -407,13 +407,18 @@ class Learners {
         action: "sa_learners_add_to_cart",
         product_id: product_id,
       },
+      beforeSend: () => {
+        $(`.sa-cart-btn_${product_id}`).css("pointer-events", "none");
+      },
+
       success: (data) => {
-        // alert.slideLeft();
-        console.log(data);
         $(`.sa-cart-btn_${product_id}`).css("display", "none");
         $(`.sa-gotoCart-btn_${product_id}`).css("display", "inline-block");
         let alert_html = `<strong>${course_title}</strong> course has been added to your cart.`;
         this.toaster(alert_html);
+
+        // redirect to cart page
+        window.open(data.data.redirect_url, "_blank");
       },
     });
   }
