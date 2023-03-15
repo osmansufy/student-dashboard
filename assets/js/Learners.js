@@ -63,7 +63,7 @@ class Learners {
       },
       beforeSend: function () {
         $("#leader_board_table").html(
-          '<i class="fas fa-spinner" style="color: red; font-size: 40px;"></i>'
+          '<i class="fas fa-spinner fa-pulse" style="color: red; font-size: 40px;"></i>'
         );
       },
       success: (data) => {
@@ -193,7 +193,9 @@ class Learners {
         date_range: reward,
       },
       beforeSend: function () {
-        $("#sal_user_point_earned").html('<i class="fas fa-spinner"></i>');
+        $("#sal_user_point_earned").html(
+          '<i class="fa fa-refresh fa-spin fa-1x fa-fw"></i>'
+        );
       },
       success: (data) => {
         console.log(data);

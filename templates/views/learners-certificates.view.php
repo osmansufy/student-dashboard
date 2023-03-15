@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <!-- container-fluid-start  -->
         <div class="subscribeUpsell">
-            <a href="https://www.janets.org.uk/subscription-offer/" target="_blank"><i class="fad fa-medal"></i>
+            <a href="https://www.janets.org.uk/certificate/" target="_blank"><i class="fas fa-medal"></i>
                 Get access to all 2000+ courses (and MORE) for only £49. Find out more.
             </a>
         </div>
@@ -33,40 +33,43 @@
                             <?php
                             foreach ($all_certificates as $certificate) {
                             ?>
-                                <tr>
-                                    <!-- <th>
+                            <tr>
+                                <!-- <th>
                                         <?php
 
-                                        // echo $certificate->course_id; 
+                                        // echo $certificate->course_id;
                                         ?>
 
                                     </th> -->
-                                    <td data-label="Course">
-                                        <a href="<?php echo $certificate->slug ?>">
-                                            <!-- <img style="height: 100px; width:100px; display:block" src="<?php echo $certificate->featured_image ?>" alt=""> -->
-                                            <?php echo $certificate->title ?>
+                                <td data-label="Course">
+                                    <a href="<?php echo $certificate->slug ?>">
+                                        <!-- <img style="height: 100px; width:100px; display:block" src="<?php echo $certificate->featured_image ?>" alt=""> -->
+                                        <?php echo $certificate->title ?>
 
 
-                                        </a>
-                                    </td>
-                                    <td data-label="Hard Copy">
-                                        <a class="btn btn-primary" target="_blank" href="<?php echo site_url() . '/certificate' ?>">
-                                            <i class="far 
+                                    </a>
+                                </td>
+                                <td data-label="Hard Copy">
+                                    <a class="btn btn-primary" target="_blank"
+                                        href="<?php echo site_url() . '/certificate' ?>">
+                                        <i class="far
                                             fa-file-pdf
                                             " style="margin-right:7px;"></i>
-                                            Buy
-                                        </a>
-                                    </td>
-                                    <!-- <td data-label="Certificate">
+                                        Buy
+                                    </a>
+                                </td>
+                                <!-- <td data-label="Certificate">
                                         <a class="btn btn-primary" href="<?php echo $certificate->certificate_url ?>" target="_blank"><i class="far fa-file-pdf" style="margin-right:7px;"></i> View Certificate</a>
                                     </td> -->
-                                    <td data-label="PDF">
-                                        <a class="btn btn-primary" target="_blank" href="<?php echo site_url() . '/certificate' ?>">
-                                            <i class="far fa-file-pdf" style="margin-right:7px;"></i>
-                                            Buy
-                                        </a>
-                                    </td>
-                                </tr><?
+                                <td data-label="PDF">
+                                    <a class="btn btn-primary" target="_blank"
+                                        href="<?php echo site_url() . '/certificate' ?>">
+                                        <i class="far fa-file-pdf" style="margin-right:7px;"></i>
+                                        Buy
+                                    </a>
+                                </td>
+                            </tr>
+                            <?
                                         ?>
                             <?php } ?>
                         </tbody>

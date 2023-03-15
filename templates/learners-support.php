@@ -1,5 +1,5 @@
 <?php
-$head = "Support";
+$head = "Help & Support";
 include_once('common-parts/dashboard-head.php');
 $sal_submit_ticket_page = get_option('sal_submit_ticket_page');
 $sal_submit_ticket_page_url = get_page_link($sal_submit_ticket_page);

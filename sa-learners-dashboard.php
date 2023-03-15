@@ -3,7 +3,7 @@
 /**
  * Plugin Name:      SA Learners Dashboard
  * Plugin URI:        https://staffasia.org
- * Description:       This plugin  for custom learners dashboard for wplms theme . 
+ * Description:       This plugin  for custom learners dashboard for wplms theme .
  * Version:           1.0.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
@@ -100,7 +100,7 @@ function sa_learners_dashboard_load_plugin_textdomain()
     load_plugin_textdomain('sa-learners-dashboard', false, basename(dirname(__FILE__)) . '/languages');
 }
 add_action('plugins_loaded', 'sa_learners_dashboard_load_plugin_textdomain');
-// load Jquery from google cdn 
+// load Jquery from google cdn
 function use_jquery_from_google()
 {
     if (is_admin()) {
@@ -145,7 +145,7 @@ function sa_learners_dashboard_plugin_scripts_and_styles()
         wp_enqueue_style('bootstrap-css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', array(), time(), 'all');
         // check if page is learners dashboard page ,
         wp_enqueue_script('sa-learner-dashboard-js', plugins_url('assets/js/Learners.js', __FILE__), array('jquery'), time(), true);
-        // enqueue vue file 
+        // enqueue vue file
         // wp_enqueue_script('sa-learner-dashboard-vue', plugins_url('assets/js/vue.js', __FILE__), array('vue-js'), time(), true);
         wp_enqueue_script('bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), "", true);
         wp_enqueue_style('sabd-fontawesome-css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css');
