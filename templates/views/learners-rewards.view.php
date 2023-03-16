@@ -1,3 +1,29 @@
+<?php
+// rewards type array with value and label
+$rewards_date_types = array(
+    'today' => array(
+        'value' => 'today',
+        'label' => 'Today',
+    ),
+    'week' => array(
+        'value' => 'week',
+        'label' => 'This Week',
+    ),
+    'month' => array(
+        'value' => 'month',
+        'label' => 'This Month',
+    ),
+    'year' => array(
+        'value' => 'year',
+        'label' => 'This Year',
+    ),
+    'allTime' => array(
+        'value' => 'allTime',
+        'label' => 'All Time',
+    ),
+);
+
+?>
 <section class="content-main-body">
     <div class="container-fluid">
         <!-- container-fluid-start  -->
@@ -8,12 +34,13 @@
                         <!-- <label class="control-label" for="user_reward">Company</label> -->
                         <select id="sa_user_reward" data-userid="<?php echo $user_id ?>" style="-webkit-appearance: button;
     background-image: none;" class=" sal-reward-select" name="sa_user_reward">
-                            <option value="today">Today <i class="fas fa-angle-down"></i></i>
+                            <?php foreach ($rewards_date_types as $rewards_date_type) { ?>
+                            <option value="<?php echo $rewards_date_type['value'] ?>">
+                                <?php echo $rewards_date_type['label'] ?>
                             </option>
-                            <option value="week">This week <i class="fas fa-angle-down"></i></option>
-                            <option value="month">This Month</option>
-                            <option value="year">This Year</option>
-                            <option value="allTime">All Time</option>
+                            <?php
+                      }
+                        ?>
                         </select>
                     </div>
                     <div class="points mr-0">

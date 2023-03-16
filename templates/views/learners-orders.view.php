@@ -1,12 +1,9 @@
 <section class="content-main-body">
     <div class="container-fluid">
         <!-- container-fluid-start  -->
-        <div class="subscribeUpsell">
-            <a href="#"><i class="fad fa-medal"></i>
-                Get access to all 700+ courses (and MORE) for only £12 per
-                month. Find out more.
-            </a>
-        </div>
+        <?php
+include plugin_dir_path(__FILE__) . '../template-parts/page-hero.php';
+?>
 
 
         <div class="my-certificate">
@@ -27,32 +24,36 @@
                         </thead>
                         <tbody>
                             <?php
-                            foreach ($orders as $order) {
+foreach ($orders as $order) {
 
-                            ?>
-                                <tr>
-                                    <th scope="row"><?php echo $order->order_id ?></th>
-                                    <th>
-                                        <ul>
-                                            <?php
-                                            foreach ($order->order_items as $order_item) {
-                                            ?>
-                                                <li> <?php echo $order_item->order_item_name ?> (£<?php echo $order_item->order_item_total_price ?>) </li>
-                                                <hr />
-                                            <?php
-                                            }
-                                            ?>
-                                        </ul>
-                                    </th>
-                                    <th><?php echo $order->order_date ?></th>
-                                    <th>£<?php echo $order->order_total ?></th>
-                                    <th><?php echo strtoupper($order->order_status) ?></th>
-                                    <th><?php echo $order->order_payment_method ?></th>
-                                    <th><a class="btn btn-primary" href="<?php echo get_site_url() . '/my-account/view-order/' . $order->order_id ?>" target="_blank"><i class="far fa-file-pdf" style="margin-right:7px;"></i> View PDF</a></th>
-                                </tr>
+    ?>
+                            <tr>
+                                <th scope="row"><?php echo $order->order_id ?></th>
+                                <th>
+                                    <ul>
+                                        <?php
+foreach ($order->order_items as $order_item) {
+        ?>
+                                        <li> <?php echo $order_item->order_item_name ?>
+                                            (£<?php echo $order_item->order_item_total_price ?>) </li>
+                                        <hr />
+                                        <?php
+}
+    ?>
+                                    </ul>
+                                </th>
+                                <th><?php echo $order->order_date ?></th>
+                                <th>£<?php echo $order->order_total ?></th>
+                                <th><?php echo strtoupper($order->order_status) ?></th>
+                                <th><?php echo $order->order_payment_method ?></th>
+                                <th><a class="btn btn-primary"
+                                        href="<?php echo get_site_url() . '/my-account/view-order/' . $order->order_id ?>"
+                                        target="_blank"><i class="far fa-file-pdf" style="margin-right:7px;"></i> View
+                                    </a></th>
+                            </tr>
                             <?php
-                            }
-                            ?>
+}
+?>
 
                         </tbody>
                     </table>
@@ -64,8 +65,8 @@
                     <div class="sal-subscription-wrap">
                         <?php
 
-                        echo  WC_Subscriptions::get_my_subscriptions_template();;
-                        ?>
+echo WC_Subscriptions::get_my_subscriptions_template();
+?>
                     </div>
                 </div>
             </div><!-- row--end  -->

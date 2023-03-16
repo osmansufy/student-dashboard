@@ -423,7 +423,7 @@ html {
   text-align: center;
   color: #ffffff;
   background: rgb(123 166 49 );
-    
+
   background-position: left bottom;
   padding: 15px 0;
   font-weight: 300;
@@ -663,8 +663,8 @@ html {
 .sidebar-menu-farhan
   .progress-box
   a.btn.btn-outline-primary.btn-lg.extra-radius {
-  color: #f8f9fa;
-  background-color: transparent;
+  color: #313b3d;
+  background-color: #F0E400;
   background-image: none;
   border-color: #f8f9fa;
   border-radius: 25px;
