@@ -42,7 +42,7 @@ jQuery(document).ready(function ($) {
       var uploaded_image = logo.state().get("selection").first().toJSON();
       var thumbnail = uploaded_image.sizes.thumbnail.url;
       var image_url = uploaded_image.url;
-      $("#sal_dashboard_logo_url").val(thumbnail);
+      $("#sal_dashboard_logo_url").val(image_url);
       $("#sal_dashboard_logo_id").val(uploaded_image.id);
       $("#sal_dashboard_logo_show").html(`<img src="${thumbnail}"  />`);
     });

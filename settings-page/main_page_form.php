@@ -21,16 +21,18 @@ margin: 2rem;
         <label for="sal_dashboard_logo"><?php _e('Dashboard Logo', 'sa-learners-dashboard'); ?></label>
         <br />
 
-        <button class="button button-primary" id="sal_dashboard_logo" style="margin: 10px 0;"><?php _e('Dashboard logo', 'sa-learners-dashboard') ?></button>
+        <button class="button button-primary" id="sal_dashboard_logo"
+            style="margin: 10px 0;"><?php _e('Dashboard logo', 'sa-learners-dashboard') ?></button>
         <input type="hidden" name="sal_dashboard_logo_id" id="sal_dashboard_logo_id" />
         <input type="hidden" name="sal_dashboard_logo_url" id="sal_dashboard_logo_url" />
         <div id="sal_dashboard_logo_show" style="margin:2rem 0;
     border: 1px solid #ccc;
     max-width: 300px;
     padding: 1rem;
+    background-color: #003A59;
     ">
             <?php if ($sal_dashboard_logo) : ?>
-                <img src="<?php echo $sal_dashboard_logo; ?>" alt="Banner Image">
+            <img src="<?php echo $sal_dashboard_logo; ?>" alt="Banner Image">
             <?php endif; ?>
 
         </div>
@@ -49,24 +51,27 @@ margin: 2rem;
     max-width: 300px;
     padding: 1rem;">
             <?php if ($sal_banner_image) : ?>
-                <img src="<?php echo $sal_banner_image; ?>" alt="Banner Image">
+            <img src="<?php echo $sal_banner_image; ?>" alt="Banner Image">
             <?php endif; ?>
 
         </div>
     </div>
-    <div style=" 
+    <div style="
     border: 1px solid #ccc;
     padding: 1rem;">
         <!--Banner Image For Certificate  -->
 
-        <label for="sal_certificate_banner_image"><?php _e('Certificate Banner Image', 'sa-learners-dashboard'); ?></label>
+        <label
+            for="sal_certificate_banner_image"><?php _e('Certificate Banner Image', 'sa-learners-dashboard'); ?></label>
         <br />
-        <button class="button button-primary" id="sal_certificate_banner_image" style="margin: 10px 0;">Select Banner image</button>
+        <button class="button button-primary" id="sal_certificate_banner_image" style="margin: 10px 0;">Select Banner
+            image</button>
         <input type="hidden" name="sal_certificate_banner_image_id" id="sal_certificate_banner_image_id" />
         <input type="hidden" name="sal_certificate_banner_image_url" id="sal_certificate_banner_image_url" />
         <div id="sal_certificate_banner_image_show">
             <?php if ($sal_certificate_banner_image) : ?>
-                <img style="margin:2rem 0; max-width: 850px; height:auto" src="<?php echo $sal_certificate_banner_image; ?>" alt="Certificate Banner Image">
+            <img style="margin:2rem 0; max-width: 850px; height:auto" src="<?php echo $sal_certificate_banner_image; ?>"
+                alt="Certificate Banner Image">
             <?php endif; ?>
 
         </div>

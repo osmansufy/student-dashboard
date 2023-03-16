@@ -97,7 +97,7 @@ $url = get_option('sal_dashboard_logo_url');
 
 if (!empty($url)) {
     ?>
-          <a class="navbar-brand" href="<?php echo get_site_url() . '/' ?>" style="max-width: 150px;">
+          <a class="navbar-brand" href="<?php echo get_site_url() . '/' ?>" style="max-width: 200px;">
 
               <img src="<?php echo vibe_sanitizer($url, 'url'); ?>" alt="<?php echo get_bloginfo('name'); ?>" />
               <!-- <img class="collapse-img-collapse" src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/Screenshot_1.png" alt="" /> -->
