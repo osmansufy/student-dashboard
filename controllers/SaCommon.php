@@ -5,81 +5,79 @@ class SaCommon
         [
             'title' => 'My Courses Dashboard',
             'slug' => 'my-courses-dashboard',
-            'template' => 'my-courses-dashboard'
+            'template' => 'my-courses-dashboard',
         ],
         [
             'title' => 'Learners Dashboard',
             'slug' => 'learners-dashboard',
-            'template' => 'learners-dashboard'
+            'template' => 'learners-dashboard',
         ],
         [
             'title' => 'Learners Profile',
             'slug' => 'learners-profile',
-            'template' => 'learners-profile'
+            'template' => 'learners-profile',
         ],
         [
             'title' => 'Learners Orders',
             'slug' => 'learners-orders',
-            'template' => 'learners-orders'
+            'template' => 'learners-orders',
         ],
         [
             'title' => 'Learners Certificates',
             'slug' => 'learners-certificates',
-            'template' => 'learners-certificates'
+            'template' => 'learners-certificates',
         ],
         [
             'title' => 'Learners Rewards',
             'slug' => 'learners-rewards',
-            'template' => 'learners-rewards'
+            'template' => 'learners-rewards',
         ],
         [
             'title' => 'Learners saved courses',
             'slug' => 'learners-saved-courses',
-            'template' => 'learners-saved-courses'
+            'template' => 'learners-saved-courses',
         ],
         [
             'title' => 'Learners support',
             'slug' => 'learners-support',
-            'template' => 'learners-support'
+            'template' => 'learners-support',
         ],
         [
             'title' => 'Special Offers',
             'slug' => 'special-offers',
-            'template' => 'special-offers'
+            'template' => 'special-offers',
         ],
         [
             'title' => 'Learners Messages',
             'slug' => 'learners-messages',
-            'template' => 'learners-messages'
+            'template' => 'learners-messages',
 
         ],
         [
             'title' => 'Student Portal',
             'slug' => 'student-portal',
-            'template' => 'student-portal'
+            'template' => 'student-portal',
         ],
         [
             'title' => 'Unlimited Learning',
             'slug' => 'unlimited-learning',
-            'template' => 'unlimited-learning'
+            'template' => 'unlimited-learning',
 
         ],
         [
             'title' => 'Learners Recommend Friends',
             'slug' => 'learners-recommend-friends',
-            'template' => 'learners-recommend-friends'
-        ]
+            'template' => 'learners-recommend-friends',
+        ],
     ];
 
-
-    public  $achievements = [
+    public $achievements = [
         [
             'achievement_id' => 1,
             'achievement_name' => 'Signed in 2 days in a row',
             'achievement_description' => 'Signed in 2 days in a row',
             'rewards_points' => 1,
             'rewards_type' => 'Signed in',
-
 
         ],
         [
@@ -88,7 +86,6 @@ class SaCommon
             'achievement_description' => 'Signed in 2 days in a row',
             'rewards_points' => 1,
             'rewards_type' => 'Signed in',
-
 
         ],
         [
@@ -211,11 +208,10 @@ class SaCommon
     public $percentage_coupons_80 = "lprc_12486752_uo";
     public $percentage_coupons_90 = "lprc_28258695_uo";
 
-
     public function all_coupons_except_dependency_coupons()
     {
         $coupons = $this->all_coupons;
-        $filter_coupon =   array_filter($coupons, function ($coupon) {
+        $filter_coupon = array_filter($coupons, function ($coupon) {
             if ($coupon['rewards_type'] != $this->dependency_percentage_80 && $coupon['rewards_type'] != $this->dependency_percentage_90) {
                 return $coupon;
             }
@@ -225,7 +221,7 @@ class SaCommon
     public function all_coupons_with_dependency_80()
     {
         $coupons = $this->all_coupons;
-        $filter_coupon =   array_filter($coupons, function ($coupon) {
+        $filter_coupon = array_filter($coupons, function ($coupon) {
             if ($coupon['rewards_type'] == $this->dependency_percentage_80) {
                 return $coupon;
             }
@@ -235,7 +231,7 @@ class SaCommon
     public function all_coupons_with_dependency_90()
     {
         $coupons = $this->all_coupons;
-        $filter_coupon =   array_filter($coupons, function ($coupon) {
+        $filter_coupon = array_filter($coupons, function ($coupon) {
             if ($coupon['rewards_type'] == $this->dependency_percentage_90) {
                 return $coupon;
             }
@@ -260,7 +256,7 @@ class SaCommon
             }
         }
     }
-    static function coupon_prefix($coupon)
+    public static function coupon_prefix($coupon)
     {
         $siteName = strtolower(get_bloginfo('name'));
         $siteName = substr($siteName, 0, 3);
@@ -315,7 +311,7 @@ class SaCommon
             'coupon_discount' => '100',
             'rewards_points_need' => '15',
             'coupon_maximum_amount' => '240.00',
-            'isMultiple' => "no"
+            'isMultiple' => "no",
         ],
         [
             'coupon_code' => 'reward_i101_80_r6',
@@ -439,9 +435,9 @@ class SaCommon
         ],
     ];
 
-    // Data for creating  options page fields for coupons for rewards 
+    // Data for creating  options page fields for coupons for rewards
 
-    static function option_page_coupon_fields($coupon_number)
+    public static function option_page_coupon_fields($coupon_number)
     {
         $fields = [
             [

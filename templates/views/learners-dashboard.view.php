@@ -3,15 +3,15 @@
 
         <!-- container-fluid-start  -->
         <?php
-include plugin_dir_path(__FILE__) . '../template-parts/page-hero.php';
-?>
+        include plugin_dir_path(__FILE__) . '../template-parts/page-hero.php';
+        ?>
 
 
         <div class="circle-box-percentage">
             <!-- <div class="allcourse">
                             <h2>All course</h2>
                             <div class="circular-progress" data-percent="<?php
-echo bp_course_get_total_course_count() ?>">
+                                                                            echo bp_course_get_total_course_count() ?>">
                                 >
                                 <div class="value-container">0%</div>
                             </div>
@@ -20,24 +20,27 @@ echo bp_course_get_total_course_count() ?>">
 
             <div class="allcourse">
                 <h2>Enroll Courses</h2>
-                <div class="circular-progress" data-percent="<?php
-echo is_array($userCourses['enrolled_courses']) ? count($userCourses['enrolled_courses']) : 0; ?>">
+                <div class="circular-progress"
+                    data-percent="<?php
+                                                                echo is_array($userCourses['enrolled_courses']) ? count($userCourses['enrolled_courses']) : 0; ?>">
                     <div class="value-container">0%</div>
                 </div>
 
             </div>
             <div class="allcourse">
                 <h2>Course Completed</h2>
-                <div class="circular-progress" data-percent="<?php
-echo is_array($userCourses['complete_courses']) ? count($userCourses['complete_courses']) : 0; ?>">
+                <div class="circular-progress"
+                    data-percent="<?php
+                                                                echo is_array($userCourses['complete_courses']) ? count($userCourses['complete_courses']) : 0; ?>">
                     <div class="value-container">0%</div>
                 </div>
 
             </div>
             <div class="allcourse">
                 <h2>Course Certificate</h2>
-                <div class="circular-progress" data-percent="<?php
-echo is_array($certificate_list) ? count($certificate_list) : 0; ?>">
+                <div class="circular-progress"
+                    data-percent="<?php
+                                                                echo is_array($certificate_list) ? count($certificate_list) : 0; ?>">
                     <div class="value-container">0%</div>
                 </div>
                 <!-- <div class="progressdiv" data-percent="10">
@@ -87,7 +90,7 @@ echo is_array($certificate_list) ? count($certificate_list) : 0; ?>">
         <!-- banner offer -->
 
         <div class="banner-offer">
-            <a href="#">
+            <a href="<?php echo $ads_banner_link ?>">
                 <img style="
     max-height: 280px;
     width: 100%;
@@ -99,21 +102,21 @@ echo is_array($certificate_list) ? count($certificate_list) : 0; ?>">
             <h3 class="Title">Other courses you might like...</h3>
             <div class="row">
                 <?php
-foreach ($get_recomended_courses as $course) {
-    ?>
+                foreach ($get_recomended_courses as $course) {
+                ?>
 
                 <div class="col-12 col-md-6 col-lg-3 col-sm-6">
                     <!-- col-start  -->
-                    <?php include plugin_dir_path(__FILE__) . '../template-parts/course-card.php';?>
+                    <?php include plugin_dir_path(__FILE__) . '../template-parts/course-card.php'; ?>
                 </div><!-- col-end  -->
                 <?php
-}
-?>
+                }
+                ?>
             </div><!-- row--end  -->
         </div>
         <?php
-include plugin_dir_path(__FILE__) . '../template-parts/dashboard/leader-board.php';
-?>
+        include plugin_dir_path(__FILE__) . '../template-parts/dashboard/leader-board.php';
+        ?>
         <!--leader-Board  end-->
 
     </div><!-- container-fluid-end  -->

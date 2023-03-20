@@ -1959,3 +1959,33 @@ select#sa_user_reward option {
 img.not-earned {
   opacity: 0.5;
 }
+
+/* hide sidebar in small device */
+
+@media (max-width: 767px) {
+  .navbar-primary,.navbar-pc {
+    display: none;
+  }
+  .top-nav-mobile {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navbar-mobile{
+    display: block !important;
+  }
+  .navbar-mobile li{
+    text-align: justify;
+  }
+  /* nav nar full height */
+  /* .navbar-collapse {
+    height: 100% !important;
+  } */
+  .top-nav-logo {
+    display: block !important;
+    max-width: 150px !important;
+  }
+  .sidebar-menu-farhan .collapsed + .main-content {
+margin-left: 0px;
+  }
+}

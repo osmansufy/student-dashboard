@@ -37,7 +37,9 @@ margin: 2rem;
 
         </div>
     </div>
-    <div>
+    <div style="border: 1px solid;
+    padding: 2rem;
+    margin: 2rem 0;">
         <!--Banner Image For marketing  -->
 
         <label for="sal_banner_image"><?php _e('Banner Image', 'sa-learners-dashboard'); ?></label>
@@ -55,16 +57,23 @@ margin: 2rem;
             <?php endif; ?>
 
         </div>
+        <div style="margin-bottom: 10px;">
+            <label for="sal_banner_image_link"><?php _e('Banner Image Link', 'sa-learners-dashboard'); ?></label>
+            <br />
+            <input type="text" name="sal_banner_image_link" id="sal_banner_image_link"
+                value="<?php echo get_option('sal_banner_image_link'); ?>" />
+        </div>
     </div>
     <div style="
     border: 1px solid #ccc;
-    padding: 1rem;">
+    padding: 2rem;">
         <!--Banner Image For Certificate  -->
 
         <label
             for="sal_certificate_banner_image"><?php _e('Certificate Banner Image', 'sa-learners-dashboard'); ?></label>
         <br />
-        <button class="button button-primary" id="sal_certificate_banner_image" style="margin: 10px 0;">Select Banner
+        <button class="button button-primary" id="sal_certificate_banner_image" style="margin: 10px 0;">Select
+            Certificate
             image</button>
         <input type="hidden" name="sal_certificate_banner_image_id" id="sal_certificate_banner_image_id" />
         <input type="hidden" name="sal_certificate_banner_image_url" id="sal_certificate_banner_image_url" />
@@ -74,6 +83,13 @@ margin: 2rem;
                 alt="Certificate Banner Image">
             <?php endif; ?>
 
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label
+                for="sal_certificate_image_link"><?php _e('Certificate Image Link', 'sa-learners-dashboard'); ?></label>
+            <br />
+            <input type="text" name="sal_certificate_image_link" id="sal_certificate_image_link"
+                value="<?php echo get_option('sal_certificate_image_link'); ?>" />
         </div>
     </div>
     <?php

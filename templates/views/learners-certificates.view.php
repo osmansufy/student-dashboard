@@ -11,7 +11,7 @@
         <div class="my-certificate">
             <!-- banner offer -->
             <div class="banner-offer">
-                <a href="#">
+                <a href="<?php echo $sal_certificate_banner_image_link ?>">
                     <img src="<?php echo esc_url($sal_certificate_banner_image) ?>" alt="Offer">
                 </a>
             </div>
@@ -70,7 +70,7 @@
                                 </td>
                             </tr>
                             <?
-                                        ?>
+                                ?>
                             <?php } ?>
                         </tbody>
                     </table>
