@@ -10,6 +10,7 @@ margin: 2rem;
     wp_nonce_field("sal_dashboard_form");
     $sal_banner_image = get_option('sal_banner_image_url');
     $sal_certificate_banner_image = get_option('sal_certificate_banner_image_url');
+    $sal_certificate_image = get_option('sal_certificate_image_url');
     $sal_dashboard_logo = get_option('sal_dashboard_logo_url');
     ?>
 
@@ -45,7 +46,7 @@ margin: 2rem;
         <label for="sal_banner_image"><?php _e('Banner Image', 'sa-learners-dashboard'); ?></label>
         <br />
 
-        <button class="button button-primary" id="sal_banner_image" style="margin: 10px 0;">Select Banner image</button>
+        <button class="button button-primary" id="sal_banner_image" style="margin: 10px 0;">Update Banner image</button>
         <input type="hidden" name="sal_banner_image_id" id="sal_banner_image_id" />
         <input type="hidden" name="sal_banner_image_url" id="sal_banner_image_url" />
         <div id="sa_banner_image_show" style="margin: 2rem 0;
@@ -72,8 +73,8 @@ margin: 2rem;
         <label
             for="sal_certificate_banner_image"><?php _e('Certificate Banner Image', 'sa-learners-dashboard'); ?></label>
         <br />
-        <button class="button button-primary" id="sal_certificate_banner_image" style="margin: 10px 0;">Select
-            Certificate
+        <button class="button button-primary" id="sal_certificate_banner_image" style="margin: 10px 0;">
+            Certificate Banner
             image</button>
         <input type="hidden" name="sal_certificate_banner_image_id" id="sal_certificate_banner_image_id" />
         <input type="hidden" name="sal_certificate_banner_image_url" id="sal_certificate_banner_image_url" />
@@ -86,12 +87,40 @@ margin: 2rem;
         </div>
         <div style="margin-bottom: 10px;">
             <label
+                for="sal_certificate_banner_image_link"><?php _e('Certificate Banner Image Link', 'sa-learners-dashboard'); ?></label>
+            <br />
+            <input type="text" name="sal_certificate_banner_image_link" id="sal_certificate_banner_image_link"
+                value="<?php echo get_option('sal_certificate_banner_image_link'); ?>" />
+        </div>
+    </div>
+    <!-- Certificate image & link -->
+    <div style="
+    border: 1px solid #ccc;
+    padding: 2rem;">
+        <!--Image For Certificate  -->
+
+        <label for="sal_certificate_image"><?php _e('Certificate Banner Image', 'sa-learners-dashboard'); ?></label>
+        <br />
+        <button class="button button-primary" id="sal_certificate_image" style="margin: 10px 0;">Update
+            Certificate
+            image</button>
+        <input type="hidden" name="sal_certificate_image_url" id="sal_certificate_image_url" />
+        <div id="sal_certificate_image_show">
+            <?php if ($sal_certificate_image) : ?>
+            <img style="margin:2rem 0; max-width: 850px; height:auto" src="<?php echo $sal_certificate_image; ?>"
+                alt="Certificate Banner Image">
+            <?php endif; ?>
+
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label
                 for="sal_certificate_image_link"><?php _e('Certificate Image Link', 'sa-learners-dashboard'); ?></label>
             <br />
             <input type="text" name="sal_certificate_image_link" id="sal_certificate_image_link"
                 value="<?php echo get_option('sal_certificate_image_link'); ?>" />
         </div>
     </div>
+
     <?php
     submit_button('Save');
     ?>

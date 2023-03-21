@@ -193,3 +193,4 @@ add_action('wp_ajax_sa_learners_claim_reward', array('SaCoupon', 'sa_learners_cl
 add_action('wp_ajax_sa_learners_claim_gf_reward', array('SaCoupon', 'sal_gf_coupon_generator'));
 add_action('wp_ajax_sa_learners_change_leaderBoard_reward', array('SaRewards', 'sa_learners_change_leaderBoard_reward'));
 add_action('woocommerce_order_status_completed', array('SaCoupon', 'sa_remove_email_restriction_from_coupon'), 10, 1);
+add_action('wp_ajax_sa_learners_start_course', array('SaCourse', 'sa_learners_start_course'));

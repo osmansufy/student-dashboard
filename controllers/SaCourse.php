@@ -58,7 +58,7 @@ class SaCourse
         $product_cart_id = WC()->cart->generate_cart_id($product_id);
         if (!WC()->cart->find_product_in_cart($product_cart_id)) {
             WC()->cart->add_to_cart($product_id);
-        //    redirect to cart page after successful add to cart
+            //    redirect to cart page after successful add to cart
             wp_send_json_success(array('message' => 'Successfully added to cart', 'redirect_url' => wc_get_cart_url()));
         } else {
             wp_send_json_error(array('message' => 'Already added to cart'));
@@ -231,7 +231,7 @@ class SaCourse
             if ($progress > 99) {
                 $complete_courses[] =  $course['id'];
             } else {
-                $inprogress_courses[] = $course['id'];
+                $inprogress_courses[] = $course;
             }
         }
         $courses_status = array(
@@ -266,6 +266,24 @@ class SaCourse
             'incomplete_units' => $incomplete_units
         );
         return $completed_units;
+    }
+
+    static function sa_learners_start_course()
+    {
+        // wp_destroy_current_session();
+        $user_id = $_POST['user_id'];
+        $course_id = $_POST['course_id'];
+        unset($_COOKIE['course']);
+        wp_clear_auth_cookie();
+        wp_set_current_user(0);
+        wp_set_auth_cookie($user_id);
+        wp_set_current_user($course_id);
+        $_SESSION['vtprd_customer_id'] = $user_id;
+        setcookie('course', $course_id, time() + (86400 * 30), "/");
+        $session_cookies = session_get_cookie_params();
+        session_set_cookie_params($session_cookies);
+        session_start();
+        wp_send_json_success(['message' => 'Course Started', 'status' => 'success', 'redirect_url' => site_url() . '/course-status/']);
     }
 }
 // new SaCourse();

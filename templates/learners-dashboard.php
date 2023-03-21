@@ -57,6 +57,8 @@ $get_recomended_courses = get_option('recomended_courses') ? SaHelper::convert_t
 $ads_banner_id = get_option('sal_banner_image_id');
 $ads_banner_url = wp_get_attachment_url($ads_banner_id);
 $ads_banner_link = get_option('sal_banner_image_link');
+$certificate_image = get_option('sal_certificate_image_url');
+$certificate_image_link = get_option('sal_certificate_image_link');
 // echo '<pre>';
 // var_dump($ads_banner_url);
 // echo '</pre>';

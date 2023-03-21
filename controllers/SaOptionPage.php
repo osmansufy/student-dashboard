@@ -110,6 +110,12 @@ class OptionsDemoTwo
         if (isset($_POST['sal_dashboard_logo_url']) && !empty($_POST['sal_dashboard_logo_url'])) {
             update_option('sal_dashboard_logo_url', sanitize_text_field($_POST['sal_dashboard_logo_url']));
         }
+        if (isset($_POST['sal_certificate_banner_image_link']) && !empty($_POST['sal_certificate_banner_image_link'])) {
+            update_option('sal_certificate_banner_image_link', sanitize_text_field($_POST['sal_certificate_banner_image_link']));
+        }
+        if (isset($_POST['sal_certificate_image_url']) && !empty($_POST['sal_certificate_image_url'])) {
+            update_option('sal_certificate_image_url', sanitize_text_field($_POST['sal_certificate_image_url']));
+        }
         wp_redirect('admin.php?page=saldashboard');
         // wp_redirect(admin_url('options-general.php?page=optionsdemopage'));
     }

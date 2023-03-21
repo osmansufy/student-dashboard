@@ -50,6 +50,7 @@ class Learners {
     $(".sal-claim-reward").on("click", this.onClaimReward);
     $("#sal_gf_coupon").on("click", this.onClaimRewardGfCoupon);
     $("#monthly_leaderBoard").on("change", this.onChangeLeaderBoardReward);
+    $(".start-course-btn").on("click", this.onStartCourse.bind(this));
   }
   onChangeLeaderBoardReward(e) {
     let month = $(e.target).val();
@@ -120,7 +121,7 @@ class Learners {
       },
       beforeSend: function () {
         let content = `<div>
-    <span>Coupon Code:<i class="fas fa-spinner"></i></span>
+    <span>Coupon Code:<i class="fas fa-spinner fa-pulse" style="color: red; font-size: 40px;"></i></span>
         </div>`;
         $(".sal_gf_coupon_code").html(content);
       },
@@ -161,7 +162,9 @@ class Learners {
         nonce: nonce,
       },
       beforeSend: function () {
-        $(`.sal_coupon_${coupon_id}`).html('<i class="fas fa-spinner " ></i>');
+        $(`.sal_coupon_${coupon_id}`).html(
+          '<i class="fas fa-spinner fa-pulse" style="color: red; font-size: 40px;"></i>'
+        );
       },
       success: (data) => {
         console.log(data);
@@ -421,6 +424,47 @@ class Learners {
 
         // redirect to cart page
         window.open(data.data.redirect_url, "_blank");
+      },
+    });
+  }
+  onStartCourse(e) {
+    e.preventDefault();
+    let course_id = e.target.dataset.courseId;
+    let user_id = e.target.dataset.userId;
+    console.log(course_id, user_id);
+    $.ajax({
+      url: pluginData.ajax_url,
+      type: "POST",
+      data: {
+        action: "sa_learners_start_course",
+        course_id: course_id,
+        user_id: user_id,
+      },
+      beforeSend: () => {
+        // hide start course button after click on it and show loader  icon
+        $(`#start-course-btn-${course_id}`).css("display", "none");
+
+        // show loader icon
+        $(`#start-course-loader-${course_id}`).css("display", "inline-block");
+      },
+      success: (data) => {
+        // redirect to course status page with new tab after success
+
+        if (data.success) {
+          window.open(data.data.redirect_url, "_blank");
+        }
+        // hide loader icon
+        $(`#start-course-loader-${course_id}`).css("display", "none");
+        // show start course button after click on it and hide loader  icon
+        $(`#start-course-btn-${course_id}`).css("display", "inline-block");
+      },
+      error: (data) => {
+        let message = `<strong>${data.data.message}</strong>`;
+        this.toaster(message);
+        // hide loader icon
+        $(`#start-course-loader-${course_id}`).css("display", "none");
+        // show start course button after click on it and hide loader  icon
+        $(`#start-course-btn-${course_id}`).css("display", "inline-block");
       },
     });
   }

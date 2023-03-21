@@ -674,7 +674,7 @@ html {
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 1.5;
-  padding: 0.375rem 0.75rem;
+  padding: 0.75rem;
 }
 
 .sidebar-menu-farhan
@@ -1989,3 +1989,13 @@ img.not-earned {
 margin-left: 0px;
   }
 }
+
+/* course card my courses */
+
+.sa-custom-course-button .button {
+  background-color: #F0E400;
+  color: #000;
+  border-radius: 25px;
+}
+
+/* dashboard  */
