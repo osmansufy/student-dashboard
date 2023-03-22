@@ -19,8 +19,9 @@
                         </div> -->
 
             <div class="allcourse">
-                <h2>Enroll Courses</h2>
-                <div class="circular-progress" data-percent="<?php
+                <h2>Enrolled Courses</h2>
+                <div class="circular-progress"
+                    data-percent="<?php
                                                                 echo is_array($userCourses['enrolled_courses']) ? count($userCourses['enrolled_courses']) : 0; ?>">
                     <div class="value-container">0%</div>
                 </div>
@@ -28,7 +29,8 @@
             </div>
             <div class="allcourse">
                 <h2>Course Completed</h2>
-                <div class="circular-progress" data-percent="<?php
+                <div class="circular-progress"
+                    data-percent="<?php
                                                                 echo is_array($userCourses['complete_courses']) ? count($userCourses['complete_courses']) : 0; ?>">
                     <div class="value-container">0%</div>
                 </div>
@@ -36,7 +38,8 @@
             </div>
             <div class="allcourse">
                 <h2>Course Certificate</h2>
-                <div class="circular-progress" data-percent="<?php
+                <div class="circular-progress"
+                    data-percent="<?php
                                                                 echo is_array($certificate_list) ? count($certificate_list) : 0; ?>">
                     <div class="value-container">0%</div>
                 </div>
@@ -63,7 +66,8 @@
             <div class="col-md-4">
                 <div class="white-rounded dash-details">
                     <div class="Reward-number">
-                        <span><img src="<?php echo plugin_dir_url(dirname(__FILE__)) . '../assets/images/award.png' ?>" alt="award" /> <?php echo $total_rewards ?></span>
+                        <span><img src="<?php echo plugin_dir_url(dirname(__FILE__)) . '../assets/images/award.png' ?>"
+                                alt="award" /> <?php echo $total_rewards ?></span>
                     </div>
                     <div class="number-text">
                         <p>Reward Points</p>
@@ -71,14 +75,11 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="white-rounded dash-banner">
+                <div class="white-rounded dash-details">
                     <div class="banner-number">
                         <a href="<?php echo $certificate_image_link ?>">
                             <img src="<?php echo $certificate_image ?>" alt="cpd">
-                            <p>Get access to exclusive student discounts</p>
-                            <a href="
-                                    <?php echo $certificate_image_link ?>" class="btn btn-outline-light">GET YOUR
-                                STUDENT CARD NOW</a>
+
                         </a>
                     </div>
                 </div>
@@ -102,10 +103,10 @@
                 foreach ($get_recomended_courses as $course) {
                 ?>
 
-                    <div class="col-12 col-md-6 col-lg-3 col-sm-6">
-                        <!-- col-start  -->
-                        <?php include plugin_dir_path(__FILE__) . '../template-parts/course-card.php'; ?>
-                    </div><!-- col-end  -->
+                <div class="col-12 col-md-6 col-lg-3 col-sm-6">
+                    <!-- col-start  -->
+                    <?php include plugin_dir_path(__FILE__) . '../template-parts/course-card.php'; ?>
+                </div><!-- col-end  -->
                 <?php
                 }
                 ?>

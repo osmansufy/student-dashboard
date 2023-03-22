@@ -218,16 +218,17 @@ class Learners {
 
       let progress = setInterval(() => {
         let valueContainer = progressBar.querySelector(".value-container");
-        valueContainer.textContent = `${progressValue}`;
+        valueContainer.textContent = `${progressEndValue}`;
         progressBar.style.background = `conic-gradient(
-                  #4d5bf9 ${progressValue * 3.6}deg,
-                  #cadcff ${progressValue * 3.6}deg
+                  #7BA631 ${progressValue * 3.6}deg,
+                  #DFE9D3 ${progressValue * 3.6}deg
                   )`;
         if (progressValue == progressEndValue || progressEndValue == 0) {
           clearInterval(progress);
         }
         progressValue++;
       }, speed);
+      console.log(progressValue);
     }
   }
   onSubmitEditUser(e) {
