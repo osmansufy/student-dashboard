@@ -141,6 +141,7 @@ function sa_learners_dashboard_plugin_scripts_and_styles()
     if ($is_page_exist) {
         use_jquery_from_google();
         wp_enqueue_style('sa-learner-dashboard-style', plugins_url('assets/css/learner-dashboard.css', __FILE__), array(), time(), 'all');
+        wp_enqueue_style('new-style', plugins_url('assets/css/new-dashboard.css', __FILE__), array(), time(), 'all');
         // cdn load css from bootstrap
         wp_enqueue_style('bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css', array(), time(), 'all');
         // check if page is learners dashboard page ,
