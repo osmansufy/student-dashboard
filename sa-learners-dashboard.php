@@ -142,12 +142,12 @@ function sa_learners_dashboard_plugin_scripts_and_styles()
         use_jquery_from_google();
         wp_enqueue_style('sa-learner-dashboard-style', plugins_url('assets/css/learner-dashboard.css', __FILE__), array(), time(), 'all');
         // cdn load css from bootstrap
-        wp_enqueue_style('bootstrap-css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', array(), time(), 'all');
+        wp_enqueue_style('bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css', array(), time(), 'all');
         // check if page is learners dashboard page ,
         wp_enqueue_script('sa-learner-dashboard-js', plugins_url('assets/js/Learners.js', __FILE__), array('jquery'), time(), true);
         // enqueue vue file
         // wp_enqueue_script('sa-learner-dashboard-vue', plugins_url('assets/js/vue.js', __FILE__), array('vue-js'), time(), true);
-        wp_enqueue_script('bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), "", true);
+        wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js', array(), "", true);
         wp_enqueue_style('sabd-fontawesome-css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css');
         // add vue js
         // wp_enqueue_script('vue-js', 'https://cdn.jsdelivr.net/npm/vue/dist/vue.js', array(), '2.6.12', true);
@@ -171,9 +171,9 @@ function sa_learners_dashboard_plugin_scripts_and_styles_admin($screen)
 
     if ('learners-dashboard_page_sal-dashboard-management' == $screen || 'toplevel_page_saldashboard' == $screen) {
         //Add the Select2 CSS file
-        wp_enqueue_style('select2-css', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css', array(), '4.1.0-rc.0');
+        wp_enqueue_style('select2-css', 'https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css', array(), '4.1.0-rc.0');
         // Add the Select2 JavaScript file
-        wp_enqueue_script('select2-js', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', 'jquery', '4.1.0-rc.0');
+        wp_enqueue_script('select2-js', 'https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js', 'jquery', '4.1.0-rc.0');
 
         wp_enqueue_script('sa-learner-dashboard-admin-js', plugins_url('assets/js/admin/admin.js', __FILE__), array('jquery', 'select2-js'), time(), true);
     }
