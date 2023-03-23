@@ -1,6 +1,4 @@
-
-
-    <?php
+<?php
 
 
     $achievements = SaRewards::get_all_rewards();

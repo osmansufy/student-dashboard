@@ -141,19 +141,15 @@ function sa_learners_dashboard_plugin_scripts_and_styles()
     if ($is_page_exist) {
         use_jquery_from_google();
         wp_enqueue_style('sa-learner-dashboard-style', plugins_url('assets/css/learner-dashboard.css', __FILE__), array(), time(), 'all');
-        wp_enqueue_style('new-style', plugins_url('assets/css/new-dashboard.css', __FILE__), array(), time(), 'all');
         // cdn load css from bootstrap
-        wp_enqueue_style('bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css', array(), time(), 'all');
+        wp_enqueue_style('bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css');
+        wp_enqueue_style('new-style', plugins_url('assets/css/new-dashboard.css', __FILE__), array(), time(), 'all');
+
         // check if page is learners dashboard page ,
         wp_enqueue_script('sa-learner-dashboard-js', plugins_url('assets/js/Learners.js', __FILE__), array('jquery'), time(), true);
         // enqueue vue file
-        // wp_enqueue_script('sa-learner-dashboard-vue', plugins_url('assets/js/vue.js', __FILE__), array('vue-js'), time(), true);
         wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js', array(), "", true);
-        wp_enqueue_style('sabd-fontawesome-css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css');
-        // add vue js
-        // wp_enqueue_script('vue-js', 'https://cdn.jsdelivr.net/npm/vue/dist/vue.js', array(), '2.6.12', true);
-        // add axios js
-        // wp_enqueue_script('axios-js', 'https://unpkg.com/axios/dist/axios.min.js', array(), '0.21.1', true);
+        wp_enqueue_style('sabd-fontawesome-css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
     }
 
     $action = 'sa_learners_update';

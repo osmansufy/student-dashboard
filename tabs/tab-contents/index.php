@@ -1,4 +1,6 @@
-<?php $navItems = array(
+<?php
+$user_id = get_current_user_id();
+$navItems = array(
     "Dashboard" => array(
         "id" => "dashboard",
         'title' => 'Dashboard',
@@ -23,16 +25,16 @@
         "icon" => "fas fa-trophy",
 
     ),
-    "Unlimited Learning" => array(
-        "id" => "unlimited-learning",
-        'title' => 'Unlimited Learning',
-        "icon" => "fas fa-chalkboard-teacher",
-
-    ),
     "Saved Courses" => array(
         "id" => "saved-courses",
         'title' => 'Saved Courses',
         "icon" => "fas fa-heart",
+
+    ),
+    "Unlimited Learning" => array(
+        "id" => "unlimited-learning",
+        'title' => 'Unlimited Learning',
+        "icon" => "fas fa-chalkboard-teacher",
 
     ),
     "Messages" => array(
@@ -81,20 +83,22 @@
 
 )
 ?>
-<div class="tab-content col-md-9" id="v-pills-tabContent">
+<div class="col-lg-10" style="min-height:100vh">
+    <div class="tab-content px-4 " style="background-color: #f8f8f8;" id="v-pills-tabContent">
 
-    <?php
-    foreach ($navItems as $key => $value) {
-        $active = $key == 'Dashboard' ? 'active' : '';
-    ?>
-        <div class="tab-pane  <?php echo $active; ?> " id="v-pills-<?php echo $value['id'] ?>" role="tabpanel" aria-labelledby="v-pills-<?php echo $value['id'] ?>-tab">
-            <?php
-            $file = $value['id'] . '.php';
-            include_once $file;
-            ?>
-        </div>
-    <?php
-    }
-    ?>
+        <?php
+        foreach ($navItems as $key => $value) {
+            $active = $key == 'Dashboard' ? 'active' : '';
+        ?>
+            <div class="tab-pane  <?php echo $active; ?> " id="v-pills-<?php echo $value['id'] ?>" role="tabpanel" aria-labelledby="v-pills-<?php echo $value['id'] ?>-tab">
+                <?php
+                $file = $value['id'] . '.php';
+                include_once $file;
+                ?>
+            </div>
+        <?php
+        }
+        ?>
 
+    </div>
 </div>

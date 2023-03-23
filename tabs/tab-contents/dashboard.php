@@ -4,7 +4,7 @@
 $user_subscription_page = get_option('woocommerce_myaccount_subscriptions_endpoint');
 $user_subscription_page_url = get_permalink(get_option('woocommerce_myaccount_subscriptions_endpoint'));
 $user_subscription_page_url = add_query_arg('subscription_key', $subscription_key, $user_subscription_page_url);
-
+$user_id = get_current_user_id();
 // print_r($user_id);
 $userCourses = SaCourse::sa_get_user_courses_by_status($user_id);
 $complete_courses = array();
@@ -56,106 +56,8 @@ $ads_banner_url = wp_get_attachment_url($ads_banner_id);
 $ads_banner_link = get_option('sal_banner_image_link');
 $certificate_image = get_option('sal_certificate_image_url');
 $certificate_image_link = get_option('sal_certificate_image_link');
-?><div>
+$enrolled_courses_count = is_array($userCourses['enrolled_courses']) ? count($userCourses['enrolled_courses']) : 0;
+$complete_courses_count = is_array($userCourses['complete_courses']) ? count($userCourses['complete_courses']) : 0;
+$certificate_count = is_array($certificate_list) ? count($certificate_list) : 0;
 
-    <div class="circle-box-percentage">
-        <!-- <div class="allcourse">
-                            <h2>All course</h2>
-                            <div class="circular-progress" data-percent="<?php
-                                                                            echo bp_course_get_total_course_count() ?>">
-                                >
-                                <div class="value-container">0%</div>
-                            </div>
-
-                        </div> -->
-
-        <div class="allcourse">
-            <h2>Enrolled Courses</h2>
-            <div class="circular-progress" data-percent="<?php
-                                                            echo is_array($userCourses['enrolled_courses']) ? count($userCourses['enrolled_courses']) : 0; ?>">
-                <div class="value-container">0%</div>
-            </div>
-
-        </div>
-        <div class="allcourse">
-            <h2>Course Completed</h2>
-            <div class="circular-progress" data-percent="<?php
-                                                            echo is_array($userCourses['complete_courses']) ? count($userCourses['complete_courses']) : 0; ?>">
-                <div class="value-container">0%</div>
-            </div>
-
-        </div>
-        <div class="allcourse">
-            <h2>Course Certificate</h2>
-            <div class="circular-progress" data-percent="<?php
-                                                            echo is_array($certificate_list) ? count($certificate_list) : 0; ?>">
-                <div class="value-container">0%</div>
-            </div>
-            <!-- <div class="progressdiv" data-percent="10">
-                                <svg class="progress_bar" height="250" width="250" id="svg">
-                                    <circle id="progressbg" cx="125" cy="125" r="85" stroke-width="29" fill="transparent" stroke-dasharray="753.9822368615503" />
-                                    <circle id="progress" class="bar" cx="125" cy="125" r="85" stroke-width="30" fill="transparent" stroke-dasharray="553.9822368615503" />
-                                </svg>
-                            </div> -->
-        </div>
-    </div><!-- percentage circle end-->
-    <!-- Award days banner section -->
-    <div class="row award-section">
-        <div class="col-md-4 ">
-            <div class="white-rounded dash-details">
-                <div class="count-number">
-                    <span><?php echo $login_day_count ?> <sup><i class="fas fa-arrow-up"></i></sup></span>
-                </div>
-                <div class="number-text">
-                    <p>Days Logged In</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="white-rounded dash-details">
-                <div class="Reward-number">
-                    <span><img src="<?php echo plugin_dir_url(dirname(__FILE__)) . '../assets/images/award.png' ?>" alt="award" /> <?php echo $total_rewards ?></span>
-                </div>
-                <div class="number-text">
-                    <p>Reward Points</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="white-rounded dash-details">
-                <div class="banner-number">
-                    <a href="<?php echo $certificate_image_link ?>">
-                        <img src="<?php echo $certificate_image ?>" alt="cpd">
-
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div> <!-- Award days banner section END -->
-    <!-- banner offer -->
-
-    <div class="banner-offer">
-        <a href="<?php echo $ads_banner_link ?>">
-            <img style="
-    max-height: 280px;
-    width: 100%;
-    border-radius: 20px;
-" src="<?php echo $ads_banner_url ?>" alt="Offer">
-        </a>
-    </div>
-    <div class="other-course">
-        <h3 class="Title">Other courses you might like...</h3>
-        <div class="row">
-            <?php
-            foreach ($get_recomended_courses as $course) {
-            ?>
-
-                <div class="col-12 col-md-6 col-lg-3 col-sm-6">
-                    <!-- col-start  -->
-                </div><!-- col-end  -->
-            <?php
-            }
-            ?>
-        </div><!-- row--end  -->
-    </div>
-</div>
+include_once 'views/dashboard-view.php';

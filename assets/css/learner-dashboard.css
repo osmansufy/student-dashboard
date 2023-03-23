@@ -16,25 +16,25 @@ img{
     object-fit: cover;
     object-position: center;
 }
-.sidebar-menu-farhan .navbar-global {
+.navbar-global {
   background-color: #003a59;
   border: #003a59;
 }
-.sidebar-menu-farhan span.nav-label {
+span.nav-label {
   margin-left: 12px;
 }
-.sidebar-menu-farhan .navbar-global .navbar-brand {
+.navbar-global .navbar-brand {
   color: white;
 }
-.sidebar-menu-farhan .navbar-brand {
+.navbar-brand {
   height: inherit !important;
   max-width: 100%;
 }
-.sidebar-menu-farhan .navbar-global .navbar-user > li > a {
+.navbar-global .navbar-user > li > a {
   color: white;
 }
 
-.sidebar-menu-farhan .navbar-primary {
+.navbar-primary {
   background-color: #003a59;
   bottom: 0px;
   left: 0px;
@@ -49,7 +49,7 @@ img{
   transition: all 0.1s ease-in-out;
 }
 
-.sidebar-menu-farhan .navbar-primary.collapsed {
+.navbar-primary.collapsed {
   width: 60px;
 }
 nav.navbar-primary.collapsed
@@ -91,15 +91,15 @@ ul.navbar-primary-menu.navbar-nav a .collapse-img {
   max-width: 100%;
 }
 
-.sidebar-menu-farhan .navbar-primary.collapsed .glyphicon {
+.navbar-primary.collapsed .glyphicon {
   font-size: 22px;
 }
 
-.sidebar-menu-farhan .navbar-primary.collapsed .nav-label {
+.navbar-primary.collapsed .nav-label {
   display: none;
 }
 
-.sidebar-menu-farhan .btn-expand-collapse {
+.btn-expand-collapse {
   position: absolute;
   display: block;
   right: -12px;
@@ -132,24 +132,24 @@ ul.navbar-primary-menu.navbar-nav li.nav-item.active {
 ul.navbar-primary-menu.navbar-nav li.nav-item.active a {
   color: #004463;
 }
-.sidebar-menu-farhan .btn-expand-collapse:hover,
+.btn-expand-collapse:hover,
 .btn-expand-collapse:focus {
   background-color: white;
   color: #004463;
 }
 
-.sidebar-menu-farhan .btn-expand-collapse:active {
+.btn-expand-collapse:active {
   background-color: white;
 }
 
-.sidebar-menu-farhan .navbar-primary-menu,
-.sidebar-menu-farhan .navbar-primary-menu li {
+.navbar-primary-menu,
+.navbar-primary-menu li {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.sidebar-menu-farhan .navbar-primary-menu li a {
+.navbar-primary-menu li a {
   display: flex;
   padding: 15px 18px;
   text-align: left;
@@ -158,7 +158,7 @@ ul.navbar-primary-menu.navbar-nav li.nav-item.active a {
   justify-content: flex-start;
 }
 
-.sidebar-menu-farhan .navbar-primary-menu li a:hover {
+.navbar-primary-menu li a:hover {
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   text-decoration: none;
@@ -166,20 +166,20 @@ ul.navbar-primary-menu.navbar-nav li.nav-item.active a {
   color: #004463;
 }
 
-.sidebar-menu-farhan .navbar-primary-menu li a .glyphicon {
+.navbar-primary-menu li a .glyphicon {
   margin-right: 6px;
 }
 
-.sidebar-menu-farhan .navbar-primary-menu li a:hover .glyphicon {
+.navbar-primary-menu li a:hover .glyphicon {
   color: #004463;
 }
 
-.sidebar-menu-farhan .main-content {
+.main-content {
   margin-top: 60px;
   margin-left: 250px;
 }
 
-.sidebar-menu-farhan .collapsed + .main-content {
+.collapsed + .main-content {
   margin-left: 60px;
 }
 
@@ -187,18 +187,18 @@ ul.navbar-primary-menu.navbar-nav li.nav-item.active a {
 body {
   background-color: #f8f8f8;
 }
-.sidebar-menu-farhan .page-title {
+.page-title {
   background-color: #ffffff;
   padding: 10px 0;
 }
-.sidebar-menu-farhan .page-title h1 {
+.page-title h1 {
   font-weight: 500;
   text-align: left;
 }
-.sidebar-menu-farhan .main-content {
+.main-content {
   background-color: #f8f8f8;
 }
-.sidebar-menu-farhan #con-tainer {
+#con-tainer {
   width: 9999px;
   padding: 0 60px;
 }
@@ -206,7 +206,7 @@ section.content-main-body {
   margin-left: 15px;
   margin-right: 15px;
 }
-.sidebar-menu-farhan .subscribeUpsell {
+.subscribeUpsell {
   border-radius: 18px;
   color: rgb(255, 255, 255);
   background: #004463;
@@ -216,7 +216,7 @@ section.content-main-body {
   font-weight: 600;
   margin: 20px 0;
 }
-.sidebar-menu-farhan .subscribeUpsell a {
+.subscribeUpsell a {
   font-family: "Catamaran", sans-serif;
   font-size: 25px;
   font-weight: 600;
@@ -259,7 +259,7 @@ html {
   position: relative;
 }
 
-.sidebar-menu-farhan .progressdiv:after {
+.progressdiv:after {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -276,7 +276,7 @@ html {
   text-align: center;
   color: #000000;
 }
-.sidebar-menu-farhan .circle-box-percentage {
+.circle-box-percentage {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -288,7 +288,7 @@ html {
 /* percentage circle end */
 
 /* Log-section */
-.sidebar-menu-farhan .white-rounded {
+.white-rounded {
   background-color: #ffffff;
   border-radius: 15px;
   padding: 7px 15px 10px 10px;
@@ -298,18 +298,18 @@ html {
   justify-content: center;
   align-items: center;
 }
-.sidebar-menu-farhan .white-rounded.dash-details p {
+.white-rounded.dash-details p {
   font-size: 22px;
   font-family: inherit !important;
   font-weight: 500;
 }
 
-.sidebar-menu-farhan .white-rounded.dash-details span {
+.white-rounded.dash-details span {
   font-size: 50px;
   font-weight: 500;
   line-height: 1.2;
 }
-.sidebar-menu-farhan .white-rounded.dash-details sup svg {
+.white-rounded.dash-details sup svg {
   color: #004463;
 }
 .white-rounded.dash-banner {
@@ -320,13 +320,13 @@ html {
   border-radius: 15px;
   color: #ffffff;
 }
-.sidebar-menu-farhan .white-rounded.dash-banner p {
+.white-rounded.dash-banner p {
   font-family: inherit !important;
   font-size: 21px;
   color: #fff;
 }
 
-.sidebar-menu-farhan .white-rounded.dash-banner a.btn.btn-outline-light {
+.white-rounded.dash-banner a.btn.btn-outline-light {
   color: #f8f9fa;
   border-radius: 25px;
   border-width: 2px;
@@ -337,27 +337,27 @@ html {
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.sidebar-menu-farhan .white-rounded.dash-banner .btn-outline-light:hover {
+.white-rounded.dash-banner .btn-outline-light:hover {
   color: #1a1a1a !important;
   background-color: #f8f9fa !important;
   border-color: #f8f9fa !important;
 }
 
-.sidebar-menu-farhan .white-rounded.dash-banner .banner-number img {
+.white-rounded.dash-banner .banner-number img {
   height: 80px;
 }
 
-.sidebar-menu-farhan .banner-offer {
+.banner-offer {
   margin: 40px 0;
   /* box-shadow: -18px -18px 5px -13px rgb(107 44 44 / 37%); */
 }
 
-.sidebar-menu-farhan .banner-offer a img {
+.banner-offer a img {
   width: 100%;
   max-width: 100%;
 }
 /* other courses */
-.sidebar-menu-farhan .other-course {
+.other-course {
   background-color: #ffffff;
   border-radius: 15px;
   padding: 35px 15px 35px 25px;
@@ -369,7 +369,7 @@ html {
   text-align: left;
   margin-bottom: 40px;
 }
-.sidebar-menu-farhan .category-box {
+.category-box {
   width: 100%;
   height: 335px;
   background-size: cover;
@@ -381,7 +381,7 @@ html {
 
   background-repeat: no-repeat;
 }
-.sidebar-menu-farhan .category-box .Popular-title-top {
+.category-box .Popular-title-top {
   background: rgb(123 166 49);
   border-top-right-radius: 20px;
   padding: 10px 0;
@@ -394,7 +394,7 @@ html {
   top: 0;
   width: 100%;
 }
-.sidebar-menu-farhan .category-box .Popular-title-bottom {
+.category-box .Popular-title-bottom {
   text-align: center;
   color: #ffffff;
   background: rgb(123 166 49 / 67%);
@@ -408,16 +408,16 @@ html {
   bottom: 0;
   width: 100%;
 }
-.sidebar-menu-farhan .category-box .Popular-title-bottom h3 {
+.category-box .Popular-title-bottom h3 {
   color: #fff;
   font-size: 32px;
 }
 
-.sidebar-menu-farhan .category-box .category-box:hover .popular-box-overlay {
+.category-box .category-box:hover .popular-box-overlay {
   opacity: 1;
   cursor: pointer;
 }
-.sidebar-menu-farhan .category-box .popular-box-overlay {
+.category-box .popular-box-overlay {
   opacity: 0;
   transition: 0.6s ease;
   text-align: center;
@@ -443,17 +443,17 @@ html {
   justify-content: center;
 }
 
-.sidebar-menu-farhan .category-box .img img {
+.category-box .img img {
   width: 100%;
   max-width: 100%;
 }
 
-.sidebar-menu-farhan .category-box:hover .popular-box-overlay {
+.category-box:hover .popular-box-overlay {
   opacity: 1;
   cursor: pointer;
 }
 /* box hover side flip */
-.sidebar-menu-farhan .category-box .popular-box-overlay .button-box {
+.category-box .popular-box-overlay .button-box {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -497,37 +497,37 @@ html {
   margin: 0 5px;
 }
 
-.sidebar-menu-farhan .category-box .popular-box-overlay h3 {
+.category-box .popular-box-overlay h3 {
   color: #fff;
   font-size: 4.5rem;
  margin-bottom: 3rem;
 }
-.sidebar-menu-farhan .popular-box-overlay p strong {
+.popular-box-overlay p strong {
   font-size: 16px;
   font-family: "Catamaran", sans-serif;
   color: #fff;
 }
 
 /* LeaderBoard */
-.sidebar-menu-farhan .leaderBoard {
+.leaderBoard {
   display: flex;
   justify-content: space-between;
 }
-.sidebar-menu-farhan .leaderBoard {
+.leaderBoard {
   display: flex;
   justify-content: space-between;
   margin: 40px 0;
 }
-.sidebar-menu-farhan .leaderBoard .useFlex {
+.leaderBoard .useFlex {
   flex: 0 0 48%;
   max-width: 48%;
   margin-right: 4%;
 }
-.sidebar-menu-farhan .leaderBoard .notification:last-child {
+.leaderBoard .notification:last-child {
   margin-right: 0;
 }
 
-.sidebar-menu-farhan .leaderBoard .leaderboard {
+.leaderBoard .leaderboard {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -557,21 +557,21 @@ html {
   background-color: transparent;
   border: 0;
 }
-.sidebar-menu-farhan .leaderBoard .white-rounded.notification {
+.leaderBoard .white-rounded.notification {
   display: flex;
   justify-content: flex-start;
 }
-.sidebar-menu-farhan .leaderBoard table.table tbody tr th {
+.leaderBoard table.table tbody tr th {
   border: none;
 }
-.sidebar-menu-farhan .leaderBoard .table tbody tr td {
+.leaderBoard .table tbody tr td {
   text-align: left;
 }
 
 /*=======================
            👇 COURSE PAGE CODE 👇
 ======================== */
-.sidebar-menu-farhan .search-field button.btn.btn-primary {
+.search-field button.btn.btn-primary {
   width: 100px;
   text-align: center;
   background: #259cc0;
@@ -583,7 +583,7 @@ html {
   border-bottom-right-radius: 40px;
 }
 
-.sidebar-menu-farhan .search-field input#txtSearch {
+.search-field input#txtSearch {
   border: 1px solid #f0eded;
   color: #1a1a1a;
   font-size: 22px;
@@ -593,15 +593,15 @@ html {
   border-bottom-left-radius: 40px;
 }
 
-.sidebar-menu-farhan .search-field input#txtSearch::placeholder {
+.search-field input#txtSearch::placeholder {
   color: #1a1a1a;
   font-size: 22px;
 }
-.sidebar-menu-farhan .search-field {
+.search-field {
   margin: 40px 0;
 }
 
-.sidebar-menu-farhan .progress-box {
+.progress-box {
   width: 100%;
   height: 335px;
   background-size: cover;
@@ -613,7 +613,7 @@ html {
   background-repeat: no-repeat;
 }
 
-.sidebar-menu-farhan .progress-box .Popular-title-top {
+.progress-box .Popular-title-top {
   background:rgb(123 166 49 );
   border-top-right-radius: 20px;
   padding: 10px 0;
@@ -626,7 +626,7 @@ html {
   top: 0;
   width: 100%;
 }
-.sidebar-menu-farhan .progress-box .Popular-title-bottom {
+.progress-box .Popular-title-bottom {
   background: rgb(123 166 49 /67%);
   border-bottom-right-radius: 20px;
   padding: 10px 0;
@@ -637,14 +637,14 @@ html {
   bottom: 0;
   width: 100%;
 }
-.sidebar-menu-farhan .progress-box .Popular-title-bottom h3 {
+.progress-box .Popular-title-bottom h3 {
   text-align: center;
   font-family: inherit;
   color: #ffffff;
   font-size: 20px;
   font-weight: 300;
 }
-.sidebar-menu-farhan .progress-box .progressbar {
+.progress-box .progressbar {
   background-color: #a3cd8c !important;
   padding: 0;
   text-indent: 10px;
@@ -652,7 +652,7 @@ html {
   align-items: center;
 }
 
-.sidebar-menu-farhan .progress-box .progress {
+.progress-box .progress {
   height: 30px;
   border-radius: 25px;
   margin: 0 13px;
@@ -686,23 +686,23 @@ html {
 /*=======================
            👇 My Certificates PAGE CODE 👇
 ======================== */
-.sidebar-menu-farhan .my-certificate {
+.my-certificate {
   background-color: #ffffff;
   border-radius: 15px;
   padding: 25px 15px 15px 25px;
   margin-bottom: 25px;
 }
-.sidebar-menu-farhan .certificate-list {
+.certificate-list {
   overflow-y: scroll;
 }
-.sidebar-menu-farhan .certificate-list td {
+.certificate-list td {
 text-align: left;
 }
 /*=======================
            👇 My Reward PAGE CODE 👇
 ======================== */
 
-.sidebar-menu-farhan .pointsEarned.pointPicker {
+.pointsEarned.pointPicker {
   display: block;
   padding: 6px 25px;
   color: #ffffff;
@@ -713,23 +713,23 @@ text-align: left;
 .link-box a {
   color: #f8f8f8;
 }
-.sidebar-menu-farhan .row.align-items-center {
+.row.align-items-center {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-.sidebar-menu-farhan .pointsEarned {
+.pointsEarned {
   background-color: #248cab;
   border-radius: 10px;
   padding: 10px 20px 10px 20px;
 }
-.sidebar-menu-farhan .regular-full {
+.regular-full {
   margin-top: 40px;
 }
-.sidebar-menu-farhan .text-center {
+.text-center {
   text-align: center !important;
 }
-.sidebar-menu-farhan .pointPicker .dropdown-toggle::after {
+.pointPicker .dropdown-toggle::after {
   display: inline-block;
   width: 0;
   height: 0;
@@ -741,7 +741,7 @@ text-align: left;
   border-bottom: 0;
   border-left: 0.3em solid transparent;
 }
-.sidebar-menu-farhan .dropdown-item {
+.dropdown-item {
   display: block;
   width: 100%;
   padding: 0.25rem 1.5rem;
@@ -754,26 +754,26 @@ text-align: left;
   border: 0;
 }
 
-.sidebar-menu-farhan .dropdown-item.active {
+.dropdown-item.active {
   color: #fff;
   text-decoration: none;
   background-color: #007bff;
 }
-.sidebar-menu-farhan .dropdown-item:hover {
+.dropdown-item:hover {
   color: #16181b;
   text-decoration: none;
   background-color: #f8f9fa;
 }
-.sidebar-menu-farhan .col-12.col-md-10 .pointsEarned {
+.col-12.col-md-10 .pointsEarned {
   padding: 25px 20px 25px 40px;
 }
 
-.sidebar-menu-farhan .points.mr-0 h2 {
+.points.mr-0 h2 {
   margin: 0;
   color: #ffffff;
   font-family: inherit;
 }
-.sidebar-menu-farhan .points p {
+.points p {
   font-size: 20px;
   font-weight: 300;
   margin-bottom: 0;
@@ -781,7 +781,7 @@ text-align: left;
   font-family: inherit;
 }
 
-.sidebar-menu-farhan .white-rounded.achievements {
+.white-rounded.achievements {
   background-color: #ffffff;
   border-radius: 15px;
   padding: 20px 35px 30px 35px;
@@ -789,8 +789,8 @@ text-align: left;
   display: inherit;
 }
 
-.sidebar-menu-farhan .achievements h3,
-.sidebar-menu-farhan .claimed-rewards h3 {
+.achievements h3,
+.claimed-rewards h3 {
   font-weight: 500;
   font-size: 35px;
   margin-top: 20px;
@@ -799,7 +799,7 @@ text-align: left;
   text-align: left;
 }
 
-.sidebar-menu-farhan .achievements li {
+.achievements li {
   padding-left: 40px;
   background: url("https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy-blue.png")
     no-repeat left center;
@@ -819,19 +819,19 @@ text-align: left;
   background: url("https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy-grey.png")
     no-repeat left center;
 }
-.sidebar-menu-farhan .achievements ul {
+.achievements ul {
   margin: 0;
   padding: 0;
   list-style: none;
   text-align: left;
 }
 
-.sidebar-menu-farhan .achievements p {
+.achievements p {
   font-size: 16px;
   font-family: inherit;
 }
 
-.sidebar-menu-farhan .Claim-reward .white-rounded {
+.Claim-reward .white-rounded {
   background-color: #ffffff;
 
   padding: 7px 30px 10px 30px;
@@ -839,20 +839,20 @@ text-align: left;
   display: inherit;
 }
 
-.sidebar-menu-farhan .Claim-reward .white-rounded h3 {
+.Claim-reward .white-rounded h3 {
   font-size: 30px;
 }
-.sidebar-menu-farhan .Claim-reward {
+.Claim-reward {
   margin: 40px 0;
 }
 
-.sidebar-menu-farhan .rewards-inner {
+.rewards-inner {
   display: inline-block;
   width: 100%;
   margin-top: 20px;
   /* opacity: 0.5; */
 }
-.sidebar-menu-farhan .sal-not-active {
+.sal-not-active {
   opacity: 0.5;
 }
 
@@ -860,7 +860,7 @@ text-align: left;
   color: #0056b3;
   text-decoration: underline;
 }
-.sidebar-menu-farhan .rewards-inner a {
+.rewards-inner a {
   width: auto;
   margin-right: 20px;
   padding: 3px 20px;
@@ -868,16 +868,16 @@ text-align: left;
   display: inline-table;
   border-radius: 20px;
 }
-.sidebar-menu-farhan .rewards-inner p {
+.rewards-inner p {
   display: inline-table;
   font-family: inherit;
 }
 
-.sidebar-menu-farhan .rewards-inner.active {
+.rewards-inner.active {
   opacity: 1;
 }
 
-.sidebar-menu-farhan .find-bg {
+.find-bg {
   width: 100%;
   margin-left: 15px;
   align-items: center;
@@ -889,33 +889,33 @@ text-align: left;
   background-color: #ffffff;
   border-radius: 15px;
 }
-.sidebar-menu-farhan .find-btn {
+.find-btn {
   position: absolute;
   right: 20px;
   bottom: 10px;
   cursor: pointer;
 }
-.sidebar-menu-farhan .find-bg p {
+.find-bg p {
   font-family: inherit;
   font-size: 20px;
   margin-bottom: 0;
   padding-left: 20px;
 }
 
-.sidebar-menu-farhan .redeem {
+.redeem {
   background: #ffffff
     url("https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/gift-box.png")
     no-repeat;
   background-position: 10px center;
 }
-.sidebar-menu-farhan .mycertificate {
+.mycertificate {
   display: block;
 }
 /*====================================
            👇 Saved Courses PAGE CODE 👇
 =====================================*/
 
-.sidebar-menu-farhan .saveHeart {
+.saveHeart {
   color: #fff;
   display: block;
   position: absolute;
@@ -930,18 +930,18 @@ text-align: left;
 /*====================================
            👇 sal-message box PAGE CODE 👇
 =====================================*/
-.sidebar-menu-farhan .sal-message .panel-heading .accordion-toggle:after {
+.sal-message .panel-heading .accordion-toggle:after {
   /* symbol for "opening" panels */
   font-family: "Glyphicons Halflings"; /* essential for enabling glyphicon */
   content: "\e114"; /* adjust as needed, taken from bootstrap.css */
   float: right; /* adjust as needed */
   color: grey; /* adjust as needed */
 }
-.sidebar-menu-farhan .sal-message .panel-heading .accordion-toggle.collapsed:after {
+.sal-message .panel-heading .accordion-toggle.collapsed:after {
   /* symbol for "collapsed" panels */
   content: "\e080"; /* adjust as needed, taken from bootstrap.css */
 }
-.sidebar-menu-farhan .sal-message .panel-heading {
+.sal-message .panel-heading {
   display: flex;
   align-items: center;
   border: none;
@@ -953,13 +953,13 @@ text-align: left;
   border-radius: 15px;
   cursor: pointer;
 }
-.sidebar-menu-farhan .sal-message .panel-group .panel {
+.sal-message .panel-group .panel {
   margin-bottom: 40px;
   border-radius: 10px;
   border: none;
   position: relative;
 }
-.sidebar-menu-farhan .sal-message .accordion-toggle:after {
+.sal-message .accordion-toggle:after {
   position: absolute;
   right: -3%;
 }
@@ -967,11 +967,11 @@ text-align: left;
   border: none;
   text-align: left;
 }
-.sidebar-menu-farhan .sal-message #accordion {
+.sal-message #accordion {
   width: 80%;
   margin: 0 auto;
 }
-.sidebar-menu-farhan .sal-message .panel-heading a.btn.btn-primary {
+.sal-message .panel-heading a.btn.btn-primary {
   margin-right: 20px;
   padding: 0px 10px;
   font-size: 20px;
@@ -979,7 +979,7 @@ text-align: left;
   background: #004463;
   font-family: inherit;
 }
-.sidebar-menu-farhan .sal-message .panel-heading h3 {
+.sal-message .panel-heading h3 {
   padding: 0;
   margin: 0;
 }
@@ -992,26 +992,26 @@ text-align: left;
 .wider-container h1 {
   color: #fff;
 }
-.sidebar-menu-farhan #hero {
+#hero {
   background: #259cc0;
   color: #fff;
   padding: 70px 0px;
   margin-top: 15px;
 }
-.sidebar-menu-farhan #hero h2 {
+#hero h2 {
   font-weight: 600;
   font-size: 25px;
 }
-.sidebar-menu-farhan #hero h1 {
+#hero h1 {
   text-transform: uppercase;
   font-size: 70px;
   font-weight: 100;
 }
-.sidebar-menu-farhan #hero p {
+#hero p {
   font-size: 36px;
   font-weight: 600;
 }
-.sidebar-menu-farhan #hero .cta {
+#hero .cta {
   text-transform: uppercase;
   font-size: 22px;
   font-weight: 600;
@@ -1022,18 +1022,18 @@ text-align: left;
   margin-top: 16px;
   display: inline-block;
 }
-.sidebar-menu-farhan .cta {
+.cta {
   background: #b2d489;
   color: #fff;
   padding: 30px 0px;
 }
-.sidebar-menu-farhan #hero img {
+#hero img {
   position: absolute;
   top: -70px;
   left: 0;
 }
 
-.sidebar-menu-farhan .cta.sticky {
+.cta.sticky {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -1041,66 +1041,66 @@ text-align: left;
   display: none;
   left: 0;
 }
-.sidebar-menu-farhan .section-title {
+.section-title {
   text-align: center;
   font-weight: 700;
   margin-bottom: 40px;
   width: 100%;
   font-family: inherit;
 }
-.sidebar-menu-farhan .mt-5 {
+.mt-5 {
   margin-top: 3rem;
 }
-.sidebar-menu-farhan .student-counting h5 {
+.student-counting h5 {
   font-family: inherit;
   font-weight: 500;
   line-height: 1.2;
   color: inherit;
   font-size: 20px;
 }
-.sidebar-menu-farhan #landing .icon svg {
+#landing .icon svg {
   background: #259cc0;
   padding: 20px;
   font-size: 80px;
   border-radius: 100%;
   color: #fff;
 }
-.sidebar-menu-farhan .con-box {
+.con-box {
   display: flex;
   align-items: center;
 }
-.sidebar-menu-farhan .col-md-6.p-3.career-course.wow.fadeIn h5 {
+.col-md-6.p-3.career-course.wow.fadeIn h5 {
   font-family: inherit;
   font-size: 20px;
 }
-.sidebar-menu-farhan .white-roundedd {
+.white-roundedd {
   background-color: #ffffff;
   border-radius: 15px;
 }
-.sidebar-menu-farhan .body-con h5 {
+.body-con h5 {
   font-family: inherit;
   font-size: 20px;
 }
-.sidebar-menu-farhan .body-con h6 {
+.body-con h6 {
   font-family: inherit;
   font-size: 16px;
 }
 
-.sidebar-menu-farhan .col-md-6.p-3.career-course.wow.fadeIn h6 {
+.col-md-6.p-3.career-course.wow.fadeIn h6 {
   font-family: inherit;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.2;
 }
-.sidebar-menu-farhan section#Frequently-ques {
+section#Frequently-ques {
   padding-bottom: 5%;
   margin-bottom: 5%;
 }
-.sidebar-menu-farhan .students-cont h5 {
+.students-cont h5 {
   font-size: 20px;
   font-family: inherit;
 }
-.sidebar-menu-farhan .landing-stats {
+.landing-stats {
   background-image: url("https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/landing-stats-bg-1.png");
   background-size: cover;
   background-position: center center;
@@ -1109,10 +1109,10 @@ text-align: left;
   padding: 50px;
   background-attachment: fixed;
 }
-.sidebar-menu-farhan .landing-stats svg {
+.landing-stats svg {
   font-size: 60px;
 }
-.sidebar-menu-farhan .landing-stats .stat {
+.landing-stats .stat {
   font-weight: bold;
   font-size: 60px;
   margin-top: 10px;
@@ -1120,12 +1120,12 @@ text-align: left;
   margin-bottom: 0px;
   font-family: inherit;
 }
-.sidebar-menu-farhan .landing-stats .description {
+.landing-stats .description {
   font-size: 20px;
   color: #fff;
   font-family: inherit;
 }
-.sidebar-menu-farhan .landingCourses .single {
+.landingCourses .single {
   border: 2px solid #eee;
   border-radius: 15px;
   background: #fff;
@@ -1135,7 +1135,7 @@ text-align: left;
   margin-bottom: 18px;
   vertical-align: top;
 }
-.sidebar-menu-farhan .landingCourses .single .img {
+.landingCourses .single .img {
   display: inline-block;
   width: 130px;
   vertical-align: top;
@@ -1146,32 +1146,32 @@ text-align: left;
   background-position: center center;
   float: left;
 }
-.sidebar-menu-farhan .landingCourses .single .title {
+.landingCourses .single .title {
   font-size: 16px;
   display: inline-block;
   padding: 10px 10px;
   width: calc(100% - 200px);
   padding-top: 11px;
 }
-.sidebar-menu-farhan .wider-container {
+.wider-container {
   max-width: 9999px;
   padding: 0px 60px;
 }
-.sidebar-menu-farhan .learn-container {
+.learn-container {
   margin: 40px 0;
 }
-.sidebar-menu-farhan .faq-box {
+.faq-box {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.sidebar-menu-farhan .question-asked h5,
+.question-asked h5,
 .question-asked p {
   font-family: inherit;
 }
 
-.sidebar-menu-farhan .access-box .row {
+.access-box .row {
   display: flex;
   justify-content: center;
   margin: 20px;
@@ -1180,7 +1180,7 @@ text-align: left;
 /*=======================
            👇 Recommend friend CODE 👇
 ======================== */
-.sidebar-menu-farhan .link-box {
+.link-box {
   display: inline-block;
   padding: 35px 0;
   width: 100%;
@@ -1190,12 +1190,12 @@ text-align: left;
   border-style: dashed;
   border-color: #fff;
 }
-.sidebar-menu-farhan .row.align-items-center {
+.row.align-items-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.sidebar-menu-farhan .row.align-items-center h1,
+.row.align-items-center h1,
 .row.align-items-center h2,
 .row.align-items-center p {
   color: #fff;
@@ -1206,7 +1206,7 @@ text-align: left;
       👇 offer CODE 👇
 ======================== */
 
-.sidebar-menu-farhan a.btn.btn-outline-primary.offer-btn {
+a.btn.btn-outline-primary.offer-btn {
   /* color: #259cc0 !important;
   background-color: transparent; */
   background-image: none;
@@ -1219,47 +1219,47 @@ text-align: left;
   margin: 15px 0;
 }
 
-.sidebar-menu-farhan span.underlined {
+span.underlined {
   text-decoration: underline;
 }
 
-.sidebar-menu-farhan .rewards-inner {
+.rewards-inner {
   position: relative;
 }
-.sidebar-menu-farhan .rewards-inner .abs {
+.rewards-inner .abs {
   position: absolute;
   left: 0;
   top: -20%;
 }
 
-.sidebar-menu-farhan .text-center.offer-text p {
+.text-center.offer-text p {
   font-family: inherit;
 }
-.sidebar-menu-farhan .container-fluid .offer-box:last-child {
+.container-fluid .offer-box:last-child {
   margin-bottom: 40px;
 }
 
-.sidebar-menu-farhan .student-card-black {
+.student-card-black {
   background: url("https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/student-card-bg.jpg")
     no-repeat;
   background-size: cover;
   border-radius: 25px;
   padding: 30px 30px 30px 30px !important;
 }
-.sidebar-menu-farhan img.st-profile.bordered {
+img.st-profile.bordered {
   border-radius: 100px;
 }
-.sidebar-menu-farhan .st-card-logo.d-flex {
+.st-card-logo.d-flex {
   display: flex;
   justify-content: space-between;
 }
-.sidebar-menu-farhan .st-card-number {
+.st-card-number {
   padding: 40px 0 40px 0;
   color: #ffffff;
   font-size: 35px;
   letter-spacing: 2px;
 }
-.sidebar-menu-farhan .st-card-footer {
+.st-card-footer {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -1269,15 +1269,15 @@ text-align: left;
   font-weight: 400;
   display: flex;
 }
-.sidebar-menu-farhan .st-card-footer.d-flex h4 {
+.st-card-footer.d-flex h4 {
   font-family: inherit;
   color: #fff;
 }
 
-.sidebar-menu-farhan div#myCard {
+div#myCard {
   margin: 40px 0;
 }
-.sidebar-menu-farhan div#myCard .row {
+div#myCard .row {
   display: flex;
 }
 
@@ -1285,7 +1285,7 @@ text-align: left;
            👇 OWL_SIR SP CODE 👇
 ======================== */
 
-.sidebar-menu-farhan .brand-log {
+.brand-log {
   width: 150px;
   height: 150px;
   padding: 5px;
@@ -1296,12 +1296,12 @@ text-align: left;
   z-index: 2;
   position: relative;
 }
-.sidebar-menu-farhan .wishlist:hover {
+.wishlist:hover {
   background: #ff1d51;
   color: #ffffff;
 }
 
-.sidebar-menu-farhan .wishlist {
+.wishlist {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -1314,7 +1314,7 @@ text-align: left;
   text-align: center;
   color: #1a1a1a;
 }
-.sidebar-menu-farhan .brand-text {
+.brand-text {
   padding: 20px 20px;
   margin-top: 20px;
   width: 100%;
@@ -1323,53 +1323,53 @@ text-align: left;
   font-weight: 600;
 }
 
-.sidebar-menu-farhan .brand-text a:hover {
+.brand-text a:hover {
   color: #0056b3;
   text-decoration: underline;
 }
-.sidebar-menu-farhan .cat-box {
+.cat-box {
   box-shadow: 2px 1px 6px #c8c8c8;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   margin-bottom: 40px;
   position: relative;
 }
-.sidebar-menu-farhan .content-owl-sir {
+.content-owl-sir {
   background: #ffffff;
 }
 
-.sidebar-menu-farhan button.owl-prev {
+button.owl-prev {
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
 }
-.sidebar-menu-farhan i.fas.fa-chevron-left {
+i.fas.fa-chevron-left {
   color: #248cab;
   font-size: 40px;
   opacity: 1;
   width: auto;
 }
-.sidebar-menu-farhan .cat-box img {
+.cat-box img {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
-.sidebar-menu-farhan button.owl-next {
+button.owl-next {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
 }
-.sidebar-menu-farhan i.fas.fa-chevron-right {
+i.fas.fa-chevron-right {
   color: #248cab;
   font-size: 40px;
   opacity: 1;
   width: auto;
 }
-.sidebar-menu-farhan .owl-sir {
+.owl-sir {
   margin: 40px 0;
 }
-.sidebar-menu-farhan h2.latestDiscount-title {
+h2.latestDiscount-title {
   text-align: left;
   font-size: 25px;
   margin-bottom: 20px;
@@ -1377,25 +1377,25 @@ text-align: left;
   font-family: inherit;
 }
 
-.sidebar-menu-farhan .img-box-gal .row {
+.img-box-gal .row {
   margin: 40px 0;
 }
-.sidebar-menu-farhan .img-box-gal img {
+.img-box-gal img {
   box-shadow: 2px 1px 6px #c8c8c8;
 }
-.sidebar-menu-farhan .img-box-gal img {
+.img-box-gal img {
   width: 100%;
   height: 193px;
   border-radius: 20px;
 }
 
-.sidebar-menu-farhan .col-12.text-center {
+.col-12.text-center {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-.sidebar-menu-farhan a.btn.btn-primary.text-uppercase.extra-radius.visit-xo {
+a.btn.btn-primary.text-uppercase.extra-radius.visit-xo {
   width: 50%;
   padding: 1% 0;
   margin: 2% 0;
@@ -1404,21 +1404,21 @@ text-align: left;
 /*=======================
            👇 Profile CODE 👇
 ======================== */
-.sidebar-menu-farhan ul#myTab {
+ul#myTab {
   border: none;
 }
-.sidebar-menu-farhan ul#myTab li a {
+ul#myTab li a {
   border: none;
 }
-.sidebar-menu-farhan ul#myTab li a:hover {
+ul#myTab li a:hover {
   border: none;
   background-color: transparent;
 }
-.sidebar-menu-farhan ul#myTab li.active,
+ul#myTab li.active,
 ul#myTab li:hover {
   border-bottom: 3px solid #259cc0;
 }
-.sidebar-menu-farhan ul#myTab li.active:after,
+ul#myTab li.active:after,
 ul#myTab li:hover:after {
   content: "";
   width: 0px;
@@ -1430,29 +1430,29 @@ ul#myTab li:hover:after {
   bottom: -1px;
   left: calc(50% - 6px);
 }
-.sidebar-menu-farhan #PD {
+#PD {
   background: white;
   margin: 40px;
   padding: 30px;
   border-radius: 15px;
 }
-.sidebar-menu-farhan #PD label.form-check-label {
+#PD label.form-check-label {
   display: flex;
 }
 
-.sidebar-menu-farhan input.form-check-input {
+input.form-check-input {
   margin-right: 10px;
 }
-.sidebar-menu-farhan .myDetail button.btn.btn-primary,
+.myDetail button.btn.btn-primary,
 .change button.btn.btn-primary,
-.sidebar-menu-farhan .preferences button.btn.btn-primary {
+.preferences button.btn.btn-primary {
   background-color: #248cab;
   border-color: #248cab;
   width: 100%;
   max-width: 160px;
 }
 
-.sidebar-menu-farhan .exisiting-img {
+.exisiting-img {
   display: inline-table;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -1462,7 +1462,7 @@ ul#myTab li:hover:after {
   position: relative;
 }
 
-.sidebar-menu-farhan .custom-file-label::after {
+.custom-file-label::after {
   content: "\f093" !important;
   font-weight: 900;
   font-family: "Font Awesome 5 Pro";
@@ -1476,7 +1476,7 @@ ul#myTab li:hover:after {
   padding: 11px;
   position: absolute;
 }
-.sidebar-menu-farhan label.custom-file-label {
+label.custom-file-label {
   color: #495057;
   background-color: #fff;
   border: 1px solid #ced4da;
@@ -1485,19 +1485,19 @@ ul#myTab li:hover:after {
   width: 50%;
   position: relative;
 }
-.sidebar-menu-farhan input#customFile {
+input#customFile {
   opacity: 0;
   position: relative;
 }
 
-.sidebar-menu-farhan .change .form-group {
+.change .form-group {
   margin: 20px 0;
 }
 /* swtich */
-.sidebar-menu-farhan .preferences .nsa-switch input:checked + .slider {
+.preferences .nsa-switch input:checked + .slider {
   background-color: #b2d489;
 }
-.sidebar-menu-farhan .preferences .nsa-switch .slider:before {
+.preferences .nsa-switch .slider:before {
   position: absolute;
   content: "";
   height: 26px;
@@ -1508,19 +1508,19 @@ ul#myTab li:hover:after {
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-.sidebar-menu-farhan .preferences .form-group.col-md-12 {
+.preferences .form-group.col-md-12 {
   display: flex;
   align-items: center;
 }
-.sidebar-menu-farhan .preferences .nsa-switch input:checked + .slider:before {
+.preferences .nsa-switch input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
-.sidebar-menu-farhan .preferences .nsa-switch .slider.round:before {
+.preferences .nsa-switch .slider.round:before {
   border-radius: 50%;
 }
-.sidebar-menu-farhan .preferences .nsa-switch .slider {
+.preferences .nsa-switch .slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -1531,7 +1531,7 @@ ul#myTab li:hover:after {
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-.sidebar-menu-farhan .preferences .nsa-switch .slider {
+.preferences .nsa-switch .slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -1542,33 +1542,33 @@ ul#myTab li:hover:after {
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-.sidebar-menu-farhan .preferences .nsa-switch {
+.preferences .nsa-switch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
 }
-.sidebar-menu-farhan .preferences .nsa-switch .slider.round {
+.preferences .nsa-switch .slider.round {
   border-radius: 34px;
 }
-.sidebar-menu-farhan .preferences input[type="checkbox"],
+.preferences input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
   padding: 0;
 }
-.sidebar-menu-farhan .preferences .nsa-switch input {
+.preferences .nsa-switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-.sidebar-menu-farhan ul#myTab li.help.active div#PD {
+ul#myTab li.help.active div#PD {
   background: transparent !important;
 }
-.sidebar-menu-farhan .col-12.col-md-4.white-rounded {
+.col-12.col-md-4.white-rounded {
   align-items: flex-start;
 }
-.sidebar-menu-farhan .col-12.col-md-4.white-rounded .download-o p {
+.col-12.col-md-4.white-rounded .download-o p {
   font-family: inherit !important;
   font-size: 18px;
   font-weight: 300 !important;
@@ -1577,52 +1577,52 @@ input[type="radio"] {
 }
 
 /* accordian box */
-.sidebar-menu-farhan .faqq .panel-heading .accordion-toggle:after {
+.faqq .panel-heading .accordion-toggle:after {
   /* symbol for "opening" panels */
   font-family: "Glyphicons Halflings"; /* essential for enabling glyphicon */
   content: "\e114"; /* adjust as needed, taken from bootstrap.css */
   float: right; /* adjust as needed */
   color: grey; /* adjust as needed */
 }
-.sidebar-menu-farhan .faqq .panel-heading .accordion-toggle.collapsed:after {
+.faqq .panel-heading .accordion-toggle.collapsed:after {
   /* symbol for "collapsed" panels */
   content: "\e080"; /* adjust as needed, taken from bootstrap.css */
 }
-.sidebar-menu-farhan .faqq .panel-heading {
+.faqq .panel-heading {
   padding: 22px;
 }
 /*===============================
               🎆 MEDIA TAB QUERY 🎆
 ================================ */
 @media (min-width: 767px) and (max-width: 1024px) {
-  .sidebar-menu-farhan .circle-box-percentage {
+  .circle-box-percentage {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
   }
-  .sidebar-menu-farhan .row.award-section .col-md-4 {
+  .row.award-section .col-md-4 {
     margin: 40px 0;
   }
-  .sidebar-menu-farhan .btn-expand-collapse {
+  .btn-expand-collapse {
     top: 7%;
   }
-  .sidebar-menu-farhan .col-12.col-md-4.no-padding {
+  .col-12.col-md-4.no-padding {
     padding: 0;
     margin: 15px 0;
   }
-  .sidebar-menu-farhan .find-bg {
+  .find-bg {
     margin-left: 0px;
   }
-  .sidebar-menu-farhan #hero img {
+  #hero img {
     position: inherit;
     top: inherit;
     left: inherit;
     margin-top: 20px;
   }
-  .sidebar-menu-farhan .landingCourses .single {
+  .landingCourses .single {
     width: 100%;
   }
-  .sidebar-menu-farhan #hero .cta {
+  #hero .cta {
     text-transform: uppercase;
     font-size: 15px;
     font-weight: 600;
@@ -1633,28 +1633,28 @@ input[type="radio"] {
     margin-top: 16px;
     margin-bottom: 16px;
   }
-  .sidebar-menu-farhan .col-12.col-md-2.text-center img {
+  .col-12.col-md-2.text-center img {
     width: inherit;
   }
-  .sidebar-menu-farhan .brand-log {
+  .brand-log {
     width: 50px;
     height: 50px;
     margin-top: -20px;
   }
-  .sidebar-menu-farhan .wishlist {
+  .wishlist {
     height: 30px;
     width: 30px;
     line-height: 36px;
   }
-  .sidebar-menu-farhan .img-box-gal img {
+  .img-box-gal img {
     height: 100px;
     border-radius: 20px;
     margin: 2%;
   }
-  .sidebar-menu-farhan .col-6.col-md-2.col-lg-2.mb-3.col-sm-3 {
+  .col-6.col-md-2.col-lg-2.mb-3.col-sm-3 {
     margin: 10px 0;
   }
-  .sidebar-menu-farhan a.btn.btn-primary.text-uppercase.extra-radius.visit-xo {
+  a.btn.btn-primary.text-uppercase.extra-radius.visit-xo {
     width: 100%;
     padding: 3% 0;
     margin: 3% 0;
@@ -1667,46 +1667,46 @@ input[type="radio"] {
               🎆 MEDIA MOBILE QUERY 🎆
 ================================ */
 @media (min-width: 320px) and (max-width: 767px) {
-  .sidebar-menu-farhan .circle-box-percentage {
+  .circle-box-percentage {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
-  .sidebar-menu-farhan .row.award-section .col-md-4 {
+  .row.award-section .col-md-4 {
     margin: 40px 0;
   }
-  .sidebar-menu-farhan .leaderBoard .useFlex {
+  .leaderBoard .useFlex {
     flex: 0 0 100%;
     max-width: 100%;
     margin-right: 0%;
   }
-  .sidebar-menu-farhan .leaderBoard {
+  .leaderBoard {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
   }
-  .sidebar-menu-farhan .leaderBoard .notification {
+  .leaderBoard .notification {
     padding: 35px 15px 15px 25px;
     margin-bottom: 25px;
   }
-  .sidebar-menu-farhan .btn-expand-collapse {
+  .btn-expand-collapse {
     top: 7%;
   }
-  .sidebar-menu-farhan .col-12.col-md-4.no-padding {
+  .col-12.col-md-4.no-padding {
     padding: 0;
     margin: 15px 0;
   }
-  .sidebar-menu-farhan .find-bg {
+  .find-bg {
     margin-left: 0px;
   }
-  .sidebar-menu-farhan .panel-heading {
+  .panel-heading {
     flex-direction: column;
   }
-  .sidebar-menu-farhan #accordion {
+  #accordion {
     width: 90%;
   }
-  .sidebar-menu-farhan #hero img {
+  #hero img {
     position: inherit;
     top: inherit;
     left: inherit;
@@ -1714,149 +1714,149 @@ input[type="radio"] {
     display: block;
     margin-top: 31%;
   }
-  .sidebar-menu-farhan .landingCourses .single {
+  .landingCourses .single {
     width: 100%;
   }
-  .sidebar-menu-farhan #hero h1 {
+  #hero h1 {
     font-size: 20px;
   }
-  .sidebar-menu-farhan #hero .cta {
+  #hero .cta {
     font-size: 10px;
     padding: 10px;
   }
-  .sidebar-menu-farhan .access-box .row {
+  .access-box .row {
     display: flex;
     justify-content: center;
     margin: 0;
     flex-direction: column;
   }
-  .sidebar-menu-farhan .con-box {
+  .con-box {
     display: flex;
     align-items: center;
     flex-direction: column;
   }
-  .sidebar-menu-farhan .landing-stats {
+  .landing-stats {
     padding: 20px;
   }
-  .sidebar-menu-farhan .wider-container {
+  .wider-container {
     padding: 20px;
   }
-  .sidebar-menu-farhan .landing-stats .stat {
+  .landing-stats .stat {
     font-size: 20px;
   }
-  .sidebar-menu-farhan .landingCourses .single .img {
+  .landingCourses .single .img {
     width: 100%;
   }
-  .sidebar-menu-farhan .landingCourses .single .title {
+  .landingCourses .single .title {
     width: 100%;
   }
-  .sidebar-menu-farhan h2.section-title.wow.fadeIn {
+  h2.section-title.wow.fadeIn {
     font-size: 18px;
   }
-  .sidebar-menu-farhan #landing {
+  #landing {
     padding: 0 20px;
   }
-  .sidebar-menu-farhan #hero .cta {
+  #hero .cta {
     display: block;
   }
-  .sidebar-menu-farhan .row.align-items-center {
+  .row.align-items-center {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
-  .sidebar-menu-farhan h1.text-uppercase {
+  h1.text-uppercase {
     font-size: 16px;
   }
-  .sidebar-menu-farhan .col-12.col-md-5.text-center.recommend-text {
+  .col-12.col-md-5.text-center.recommend-text {
     width: 100%;
   }
-  .sidebar-menu-farhan .col-6.col-md-2.col-lg-2.mb-3.col-sm-3 {
+  .col-6.col-md-2.col-lg-2.mb-3.col-sm-3 {
     margin: 10px 0;
   }
-  .sidebar-menu-farhan .img-box-gal img {
+  .img-box-gal img {
     width: 80%;
     height: 100px;
     border-radius: 20px;
     margin: 2%;
   }
-  .sidebar-menu-farhan .img-box-gal .row {
+  .img-box-gal .row {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
-  .sidebar-menu-farhan .brand-log {
+  .brand-log {
     width: 50px;
     height: 50px;
     margin-top: -20px;
   }
 
-  .sidebar-menu-farhan .wishlist {
+  .wishlist {
     height: 30px;
     width: 30px;
     line-height: 33px;
     font-size: 12px;
   }
-  .sidebar-menu-farhan a.btn.btn-primary.text-uppercase.extra-radius.visit-xo {
+  a.btn.btn-primary.text-uppercase.extra-radius.visit-xo {
     width: 100%;
     padding: 3% 0;
     margin: 3% 0;
     border-radius: 25px;
     font-size: 12px;
   }
-  .sidebar-menu-farhan #PD {
+  #PD {
     background: white;
     margin: 10px;
     padding: 10px;
     border-radius: 15px;
   }
-  .sidebar-menu-farhan label.custom-file-label {
+  label.custom-file-label {
     width: 100%;
   }
-  .sidebar-menu-farhan .Profile {
+  .Profile {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .sidebar-menu-farhan .leaderBoard table.table tbody tr th {
+  .leaderBoard table.table tbody tr th {
     font-size: 1rem
   }
-  .sidebar-menu-farhan .certificate-list table {
+  .certificate-list table {
     display: block;
   }
-   .sidebar-menu-farhan .certificate-list tbody {
+   .certificate-list tbody {
     display: block;
   }
 
- .sidebar-menu-farhan .certificate-list table thead {
+ .certificate-list table thead {
     display: none;
   }
 
-  .sidebar-menu-farhan .certificate-list table tr {
+  .certificate-list table tr {
     margin: 10px 0;
     display: block;
     border-bottom: 2px solid #ddd;
   }
 
-  .sidebar-menu-farhan .certificate-list table td {
+  .certificate-list table td {
     display: block;
     text-align: right;
     font-size: 13px;
     text-align: end;
   }
 
-  .sidebar-menu-farhan .certificate-list table td:last-child {
+  .certificate-list table td:last-child {
     border-bottom: 0;
   }
 
-  .sidebar-menu-farhan .certificate-list table td::before {
+  .certificate-list table td::before {
     content: attr(data-label);
     float: left;
     text-transform: uppercase;
     font-weight: bold;
   }
-  .sidebar-menu-farhan .rewards-inner {
+  .rewards-inner {
 
     text-align: center;
 }
@@ -1985,7 +1985,7 @@ img.not-earned {
     display: block !important;
     max-width: 150px !important;
   }
-  .sidebar-menu-farhan .collapsed + .main-content {
+  .collapsed + .main-content {
 margin-left: 0px;
   }
 }
