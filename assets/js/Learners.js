@@ -54,7 +54,6 @@ class Learners {
   }
   onChangeLeaderBoardReward(e) {
     let month = $(e.target).val();
-    console.log({ object: month });
     $.ajax({
       type: "POST",
       url: pluginData.ajax_url,
@@ -63,11 +62,13 @@ class Learners {
         month: month,
       },
       beforeSend: function () {
+        console.log("data-sending");
         $("#leader_board_table").html(
           '<i class="fas fa-spinner fa-pulse" style="color: red; font-size: 40px;"></i>'
         );
       },
       success: (data) => {
+        console.log(data);
         if (data) {
           let data_get = JSON.parse(data);
           let board_list_content = "";

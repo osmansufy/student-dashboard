@@ -83,8 +83,13 @@ $navItems = array(
 
 )
 ?>
-<div class="col-lg-10" style="min-height:100vh">
-    <div class="tab-content px-4 " style="background-color: #f8f8f8;" id="v-pills-tabContent">
+<main class="w-100  d-flex flex-column" style="margin-left: 250px;">
+    <?php
+
+    // top nav
+    include plugin_dir_path(__FILE__) . '../top-nav/index.php';
+    ?>
+    <div class="tab-content px-1 " style="background-color: #f8f8f8;" id="v-pills-tabContent">
 
         <?php
         foreach ($navItems as $key => $value) {
@@ -101,4 +106,4 @@ $navItems = array(
         ?>
 
     </div>
-</div>
+</main>

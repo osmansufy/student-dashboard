@@ -84,41 +84,55 @@ $navItems = array(
 ?>
 
 
-<div style="background-color: #003a59;" class="col-2">
-    <nav id="sidebarMenu" class="w-100   d-md-block pt-0 sidebar collapse">
-        <div class="position-fixed ">
-            <div class="sa-learners-dashboard-nav">
-                <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <!-- logo -->
-                    <?php
-                    $url = get_option('sal_dashboard_logo_url');
+<nav id="sidebarMenu" style="background-color: #003a59;
+height: 100vh;
+width: 250px;
+z-index: 999999;
+overflow: hidden auto;
+" class="d-md-block 
+position-fixed
 
-                    if (!empty($url)) {
-                    ?>
-                        <a class="nav-link" href="<?php echo get_site_url() . '/' ?>" style="max-width: 200px;">
+pt-0 sidebar collapse">
 
-                            <img src="<?php echo vibe_sanitizer($url, 'url'); ?>" alt="<?php echo get_bloginfo('name'); ?>" />
-                            <!-- <img class="collapse-img-collapse" src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/Screenshot_1.png" alt="" /> -->
-                        </a>
-                    <?php
-                    }
-                    ?>
-                    <?php
-                    $i = 0;
-                    foreach ($navItems as $key => $value) {
-                        $i++;
-                        $active = ($i == 1) ? 'active' : '';
-                        $ariaSelected = ($i == 1) ? 'true' : 'false';
-                        $ariaControls = $value['id'];
-                        $id = $value['id'];
-                        $title = $value['title'];
-                        $icon = $value['icon'];
-                        echo '<a class="nav-link  ' . $active . '" id="v-pills-' . $id . '-tab" data-bs-toggle="pill" href="#v-pills-' . $id . '" role="tab" aria-controls="v-pills-' . $id . '" aria-selected="' . $ariaSelected . '"><i class="' . $icon . '"></i> ' . $title . '</a>';
-                    }
-                    ?>
-                </div>
-            </div>
+    <div class="sa-learners-dashboard-nav">
+        <div class="nav flex-column nav-pills " style="
+        margin-left: auto;
+        width: 90%;
+        " id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <!-- logo -->
+            <?php
+            $url = get_option('sal_dashboard_logo_url');
+
+            if (!empty($url)) {
+            ?>
+                <a class="nav-link" href="<?php echo get_site_url() . '/' ?>" style="max-width: 200px;">
+
+                    <img src="<?php echo vibe_sanitizer($url, 'url'); ?>" alt="<?php echo get_bloginfo('name'); ?>" />
+                    <!-- <img class="collapse-img-collapse" src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/Screenshot_1.png" alt="" /> -->
+                </a>
+            <?php
+            }
+            ?>
+            <?php
+            $i = 0;
+            foreach ($navItems as $key => $value) {
+                $i++;
+                $active = ($i == 1) ? 'active' : '';
+                $ariaSelected = ($i == 1) ? 'true' : 'false';
+                $ariaControls = $value['id'];
+                $id = $value['id'];
+                $title = $value['title'];
+                $icon = $value['icon'];
+            ?>
+
+                <a style="
+                padding-left: 20px;
+                " class="nav-link py-3 d-flex align-middle my-1 <?php echo $active ?>" id="v-pills-<?php echo $id ?>-tab" data-bs-toggle="pill" href="#v-pills-<?php echo $id ?>" role="tab" aria-controls="v-pills-<?php echo $id ?>" aria-selected="<?php echo $ariaSelected ?>"><i class="<?php echo $icon ?> me-2"></i> <?php echo $title ?></a>
+
+            <?php
+            }
+            ?>
         </div>
-    </nav>
+    </div>
 
-</div>
+</nav>

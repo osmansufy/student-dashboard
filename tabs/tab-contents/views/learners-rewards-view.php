@@ -35,9 +35,9 @@ $rewards_date_types = array(
                     <select id="sa_user_reward" data-userid="<?php echo $user_id ?>" style="-webkit-appearance: button;
     background-image: none;" class=" sal-reward-select" name="sa_user_reward">
                         <?php foreach ($rewards_date_types as $rewards_date_type) { ?>
-                        <option value="<?php echo $rewards_date_type['value'] ?>">
-                            <?php echo $rewards_date_type['label'] ?>
-                        </option>
+                            <option value="<?php echo $rewards_date_type['value'] ?>">
+                                <?php echo $rewards_date_type['label'] ?>
+                            </option>
                         <?php
                         }
                         ?>
@@ -59,7 +59,7 @@ $rewards_date_types = array(
                     for ($i = 0; $i < $total_reward; $i++) {
                         $image_src = plugin_dir_url(dirname(__FILE__)) . '../../assets/images/award.png';
                     ?>
-                    <img src="<?php echo $image_src ?>" style="margin:0 5px ;" alt="trophy">
+                        <img src="<?php echo $image_src ?>" style="margin:0 5px ;" alt="trophy">
                     <?php
 
                     }
@@ -88,13 +88,13 @@ $rewards_date_types = array(
                         $isActive = SaRewards::get_rewards_from_acchivement_id($user_id, $signedInReward->achievement_id)[0];
 
                     ?>
-                    <li <?php
+                        <li <?php
                             if ($isActive) {
                                 echo 'style="opacity: 0.5;"';
                             }
                             ?>>
-                        <?php echo $signedInReward->achievement_name ?>
-                    </li>
+                            <?php echo $signedInReward->achievement_name ?>
+                        </li>
                     <?php
 
                     }
@@ -110,13 +110,13 @@ $rewards_date_types = array(
                         $isActive = SaRewards::get_rewards_from_acchivement_id($user_id, $reward->achievement_id)[0];
 
                     ?>
-                    <li <?php
+                        <li <?php
                             if ($isActive) {
                                 echo 'style="opacity: 0.5;"';
                             }
                             ?>>
-                        <?php echo $reward->achievement_name ?>
-                    </li>
+                            <?php echo $reward->achievement_name ?>
+                        </li>
                     <?php
 
                     }
@@ -133,13 +133,13 @@ $rewards_date_types = array(
                         $isActive = SaRewards::get_rewards_from_acchivement_id($user_id, $reward->achievement_id)[0];
 
                     ?>
-                    <li <?php
+                        <li <?php
                             if ($isActive) {
                                 echo 'style="opacity: 0.5;"';
                             }
                             ?>>
-                        <?php echo $reward->achievement_name ?>
-                    </li>
+                            <?php echo $reward->achievement_name ?>
+                        </li>
                     <?php
 
                     }
@@ -167,7 +167,6 @@ $rewards_date_types = array(
 
             <div class=" white-rounded notification ">
 
-                <?php include plugin_dir_path(__FILE__) . '../../template-parts/Rewards/leader-board.php'; ?>
             </div><!-- col-notification-end  -->
 
             <!-- </div>row--end  -->

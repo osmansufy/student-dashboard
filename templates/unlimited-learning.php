@@ -10,15 +10,18 @@
 
 <body>
     <div class="container-fluid ">
-
         <div class="row">
 
-            <?php
-            include plugin_dir_path(__FILE__) . '../tabs/top-nav/index.php';
-            include plugin_dir_path(__FILE__) . '../tabs/menu-items/index.php';
-            include plugin_dir_path(__FILE__) . '../tabs/tab-contents/index.php';
-            ?>
+            <div class="d-flex px-0">
 
+                <?php
+
+                include plugin_dir_path(__FILE__) . '../tabs/menu-items/index.php';
+
+                include plugin_dir_path(__FILE__) . '../tabs/tab-contents/index.php';
+                ?>
+
+            </div>
         </div>
     </div>
 

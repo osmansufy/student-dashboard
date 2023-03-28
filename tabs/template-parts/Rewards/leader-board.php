@@ -7,7 +7,7 @@ $leaderBoard = SaRewards::get_all_rewards_of_user_id_with_time_range($current_mo
     <h3>Student leaderboard</h3>
     <div id="leader_board_table_loading"></div>
     <div class="form-group">
-        <select style="-webkit-appearance: button;" class="form-control monthly_leaderBoard" name="monthly">
+        <select id="monthly_leaderBoard" style="-webkit-appearance: button;" class="form-control monthly_leaderBoard" name="monthly">
             <option value="this_month">This Month</option>
             <option value="last_month">Last Month</option>
 

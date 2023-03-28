@@ -1,9 +1,7 @@
-<nav style="background-color: #003a59; max-height: 50px;"
-    class="navbar navbar-expand-lg navbar-dark sticky-top border-0 rounded-0 my-0">
+<nav style="background-color: #003a59; max-height: 50px;" class="navbar navbar-expand-lg w-100 navbar-dark border-0 rounded-0 my-0">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar w/ text</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
