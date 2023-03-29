@@ -51,6 +51,13 @@ class Learners {
     $("#sal_gf_coupon").on("click", this.onClaimRewardGfCoupon);
     $("#monthly_leaderBoard").on("change", this.onChangeLeaderBoardReward);
     $(".start-course-btn").on("click", this.onStartCourse.bind(this));
+    $(function () {
+      $(".sa-top-nav li .nav-link").click(function () {
+        $(".sa-top-nav li .nav-link").removeClass("active");
+        $(this).addClass("active");
+      });
+    });
+    this.$("#sa-sidebar-btn-expand").on("click", console.log("logout"));
   }
   onChangeLeaderBoardReward(e) {
     let month = $(e.target).val();

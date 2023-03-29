@@ -1,4 +1,4 @@
-<div>
+<div class="container-fluid">
     <?php
     include plugin_dir_path(__FILE__) . '../../template-parts/page-hero.php';
     ?>

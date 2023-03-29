@@ -1,7 +1,37 @@
 
-.sa-learners-dashboard-nav .nav-link.active {
+.sa-learners-dashboard-sidebar{
+    position: sticky;
+    top: 0;
+    background-color: #003a59;
+    height: 100vh;
+    width: 300px;
+    z-index: 999999;
+    overflow: hidden auto;
+}
+
+.sa-learners-dashboard-sidebar .nav-link.active {
     background-color: #ffffff ;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
+    border-radius: 25px 0 0 25px;
     color: #000;
+}
+
+.sa-learners-dashboard-sidebar .sa-sidebar-item{
+    padding-left: 20px;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+.sa-learners-dashboard-sidebar .sa-sidebar-item:hover{
+
+    border-radius: 25px 0 0 25px;
+    background-color: #ffffff;
+    color: #000;
+}
+a.sa-sidebar-btn-expand {
+    position: absolute;
+    top: 10%;
+    right: -20px;
+    background-color: #fff;
+    padding: 10px 15px;
+    border-radius: 50%;
+    border: 1px solid;
 }
