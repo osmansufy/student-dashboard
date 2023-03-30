@@ -107,16 +107,12 @@ function use_jquery_from_google()
         return;
     }
 
-    global $wp_scripts;
-    if (isset($wp_scripts->registered['jquery']->ver)) {
-        $ver = $wp_scripts->registered['jquery']->ver;
-        $ver = str_replace("-wp", "", $ver);
-    } else {
-        $ver = '1.12.4';
-    }
-
     wp_deregister_script('jquery');
-    wp_register_script('jquery', "//ajax.googleapis.com/ajax/libs/jquery/$ver/jquery.min.js", false, $ver);
+
+    global $wp_scripts;
+    $jquery_version = isset($wp_scripts->registered['jquery']->ver) ? str_replace("-wp", "", $wp_scripts->registered['jquery']->ver) : '3.5.1';
+
+    wp_register_script('jquery', "//ajax.googleapis.com/ajax/libs/jquery/{$jquery_version}/jquery.min.js", false, null, true);
 }
 // add_action('init', 'use_jquery_from_google');
 function sa_learners_dashboard_plugin_scripts_and_styles()
