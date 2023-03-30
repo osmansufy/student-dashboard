@@ -140,7 +140,13 @@ function sa_learners_dashboard_plugin_scripts_and_styles()
     $is_page_exist =  in_array($current_page_slug, $page_templates);
     if ($is_page_exist) {
         use_jquery_from_google();
-        wp_enqueue_style('sa-learner-dashboard-style', plugins_url('assets/css/learner-dashboard.css', __FILE__), array(), time(), 'all');
+        wp_enqueue_style(
+            'sa-learner-dashboard-style',
+            plugins_url('assets/css/learner-dashboard.css', __FILE__),
+            array(),
+            time(),
+            'all'
+        );
         // cdn load css from bootstrap
         wp_enqueue_style('bootstrap-css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', array(), time(), 'all');
         // check if page is learners dashboard page ,
@@ -178,6 +184,21 @@ function sa_learners_dashboard_plugin_scripts_and_styles_admin($screen)
         wp_enqueue_script('sa-learner-dashboard-admin-js', plugins_url('assets/js/admin/admin.js', __FILE__), array('jquery', 'select2-js'), time(), true);
     }
 }
+
+// redirect to dashboard after login if user is student or subscriber
+function sa_redirect_to_dashboard_after_login($redirect_to, $request, $user)
+{
+    if (isset($user->roles) && is_array($user->roles)) {
+        if (in_array('subscriber', $user->roles) || in_array('student', $user->roles)) {
+            return home_url('/learners-dashboard/');
+        } else {
+            return $redirect_to;
+        }
+    }
+}
+
+// high piroty to redirect to dashboard after login
+add_filter('login_redirect', 'sa_redirect_to_dashboard_after_login', 9999, 3);
 add_action('wp_login', array('SaLoginRewards', 'sa_user_last_login'), 10, 2);
 add_action("user_register", array('SaRewards', 'sa_user_rewards_for_registration'));
 add_action('badgeos_wplms_submit_course', array('CourseCompleteRewards', 'sa_badgeos_wplms_submit_course'));

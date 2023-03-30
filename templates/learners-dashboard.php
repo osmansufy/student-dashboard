@@ -59,9 +59,7 @@ $ads_banner_url = wp_get_attachment_url($ads_banner_id);
 $ads_banner_link = get_option('sal_banner_image_link');
 $certificate_image = get_option('sal_certificate_image_url');
 $certificate_image_link = get_option('sal_certificate_image_link');
-// echo '<pre>';
-// var_dump($ads_banner_url);
-// echo '</pre>';
+
 ?>
 <?php include_once 'views/learners-dashboard.view.php'; ?>
 <?php include_once 'common-parts/dashboard-footer.php' ?>

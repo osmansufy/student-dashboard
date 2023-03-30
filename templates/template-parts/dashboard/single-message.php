@@ -10,7 +10,7 @@
 
     </div>
     <div id="<?php echo $message_id ?>" class="panel-collapse collapse out">
-        <div class="panel-body">
+        <div class="panel-body" style="color:#000;">
             <?php
                                     echo $message_content;
                                     ?>
