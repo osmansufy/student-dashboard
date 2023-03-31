@@ -1,6 +1,7 @@
 <?php
 $Sa_course_class = new SaCourse();
 $course_id = $course['id'];
+$course_url = get_site_url() . '/courses/' . $course['slug'];
 
 ?>
 <div class="col-12 col-md-6 col-lg-4 col-sm-6 sal-course-wrapper">
@@ -14,28 +15,27 @@ $course_id = $course['id'];
             </div>
         </div>
         <div class="Popular-title-bottom">
-            <h3 class="sal-course-title"> <?php echo $course['title'] ?> </h3>
+            <h3>
+                <a class="sal-course-title" href="<?php echo $course_url ?>">
+                    <?php echo $course['title'] ?>
+                </a>
 
-            <div class="sa-custom-course-button" style="display: flex; justify-content: space-around; align-items: center; margin-top: 10px;
+            </h3>
+
+            <div style="display: flex; justify-content: space-around; align-items: center; margin-top: 10px;
                 flex-wrap: wrap;
                 ">
-                <?php the_course_button($course_id); ?>
+                <div class="sa-custom-course-button">
+                    <?php the_course_button($course_id); ?>
+                </div>
+
 
 
                 <a href="<?php echo get_site_url() . '/certificate' ?>" target="_blank" role="button"
-                    class="btn btn-outline-primary btn-lg extra-radius">Order Certificate</a>
+                    class="btn btn-outline-primary btn-lg extra-radius">
+                    Order Certificate</a>
             </div>
         </div>
     </div>
 
 </div>
-<!-- col-end  -->
-
-<!--  -->
-<!-- <a>
-                <?php the_course_button($course_id); ?></a>
-            <a role="button" id="start-course-btn-<?php echo $course_id ?>" class="btn start-course-btn btn-outline-primary btn-lg extra-radius" data-user-id="<?php echo $user_id ?>" data-course-id="<?php echo $course_id ?>">Start Course</a> -->
-<!--
-            <a role="button" id="start-course-loader-<?php echo $course_id ?>"
-                class="btn start-course-btn btn-outline-primary btn-lg extra-radius" style="display: none;"><i
-                    class="fas fa-spinner fa-1x fa-pulse" style="color: red"></i></a> -->

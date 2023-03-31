@@ -637,7 +637,7 @@ html {
   bottom: 0;
   width: 100%;
 }
-.sidebar-menu-farhan .progress-box .Popular-title-bottom h3 {
+.sidebar-menu-farhan .progress-box .Popular-title-bottom .sal-course-title {
   text-align: center;
   font-family: inherit;
   color: #ffffff;
@@ -677,12 +677,12 @@ html {
   padding: 0.75rem;
 }
 
-.sidebar-menu-farhan
+/* .sidebar-menu-farhan
   .progress-box
   a.btn.btn-outline-primary.btn-lg.extra-radius:hover {
   background-color: #ffffff;
   color: #1a1a1a;
-}
+} */
 /*=======================
            👇 My Certificates PAGE CODE 👇
 ======================== */
@@ -1996,8 +1996,12 @@ margin-left: 0px;
   background-color: #F0E400;
   color: #000;
   border-radius: 25px;
+  text-decoration: none;
 }
+.sa-custom-course-button .button:hover {
+  background-color: #fff;
 
+}
 /* dashboard  page */
 .allcourse {
   display: flex;

@@ -180,17 +180,18 @@ function sa_learners_dashboard_plugin_scripts_and_styles_admin($screen)
         wp_enqueue_script('sa-learner-dashboard-admin-js', plugins_url('assets/js/admin/admin.js', __FILE__), array('jquery', 'select2-js'), time(), true);
     }
 }
-
-// redirect to dashboard after login if user is student or subscriber
+// Administrator | Editor | Author | Contributor | Subscriber | Student | Instructor | Employee | Customer | Production Team | Admin | Developer | Marketing | Accounts | Customer Support | Business Development | Course Maintenance | Super Admin | Customer Success | Marketing Team | Accounts Team | Brand Manager | PPC | SEO Manager | SEO Editor
+$user_roles_for_redirect = array('administrator', 'editor', 'author', 'contributor', 'subscriber', 'student', 'instructor', 'employee', 'customer', 'productionteam', 'admin', 'developer', 'marketing', 'accounts', 'customersupport', 'businessdevelopment', 'coursemaintenance', 'superadmin', 'customersuccess', 'marketingteam', 'accountsteam', 'brandmanager', 'ppc', 'wpseo_manager', 'wpseo_editor');
+// redirect to dashboard after login if user is role is in array
 function sa_redirect_to_dashboard_after_login($redirect_to, $request, $user)
 {
+    global $user_roles_for_redirect;
     if (isset($user->roles) && is_array($user->roles)) {
-        if (in_array('subscriber', $user->roles) || in_array('student', $user->roles)) {
+        if (array_intersect($user_roles_for_redirect, $user->roles)) {
             return home_url('/learners-dashboard/');
-        } else {
-            return $redirect_to;
         }
     }
+    return $redirect_to;
 }
 
 // high piroty to redirect to dashboard after login
@@ -201,13 +202,22 @@ add_action('badgeos_wplms_submit_course', array('CourseCompleteRewards', 'sa_bad
 add_action('wplms_unit_complete', array('SaRewards', 'sa_wplms_unit_complete'), 5, 4);
 add_action('wp_enqueue_scripts', 'sa_learners_dashboard_plugin_scripts_and_styles');
 add_action('wp_ajax_sa_learners_update', array('SaLearners', 'sa_learners_update_callback'));
-add_action('wp_ajax_sa_learners_update_profile_picture', array('SaLearners', 'sa_learners_update_profile_picture_callback'));
+add_action(
+    'wp_ajax_sa_learners_update_profile_picture',
+    array('SaLearners', 'sa_learners_update_profile_picture_callback')
+);
 add_action('wp_ajax_sa_learners_change_password', array('SaLearners', 'sa_learners_change_password_callback'));
 add_action('wp_ajax_sa_learners_add_to_cart', array('SaCourse', 'sa_learners_add_to_cart'));
 add_action('wp_ajax_sa_learners_remove_wishlist', array('SaCourse', 'sa_remove_from_wishlist'));
 add_action('wp_ajax_sa_learners_change_reward', array('SaRewards', 'sal_ajax_get_reward_by_date_range'));
 add_action('wp_ajax_sa_learners_claim_reward', array('SaCoupon', 'sa_learners_claim_reward'));
-add_action('wp_ajax_sa_learners_claim_gf_reward', array('SaCoupon', 'sal_gf_coupon_generator'));
-add_action('wp_ajax_sa_learners_change_leaderBoard_reward', array('SaRewards', 'sa_learners_change_leaderBoard_reward'));
+add_action(
+    'wp_ajax_sa_learners_claim_gf_reward',
+    array('SaCoupon', 'sal_gf_coupon_generator')
+);
+add_action(
+    'wp_ajax_sa_learners_change_leaderBoard_reward',
+    array('SaRewards', 'sa_learners_change_leaderBoard_reward')
+);
 add_action('woocommerce_order_status_completed', array('SaCoupon', 'sa_remove_email_restriction_from_coupon'), 10, 1);
 add_action('wp_ajax_sa_learners_start_course', array('SaCourse', 'sa_learners_start_course'));
