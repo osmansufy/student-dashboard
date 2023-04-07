@@ -69,6 +69,11 @@ class SaCommon
             'slug' => 'learners-recommend-friends',
             'template' => 'learners-recommend-friends',
         ],
+        [
+            'title' => 'User Certificates for Admin',
+            'slug' => 'user-certificates-for-admin',
+            'template' => 'user-certificates-for-admin',
+        ]
     ];
 
     public $achievements = [
