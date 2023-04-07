@@ -94,10 +94,9 @@ margin: 2rem;
         </div>
     </div>
     <!-- Certificate image & link -->
-    <div style="
+    <!-- <div style="
     border: 1px solid #ccc;
     padding: 2rem;">
-        <!--Image For Certificate  -->
 
         <label for="sal_certificate_image"><?php _e('Certificate Banner Image', 'sa-learners-dashboard'); ?></label>
         <br />
@@ -119,7 +118,7 @@ margin: 2rem;
             <input type="text" name="sal_certificate_image_link" id="sal_certificate_image_link"
                 value="<?php echo get_option('sal_certificate_image_link'); ?>" />
         </div>
-    </div>
+    </div> -->
 
     <?php
     submit_button('Save');

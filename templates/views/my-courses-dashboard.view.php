@@ -2,8 +2,8 @@
     <div class="container-fluid">
         <!-- container-fluid-start  -->
         <?php
-include plugin_dir_path(__FILE__) . '../template-parts/page-hero.php';
-?>
+        include plugin_dir_path(__FILE__) . '../template-parts/page-hero.php';
+        ?>
 
         <!-- Award days banner section -->
         <div class="row award-section">
@@ -33,7 +33,7 @@ include plugin_dir_path(__FILE__) . '../template-parts/page-hero.php';
                         <span><?php echo count($user_courses['inprogress_courses']) ?></span>
                     </div>
                     <div class="number-text">
-                        <p>Inprogress Courses</p>
+                        <p>In Progress Courses</p>
                     </div>
                 </div>
             </div>
@@ -52,22 +52,22 @@ include plugin_dir_path(__FILE__) . '../template-parts/page-hero.php';
         <!-- Search Field END -->
         <div class="my-course">
             <?php
-if ($user_courses['enrolled_courses']) {
-    ?>
-            <div class="row" id="sal-my-course">
+            if ($user_courses['enrolled_courses']) {
+            ?>
+                <div class="row" id="sal-my-course">
                 <?php
-foreach ($user_courses['enrolled_courses'] as $course) {
-        $course_progress = $course['progress'];
-        if (empty($course_progress)) {
-            $course_progress = 0;
-        }
-        include plugin_dir_path(__FILE__) . '../template-parts/my-course-card.php';
-    }
-    echo "</div>";
-}
-?>
+                foreach ($user_courses['enrolled_courses'] as $course) {
+                    $course_progress = $course['progress'];
+                    if (empty($course_progress)) {
+                        $course_progress = 0;
+                    }
+                    include plugin_dir_path(__FILE__) . '../template-parts/my-course-card.php';
+                }
+                echo "</div>";
+            }
+                ?>
                 <!-- row-end -->
-            </div>
+                </div>
 
 
         </div><!-- container-fluid-end  -->

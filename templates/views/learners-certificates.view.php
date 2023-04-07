@@ -1,36 +1,3 @@
-<div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-        data-whatever="@mdo">Open modal for @mdo</button>
-
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="exampleModalLabel">New message</h4>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="recipient-name" class="control-label">Recipient:</label>
-                            <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="control-label">Message:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send message</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
 <section class="content-main-body">
     <div class="container-fluid">
 
@@ -126,7 +93,7 @@
                             <i class="fas fa-certificate"></i>
                             Not Completed Courses (<?php echo count($user_not_completed_courses) ?>)
                         </h4>
-                        <caption style="margin-bottom: 30px;"> You can buy certificate as pre order
+                        <caption style="margin-bottom: 30px;"> Pre order Certificates for Your Courses in Progress
                         </caption>
                         <table class="table" id="desktopCerts">
                             <thead>

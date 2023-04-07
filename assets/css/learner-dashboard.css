@@ -10,6 +10,16 @@ p {
   font-family: "Caveat Brush", cursive ;
   color: #1a1a1a;
 }
+/* root variable */
+
+
+:root{
+  --sad-primary-color: #003a59;
+  --sad-secondary-color: #7BA631;
+  --sad-button-color: #F0E400;
+}
+
+
 img{
     max-width: 100%;
     height: auto;
@@ -574,7 +584,7 @@ html {
 .sidebar-menu-farhan .search-field button.btn.btn-primary {
   width: 100px;
   text-align: center;
-  background: #259cc0;
+  background: var(--sad-primary-color);
   height: 70px;
   line-height: 70px;
   font-size: 22px;
@@ -719,7 +729,7 @@ text-align: left;
   align-items: center;
 }
 .sidebar-menu-farhan .pointsEarned {
-  background-color: #248cab;
+  background-color: #337ab7;
   border-radius: 10px;
   padding: 10px 20px 10px 20px;
 }
@@ -800,9 +810,10 @@ text-align: left;
 }
 
 .sidebar-menu-farhan .achievements li {
-  padding-left: 40px;
-  background: url("https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy-blue.png")
-    no-repeat left center;
+  padding-left: 25px;
+  background-image: url("../images/trophy-icon.svg") ;
+  background-repeat: no-repeat;
+  background-size: contain;
   margin-bottom: 20px;
   list-style: none;
 }
@@ -816,8 +827,9 @@ text-align: left;
   text-decoration: none;
 }
 .achievements li:hover {
-  background: url("https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy-grey.png")
-    no-repeat left center;
+  background-image: url("../images/trophy-icon-grey.svg") ;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .sidebar-menu-farhan .achievements ul {
   margin: 0;

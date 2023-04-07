@@ -35,12 +35,12 @@ $rewards_date_types = array(
                         <select id="sa_user_reward" data-userid="<?php echo $user_id ?>" style="-webkit-appearance: button;
     background-image: none;" class=" sal-reward-select" name="sa_user_reward">
                             <?php foreach ($rewards_date_types as $rewards_date_type) { ?>
-                            <option value="<?php echo $rewards_date_type['value'] ?>">
-                                <?php echo $rewards_date_type['label'] ?>
-                            </option>
+                                <option value="<?php echo $rewards_date_type['value'] ?>">
+                                    <?php echo $rewards_date_type['label'] ?>
+                                </option>
                             <?php
-                      }
-                        ?>
+                            }
+                            ?>
                         </select>
                     </div>
                     <div class="points mr-0">
@@ -56,14 +56,14 @@ $rewards_date_types = array(
                     <div class="trophy">
                         <?php
 
-for ($i = 0; $i < $total_reward; $i++) {
-    $image_src = plugin_dir_url(dirname(__FILE__)) . '../assets/images/award.png';
-    ?>
-                        <img src="<?php echo $image_src ?>" style="margin:0 5px ;" alt="trophy">
+                        for ($i = 0; $i < $total_reward; $i++) {
+                            $image_src = plugin_dir_url(dirname(__FILE__)) . '../assets/images/award.png';
+                        ?>
+                            <img src="<?php echo $image_src ?>" style="margin:0 5px ;" alt="trophy">
                         <?php
 
-}
-?>
+                        }
+                        ?>
 
 
                     </div>
@@ -72,8 +72,8 @@ for ($i = 0; $i < $total_reward; $i++) {
             <div>
                 <?php
 
-echo '<h2> Reward Reaimaing: ' . $user_reward . '</h2>';
-?>
+                echo '<h2> Reward Reaimaing: ' . $user_reward . '</h2>';
+                ?>
             </div>
         </div> <!-- row end -->
         <div class="col-12 regular-full white-rounded achievements">
@@ -83,44 +83,44 @@ echo '<h2> Reward Reaimaing: ' . $user_reward . '</h2>';
                 <div class="col-12 col-md-4">
                     <ul>
                         <?php
-foreach ($signedInRewards as $signedInReward) {
+                        foreach ($signedInRewards as $signedInReward) {
 
-    $isActive = SaRewards::get_rewards_from_acchivement_id($user_id, $signedInReward->achievement_id)[0];
+                            $isActive = SaRewards::get_rewards_from_acchivement_id($user_id, $signedInReward->achievement_id)[0];
 
-    ?>
-                        <li <?php
-if ($isActive) {
-        echo 'style="opacity: 0.5;"';
-    }
-    ?>>
-                            <?php echo $signedInReward->achievement_name ?>
-                        </li>
+                        ?>
+                            <li <?php
+                                if ($isActive) {
+                                    echo 'style="opacity: 0.5;"';
+                                }
+                                ?>>
+                                <?php echo $signedInReward->achievement_name ?>
+                            </li>
                         <?php
 
-}
-?>
+                        }
+                        ?>
 
                     </ul>
                 </div>
                 <div class="col-12 col-md-4">
                     <ul>
                         <?php
-foreach ($unitRewards as $reward) {
+                        foreach ($unitRewards as $reward) {
 
-    $isActive = SaRewards::get_rewards_from_acchivement_id($user_id, $reward->achievement_id)[0];
+                            $isActive = SaRewards::get_rewards_from_acchivement_id($user_id, $reward->achievement_id)[0];
 
-    ?>
-                        <li <?php
-if ($isActive) {
-        echo 'style="opacity: 0.5;"';
-    }
-    ?>>
-                            <?php echo $reward->achievement_name ?>
-                        </li>
+                        ?>
+                            <li <?php
+                                if ($isActive) {
+                                    echo 'style="opacity: 0.5;"';
+                                }
+                                ?>>
+                                <?php echo $reward->achievement_name ?>
+                            </li>
                         <?php
 
-}
-?>
+                        }
+                        ?>
 
 
                     </ul>
@@ -128,22 +128,22 @@ if ($isActive) {
                 <div class="col-12 col-md-4">
                     <ul>
                         <?php
-foreach ($otherRewards as $reward) {
+                        foreach ($otherRewards as $reward) {
 
-    $isActive = SaRewards::get_rewards_from_acchivement_id($user_id, $reward->achievement_id)[0];
+                            $isActive = SaRewards::get_rewards_from_acchivement_id($user_id, $reward->achievement_id)[0];
 
-    ?>
-                        <li <?php
-if ($isActive) {
-        echo 'style="opacity: 0.5;"';
-    }
-    ?>>
-                            <?php echo $reward->achievement_name ?>
-                        </li>
+                        ?>
+                            <li <?php
+                                if ($isActive) {
+                                    echo 'style="opacity: 0.5;"';
+                                }
+                                ?>>
+                                <?php echo $reward->achievement_name ?>
+                            </li>
                         <?php
 
-}
-?>
+                        }
+                        ?>
 
 
                     </ul>
@@ -154,7 +154,7 @@ if ($isActive) {
         <div class="Claim-reward">
             <div class="col-12 col-md-8 white-rounded">
                 <h3>Claimed Rewards</h3>
-                <?php include_once plugin_dir_path(__FILE__) . '../template-parts/Rewards/claimed-rewards.php';?>
+                <?php include_once plugin_dir_path(__FILE__) . '../template-parts/Rewards/claimed-rewards.php'; ?>
 
             </div>
         </div>
@@ -164,7 +164,7 @@ if ($isActive) {
             <div class="row">
                 <div class="col-12 col-md-8  white-rounded notification ">
 
-                    <?php include_once plugin_dir_path(__FILE__) . '../template-parts/Rewards/leader-board.php';?>
+                    <?php include_once plugin_dir_path(__FILE__) . '../template-parts/Rewards/leader-board.php'; ?>
                 </div><!-- col-notification-end  -->
             </div> <!-- row -->
             <!-- </div>row--end  -->
