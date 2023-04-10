@@ -149,7 +149,7 @@ function sa_learners_dashboard_plugin_scripts_and_styles()
         wp_enqueue_script('sa-learner-dashboard-js', plugins_url('assets/js/Learners.js', __FILE__), array('jquery'), time(), true);
         // enqueue vue file
         // wp_enqueue_script('sa-learner-dashboard-vue', plugins_url('assets/js/vue.js', __FILE__), array('vue-js'), time(), true);
-        wp_enqueue_script('bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery', 'popper'), "", true);
+        // wp_enqueue_script('bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), "3.3.7", true);
         wp_enqueue_style('sabd-fontawesome-css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css');
         // add vue js
         // wp_enqueue_script('vue-js', 'https://cdn.jsdelivr.net/npm/vue/dist/vue.js', array(), '2.6.12', true);

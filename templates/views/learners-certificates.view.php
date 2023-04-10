@@ -40,7 +40,6 @@
                                 <?php
                                 foreach ($all_certificates as $certificate) {
                                     $course_url = site_url() . '/courses/' . $certificate->slug;
-                                    var_dump($certificate);
                                 ?>
                                     <tr>
                                         <!-- <th>

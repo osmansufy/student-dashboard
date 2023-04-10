@@ -1,10 +1,3 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open
-    modal for @mdo</button>
-
-
-
-
-
 <section class="content-main-body">
     <div class="container-fluid">
 
