@@ -50,49 +50,44 @@
                                     $certificate_url = $certificate->certificate_url;
                                     $transcript_url = $certificate->transcript_url;
                                 ?>
-                                <tr>
-                                    <!-- <th>
+                                    <tr>
+                                        <!-- <th>
                                         <?php
 
                                         // echo $certificate->course_id;
                                         ?>
 
                                     </th> -->
-                                    <td data-label="Course">
-                                        <a href="<?php echo $course_url ?>">
-                                            <!-- <img style="height: 100px; width:100px; display:block" src="<?php echo $certificate->featured_image ?>" alt=""> -->
-                                            <?php echo $certificate->title ?>
+                                        <td data-label="Course">
+                                            <a href="<?php echo $course_url ?>">
+                                                <!-- <img style="height: 100px; width:100px; display:block" src="<?php echo $certificate->featured_image ?>" alt=""> -->
+                                                <?php echo $certificate->title ?>
 
 
-                                        </a>
-                                    </td>
-                                    <td data-label="Certificate">
-                                        <a class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                                            data-whatever="@mdo"><i class="far fa-file-pdf"
-                                                style="margin-right:7px;"></i>
-                                            View Certificate</a>
-                                        <a class="btn btn-primary" data-toggle="modal" data-target="#transcriptModal"
-                                            data-whatever="@mdo"><i class="far fa-file-pdf"
-                                                style="margin-right:7px;"></i>
-                                            View Transcript</a>
+                                            </a>
+                                        </td>
+                                        <td data-label="Certificate">
+                                            <a class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="far fa-file-pdf" style="margin-right:7px;"></i>
+                                                View Certificate</a>
+                                            <a class="btn btn-primary" data-toggle="modal" data-target="#transcriptModal" data-whatever="@mdo"><i class="far fa-file-pdf" style="margin-right:7px;"></i>
+                                                View Transcript</a>
 
-                                    </td>
-                                    <td data-label="PDF">
-                                        <a class="btn btn-primary" target="_blank"
-                                            href="<?php echo site_url() . '/certificate' ?>">
-                                            <i class="far fa-file-pdf" style="margin-right:7px;"></i>
-                                            Buy
-                                        </a>
-                                    </td>
+                                        </td>
+                                        <td data-label="PDF">
+                                            <a class="btn btn-primary" target="_blank" href="<?php echo site_url() . '/certificate' ?>">
+                                                <i class="far fa-file-pdf" style="margin-right:7px;"></i>
+                                                Buy
+                                            </a>
+                                        </td>
 
-                                    <?php
-                                        include plugin_dir_path(__FILE__) . '../template-parts/certificate/singleCertificate.php';
+                                        <?php
+                                        include plugin_dir_path(__FILE__) . '../template-parts/certificate/singleCertificateForAdmin.php';
                                         ?>
-                                    <?php
-                                        include plugin_dir_path(__FILE__) . '../template-parts/transcript/singleTranscript.php';
+                                        <?php
+                                        include plugin_dir_path(__FILE__) . '../template-parts/transcript/singleTranscriptForAdmin.php';
                                         ?>
-                                </tr>
-                                <?
+                                    </tr>
+                                    <?
                                     ?>
                                 <?php } ?>
                             </tbody>
@@ -126,43 +121,41 @@
                                 foreach ($user_not_completed_courses as $certificate) {
                                     $course_url = site_url() . '/courses/' . $certificate['slug'];
                                 ?>
-                                <tr>
-                                    <!-- <th>
+                                    <tr>
+                                        <!-- <th>
                                         <?php
 
                                         // echo $certificate->course_id;
                                         ?>
 
                                     </th> -->
-                                    <td data-label="Course">
-                                        <a href="<?php echo $course_url ?>">
-                                            <!-- <img style="height: 100px; width:100px; display:block" src="<?php echo $certificate->featured_image ?>" alt=""> -->
-                                            <?php echo $certificate["title"] ?>
+                                        <td data-label="Course">
+                                            <a href="<?php echo $course_url ?>">
+                                                <!-- <img style="height: 100px; width:100px; display:block" src="<?php echo $certificate->featured_image ?>" alt=""> -->
+                                                <?php echo $certificate["title"] ?>
 
 
-                                        </a>
-                                    </td>
-                                    <td data-label="Hard Copy">
-                                        <a class="btn btn-primary" target="_blank"
-                                            href="<?php echo site_url() . '/certificate' ?>">
-                                            <i class="far
+                                            </a>
+                                        </td>
+                                        <td data-label="Hard Copy">
+                                            <a class="btn btn-primary" target="_blank" href="<?php echo site_url() . '/certificate' ?>">
+                                                <i class="far
                                             fa-file-pdf
                                             " style="margin-right:7px;"></i>
-                                            Buy
-                                        </a>
-                                    </td>
-                                    <!-- <td data-label="Certificate">
+                                                Buy
+                                            </a>
+                                        </td>
+                                        <!-- <td data-label="Certificate">
                                         <a class="btn btn-primary" href="<?php echo $certificate->certificate_url ?>" target="_blank"><i class="far fa-file-pdf" style="margin-right:7px;"></i> View Certificate</a>
                                     </td> -->
-                                    <td data-label="PDF">
-                                        <a class="btn btn-primary" target="_blank"
-                                            href="<?php echo site_url() . '/certificate' ?>">
-                                            <i class="far fa-file-pdf" style="margin-right:7px;"></i>
-                                            Buy
-                                        </a>
-                                    </td>
-                                </tr>
-                                <?
+                                        <td data-label="PDF">
+                                            <a class="btn btn-primary" target="_blank" href="<?php echo site_url() . '/certificate' ?>">
+                                                <i class="far fa-file-pdf" style="margin-right:7px;"></i>
+                                                Buy
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <?
                                     ?>
                                 <?php } ?>
                             </tbody>
