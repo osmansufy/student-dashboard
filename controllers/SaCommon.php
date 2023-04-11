@@ -32,11 +32,11 @@ class SaCommon
             'slug' => 'learners-rewards',
             'template' => 'learners-rewards',
         ],
-        [
-            'title' => 'Learners saved courses',
-            'slug' => 'learners-saved-courses',
-            'template' => 'learners-saved-courses',
-        ],
+        // [
+        //     'title' => 'Learners saved courses',
+        //     'slug' => 'learners-saved-courses',
+        //     'template' => 'learners-saved-courses',
+        // ],
         [
             'title' => 'Learners support',
             'slug' => 'learners-support',
@@ -73,6 +73,11 @@ class SaCommon
             'title' => 'User Certificates for Admin',
             'slug' => 'user-certificates-for-admin',
             'template' => 'user-certificates-for-admin',
+        ],
+        [
+            "title" => " QLS Endorsed Certificate",
+            "slug" => "qls-endorsed-certificate",
+            "template" => "qls-endorsed-certificate",
         ]
     ];
 
