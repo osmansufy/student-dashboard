@@ -11,7 +11,7 @@ $sal_certificate_banner_image_link = get_option('sal_certificate_banner_image_li
 $user_course = $course_controller::sa_get_user_courses_by_status($user_id);
 $user_not_completed_courses = $user_course['inprogress_courses'];
 // echo '<pre>';
-// var_dump($user_not_completed_courses);
+// var_dump($user_course['all_certificates']);
 // echo '</pre>';
 
 ?>

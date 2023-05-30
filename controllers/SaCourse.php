@@ -142,12 +142,19 @@ class SaCourse
                 $certificate_info->featured_image = get_the_post_thumbnail_url($course_id);
                 $certificate_info->slug = get_post_field('post_name', $course_id);
                 $certificate_info->course_duration = get_post_meta($course_id, 'vibe_duration', true);
+                $args = array(
+                    'course_id' => $course_id,
+                    'user_id' => $user_id
+                );
+                $certificate_link = bp_get_course_certificate($args);
+                $certificate_info->lms_certificate_url = $certificate_link;
                 if ($certificate_purchased) {
                     $certificate_info->certificate_url = $certificate_purchased;
                     $certificate_info->transcript_url = $transcript_url;
                     $certificate_info->is_course_purchased = true;
                 } else {
                     $certificate_info->certificate_url = '';
+                    $certificate_info->transcript_url = '';
                     $certificate_info->is_course_purchased = false;
                 }
                 $certificate_link_list[] = $certificate_info;
