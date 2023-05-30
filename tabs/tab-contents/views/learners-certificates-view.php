@@ -13,7 +13,6 @@
                 </a>
             </div>
             <h3>
-
                 My Certificates & Transcripts
             </h3>
             <div style="margin-top: 60px; margin-bottom: 30px; border: 1px solid #e5e5e5;">
@@ -38,33 +37,35 @@
                                 foreach ($all_certificates as $certificate) {
                                     $course_url = site_url() . '/courses/' . $certificate->slug;
                                 ?>
-                                    <tr>
+                                <tr>
 
-                                        <td data-label="Course">
-                                            <a href="<?php echo $course_url ?>">
+                                    <td data-label="Course">
+                                        <a href="<?php echo $course_url ?>">
 
-                                                <?php echo $certificate->title ?>
+                                            <?php echo $certificate->title ?>
 
 
-                                            </a>
-                                        </td>
-                                        <td data-label="Hard Copy">
-                                            <a class="btn btn-primary" target="_blank" href="<?php echo site_url() . '/certificate' ?>">
-                                                <i class="far
+                                        </a>
+                                    </td>
+                                    <td data-label="Hard Copy">
+                                        <a class="btn btn-primary" target="_blank"
+                                            href="<?php echo site_url() . '/certificate' ?>">
+                                            <i class="far
                                             fa-file-pdf
                                             " style="margin-right:7px;"></i>
-                                                Buy
-                                            </a>
-                                        </td>
+                                            Buy
+                                        </a>
+                                    </td>
 
-                                        <td data-label="PDF">
-                                            <a class="btn btn-primary" target="_blank" href="<?php echo site_url() . '/certificate' ?>">
-                                                <i class="far fa-file-pdf" style="margin-right:7px;"></i>
-                                                Buy
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <?
+                                    <td data-label="PDF">
+                                        <a class="btn btn-primary" target="_blank"
+                                            href="<?php echo site_url() . '/certificate' ?>">
+                                            <i class="far fa-file-pdf" style="margin-right:7px;"></i>
+                                            Buy
+                                        </a>
+                                    </td>
+                                </tr>
+                                <?
                                     ?>
                                 <?php } ?>
                             </tbody>
@@ -95,32 +96,34 @@
                                 foreach ($user_not_completed_courses as $certificate) {
                                     $course_url = site_url() . '/courses/' . $certificate['slug'];
                                 ?>
-                                    <tr>
+                                <tr>
 
-                                        <td data-label="Course">
-                                            <a href="<?php echo $course_url ?>">
+                                    <td data-label="Course">
+                                        <a href="<?php echo $course_url ?>">
 
-                                                <?php echo $certificate["title"] ?>
+                                            <?php echo $certificate["title"] ?>
 
-                                            </a>
-                                        </td>
-                                        <td data-label="Hard Copy">
-                                            <a class="btn btn-primary" target="_blank" href="<?php echo site_url() . '/certificate' ?>">
-                                                <i class="far
+                                        </a>
+                                    </td>
+                                    <td data-label="Hard Copy">
+                                        <a class="btn btn-primary" target="_blank"
+                                            href="<?php echo site_url() . '/certificate' ?>">
+                                            <i class="far
                                             fa-file-pdf
                                             " style="margin-right:7px;"></i>
-                                                Buy
-                                            </a>
-                                        </td>
+                                            Buy
+                                        </a>
+                                    </td>
 
-                                        <td data-label="PDF">
-                                            <a class="btn btn-primary" target="_blank" href="<?php echo site_url() . '/certificate' ?>">
-                                                <i class="far fa-file-pdf" style="margin-right:7px;"></i>
-                                                Buy
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <?
+                                    <td data-label="PDF">
+                                        <a class="btn btn-primary" target="_blank"
+                                            href="<?php echo site_url() . '/certificate' ?>">
+                                            <i class="far fa-file-pdf" style="margin-right:7px;"></i>
+                                            Buy
+                                        </a>
+                                    </td>
+                                </tr>
+                                <?
                                     ?>
                                 <?php } ?>
                             </tbody>

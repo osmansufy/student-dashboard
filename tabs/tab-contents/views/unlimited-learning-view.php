@@ -1,6 +1,6 @@
 <?php
 
-$slug = 'learners-support'; // Replace with your actual page slug
+$slug = 'unlimited-learning'; // Replace with your actual page slug
 
 // Retrieve the page object using the slug
 $page = get_page_by_path($slug);

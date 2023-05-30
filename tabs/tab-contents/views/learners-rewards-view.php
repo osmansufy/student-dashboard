@@ -85,7 +85,10 @@ $rewards_date_types = array(
                     <?php
                     foreach ($signedInRewards as $signedInReward) {
 
-                        $isActive = SaRewards::get_rewards_from_acchivement_id($user_id, $signedInReward->achievement_id)[0];
+                        $isActive = SaRewards::get_rewards_from_acchivement_id(
+                            $user_id,
+                            $signedInReward->achievement_id
+                        )[0];
 
                     ?>
                     <li <?php
@@ -166,7 +169,10 @@ $rewards_date_types = array(
             <!--leader-Board -->
 
             <div class=" white-rounded notification ">
-                <?php include(plugin_dir_path(__FILE__) . '../../template-parts/Rewards/leader-board.php'); ?>
+                <?php
+$leader_board_id = 'monthly_leaderBoard2';
+var_dump($leader_board_id);
+                include(plugin_dir_path(__FILE__) . '../../template-parts/Rewards/leader-board.php'); ?>
             </div><!-- col-notification-end  -->
 
             <!-- </div>row--end  -->

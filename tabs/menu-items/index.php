@@ -39,15 +39,14 @@ sa-learners-dashboard-sidebar">
             $icon = $value['icon'];
         ?>
 
-        <a class="nav-link py-3 d-flex sa-sidebar-item my-2 <?php echo $active ?>" id="v-pills-<?php echo $id ?>-tab"
-            data-bs-toggle="pill" href="#v-pills-<?php echo $id ?>" role="tab" aria-controls="v-pills-<?php echo $id ?>"
+        <a class="nav-link py-3 d-flex sa-sidebar-item my-2
+            <?php echo $active ?>" id="v-pills-<?php echo $id ?>-tab" data-bs-toggle="pill"
+            href="#v-pills-<?php echo $id ?>" role="tab" aria-controls="v-pills-<?php echo $id ?>"
             aria-selected="<?php echo $ariaSelected ?>">
             <i class="<?php echo $icon ?> me-2"></i>
 
-
             <span>
                 <?php echo $title ?>
-
             </span>
 
 

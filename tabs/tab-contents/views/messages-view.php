@@ -19,24 +19,21 @@
                 $message_date = $date_diff < 30 ?
                     $date_diff . ' days ago' : ($month_diff < 12 ? $month_diff . ' months ago' : $year_diff . ' years ago');
             ?>
-            <div class="accordion-item my-4">
-                <h2 class="accordion-header" id="flush-headingOne">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapse<?php echo $message_id ?>" aria-expanded="false"
-                        aria-controls="flush-collapse<?php echo $message_id ?>">
-                        <a class="btn btn-primary">
-                            <?php echo $message_date ?>
-                        </a>
-                        <h3><?php echo $message_title; ?></h3>
-                    </button>
-                </h2>
-                <div id="flush-collapse<?php echo $message_id ?>" class="accordion-collapse collapse"
-                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">
-                        <?php echo $message_content; ?>
+                <div class="accordion-item my-4">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?php echo $message_id ?>" aria-expanded="false" aria-controls="flush-collapse<?php echo $message_id ?>">
+                            <a class="btn btn-primary">
+                                <?php echo $message_date ?>
+                            </a>
+                            <h3><?php echo $message_title; ?></h3>
+                        </button>
+                    </h2>
+                    <div id="flush-collapse<?php echo $message_id ?>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <?php echo $message_content; ?>
+                        </div>
                     </div>
                 </div>
-            </div>
 
             <?php
 

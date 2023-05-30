@@ -13,6 +13,8 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       sa-learners-dashboard
  */
+
+
 include_once 'controllers/SaHelper.php';
 include_once 'controllers/SaLearners.php';
 include_once 'controllers/SaCourse.php';
@@ -43,33 +45,7 @@ function sa_learners_dashboard_deactivate_sabd()
 };
 register_deactivation_hook(__FILE__, 'sa_learners_dashboard_deactivate_sabd');
 
-// function sa_learners_dashboard_including($template)
-// {
-//     $plugindir = dirname(__FILE__);
-//     if (is_page_template('my-courses-dashboard.php')) {
-//         $template = $plugindir . '/templates/my-courses-dashboard.php';
-//     } elseif (is_page_template('learners-dashboard.php')) {
-//         $template = $plugindir . '/templates/learners-dashboard.php';
-//     } elseif (is_page_template('learners-profile.php')) {
-//         $template = $plugindir . '/templates/learners-profile.php';
-//     } elseif (is_page_template('learners-orders.php')) {
-//         $template = $plugindir . '/templates/learners-orders.php';
-//     } elseif (is_page_template('learners-certificates.php')) {
-//         $template = $plugindir . '/templates/learners-certificates.php';
-//     } elseif (is_page_template('learners-rewards.php')) {
-//         $template = $plugindir . '/templates/learners-rewards.php';
-//     } elseif (is_page_template('learners-saved-courses.php')) {
-//         $template = $plugindir . '/templates/saved-courses.php';
-//     } elseif (is_page_template('learners-support.php')) {
-//         $template = $plugindir . '/templates/learners-support.php';
-//     } elseif (is_page_template('special-offers.php')) {
-//         $template = $plugindir . '/templates/special-offers.php';
-//     } elseif (is_page_template('learners-messages.php')) {
-//         $template = $plugindir . '/templates/learners-messages.php';
-//     }
-//     return $template;
-// }
-// add_action('template_include', 'sa_learners_dashboard_including');
+
 function sa_elementor_pages($template)
 {
     $common = new SaCommon();
@@ -88,7 +64,6 @@ function sa_elementor_pages($template)
         $template = $plugindir . '/templates/' . $page_slug . '.php';
         return $template;
     } else {
-
         return $template;
     }
 }
@@ -140,23 +115,61 @@ function sa_learners_dashboard_plugin_scripts_and_styles()
     $is_page_exist =  in_array($current_page_slug, $page_templates);
     if ($is_page_exist) {
         use_jquery_from_google();
-        wp_enqueue_style('sa-learner-dashboard-style', plugins_url('assets/css/learner-dashboard.css', __FILE__), array(), time(), 'all');
+        wp_enqueue_style(
+            'sa-learner-dashboard-style',
+            plugins_url(
+                'assets/css/learner-dashboard.css',
+                __FILE__
+            ),
+            array(),
+            time(),
+            'all'
+        );
         // cdn load css from bootstrap
         wp_enqueue_style('bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css');
-        wp_enqueue_style('new-style', plugins_url('assets/css/new-dashboard.css', __FILE__), array(), time(), 'all');
+        wp_enqueue_style(
+            'new-style',
+            plugins_url(
+                'assets/css/new-dashboard.css',
+                __FILE__
+            ),
+            array(),
+            time(),
+            'all'
+        );
 
         // check if page is learners dashboard page ,
-        wp_enqueue_script('sa-learner-dashboard-js', plugins_url('assets/js/Learners.js', __FILE__), array('jquery'), time(), true);
-        // enqueue vue file
-        wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js', array(), "", true);
-        wp_enqueue_style('sabd-fontawesome-css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
+        wp_enqueue_script(
+            'sa-learner-dashboard-js',
+            plugins_url(
+                'assets/js/Learners.js',
+                __FILE__
+            ),
+            array('jquery'),
+            time(),
+            true
+        );
+        // enqueue bootstrap js
+        wp_enqueue_script(
+            'bootstrap-js',
+            'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js',
+            array(),
+            "",
+            true
+        );
+        // enqueue fontawesome
+        wp_enqueue_style(
+            'sabd-fontawesome-css',
+            'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css'
+        );
     }
 
     $action = 'sa_learners_update';
     $sal_nonce = wp_create_nonce($action);
     wp_localize_script('sa-learner-dashboard-js', 'pluginData', array(
         'ajax_url' => admin_url('admin-ajax.php'),
-        'sal_nonce' => $sal_nonce
+        'sal_nonce' => $sal_nonce,
+        'plugin_url' => plugins_url('', __FILE__),
     ));
 }
 
@@ -168,26 +181,92 @@ function sa_learners_dashboard_plugin_scripts_and_styles_admin($screen)
 
     if ('learners-dashboard_page_sal-dashboard-management' == $screen || 'toplevel_page_saldashboard' == $screen) {
         //Add the Select2 CSS file
-        wp_enqueue_style('select2-css', 'https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css', array(), '4.1.0-rc.0');
+        wp_enqueue_style(
+            'select2-css',
+            'https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css',
+            array(),
+            '4.1.0-rc.0'
+        );
         // Add the Select2 JavaScript file
-        wp_enqueue_script('select2-js', 'https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js', 'jquery', '4.1.0-rc.0');
+        wp_enqueue_script(
+            'select2-js',
+            'https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js',
+            'jquery',
+            '4.1.0-rc.0'
+        );
 
-        wp_enqueue_script('sa-learner-dashboard-admin-js', plugins_url('assets/js/admin/admin.js', __FILE__), array('jquery', 'select2-js'), time(), true);
+        wp_enqueue_script(
+            'sa-learner-dashboard-admin-js',
+            plugins_url(
+                'assets/js/admin/admin.js',
+                __FILE__
+            ),
+            array('jquery', 'select2-js'),
+            time(),
+            true
+        );
     }
 }
 add_action('wp_login', array('SaLoginRewards', 'sa_user_last_login'), 10, 2);
 add_action("user_register", array('SaRewards', 'sa_user_rewards_for_registration'));
-add_action('badgeos_wplms_submit_course', array('CourseCompleteRewards', 'sa_badgeos_wplms_submit_course'));
+add_action(
+    'badgeos_wplms_submit_course',
+    array(
+        'CourseCompleteRewards',
+        'sa_badgeos_wplms_submit_course'
+    )
+);
 add_action('wplms_unit_complete', array('SaRewards', 'sa_wplms_unit_complete'), 5, 4);
-add_action('wp_enqueue_scripts', 'sa_learners_dashboard_plugin_scripts_and_styles');
-add_action('wp_ajax_sa_learners_update', array('SaLearners', 'sa_learners_update_callback'));
-add_action('wp_ajax_sa_learners_update_profile_picture', array('SaLearners', 'sa_learners_update_profile_picture_callback'));
-add_action('wp_ajax_sa_learners_change_password', array('SaLearners', 'sa_learners_change_password_callback'));
-add_action('wp_ajax_sa_learners_add_to_cart', array('SaCourse', 'sa_learners_add_to_cart'));
-add_action('wp_ajax_sa_learners_remove_wishlist', array('SaCourse', 'sa_remove_from_wishlist'));
-add_action('wp_ajax_sa_learners_change_reward', array('SaRewards', 'sal_ajax_get_reward_by_date_range'));
-add_action('wp_ajax_sa_learners_claim_reward', array('SaCoupon', 'sa_learners_claim_reward'));
-add_action('wp_ajax_sa_learners_claim_gf_reward', array('SaCoupon', 'sal_gf_coupon_generator'));
-add_action('wp_ajax_sa_learners_change_leaderBoard_reward', array('SaRewards', 'sa_learners_change_leaderBoard_reward'));
-add_action('woocommerce_order_status_completed', array('SaCoupon', 'sa_remove_email_restriction_from_coupon'), 10, 1);
-add_action('wp_ajax_sa_learners_start_course', array('SaCourse', 'sa_learners_start_course'));
+add_action(
+    'wp_enqueue_scripts',
+    'sa_learners_dashboard_plugin_scripts_and_styles'
+);
+add_action(
+    'wp_ajax_sa_learners_update',
+    array('SaLearners', 'sa_learners_update_callback')
+);
+add_action(
+    'wp_ajax_sa_learners_update_profile_picture',
+    array('SaLearners', 'sa_learners_update_profile_picture_callback')
+);
+add_action(
+    'wp_ajax_sa_learners_change_password',
+    array('SaLearners', 'sa_learners_change_password_callback')
+);
+add_action(
+    'wp_ajax_sa_learners_add_to_cart',
+    array('SaCourse', 'sa_learners_add_to_cart')
+);
+add_action(
+    'wp_ajax_sa_learners_remove_wishlist',
+    array('SaCourse', 'sa_remove_from_wishlist')
+);
+add_action(
+    'wp_ajax_sa_learners_change_reward',
+    array('SaRewards', 'sal_ajax_get_reward_by_date_range')
+);
+add_action(
+    'wp_ajax_sa_learners_claim_reward',
+    array('SaCoupon', 'sa_learners_claim_reward')
+);
+add_action(
+    'wp_ajax_sa_learners_claim_gf_reward',
+    array('SaCoupon', 'sal_gf_coupon_generator')
+);
+add_action(
+    'wp_ajax_sa_learners_change_leaderBoard_reward',
+    array('SaRewards', 'sa_learners_change_leaderBoard_reward')
+);
+add_action(
+    'woocommerce_order_status_completed',
+    array('SaCoupon', 'sa_remove_email_restriction_from_coupon'),
+    10,
+    1
+);
+add_action(
+    'wp_ajax_sa_learners_start_course',
+    array(
+        'SaCourse',
+        'sa_learners_start_course'
+    )
+);

@@ -6,7 +6,7 @@ $user_id = get_current_user_id();
     <?php
 
     // top nav
-    include plugin_dir_path(__FILE__) . '../top-nav/index.php';
+    include plugin_dir_path(__FILE__) . '../../templates/common-parts/top-nav.php';
     ?>
     <div class="tab-content px-1 " style="background-color: #f8f8f8;" id="v-pills-tabContent">
 
@@ -17,7 +17,7 @@ $user_id = get_current_user_id();
             <div class="tab-pane  <?php echo $active; ?> " ] id="v-pills-<?php echo $value['id'] ?>" role="tabpanel" aria-labelledby="v-pills-<?php echo $value['id'] ?>-tab">
                 <?php
                 $file = $value['id'] . '.php';
-                include_once $file;
+                include_once(plugin_dir_path(__FILE__) . $file);
                 ?>
             </div>
         <?php

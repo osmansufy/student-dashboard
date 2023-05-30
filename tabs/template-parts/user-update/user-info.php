@@ -1,4 +1,4 @@
-<div class="tab-pane  active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+<div class="tab-pane  active" id="home" role="tabpanel" aria-labelledby="nav-home-tab">
     <h1 class="text-dark">My Details</h1>
     <div class="myDetail">
         <div id="sa-data-div">
@@ -23,22 +23,26 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="firstName">First name</label>
-                        <input type="text" id="sa-firstName" value="<?php echo $firstName ?>" class="form-control" name="firstName" value="">
+                        <input type="text" id="sa-firstName" value="<?php echo $firstName ?>" class="form-control"
+                            name="firstName" value="">
                         <input type="hidden" id="sa-userId" value="<?php echo $user_id ?>" name="">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="lastName">Last name</label>
-                        <input type="text" id="sa-lastName" value="<?php echo $lastName ?>" class="form-control" name="lastName" value="">
+                        <input type="text" id="sa-lastName" value="<?php echo $lastName ?>" class="form-control"
+                            name="lastName" value="">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="sa-displayName">Display Name</label>
-                        <input type="text" id="sa-displayName" value="<?php echo $displayName ?>" class="form-control" name="email">
+                        <input type="text" id="sa-displayName" value="<?php echo $displayName ?>" class="form-control"
+                            name="email">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="sa-email">Email</label>
-                        <input type="email" id="sa-email" readonly value="<?php echo $user_email ?>" class="form-control" name="email">
+                        <input type="email" id="sa-email" readonly value="<?php echo $user_email ?>"
+                            class="form-control" name="email">
                     </div>
 
                 </div>

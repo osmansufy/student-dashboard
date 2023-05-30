@@ -10,4 +10,4 @@ $args = array(
 $messages = get_posts($args);
 wp_reset_query();
 
-include_once 'views/messages-view.php';
+include_once('views/messages-view.php');

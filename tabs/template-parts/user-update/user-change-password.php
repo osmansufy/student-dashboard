@@ -11,8 +11,7 @@ $user_email = $user->user_email;
             </div>
             <div class="form-row">
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="sal_old_password" name="passwordCurrent"
-                        placeholder="name@example.com">
+                    <input type="password" class="form-control" id="sal_old_password" name="passwordCurrent" placeholder="name@example.com">
                     <label for="floatingInput">Current Password</label>
                 </div>
             </div>
@@ -25,8 +24,7 @@ $user_email = $user->user_email;
             </div>
             <div class="form-row">
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="sal_confirm_password" name="passwordConfirm"
-                        placeholder="
+                    <input type="password" class="form-control" id="sal_confirm_password" name="passwordConfirm" placeholder="
     Confirm New Password">
                     <label for="floatingInput">Confirm New Password</label>
                 </div>
@@ -41,5 +39,4 @@ $user_email = $user->user_email;
     ?>
     <button type="submit" class="btn btn-primary">Update</button>
     </form>
-</div>
 </div>

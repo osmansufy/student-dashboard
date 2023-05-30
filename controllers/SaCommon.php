@@ -2,41 +2,41 @@
 class SaCommon
 {
     public $all_page_templates = [
-        [
-            'title' => 'My Courses Dashboard',
-            'slug' => 'my-courses-dashboard',
-            'template' => 'my-courses-dashboard',
-        ],
+        // [
+        //     'title' => 'My Courses Dashboard',
+        //     'slug' => 'my-courses-dashboard',
+        //     'template' => 'my-courses-dashboard',
+        // ],
         [
             'title' => 'Learners Dashboard',
             'slug' => 'learners-dashboard',
             'template' => 'learners-dashboard',
         ],
-        [
-            'title' => 'Learners Profile',
-            'slug' => 'learners-profile',
-            'template' => 'learners-profile',
-        ],
-        [
-            'title' => 'Learners Orders',
-            'slug' => 'learners-orders',
-            'template' => 'learners-orders',
-        ],
-        [
-            'title' => 'Learners Certificates',
-            'slug' => 'learners-certificates',
-            'template' => 'learners-certificates',
-        ],
+        // [
+        //     'title' => 'Learners Profile',
+        //     'slug' => 'learners-profile',
+        //     'template' => 'learners-profile',
+        // ],
+        // [
+        //     'title' => 'Learners Orders',
+        //     'slug' => 'learners-orders',
+        //     'template' => 'learners-orders',
+        // ],
+        // [
+        //     'title' => 'Learners Certificates',
+        //     'slug' => 'learners-certificates',
+        //     'template' => 'learners-certificates',
+        // ],
         [
             'title' => 'Learners Rewards',
             'slug' => 'learners-rewards',
             'template' => 'learners-rewards',
         ],
-        [
-            'title' => 'Learners saved courses',
-            'slug' => 'learners-saved-courses',
-            'template' => 'learners-saved-courses',
-        ],
+        // [
+        //     'title' => 'Learners saved courses',
+        //     'slug' => 'learners-saved-courses',
+        //     'template' => 'learners-saved-courses',
+        // ],
         [
             'title' => 'Learners support',
             'slug' => 'learners-support',
@@ -47,12 +47,12 @@ class SaCommon
             'slug' => 'special-offers',
             'template' => 'special-offers',
         ],
-        [
-            'title' => 'Learners Messages',
-            'slug' => 'learners-messages',
-            'template' => 'learners-messages',
+        // [
+        //     'title' => 'Learners Messages',
+        //     'slug' => 'learners-messages',
+        //     'template' => 'learners-messages',
 
-        ],
+        // ],
         [
             'title' => 'Student Portal',
             'slug' => 'student-portal',

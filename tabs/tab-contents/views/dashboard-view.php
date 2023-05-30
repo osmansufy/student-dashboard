@@ -79,16 +79,18 @@
             foreach ($get_recomended_courses as $course) {
             ?>
 
-                <div class="col-12 col-md-6 col-lg-3 col-sm-6">
-                    <?php include plugin_dir_path(__FILE__) . '../../template-parts/course-card.php'; ?>
-                    <!-- col-start  -->
-                </div><!-- col-end  -->
+            <div class="col-12 col-md-6 col-lg-3 col-sm-6">
+                <?php include plugin_dir_path(__FILE__) . '../../template-parts/course-card.php'; ?>
+                <!-- col-start  -->
+            </div><!-- col-end  -->
             <?php
             }
             ?>
         </div><!-- row--end  -->
     </div>
     <?php
+
+$leader_board_id = 'monthly_leaderBoard1';
     include plugin_dir_path(__FILE__) . '../../template-parts/dashboard/leader-board.php';
     ?>
 </div>

@@ -21,6 +21,7 @@ class Learners {
       // alert.slideRight();
     }, 3000);
   }
+
   events() {
     $("#txtSearch").on("keyup", this.onSearch);
     $(".sal_add_to_cart_button").click(this.addToCart.bind(this));
@@ -49,7 +50,7 @@ class Learners {
     });
     $(".sal-claim-reward").on("click", this.onClaimReward);
     $("#sal_gf_coupon").on("click", this.onClaimRewardGfCoupon);
-    $("#monthly_leaderBoard").on("change", this.onChangeLeaderBoardReward);
+
     $(".start-course-btn").on("click", this.onStartCourse.bind(this));
     $(function () {
       $(".sa-top-nav li .nav-link").click(function () {
@@ -58,57 +59,107 @@ class Learners {
       });
     });
     this.$("#sa-sidebar-btn-expand").on("click", console.log("logout"));
+    this.onChangeLeaderBoardReward("monthly_leaderBoard1");
+    this.onChangeLeaderBoardReward("monthly_leaderBoard2");
   }
-  onChangeLeaderBoardReward(e) {
-    let month = $(e.target).val();
-    $.ajax({
-      type: "POST",
-      url: pluginData.ajax_url,
-      data: {
-        action: "sa_learners_change_leaderBoard_reward",
-        month: month,
-      },
-      beforeSend: function () {
-        console.log("data-sending");
-        $("#leader_board_table").html(
-          '<i class="fas fa-spinner fa-pulse" style="color: red; font-size: 40px;"></i>'
-        );
-      },
-      success: (data) => {
-        console.log(data);
-        if (data) {
-          let data_get = JSON.parse(data);
-          let board_list_content = "";
-          if (data_get.length > 0) {
-            data_get.forEach((item, index) => {
-              board_list_content += `
+  onChangeLeaderBoardReward(identifier) {
+    $("#" + identifier).on("change", function (e) {
+      let month = $(e.target).val();
+      $.ajax({
+        type: "POST",
+        url: pluginData.ajax_url,
+        data: {
+          action: "sa_learners_change_leaderBoard_reward",
+          month: month,
+        },
+        beforeSend: function () {
+          console.log("data-sending");
+          $("#" + `${identifier}-table`).html(
+            '<i class="fas fa-spinner fa-pulse" style="color: red; font-size: 40px;"></i>'
+          );
+        },
+        success: (data) => {
+          console.log(data);
+          if (data) {
+            let data_get = JSON.parse(data);
+            let board_list_content = "";
+            const award_image = `${pluginData.plugin_url}/assets/images/award.png`;
+            if (data_get.length > 0) {
+              data_get.forEach((item, index) => {
+                board_list_content += `
+                  <tr class="">
+                    <th><img src="${award_image}" alt="award">
+                    ${index + 1}</th>
+                    <th>${item.display_name.toUpperCase()}</th>
+                    <th>${item.total_reward}</th>
+                  </tr>`;
+              });
+            } else {
+              board_list_content = `<tr class="text-center">
+                <th>No data found</th>
+              </tr>`;
+            }
 
-            <tr class="">
-            <th><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award">
-            ${index + 1}</th>
-            </th>
-    <th>${item.display_name.toUpperCase()}</th>
-    <th>${item.total_reward}</th>
-
-    </tr>`;
-            });
+            $("#" + `${identifier}-table`).html(board_list_content);
+            console.log(board_list_content);
           } else {
-            board_list_content = `<tr class="text-center">
-            <th>No data found</th>
-
-            </tr>`;
+            console.log(data.message);
           }
-
-          $("#leader_board_table").html(board_list_content);
-
-          console.log(board_list_content);
-          // $("#leader_board_table").html(board_list_content);
-        } else {
-          console.log(data.message);
-        }
-      },
+        },
+      });
     });
   }
+
+  // onChangeLeaderBoardReward(e) {
+  //   let month = $(e.target).val();
+  //   $.ajax({
+  //     type: "POST",
+  //     url: pluginData.ajax_url,
+  //     data: {
+  //       action: "sa_learners_change_leaderBoard_reward",
+  //       month: month,
+  //     },
+  //     beforeSend: function () {
+  //       console.log("data-sending");
+  //       $("#leader_board_table").html(
+  //         '<i class="fas fa-spinner fa-pulse" style="color: red; font-size: 40px;"></i>'
+  //       );
+  //     },
+  //     success: (data) => {
+  //       console.log(data);
+  //       if (data) {
+  //         let data_get = JSON.parse(data);
+  //         let board_list_content = "";
+  //         if (data_get.length > 0) {
+  //           data_get.forEach((item, index) => {
+  //             board_list_content += `
+
+  //           <tr class="">
+  //           <th><img src="https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/award.png" alt="award">
+  //           ${index + 1}</th>
+  //           </th>
+  //   <th>${item.display_name.toUpperCase()}</th>
+  //   <th>${item.total_reward}</th>
+
+  //   </tr>`;
+  //           });
+  //         } else {
+  //           board_list_content = `<tr class="text-center">
+  //           <th>No data found</th>
+
+  //           </tr>`;
+  //         }
+
+  //         $("#leader_board_table").html(board_list_content);
+
+  //         console.log(board_list_content);
+  //         // $("#leader_board_table").html(board_list_content);
+  //       } else {
+  //         console.log(data.message);
+  //       }
+  //     },
+  //   });
+  // }
 
   onClaimRewardGfCoupon(e) {
     e.preventDefault();

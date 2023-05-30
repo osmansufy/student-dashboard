@@ -2,12 +2,13 @@
 $current_month = date('Y-m-d', strtotime('first day of this month'));
 $current_date_is = date('Y-m-d H:i:s');
 $leaderBoard = SaRewards::get_all_rewards_of_user_id_with_time_range($current_month, $current_date_is);
+var_dump($leader_board_id);
 ?>
 <div class="leaderboard">
     <h3>Student leaderboard</h3>
     <div id="leader_board_table_loading"></div>
     <div class="form-group">
-        <select id="monthly_leaderBoard" style="-webkit-appearance: button;" class="form-control monthly_leaderBoard" name="monthly">
+        <select id="<?php echo $leader_board_id ?>" style="-webkit-appearance: button;" class="form-control monthly_leaderBoard" name="monthly">
             <option value="this_month">This Month</option>
             <option value="last_month">Last Month</option>
 
@@ -15,7 +16,7 @@ $leaderBoard = SaRewards::get_all_rewards_of_user_id_with_time_range($current_mo
     </div>
 </div>
 <table class="table">
-    <tbody id="leader_board_table">
+    <tbody id="<?php echo $leader_board_id ?>-table">
         <?php
 
         $i = 1;

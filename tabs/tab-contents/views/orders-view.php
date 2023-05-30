@@ -3,8 +3,6 @@
         <?php
         include plugin_dir_path(__FILE__) . '../../template-parts/page-hero.php';
         ?>
-
-
         <div class="my-certificate">
 
             <div class="row">
