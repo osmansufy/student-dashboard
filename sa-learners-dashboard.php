@@ -98,14 +98,7 @@ function sa_learners_dashboard_plugin_scripts_and_styles()
         $page_with_php = $page['template'];
         return $page_with_php;
     }, $page_template_array);
-    // $elementor_pages = ['unlimited-learning', 'student-portal', 'learners-recommend-friends'];
-    // $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-    // echo "<pre>";
-    // print_r($plugin_page);
-    // var_dump($uri == '/wplms/student-portal/');
-    // echo "</pre>";
-    // die();
-    // check current page is plugin page or not
+
     $current_page_slug = basename(get_permalink());
     $is_page_exist =  in_array($current_page_slug, $page_templates);
     if ($is_page_exist) {
@@ -176,19 +169,10 @@ function sa_learners_dashboard_plugin_scripts_and_styles_admin($screen)
 
     if ('learners-dashboard_page_sal-dashboard-management' == $screen || 'toplevel_page_saldashboard' == $screen) {
         //Add the Select2 CSS file
-        wp_enqueue_style(
-            'select2-css',
-            'https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css',
-            array(),
-            '4.1.0-rc.0'
-        );
-        // Add the Select2 JavaScript file
-        wp_enqueue_script(
-            'select2-js',
-            'https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js',
-            'jquery',
-            '4.1.0-rc.0'
-        );
+        wp_enqueue_style('select2-css', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css', array(), '4.1.0-rc.0');
+
+        //Add the Select2 JavaScript file
+        wp_enqueue_script('select2-js', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', 'jquery', '4.1.0-rc.0');
 
         wp_enqueue_script(
             'sa-learner-dashboard-admin-js',
