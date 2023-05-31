@@ -29,7 +29,7 @@
             <?php foreach ($allCourses as $course) {
                 $selected = in_array($course->ID, $recomendedCourses) ? 'selected' : '';
             ?>
-                <option <?php echo $selected ?> value="<?php echo $course->ID ?>"><?php echo $course->post_title ?></option>
+            <option <?php echo $selected ?> value="<?php echo $course->ID ?>"><?php echo $course->post_title ?></option>
             <?php }; ?>
         </select>
 </div>
@@ -41,54 +41,42 @@ flex-wrap: wrap;">
     border: 1px solid;
     border-radius: 5px;
     padding: 10px 0;
-    
+
     ">
             Support Pages for Learners
         </h3>
     </div>
     <div style="width:50%">
-        <h4>Submit ticket page</h4>
-        <select style="margin:10px 0 ;" id="sal_submit_ticket_page" name="sal_submit_ticket_page">
-            <option value="">Select page</option>
-            <?php foreach ($all_pages as $page) {
-                $selected = $sal_submit_ticket_page == $page->ID ? 'selected' : '';
-            ?>
-                <option <?php echo $selected ?> value="<?php echo $page->ID ?>"><?php echo $page->post_title ?></option>
-            <?php }; ?>
-        </select>
+        <div style="margin-bottom: 10px;">
+            <label for="sal_submit_ticket_page"><?php _e('Submit ticket page', 'sa-learners-dashboard'); ?></label>
+            <br />
+            <input type="text" name="sal_submit_ticket_page" style=" width:80%" id="sal_submit_ticket_page"
+                value="<?php echo get_option('sal_submit_ticket_page'); ?>" />
+        </div>
     </div>
     <div style="width:50%">
-        <h4 style="margin:10px 0 ;">Feedback Page</h4>
-        <select style="margin:10px 0 ;" id="sal_course_feedback_page" name="sal_course_feedback_page">
-            <option value="">Select page</option>
-            <?php foreach ($all_pages as $page) {
-                $selected = $sal_course_feedback_page == $page->ID ? 'selected' : '';
-            ?>
-                <option <?php echo $selected ?> value="<?php echo $page->ID ?>"><?php echo $page->post_title ?></option>
-            <?php }; ?>
-        </select>
+        <div style="margin-bottom: 10px; width:80%">
+            <label for="sal_course_feedback_page"><?php _e('Course feedback page', 'sa-learners-dashboard'); ?></label>
+            <br />
+            <input type="text" name="sal_course_feedback_page" style=" width:100%" id="sal_course_feedback_page"
+                value="<?php echo get_option('sal_course_feedback_page'); ?>" />
+        </div>
     </div>
     <div style="width:50% ;">
-        <h4>Help and support page</h4>
-        <select style="margin:10px 0 ;" id="sal_help_n_support_page" name="sal_help_n_support_page">
-            <option value="">Select page</option>
-            <?php foreach ($all_pages as $page) {
-                $selected = $sal_help_n_support_page == $page->ID ? 'selected' : '';
-            ?>
-                <option <?php echo $selected ?> value="<?php echo $page->ID ?>"><?php echo $page->post_title ?></option>
-            <?php }; ?>
-        </select>
+        <div style="margin-bottom: 10px;">
+            <label for="sal_help_n_support_page"><?php _e('Help and support page', 'sa-learners-dashboard'); ?></label>
+            <br />
+            <input type="text" name="sal_help_n_support_page" style=" width:80%" id="sal_help_n_support_page"
+                value="<?php echo get_option('sal_help_n_support_page'); ?>" />
+        </div>
     </div>
     <div style="width:50% ;">
-        <h4>Faqs Page</h4>
-        <select style="margin:10px 0 ;" id="sal_faq_page" name="sal_faq_page">
-            <option value="">Select page</option>
-            <?php foreach ($all_pages as $page) {
-                $selected = $sal_faq_page == $page->ID ? 'selected' : '';
-            ?>
-                <option <?php echo $selected ?> value="<?php echo $page->ID ?>"><?php echo $page->post_title ?></option>
-            <?php }; ?>
-        </select>
+        <div style="margin-bottom: 10px;">
+            <label for="sal_faq_page"><?php _e('FAQ page', 'sa-learners-dashboard'); ?></label>
+            <br />
+            <input type="text" style=" width:80%" name="sal_faq_page" id="sal_faq_page"
+                value="<?php echo get_option('sal_faq_page'); ?>" />
+        </div>
     </div>
 </div>
 <input type="hidden" name="action" value="sal_recomended_courses">

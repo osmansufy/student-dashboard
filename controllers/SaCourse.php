@@ -132,24 +132,29 @@ class SaCourse
         if ($all_course_ids && is_array($all_course_ids)) {
             foreach ($all_course_ids as $course_id) {
                 $certificate_meta = 'course_' . $course_id . '_certificate_pdf_url';
+                $transcript_url = get_user_meta($user_id, 'course_' . $course_id . '_transcript_pdf_url', true);
                 $certificate_purchased = get_user_meta($user_id, $certificate_meta, true);
 
 
                 $certificate_info = new stdClass();
+                $certificate_info->course_id = $course_id;
+                $certificate_info->title = get_the_title($course_id);
+                $certificate_info->featured_image = get_the_post_thumbnail_url($course_id);
+                $certificate_info->slug = get_post_field('post_name', $course_id);
+                $certificate_info->course_duration = get_post_meta($course_id, 'vibe_duration', true);
+                $args = array(
+                    'course_id' => $course_id,
+                    'user_id' => $user_id
+                );
+                $certificate_link = bp_get_course_certificate($args);
+                $certificate_info->lms_certificate_url = $certificate_link;
                 if ($certificate_purchased) {
-                    $certificate_info->course_id = $course_id;
-                    $certificate_info->title = get_the_title($course_id);
-                    $certificate_info->featured_image = get_the_post_thumbnail_url($course_id);
-                    $certificate_info->slug = get_post_field('post_name', $course_id);
                     $certificate_info->certificate_url = $certificate_purchased;
-                    $certificate_info->course_duration = get_post_meta($course_id, 'vibe_duration', true);
+                    $certificate_info->transcript_url = $transcript_url;
                     $certificate_info->is_course_purchased = true;
                 } else {
-                    $certificate_info->id = $course_id;
-                    $certificate_info->title = get_the_title($course_id);
-                    $certificate_info->featured_image = get_the_post_thumbnail_url($course_id);
-                    $certificate_info->slug = get_post_field('post_name', $course_id);
                     $certificate_info->certificate_url = '';
+                    $certificate_info->transcript_url = '';
                     $certificate_info->is_course_purchased = false;
                 }
                 $certificate_link_list[] = $certificate_info;
@@ -186,7 +191,12 @@ class SaCourse
     {
         $new_wishlist = get_user_meta($user_id, 'wishlist_course', false);
         // $values = array_values($new_wishlist);
-        $args = array('post_type' => 'course', 'post__in' => $new_wishlist, 'orderby' => 'post__in', 'posts_per_page' => -1);
+        $args = array(
+            'post_type' => 'course',
+            'post__in' => $new_wishlist,
+            'orderby' => 'post__in',
+            'posts_per_page' => -1
+        );
         if (!empty($new_wishlist)) {
             $saved_courses = new WP_Query($args);
             foreach ($saved_courses->posts as $saved_course) {

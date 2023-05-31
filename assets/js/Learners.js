@@ -236,6 +236,8 @@ class Learners {
         } else {
           console.log(data.message);
         }
+        // reload page for update the reward point and coupon
+        location.reload();
       },
     });
   }

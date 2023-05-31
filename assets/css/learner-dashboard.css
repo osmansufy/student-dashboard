@@ -10,31 +10,41 @@ p {
   font-family: "Caveat Brush", cursive ;
   color: #1a1a1a;
 }
+/* root variable */
+
+
+:root{
+  --sad-primary-color: #003a59;
+  --sad-secondary-color: #7BA631;
+  --sad-button-color: #F0E400;
+}
+
+
 img{
     max-width: 100%;
     height: auto;
     object-fit: cover;
     object-position: center;
 }
-.navbar-global {
+  .navbar-global {
   background-color: #003a59;
   border: #003a59;
 }
-span.nav-label {
+  span.nav-label {
   margin-left: 12px;
 }
-.navbar-global .navbar-brand {
+  .navbar-global .navbar-brand {
   color: white;
 }
-.navbar-brand {
+  .navbar-brand {
   height: inherit !important;
   max-width: 100%;
 }
-.navbar-global .navbar-user > li > a {
+  .navbar-global .navbar-user > li > a {
   color: white;
 }
 
-.navbar-primary {
+  .navbar-primary {
   background-color: #003a59;
   bottom: 0px;
   left: 0px;
@@ -49,7 +59,7 @@ span.nav-label {
   transition: all 0.1s ease-in-out;
 }
 
-.navbar-primary.collapsed {
+  .navbar-primary.collapsed {
   width: 60px;
 }
 nav.navbar-primary.collapsed
@@ -91,15 +101,15 @@ ul.navbar-primary-menu.navbar-nav a .collapse-img {
   max-width: 100%;
 }
 
-.navbar-primary.collapsed .glyphicon {
+  .navbar-primary.collapsed .glyphicon {
   font-size: 22px;
 }
 
-.navbar-primary.collapsed .nav-label {
+  .navbar-primary.collapsed .nav-label {
   display: none;
 }
 
-.btn-expand-collapse {
+  .btn-expand-collapse {
   position: absolute;
   display: block;
   right: -12px;
@@ -132,24 +142,24 @@ ul.navbar-primary-menu.navbar-nav li.nav-item.active {
 ul.navbar-primary-menu.navbar-nav li.nav-item.active a {
   color: #004463;
 }
-.btn-expand-collapse:hover,
+  .btn-expand-collapse:hover,
 .btn-expand-collapse:focus {
   background-color: white;
   color: #004463;
 }
 
-.btn-expand-collapse:active {
+  .btn-expand-collapse:active {
   background-color: white;
 }
 
-.navbar-primary-menu,
-.navbar-primary-menu li {
+  .navbar-primary-menu,
+  .navbar-primary-menu li {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.navbar-primary-menu li a {
+  .navbar-primary-menu li a {
   display: flex;
   padding: 15px 18px;
   text-align: left;
@@ -158,7 +168,7 @@ ul.navbar-primary-menu.navbar-nav li.nav-item.active a {
   justify-content: flex-start;
 }
 
-.navbar-primary-menu li a:hover {
+  .navbar-primary-menu li a:hover {
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   text-decoration: none;
@@ -166,20 +176,20 @@ ul.navbar-primary-menu.navbar-nav li.nav-item.active a {
   color: #004463;
 }
 
-.navbar-primary-menu li a .glyphicon {
+  .navbar-primary-menu li a .glyphicon {
   margin-right: 6px;
 }
 
-.navbar-primary-menu li a:hover .glyphicon {
+  .navbar-primary-menu li a:hover .glyphicon {
   color: #004463;
 }
 
-.main-content {
+  .main-content {
   margin-top: 60px;
   margin-left: 250px;
 }
 
-.collapsed + .main-content {
+  .collapsed + .main-content {
   margin-left: 60px;
 }
 
@@ -187,18 +197,18 @@ ul.navbar-primary-menu.navbar-nav li.nav-item.active a {
 body {
   background-color: #f8f8f8;
 }
-.page-title {
+  .page-title {
   background-color: #ffffff;
   padding: 10px 0;
 }
-.page-title h1 {
+  .page-title h1 {
   font-weight: 500;
   text-align: left;
 }
-.main-content {
+  .main-content {
   background-color: #f8f8f8;
 }
-#con-tainer {
+  #con-tainer {
   width: 9999px;
   padding: 0 60px;
 }
@@ -206,7 +216,7 @@ section.content-main-body {
   margin-left: 15px;
   margin-right: 15px;
 }
-.subscribeUpsell {
+  .subscribeUpsell {
   border-radius: 18px;
   color: rgb(255, 255, 255);
   background: #004463;
@@ -216,7 +226,7 @@ section.content-main-body {
   font-weight: 600;
   margin: 20px 0;
 }
-.subscribeUpsell a {
+  .subscribeUpsell a {
   font-family: "Catamaran", sans-serif;
   font-size: 25px;
   font-weight: 600;
@@ -259,7 +269,7 @@ html {
   position: relative;
 }
 
-.progressdiv:after {
+  .progressdiv:after {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -276,7 +286,7 @@ html {
   text-align: center;
   color: #000000;
 }
-.circle-box-percentage {
+  .circle-box-percentage {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -288,7 +298,7 @@ html {
 /* percentage circle end */
 
 /* Log-section */
-.white-rounded {
+  .white-rounded {
   background-color: #ffffff;
   border-radius: 15px;
   padding: 7px 15px 10px 10px;
@@ -298,18 +308,18 @@ html {
   justify-content: center;
   align-items: center;
 }
-.white-rounded.dash-details p {
+  .white-rounded.dash-details p {
   font-size: 22px;
   font-family: inherit !important;
   font-weight: 500;
 }
 
-.white-rounded.dash-details span {
+  .white-rounded.dash-details span {
   font-size: 50px;
   font-weight: 500;
   line-height: 1.2;
 }
-.white-rounded.dash-details sup svg {
+  .white-rounded.dash-details sup svg {
   color: #004463;
 }
 .white-rounded.dash-banner {
@@ -320,13 +330,13 @@ html {
   border-radius: 15px;
   color: #ffffff;
 }
-.white-rounded.dash-banner p {
+  .white-rounded.dash-banner p {
   font-family: inherit !important;
   font-size: 21px;
   color: #fff;
 }
 
-.white-rounded.dash-banner a.btn.btn-outline-light {
+  .white-rounded.dash-banner a.btn.btn-outline-light {
   color: #f8f9fa;
   border-radius: 25px;
   border-width: 2px;
@@ -337,27 +347,27 @@ html {
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.white-rounded.dash-banner .btn-outline-light:hover {
+  .white-rounded.dash-banner .btn-outline-light:hover {
   color: #1a1a1a !important;
   background-color: #f8f9fa !important;
   border-color: #f8f9fa !important;
 }
 
-.white-rounded.dash-banner .banner-number img {
+  .white-rounded.dash-banner .banner-number img {
   height: 80px;
 }
 
-.banner-offer {
+  .banner-offer {
   margin: 40px 0;
   /* box-shadow: -18px -18px 5px -13px rgb(107 44 44 / 37%); */
 }
 
-.banner-offer a img {
+  .banner-offer a img {
   width: 100%;
   max-width: 100%;
 }
 /* other courses */
-.other-course {
+  .other-course {
   background-color: #ffffff;
   border-radius: 15px;
   padding: 35px 15px 35px 25px;
@@ -369,7 +379,7 @@ html {
   text-align: left;
   margin-bottom: 40px;
 }
-.category-box {
+  .category-box {
   width: 100%;
   height: 335px;
   background-size: cover;
@@ -381,7 +391,7 @@ html {
 
   background-repeat: no-repeat;
 }
-.category-box .Popular-title-top {
+  .category-box .Popular-title-top {
   background: rgb(123 166 49);
   border-top-right-radius: 20px;
   padding: 10px 0;
@@ -394,7 +404,7 @@ html {
   top: 0;
   width: 100%;
 }
-.category-box .Popular-title-bottom {
+  .category-box .Popular-title-bottom {
   text-align: center;
   color: #ffffff;
   background: rgb(123 166 49 / 67%);
@@ -408,16 +418,16 @@ html {
   bottom: 0;
   width: 100%;
 }
-.category-box .Popular-title-bottom h3 {
+  .category-box .Popular-title-bottom h3 {
   color: #fff;
   font-size: 32px;
 }
 
-.category-box .category-box:hover .popular-box-overlay {
+  .category-box .category-box:hover .popular-box-overlay {
   opacity: 1;
   cursor: pointer;
 }
-.category-box .popular-box-overlay {
+  .category-box .popular-box-overlay {
   opacity: 0;
   transition: 0.6s ease;
   text-align: center;
@@ -443,17 +453,17 @@ html {
   justify-content: center;
 }
 
-.category-box .img img {
+  .category-box .img img {
   width: 100%;
   max-width: 100%;
 }
 
-.category-box:hover .popular-box-overlay {
+  .category-box:hover .popular-box-overlay {
   opacity: 1;
   cursor: pointer;
 }
 /* box hover side flip */
-.category-box .popular-box-overlay .button-box {
+  .category-box .popular-box-overlay .button-box {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -497,37 +507,37 @@ html {
   margin: 0 5px;
 }
 
-.category-box .popular-box-overlay h3 {
+  .category-box .popular-box-overlay h3 {
   color: #fff;
   font-size: 4.5rem;
  margin-bottom: 3rem;
 }
-.popular-box-overlay p strong {
+  .popular-box-overlay p strong {
   font-size: 16px;
   font-family: "Catamaran", sans-serif;
   color: #fff;
 }
 
 /* LeaderBoard */
-.leaderBoard {
+  .leaderBoard {
   display: flex;
   justify-content: space-between;
 }
-.leaderBoard {
+  .leaderBoard {
   display: flex;
   justify-content: space-between;
   margin: 40px 0;
 }
-.leaderBoard .useFlex {
+  .leaderBoard .useFlex {
   flex: 0 0 48%;
   max-width: 48%;
   margin-right: 4%;
 }
-.leaderBoard .notification:last-child {
+  .leaderBoard .notification:last-child {
   margin-right: 0;
 }
 
-.leaderBoard .leaderboard {
+  .leaderBoard .leaderboard {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -557,24 +567,24 @@ html {
   background-color: transparent;
   border: 0;
 }
-.leaderBoard .white-rounded.notification {
+  .leaderBoard .white-rounded.notification {
   display: flex;
   justify-content: flex-start;
 }
-.leaderBoard table.table tbody tr th {
+  .leaderBoard table.table tbody tr th {
   border: none;
 }
-.leaderBoard .table tbody tr td {
+  .leaderBoard .table tbody tr td {
   text-align: left;
 }
 
 /*=======================
            👇 COURSE PAGE CODE 👇
 ======================== */
-.search-field button.btn.btn-primary {
+  .search-field button.btn.btn-primary {
   width: 100px;
   text-align: center;
-  background: #259cc0;
+  background: var(--sad-primary-color);
   height: 70px;
   line-height: 70px;
   font-size: 22px;
@@ -583,7 +593,7 @@ html {
   border-bottom-right-radius: 40px;
 }
 
-.search-field input#txtSearch {
+  .search-field input#txtSearch {
   border: 1px solid #f0eded;
   color: #1a1a1a;
   font-size: 22px;
@@ -593,15 +603,15 @@ html {
   border-bottom-left-radius: 40px;
 }
 
-.search-field input#txtSearch::placeholder {
+  .search-field input#txtSearch::placeholder {
   color: #1a1a1a;
   font-size: 22px;
 }
-.search-field {
+  .search-field {
   margin: 40px 0;
 }
 
-.progress-box {
+  .progress-box {
   width: 100%;
   height: 335px;
   background-size: cover;
@@ -613,7 +623,7 @@ html {
   background-repeat: no-repeat;
 }
 
-.progress-box .Popular-title-top {
+  .progress-box .Popular-title-top {
   background:rgb(123 166 49 );
   border-top-right-radius: 20px;
   padding: 10px 0;
@@ -626,7 +636,7 @@ html {
   top: 0;
   width: 100%;
 }
-.progress-box .Popular-title-bottom {
+  .progress-box .Popular-title-bottom {
   background: rgb(123 166 49 /67%);
   border-bottom-right-radius: 20px;
   padding: 10px 0;
@@ -637,14 +647,14 @@ html {
   bottom: 0;
   width: 100%;
 }
-.progress-box .Popular-title-bottom h3 {
+  .progress-box .Popular-title-bottom .sal-course-title {
   text-align: center;
   font-family: inherit;
   color: #ffffff;
   font-size: 20px;
   font-weight: 300;
 }
-.progress-box .progressbar {
+  .progress-box .progressbar {
   background-color: #a3cd8c !important;
   padding: 0;
   text-indent: 10px;
@@ -652,7 +662,7 @@ html {
   align-items: center;
 }
 
-.progress-box .progress {
+  .progress-box .progress {
   height: 30px;
   border-radius: 25px;
   margin: 0 13px;
@@ -677,32 +687,32 @@ html {
   padding: 0.75rem;
 }
 
-.sidebar-menu-farhan
+/* .sidebar-menu-farhan
   .progress-box
   a.btn.btn-outline-primary.btn-lg.extra-radius:hover {
   background-color: #ffffff;
   color: #1a1a1a;
-}
+} */
 /*=======================
            👇 My Certificates PAGE CODE 👇
 ======================== */
-.my-certificate {
+  .my-certificate {
   background-color: #ffffff;
   border-radius: 15px;
   padding: 25px 15px 15px 25px;
   margin-bottom: 25px;
 }
-.certificate-list {
+  .certificate-list {
   overflow-y: scroll;
 }
-.certificate-list td {
+  .certificate-list td {
 text-align: left;
 }
 /*=======================
            👇 My Reward PAGE CODE 👇
 ======================== */
 
-.pointsEarned.pointPicker {
+  .pointsEarned.pointPicker {
   display: block;
   padding: 6px 25px;
   color: #ffffff;
@@ -713,23 +723,23 @@ text-align: left;
 .link-box a {
   color: #f8f8f8;
 }
-.row.align-items-center {
+  .row.align-items-center {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-.pointsEarned {
-  background-color: #248cab;
+  .pointsEarned {
+  background-color: #337ab7;
   border-radius: 10px;
   padding: 10px 20px 10px 20px;
 }
-.regular-full {
+  .regular-full {
   margin-top: 40px;
 }
-.text-center {
+  .text-center {
   text-align: center !important;
 }
-.pointPicker .dropdown-toggle::after {
+  .pointPicker .dropdown-toggle::after {
   display: inline-block;
   width: 0;
   height: 0;
@@ -741,7 +751,7 @@ text-align: left;
   border-bottom: 0;
   border-left: 0.3em solid transparent;
 }
-.dropdown-item {
+  .dropdown-item {
   display: block;
   width: 100%;
   padding: 0.25rem 1.5rem;
@@ -754,26 +764,26 @@ text-align: left;
   border: 0;
 }
 
-.dropdown-item.active {
+  .dropdown-item.active {
   color: #fff;
   text-decoration: none;
   background-color: #007bff;
 }
-.dropdown-item:hover {
+  .dropdown-item:hover {
   color: #16181b;
   text-decoration: none;
   background-color: #f8f9fa;
 }
-.col-12.col-md-10 .pointsEarned {
+  .col-12.col-md-10 .pointsEarned {
   padding: 25px 20px 25px 40px;
 }
 
-.points.mr-0 h2 {
+  .points.mr-0 h2 {
   margin: 0;
   color: #ffffff;
   font-family: inherit;
 }
-.points p {
+  .points p {
   font-size: 20px;
   font-weight: 300;
   margin-bottom: 0;
@@ -781,7 +791,7 @@ text-align: left;
   font-family: inherit;
 }
 
-.white-rounded.achievements {
+  .white-rounded.achievements {
   background-color: #ffffff;
   border-radius: 15px;
   padding: 20px 35px 30px 35px;
@@ -789,8 +799,8 @@ text-align: left;
   display: inherit;
 }
 
-.achievements h3,
-.claimed-rewards h3 {
+  .achievements h3,
+  .claimed-rewards h3 {
   font-weight: 500;
   font-size: 35px;
   margin-top: 20px;
@@ -799,10 +809,11 @@ text-align: left;
   text-align: left;
 }
 
-.achievements li {
-  padding-left: 40px;
-  background: url("https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy-blue.png")
-    no-repeat left center;
+  .achievements li {
+  padding-left: 25px;
+  background-image: url("../images/trophy-icon.svg") ;
+  background-repeat: no-repeat;
+  background-size: contain;
   margin-bottom: 20px;
   list-style: none;
 }
@@ -816,22 +827,23 @@ text-align: left;
   text-decoration: none;
 }
 .achievements li:hover {
-  background: url("https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/trophy-grey.png")
-    no-repeat left center;
+  background-image: url("../images/trophy-icon-grey.svg") ;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
-.achievements ul {
+  .achievements ul {
   margin: 0;
   padding: 0;
   list-style: none;
   text-align: left;
 }
 
-.achievements p {
+  .achievements p {
   font-size: 16px;
   font-family: inherit;
 }
 
-.Claim-reward .white-rounded {
+  .Claim-reward .white-rounded {
   background-color: #ffffff;
 
   padding: 7px 30px 10px 30px;
@@ -839,20 +851,20 @@ text-align: left;
   display: inherit;
 }
 
-.Claim-reward .white-rounded h3 {
+  .Claim-reward .white-rounded h3 {
   font-size: 30px;
 }
-.Claim-reward {
+  .Claim-reward {
   margin: 40px 0;
 }
 
-.rewards-inner {
+  .rewards-inner {
   display: inline-block;
   width: 100%;
   margin-top: 20px;
   /* opacity: 0.5; */
 }
-.sal-not-active {
+  .sal-not-active {
   opacity: 0.5;
 }
 
@@ -860,7 +872,7 @@ text-align: left;
   color: #0056b3;
   text-decoration: underline;
 }
-.rewards-inner a {
+  .rewards-inner a {
   width: auto;
   margin-right: 20px;
   padding: 3px 20px;
@@ -868,16 +880,16 @@ text-align: left;
   display: inline-table;
   border-radius: 20px;
 }
-.rewards-inner p {
+  .rewards-inner p {
   display: inline-table;
   font-family: inherit;
 }
 
-.rewards-inner.active {
+  .rewards-inner.active {
   opacity: 1;
 }
 
-.find-bg {
+  .find-bg {
   width: 100%;
   margin-left: 15px;
   align-items: center;
@@ -889,33 +901,33 @@ text-align: left;
   background-color: #ffffff;
   border-radius: 15px;
 }
-.find-btn {
+  .find-btn {
   position: absolute;
   right: 20px;
   bottom: 10px;
   cursor: pointer;
 }
-.find-bg p {
+  .find-bg p {
   font-family: inherit;
   font-size: 20px;
   margin-bottom: 0;
   padding-left: 20px;
 }
 
-.redeem {
+  .redeem {
   background: #ffffff
     url("https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/gift-box.png")
     no-repeat;
   background-position: 10px center;
 }
-.mycertificate {
+  .mycertificate {
   display: block;
 }
 /*====================================
            👇 Saved Courses PAGE CODE 👇
 =====================================*/
 
-.saveHeart {
+  .saveHeart {
   color: #fff;
   display: block;
   position: absolute;
@@ -930,18 +942,18 @@ text-align: left;
 /*====================================
            👇 sal-message box PAGE CODE 👇
 =====================================*/
-.sal-message .panel-heading .accordion-toggle:after {
+  .sal-message .panel-heading .accordion-toggle:after {
   /* symbol for "opening" panels */
   font-family: "Glyphicons Halflings"; /* essential for enabling glyphicon */
   content: "\e114"; /* adjust as needed, taken from bootstrap.css */
   float: right; /* adjust as needed */
   color: grey; /* adjust as needed */
 }
-.sal-message .panel-heading .accordion-toggle.collapsed:after {
+  .sal-message .panel-heading .accordion-toggle.collapsed:after {
   /* symbol for "collapsed" panels */
   content: "\e080"; /* adjust as needed, taken from bootstrap.css */
 }
-.sal-message .panel-heading {
+  .sal-message .panel-heading {
   display: flex;
   align-items: center;
   border: none;
@@ -953,13 +965,13 @@ text-align: left;
   border-radius: 15px;
   cursor: pointer;
 }
-.sal-message .panel-group .panel {
+  .sal-message .panel-group .panel {
   margin-bottom: 40px;
   border-radius: 10px;
   border: none;
   position: relative;
 }
-.sal-message .accordion-toggle:after {
+  .sal-message .accordion-toggle:after {
   position: absolute;
   right: -3%;
 }
@@ -967,11 +979,11 @@ text-align: left;
   border: none;
   text-align: left;
 }
-.sal-message #accordion {
+  .sal-message #accordion {
   width: 80%;
   margin: 0 auto;
 }
-.sal-message .panel-heading a.btn.btn-primary {
+  .sal-message .panel-heading a.btn.btn-primary {
   margin-right: 20px;
   padding: 0px 10px;
   font-size: 20px;
@@ -979,7 +991,7 @@ text-align: left;
   background: #004463;
   font-family: inherit;
 }
-.sal-message .panel-heading h3 {
+  .sal-message .panel-heading h3 {
   padding: 0;
   margin: 0;
 }
@@ -992,26 +1004,26 @@ text-align: left;
 .wider-container h1 {
   color: #fff;
 }
-#hero {
+  #hero {
   background: #259cc0;
   color: #fff;
   padding: 70px 0px;
   margin-top: 15px;
 }
-#hero h2 {
+  #hero h2 {
   font-weight: 600;
   font-size: 25px;
 }
-#hero h1 {
+  #hero h1 {
   text-transform: uppercase;
   font-size: 70px;
   font-weight: 100;
 }
-#hero p {
+  #hero p {
   font-size: 36px;
   font-weight: 600;
 }
-#hero .cta {
+  #hero .cta {
   text-transform: uppercase;
   font-size: 22px;
   font-weight: 600;
@@ -1022,18 +1034,18 @@ text-align: left;
   margin-top: 16px;
   display: inline-block;
 }
-.cta {
+  .cta {
   background: #b2d489;
   color: #fff;
   padding: 30px 0px;
 }
-#hero img {
+  #hero img {
   position: absolute;
   top: -70px;
   left: 0;
 }
 
-.cta.sticky {
+  .cta.sticky {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -1041,66 +1053,66 @@ text-align: left;
   display: none;
   left: 0;
 }
-.section-title {
+  .section-title {
   text-align: center;
   font-weight: 700;
   margin-bottom: 40px;
   width: 100%;
   font-family: inherit;
 }
-.mt-5 {
+  .mt-5 {
   margin-top: 3rem;
 }
-.student-counting h5 {
+  .student-counting h5 {
   font-family: inherit;
   font-weight: 500;
   line-height: 1.2;
   color: inherit;
   font-size: 20px;
 }
-#landing .icon svg {
+  #landing .icon svg {
   background: #259cc0;
   padding: 20px;
   font-size: 80px;
   border-radius: 100%;
   color: #fff;
 }
-.con-box {
+  .con-box {
   display: flex;
   align-items: center;
 }
-.col-md-6.p-3.career-course.wow.fadeIn h5 {
+  .col-md-6.p-3.career-course.wow.fadeIn h5 {
   font-family: inherit;
   font-size: 20px;
 }
-.white-roundedd {
+  .white-roundedd {
   background-color: #ffffff;
   border-radius: 15px;
 }
-.body-con h5 {
+  .body-con h5 {
   font-family: inherit;
   font-size: 20px;
 }
-.body-con h6 {
+  .body-con h6 {
   font-family: inherit;
   font-size: 16px;
 }
 
-.col-md-6.p-3.career-course.wow.fadeIn h6 {
+  .col-md-6.p-3.career-course.wow.fadeIn h6 {
   font-family: inherit;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.2;
 }
-section#Frequently-ques {
+  section#Frequently-ques {
   padding-bottom: 5%;
   margin-bottom: 5%;
 }
-.students-cont h5 {
+  .students-cont h5 {
   font-size: 20px;
   font-family: inherit;
 }
-.landing-stats {
+  .landing-stats {
   background-image: url("https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/landing-stats-bg-1.png");
   background-size: cover;
   background-position: center center;
@@ -1109,10 +1121,10 @@ section#Frequently-ques {
   padding: 50px;
   background-attachment: fixed;
 }
-.landing-stats svg {
+  .landing-stats svg {
   font-size: 60px;
 }
-.landing-stats .stat {
+  .landing-stats .stat {
   font-weight: bold;
   font-size: 60px;
   margin-top: 10px;
@@ -1120,12 +1132,12 @@ section#Frequently-ques {
   margin-bottom: 0px;
   font-family: inherit;
 }
-.landing-stats .description {
+  .landing-stats .description {
   font-size: 20px;
   color: #fff;
   font-family: inherit;
 }
-.landingCourses .single {
+  .landingCourses .single {
   border: 2px solid #eee;
   border-radius: 15px;
   background: #fff;
@@ -1135,7 +1147,7 @@ section#Frequently-ques {
   margin-bottom: 18px;
   vertical-align: top;
 }
-.landingCourses .single .img {
+  .landingCourses .single .img {
   display: inline-block;
   width: 130px;
   vertical-align: top;
@@ -1146,32 +1158,32 @@ section#Frequently-ques {
   background-position: center center;
   float: left;
 }
-.landingCourses .single .title {
+  .landingCourses .single .title {
   font-size: 16px;
   display: inline-block;
   padding: 10px 10px;
   width: calc(100% - 200px);
   padding-top: 11px;
 }
-.wider-container {
+  .wider-container {
   max-width: 9999px;
   padding: 0px 60px;
 }
-.learn-container {
+  .learn-container {
   margin: 40px 0;
 }
-.faq-box {
+  .faq-box {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.question-asked h5,
+  .question-asked h5,
 .question-asked p {
   font-family: inherit;
 }
 
-.access-box .row {
+  .access-box .row {
   display: flex;
   justify-content: center;
   margin: 20px;
@@ -1180,7 +1192,7 @@ section#Frequently-ques {
 /*=======================
            👇 Recommend friend CODE 👇
 ======================== */
-.link-box {
+  .link-box {
   display: inline-block;
   padding: 35px 0;
   width: 100%;
@@ -1190,12 +1202,12 @@ section#Frequently-ques {
   border-style: dashed;
   border-color: #fff;
 }
-.row.align-items-center {
+  .row.align-items-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.row.align-items-center h1,
+  .row.align-items-center h1,
 .row.align-items-center h2,
 .row.align-items-center p {
   color: #fff;
@@ -1206,7 +1218,7 @@ section#Frequently-ques {
       👇 offer CODE 👇
 ======================== */
 
-a.btn.btn-outline-primary.offer-btn {
+  a.btn.btn-outline-primary.offer-btn {
   /* color: #259cc0 !important;
   background-color: transparent; */
   background-image: none;
@@ -1219,47 +1231,47 @@ a.btn.btn-outline-primary.offer-btn {
   margin: 15px 0;
 }
 
-span.underlined {
+  span.underlined {
   text-decoration: underline;
 }
 
-.rewards-inner {
+  .rewards-inner {
   position: relative;
 }
-.rewards-inner .abs {
+  .rewards-inner .abs {
   position: absolute;
   left: 0;
   top: -20%;
 }
 
-.text-center.offer-text p {
+  .text-center.offer-text p {
   font-family: inherit;
 }
-.container-fluid .offer-box:last-child {
+  .container-fluid .offer-box:last-child {
   margin-bottom: 40px;
 }
 
-.student-card-black {
+  .student-card-black {
   background: url("https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/student-card-bg.jpg")
     no-repeat;
   background-size: cover;
   border-radius: 25px;
   padding: 30px 30px 30px 30px !important;
 }
-img.st-profile.bordered {
+  img.st-profile.bordered {
   border-radius: 100px;
 }
-.st-card-logo.d-flex {
+  .st-card-logo.d-flex {
   display: flex;
   justify-content: space-between;
 }
-.st-card-number {
+  .st-card-number {
   padding: 40px 0 40px 0;
   color: #ffffff;
   font-size: 35px;
   letter-spacing: 2px;
 }
-.st-card-footer {
+  .st-card-footer {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -1269,15 +1281,15 @@ img.st-profile.bordered {
   font-weight: 400;
   display: flex;
 }
-.st-card-footer.d-flex h4 {
+  .st-card-footer.d-flex h4 {
   font-family: inherit;
   color: #fff;
 }
 
-div#myCard {
+  div#myCard {
   margin: 40px 0;
 }
-div#myCard .row {
+  div#myCard .row {
   display: flex;
 }
 
@@ -1285,7 +1297,7 @@ div#myCard .row {
            👇 OWL_SIR SP CODE 👇
 ======================== */
 
-.brand-log {
+  .brand-log {
   width: 150px;
   height: 150px;
   padding: 5px;
@@ -1296,12 +1308,12 @@ div#myCard .row {
   z-index: 2;
   position: relative;
 }
-.wishlist:hover {
+  .wishlist:hover {
   background: #ff1d51;
   color: #ffffff;
 }
 
-.wishlist {
+  .wishlist {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -1314,7 +1326,7 @@ div#myCard .row {
   text-align: center;
   color: #1a1a1a;
 }
-.brand-text {
+  .brand-text {
   padding: 20px 20px;
   margin-top: 20px;
   width: 100%;
@@ -1323,53 +1335,53 @@ div#myCard .row {
   font-weight: 600;
 }
 
-.brand-text a:hover {
+  .brand-text a:hover {
   color: #0056b3;
   text-decoration: underline;
 }
-.cat-box {
+  .cat-box {
   box-shadow: 2px 1px 6px #c8c8c8;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   margin-bottom: 40px;
   position: relative;
 }
-.content-owl-sir {
+  .content-owl-sir {
   background: #ffffff;
 }
 
-button.owl-prev {
+  button.owl-prev {
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
 }
-i.fas.fa-chevron-left {
+  i.fas.fa-chevron-left {
   color: #248cab;
   font-size: 40px;
   opacity: 1;
   width: auto;
 }
-.cat-box img {
+  .cat-box img {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
-button.owl-next {
+  button.owl-next {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
 }
-i.fas.fa-chevron-right {
+  i.fas.fa-chevron-right {
   color: #248cab;
   font-size: 40px;
   opacity: 1;
   width: auto;
 }
-.owl-sir {
+  .owl-sir {
   margin: 40px 0;
 }
-h2.latestDiscount-title {
+  h2.latestDiscount-title {
   text-align: left;
   font-size: 25px;
   margin-bottom: 20px;
@@ -1377,25 +1389,25 @@ h2.latestDiscount-title {
   font-family: inherit;
 }
 
-.img-box-gal .row {
+  .img-box-gal .row {
   margin: 40px 0;
 }
-.img-box-gal img {
+  .img-box-gal img {
   box-shadow: 2px 1px 6px #c8c8c8;
 }
-.img-box-gal img {
+  .img-box-gal img {
   width: 100%;
   height: 193px;
   border-radius: 20px;
 }
 
-.col-12.text-center {
+  .col-12.text-center {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-a.btn.btn-primary.text-uppercase.extra-radius.visit-xo {
+  a.btn.btn-primary.text-uppercase.extra-radius.visit-xo {
   width: 50%;
   padding: 1% 0;
   margin: 2% 0;
@@ -1404,21 +1416,21 @@ a.btn.btn-primary.text-uppercase.extra-radius.visit-xo {
 /*=======================
            👇 Profile CODE 👇
 ======================== */
-ul#myTab {
+  ul#myTab {
   border: none;
 }
-ul#myTab li a {
+  ul#myTab li a {
   border: none;
 }
-ul#myTab li a:hover {
+  ul#myTab li a:hover {
   border: none;
   background-color: transparent;
 }
-ul#myTab li.active,
+  ul#myTab li.active,
 ul#myTab li:hover {
   border-bottom: 3px solid #259cc0;
 }
-ul#myTab li.active:after,
+  ul#myTab li.active:after,
 ul#myTab li:hover:after {
   content: "";
   width: 0px;
@@ -1430,29 +1442,29 @@ ul#myTab li:hover:after {
   bottom: -1px;
   left: calc(50% - 6px);
 }
-#PD {
+  #PD {
   background: white;
   margin: 40px;
   padding: 30px;
   border-radius: 15px;
 }
-#PD label.form-check-label {
+  #PD label.form-check-label {
   display: flex;
 }
 
-input.form-check-input {
+  input.form-check-input {
   margin-right: 10px;
 }
-.myDetail button.btn.btn-primary,
+  .myDetail button.btn.btn-primary,
 .change button.btn.btn-primary,
-.preferences button.btn.btn-primary {
+  .preferences button.btn.btn-primary {
   background-color: #248cab;
   border-color: #248cab;
   width: 100%;
   max-width: 160px;
 }
 
-.exisiting-img {
+  .exisiting-img {
   display: inline-table;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -1462,7 +1474,7 @@ input.form-check-input {
   position: relative;
 }
 
-.custom-file-label::after {
+  .custom-file-label::after {
   content: "\f093" !important;
   font-weight: 900;
   font-family: "Font Awesome 5 Pro";
@@ -1476,7 +1488,7 @@ input.form-check-input {
   padding: 11px;
   position: absolute;
 }
-label.custom-file-label {
+  label.custom-file-label {
   color: #495057;
   background-color: #fff;
   border: 1px solid #ced4da;
@@ -1485,19 +1497,19 @@ label.custom-file-label {
   width: 50%;
   position: relative;
 }
-input#customFile {
+  input#customFile {
   opacity: 0;
   position: relative;
 }
 
-.change .form-group {
+  .change .form-group {
   margin: 20px 0;
 }
 /* swtich */
-.preferences .nsa-switch input:checked + .slider {
+  .preferences .nsa-switch input:checked + .slider {
   background-color: #b2d489;
 }
-.preferences .nsa-switch .slider:before {
+  .preferences .nsa-switch .slider:before {
   position: absolute;
   content: "";
   height: 26px;
@@ -1508,19 +1520,19 @@ input#customFile {
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-.preferences .form-group.col-md-12 {
+  .preferences .form-group.col-md-12 {
   display: flex;
   align-items: center;
 }
-.preferences .nsa-switch input:checked + .slider:before {
+  .preferences .nsa-switch input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
-.preferences .nsa-switch .slider.round:before {
+  .preferences .nsa-switch .slider.round:before {
   border-radius: 50%;
 }
-.preferences .nsa-switch .slider {
+  .preferences .nsa-switch .slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -1531,7 +1543,7 @@ input#customFile {
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-.preferences .nsa-switch .slider {
+  .preferences .nsa-switch .slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -1542,33 +1554,33 @@ input#customFile {
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-.preferences .nsa-switch {
+  .preferences .nsa-switch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
 }
-.preferences .nsa-switch .slider.round {
+  .preferences .nsa-switch .slider.round {
   border-radius: 34px;
 }
-.preferences input[type="checkbox"],
+  .preferences input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
   padding: 0;
 }
-.preferences .nsa-switch input {
+  .preferences .nsa-switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-ul#myTab li.help.active div#PD {
+  ul#myTab li.help.active div#PD {
   background: transparent !important;
 }
-.col-12.col-md-4.white-rounded {
+  .col-12.col-md-4.white-rounded {
   align-items: flex-start;
 }
-.col-12.col-md-4.white-rounded .download-o p {
+  .col-12.col-md-4.white-rounded .download-o p {
   font-family: inherit !important;
   font-size: 18px;
   font-weight: 300 !important;
@@ -1577,52 +1589,52 @@ ul#myTab li.help.active div#PD {
 }
 
 /* accordian box */
-.faqq .panel-heading .accordion-toggle:after {
+  .faqq .panel-heading .accordion-toggle:after {
   /* symbol for "opening" panels */
   font-family: "Glyphicons Halflings"; /* essential for enabling glyphicon */
   content: "\e114"; /* adjust as needed, taken from bootstrap.css */
   float: right; /* adjust as needed */
   color: grey; /* adjust as needed */
 }
-.faqq .panel-heading .accordion-toggle.collapsed:after {
+  .faqq .panel-heading .accordion-toggle.collapsed:after {
   /* symbol for "collapsed" panels */
   content: "\e080"; /* adjust as needed, taken from bootstrap.css */
 }
-.faqq .panel-heading {
+  .faqq .panel-heading {
   padding: 22px;
 }
 /*===============================
               🎆 MEDIA TAB QUERY 🎆
 ================================ */
 @media (min-width: 767px) and (max-width: 1024px) {
-  .circle-box-percentage {
+    .circle-box-percentage {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
   }
-  .row.award-section .col-md-4 {
+    .row.award-section .col-md-4 {
     margin: 40px 0;
   }
-  .btn-expand-collapse {
+    .btn-expand-collapse {
     top: 7%;
   }
-  .col-12.col-md-4.no-padding {
+    .col-12.col-md-4.no-padding {
     padding: 0;
     margin: 15px 0;
   }
-  .find-bg {
+    .find-bg {
     margin-left: 0px;
   }
-  #hero img {
+    #hero img {
     position: inherit;
     top: inherit;
     left: inherit;
     margin-top: 20px;
   }
-  .landingCourses .single {
+    .landingCourses .single {
     width: 100%;
   }
-  #hero .cta {
+    #hero .cta {
     text-transform: uppercase;
     font-size: 15px;
     font-weight: 600;
@@ -1633,28 +1645,28 @@ ul#myTab li.help.active div#PD {
     margin-top: 16px;
     margin-bottom: 16px;
   }
-  .col-12.col-md-2.text-center img {
+    .col-12.col-md-2.text-center img {
     width: inherit;
   }
-  .brand-log {
+    .brand-log {
     width: 50px;
     height: 50px;
     margin-top: -20px;
   }
-  .wishlist {
+    .wishlist {
     height: 30px;
     width: 30px;
     line-height: 36px;
   }
-  .img-box-gal img {
+    .img-box-gal img {
     height: 100px;
     border-radius: 20px;
     margin: 2%;
   }
-  .col-6.col-md-2.col-lg-2.mb-3.col-sm-3 {
+    .col-6.col-md-2.col-lg-2.mb-3.col-sm-3 {
     margin: 10px 0;
   }
-  a.btn.btn-primary.text-uppercase.extra-radius.visit-xo {
+    a.btn.btn-primary.text-uppercase.extra-radius.visit-xo {
     width: 100%;
     padding: 3% 0;
     margin: 3% 0;
@@ -1667,46 +1679,46 @@ ul#myTab li.help.active div#PD {
               🎆 MEDIA MOBILE QUERY 🎆
 ================================ */
 @media (min-width: 320px) and (max-width: 767px) {
-  .circle-box-percentage {
+    .circle-box-percentage {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
-  .row.award-section .col-md-4 {
+    .row.award-section .col-md-4 {
     margin: 40px 0;
   }
-  .leaderBoard .useFlex {
+    .leaderBoard .useFlex {
     flex: 0 0 100%;
     max-width: 100%;
     margin-right: 0%;
   }
-  .leaderBoard {
+    .leaderBoard {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
   }
-  .leaderBoard .notification {
+    .leaderBoard .notification {
     padding: 35px 15px 15px 25px;
     margin-bottom: 25px;
   }
-  .btn-expand-collapse {
+    .btn-expand-collapse {
     top: 7%;
   }
-  .col-12.col-md-4.no-padding {
+    .col-12.col-md-4.no-padding {
     padding: 0;
     margin: 15px 0;
   }
-  .find-bg {
+    .find-bg {
     margin-left: 0px;
   }
-  .panel-heading {
+    .panel-heading {
     flex-direction: column;
   }
-  #accordion {
+    #accordion {
     width: 90%;
   }
-  #hero img {
+    #hero img {
     position: inherit;
     top: inherit;
     left: inherit;
@@ -1714,149 +1726,149 @@ ul#myTab li.help.active div#PD {
     display: block;
     margin-top: 31%;
   }
-  .landingCourses .single {
+    .landingCourses .single {
     width: 100%;
   }
-  #hero h1 {
+    #hero h1 {
     font-size: 20px;
   }
-  #hero .cta {
+    #hero .cta {
     font-size: 10px;
     padding: 10px;
   }
-  .access-box .row {
+    .access-box .row {
     display: flex;
     justify-content: center;
     margin: 0;
     flex-direction: column;
   }
-  .con-box {
+    .con-box {
     display: flex;
     align-items: center;
     flex-direction: column;
   }
-  .landing-stats {
+    .landing-stats {
     padding: 20px;
   }
-  .wider-container {
+    .wider-container {
     padding: 20px;
   }
-  .landing-stats .stat {
+    .landing-stats .stat {
     font-size: 20px;
   }
-  .landingCourses .single .img {
+    .landingCourses .single .img {
     width: 100%;
   }
-  .landingCourses .single .title {
+    .landingCourses .single .title {
     width: 100%;
   }
-  h2.section-title.wow.fadeIn {
+    h2.section-title.wow.fadeIn {
     font-size: 18px;
   }
-  #landing {
+    #landing {
     padding: 0 20px;
   }
-  #hero .cta {
+    #hero .cta {
     display: block;
   }
-  .row.align-items-center {
+    .row.align-items-center {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
-  h1.text-uppercase {
+    h1.text-uppercase {
     font-size: 16px;
   }
-  .col-12.col-md-5.text-center.recommend-text {
+    .col-12.col-md-5.text-center.recommend-text {
     width: 100%;
   }
-  .col-6.col-md-2.col-lg-2.mb-3.col-sm-3 {
+    .col-6.col-md-2.col-lg-2.mb-3.col-sm-3 {
     margin: 10px 0;
   }
-  .img-box-gal img {
+    .img-box-gal img {
     width: 80%;
     height: 100px;
     border-radius: 20px;
     margin: 2%;
   }
-  .img-box-gal .row {
+    .img-box-gal .row {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
-  .brand-log {
+    .brand-log {
     width: 50px;
     height: 50px;
     margin-top: -20px;
   }
 
-  .wishlist {
+    .wishlist {
     height: 30px;
     width: 30px;
     line-height: 33px;
     font-size: 12px;
   }
-  a.btn.btn-primary.text-uppercase.extra-radius.visit-xo {
+    a.btn.btn-primary.text-uppercase.extra-radius.visit-xo {
     width: 100%;
     padding: 3% 0;
     margin: 3% 0;
     border-radius: 25px;
     font-size: 12px;
   }
-  #PD {
+    #PD {
     background: white;
     margin: 10px;
     padding: 10px;
     border-radius: 15px;
   }
-  label.custom-file-label {
+    label.custom-file-label {
     width: 100%;
   }
-  .Profile {
+    .Profile {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .leaderBoard table.table tbody tr th {
+    .leaderBoard table.table tbody tr th {
     font-size: 1rem
   }
-  .certificate-list table {
+    .certificate-list table {
     display: block;
   }
-   .certificate-list tbody {
+     .certificate-list tbody {
     display: block;
   }
 
- .certificate-list table thead {
+   .certificate-list table thead {
     display: none;
   }
 
-  .certificate-list table tr {
+    .certificate-list table tr {
     margin: 10px 0;
     display: block;
     border-bottom: 2px solid #ddd;
   }
 
-  .certificate-list table td {
+    .certificate-list table td {
     display: block;
     text-align: right;
     font-size: 13px;
     text-align: end;
   }
 
-  .certificate-list table td:last-child {
+    .certificate-list table td:last-child {
     border-bottom: 0;
   }
 
-  .certificate-list table td::before {
+    .certificate-list table td::before {
     content: attr(data-label);
     float: left;
     text-transform: uppercase;
     font-weight: bold;
   }
-  .rewards-inner {
+    .rewards-inner {
 
     text-align: center;
 }
@@ -1985,7 +1997,7 @@ img.not-earned {
     display: block !important;
     max-width: 150px !important;
   }
-  .collapsed + .main-content {
+    .collapsed + .main-content {
 margin-left: 0px;
   }
 }
@@ -1996,11 +2008,16 @@ margin-left: 0px;
   background-color: #F0E400;
   color: #000;
   border-radius: 25px;
+  text-decoration: none;
 }
+.sa-custom-course-button .button:hover {
+  background-color: #fff;
 
+}
 /* dashboard  page */
 .allcourse {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 20px;
 }

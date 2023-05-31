@@ -33,6 +33,7 @@
                                     <th scope="col">Course</th>
                                     <!-- <th scope="col">Certificate </th> -->
                                     <th scope="col">View/Buy </th>
+                                    <th>Buy </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,6 +42,7 @@
                                     $course_url = site_url() . '/courses/' . $certificate->slug;
                                     $certificate_url = $certificate->certificate_url;
                                     $transcript_url = $certificate->transcript_url;
+                                    var_dump($certificate->lms_certificate_url);
                                 ?>
                                 <tr>
 
@@ -48,26 +50,47 @@
                                         <a href="<?php echo $course_url ?>">
 
                                             <?php echo $certificate->title ?>
+                                            <!-- badge if course certificate purchased -->
+                                            <?php if ($certificate->is_course_purchased) { ?>
+                                            <span class="badge badge-success">Purchased</span>
+                                            <?php } ?>
+
 
 
                                         </a>
                                     </td>
-                                    <?php if ($certificate->is_course_purchased) { ?>
                                     <td data-label="Certificate">
-                                        <a class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+
+                                        <?php if ($certificate->certificate_url) { ?>
+                                        <a class="btn btn-primary" data-toggle="modal" data-target="#certificateModal"
                                             data-whatever="@mdo">
                                             <i class="far fa-file-pdf" style="margin-right:7px;"></i>
                                             View Certificate</a>
+                                        <?php
+                                                include plugin_dir_path(__FILE__) . '../template-parts/certificate/singleCertificateForAdmin.php';
+                                            } else { ?>
+                                        <a class="btn btn-primary" target="_blank"
+                                            href="<?php echo site_url() . '/certificate' ?>">
+                                            <i class="far fa-file-pdf" style="margin-right:7px;"></i>
+                                            Buy Certificate </a>
+                                        <?php } ?>
+                                        <?php if ($certificate->transcript_url) { ?>
                                         <a class="btn btn-primary" data-toggle="modal" data-target="#transcriptModal"
                                             data-whatever="@mdo">
                                             <i class="far fa-file-pdf" style="margin-right:7px;"></i>
                                             View Transcript</a>
+                                        <?php
+                                                include plugin_dir_path(__FILE__) . '../template-parts/transcript/singleTranscriptForAdmin.php';
+                                            } else { ?>
+                                        <a class="btn btn-primary" target="_blank"
+                                            href="<?php echo site_url() . '/certificate' ?>">
+                                            <i class="far fa-file-pdf" style="margin-right:7px;"></i>
+                                            Buy Transcript </a>
+                                        <?php } ?>
+
+
 
                                     </td>
-                                    <?php
-                                            include plugin_dir_path(__FILE__) . '../template-parts/certificate/singleCertificateForAdmin.php';
-                                            include plugin_dir_path(__FILE__) . '../template-parts/transcript/singleTranscriptForAdmin.php';
-                                        } else { ?>
                                     <td data-label="PDF">
                                         <a class="btn btn-primary" target="_blank"
                                             href="<?php echo site_url() . '/certificate' ?>">
@@ -75,11 +98,9 @@
                                             Buy
                                         </a>
                                     </td>
-                                    <?php } ?>
-
-
                                 </tr>
-
+                                <?
+                                    ?>
                                 <?php } ?>
                             </tbody>
                         </table>

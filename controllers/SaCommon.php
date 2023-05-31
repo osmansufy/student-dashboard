@@ -69,6 +69,16 @@ class SaCommon
             'slug' => 'learners-recommend-friends',
             'template' => 'learners-recommend-friends',
         ],
+        [
+            'title' => 'User Certificates for Admin',
+            'slug' => 'user-certificates-for-admin',
+            'template' => 'user-certificates-for-admin',
+        ],
+        [
+            "title" => " QLS Endorsed Certificate",
+            "slug" => "qls-endorsed-certificate",
+            "template" => "qls-endorsed-certificate",
+        ]
     ];
 
     public $achievements = [

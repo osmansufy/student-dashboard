@@ -65,9 +65,11 @@
             </div>
             <div class="col-md-4">
                 <div class="white-rounded dash-details">
-                    <div class="Reward-number">
-                        <span><img src="<?php echo plugin_dir_url(dirname(__FILE__)) . '../assets/images/award.png' ?>"
-                                alt="award" /> <?php echo $total_rewards ?></span>
+                    <div class="Reward-number" style="display: flex;
+    align-items: center;">
+                        <span style=" margin-right: 10px; "> <?php echo $total_rewards ?></span>
+                        <img src="<?php echo plugin_dir_url(dirname(__FILE__)) . '../assets/images/award.png' ?>"
+                            alt="award" />
                     </div>
                     <div class="number-text">
                         <p>Reward Points</p>
@@ -76,11 +78,17 @@
             </div>
             <div class="col-md-4">
                 <div class="white-rounded dash-details">
-                    <div class="banner-number">
-                        <a href="<?php echo $certificate_image_link ?>">
-                            <img src="<?php echo $certificate_image ?>" alt="cpd">
+                    <div class="banner-number" style="display: flex;
+    align-items: center;">
+                        <span style=" margin-right: 10px; ">
+                            <?php
+                            echo is_array($userCourses['inprogress_courses']) ? count($userCourses['inprogress_courses']) : 0; ?></span>
 
-                        </a>
+                        <i style="font-size: 30px;" class="fas fa-chalkboard-teacher"></i>
+
+                    </div>
+                    <div class="number-text">
+                        <p>Courses in progress</p>
                     </div>
                 </div>
             </div>
