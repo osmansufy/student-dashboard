@@ -29,16 +29,17 @@
             "icon" => "fas fa-trophy",
 
         ),
-        "Saved Courses" => array(
-            "id" => "saved-courses",
-            'title' => 'Saved Courses',
-            "icon" => "fas fa-heart",
 
-        ),
         "Unlimited Learning" => array(
             "id" => "unlimited-learning",
             'title' => 'Unlimited Learning',
             "icon" => "fas fa-chalkboard-teacher",
+
+        ),
+        "QLS Endorsed Certificate" => array(
+            "id" => "qls-endorsed-certificate",
+            'title' => 'QLS Endorsed Certificate',
+            "icon" => "fas fa-certificate",
 
         ),
         "Messages" => array(

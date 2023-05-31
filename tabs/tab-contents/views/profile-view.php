@@ -1,3 +1,8 @@
+<?php
+$page_title = 'Profile Details';
+include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
+?>
+
 <div class="container-fluid">
     <nav class="d-flex justify-content-center align-items-center w-100 mt-4 bg-dark">
         <div class="nav nav-tabs" id="nav-tab" role="tablist">

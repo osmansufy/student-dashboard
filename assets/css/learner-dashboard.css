@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;700&family=Caveat+Brush&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600;700;800&display=swap');
 
 h1,
 h2,
@@ -6,9 +6,8 @@ h3,
 h4,
 h5,
 h6,
-p {
-  font-family: "Caveat Brush", cursive ;
-  color: #1a1a1a;
+p,a {
+  font-family: "Poppins", sans-serif ;
 }
 /* root variable */
 
@@ -468,7 +467,7 @@ html {
   align-items: center;
   justify-content: center;
 }
-.sidebar-menu-farhan
+
   .category-box
   .popular-box-overlay
   .button-box
@@ -477,7 +476,7 @@ html {
   border-color: #ffffff;
   background-color: #ffffff;
 }
-.sidebar-menu-farhan
+
   .category-box
   .popular-box-overlay
   .button-box
@@ -491,7 +490,7 @@ html {
   border-radius: 30px;
   margin: 0 5px 5px;
 }
-.sidebar-menu-farhan
+
   .category-box
   .popular-box-overlay
   .popular-overlay-btn-btm
@@ -551,7 +550,7 @@ html {
   background-color: transparent;
   font-size: 16px;
 }
-.sidebar-menu-farhan
+
   .leaderBoard
   .leaderboard
   .dropdown-menu.dropdown-menu-right
@@ -610,6 +609,7 @@ html {
   .search-field {
   margin: 40px 0;
 }
+
 
   .progress-box {
   width: 100%;
@@ -670,9 +670,8 @@ html {
   width: auto;
 }
 
-.sidebar-menu-farhan
-  .progress-box
-  a.btn.btn-outline-primary.btn-lg.extra-radius {
+
+.progress-box a.btn.btn-outline-primary.btn-lg.extra-radius {
   color: #313b3d;
   background-color: #F0E400;
   background-image: none;
@@ -682,12 +681,11 @@ html {
   max-width: 200px;
   border-width: 2px;
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1rem;
   line-height: 1.5;
-  padding: 0.75rem;
 }
 
-/* .sidebar-menu-farhan
+/*
   .progress-box
   a.btn.btn-outline-primary.btn-lg.extra-radius:hover {
   background-color: #ffffff;
@@ -1685,9 +1683,7 @@ input[type="radio"] {
     align-items: center;
     flex-direction: column;
   }
-    .row.award-section .col-md-4 {
-    margin: 40px 0;
-  }
+
     .leaderBoard .useFlex {
     flex: 0 0 100%;
     max-width: 100%;
@@ -2003,7 +1999,9 @@ margin-left: 0px;
 }
 
 /* course card my courses */
-
+.sa-custom-course-button form {
+  margin: 0;
+}
 .sa-custom-course-button .button {
   background-color: #F0E400;
   color: #000;

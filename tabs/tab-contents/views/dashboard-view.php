@@ -1,26 +1,46 @@
+<?php
+    $page_title = 'Dashboard';
+    include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
+    ?>
 <div class="container-fluid">
+
+    <!-- container-fluid-start  -->
     <?php
+
+
     include plugin_dir_path(__FILE__) . '../../template-parts/page-hero.php';
     ?>
-    <div class="circle-box-percentage">
-        <div class="allcourse">
+
+
+    <div class="circle-box-percentage my-sm-5">
+
+        <div class="allcourse mb-5">
             <h2>Enrolled Courses</h2>
-            <div class="circular-progress" data-percent="<?php echo $enrolled_courses_count ?>">
+            <div class="circular-progress" data-percent="<?php
+                                                            echo is_array($userCourses['enrolled_courses']) ?
+                                                                count($userCourses['enrolled_courses']) :
+                                                                0; ?>">
                 <div class="value-container">0%</div>
             </div>
 
         </div>
-        <div class="allcourse">
+        <div class="allcourse mb-5">
             <h2>Course Completed</h2>
             <div class="circular-progress" data-percent="<?php
-                                                            echo $complete_courses_count ?>">
+                                                            echo is_array($userCourses['complete_courses']) ?
+                                                                count($userCourses['complete_courses']) :
+                                                                0; ?>">
                 <div class="value-container">0%</div>
             </div>
 
         </div>
-        <div class="allcourse">
+        <div class="allcourse mb-5">
             <h2>Course Certificate</h2>
-            <div class="circular-progress" data-percent="<?php echo $certificate_count ?>">
+            <div class="circular-progress" data-percent="<?php
+                                                            echo is_array($certificate_list) ?
+                                                                count($certificate_list) :
+                                                                0;
+                                                            ?>">
                 <div class="value-container">0%</div>
             </div>
 
@@ -28,8 +48,8 @@
     </div><!-- percentage circle end-->
     <!-- Award days banner section -->
     <div class="row award-section">
-        <div class="col-md-4 ">
-            <div class="white-rounded dash-details">
+        <div class="col-md-4 mb-3">
+            <div class="white-rounded dash-details ">
                 <div class="count-number">
                     <span><?php echo $login_day_count ?> <sup><i class="fas fa-arrow-up"></i></sup></span>
                 </div>
@@ -38,25 +58,37 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mb-3">
             <div class="white-rounded dash-details">
-                <div class="Reward-number">
-                    <span><img src="<?php echo
-                                    plugins_url('sa-learners-dashboard/assets/images/award.png')
-                                    ?>" alt="award" /> <?php echo $total_rewards ?></span>
+                <div class="Reward-number" style="display: flex;
+    align-items: center;">
+                    <span style=" margin-right: 10px; ">
+                        <?php echo $total_rewards ?></span>
+                    <img src="<?php
+                                echo
+                                plugin_dir_url(dirname(__FILE__)) .
+                                    '../../assets/images/award.png' ?>" alt="award" />
                 </div>
                 <div class="number-text">
                     <p>Reward Points</p>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mb-3">
             <div class="white-rounded dash-details">
-                <div class="banner-number">
-                    <a href="<?php echo $certificate_image_link ?>">
-                        <img src="<?php echo $certificate_image ?>" alt="cpd">
+                <div class="banner-number" style="display: flex;
+    align-items: center;">
+                    <span style=" margin-right: 10px; ">
+                        <?php
+                        echo is_array($userCourses['inprogress_courses']) ?
+                            count($userCourses['inprogress_courses']) :
+                            0; ?></span>
 
-                    </a>
+                    <i style="font-size: 30px;" class="fas fa-chalkboard-teacher"></i>
+
+                </div>
+                <div class="number-text">
+                    <p>Courses in progress</p>
                 </div>
             </div>
         </div>
@@ -80,8 +112,10 @@
             ?>
 
             <div class="col-12 col-md-6 col-lg-3 col-sm-6">
-                <?php include plugin_dir_path(__FILE__) . '../../template-parts/course-card.php'; ?>
                 <!-- col-start  -->
+                <?php include
+                        plugin_dir_path(__FILE__) .
+                        '../../template-parts/course-card.php'; ?>
             </div><!-- col-end  -->
             <?php
             }
@@ -89,8 +123,10 @@
         </div><!-- row--end  -->
     </div>
     <?php
-
-$leader_board_id = 'monthly_leaderBoard1';
-    include plugin_dir_path(__FILE__) . '../../template-parts/dashboard/leader-board.php';
+    $leader_board_id = 'monthly_leaderBoard1';
+    include plugin_dir_path(__FILE__) .
+        '../../template-parts/dashboard/leader-board.php';
     ?>
-</div>
+    <!--leader-Board  end-->
+
+</div><!-- container-fluid-end  -->

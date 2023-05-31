@@ -1,3 +1,8 @@
+<?php
+$page_title = 'Messages';
+include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
+?>
+
 <div class="container-fluid h-100">
     <!-- container-fluid-start  -->
     <?php include plugin_dir_path(__FILE__) . '../../template-parts/page-hero.php'; ?>

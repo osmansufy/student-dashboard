@@ -1,25 +1,66 @@
 <?php
+$page_title = 'Help & Support';
+include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
+?>
 
-$slug = 'learners-support'; // Replace with your actual page slug
+<section class="content-main-body text-left">
+    <ul class="nav nav-tabs" role="tablist" id="myTab">
+        <li class="active"><a href="#submitATicket" role="tab" data-toggle="tab">Submit a Ticket</a></li>
+        <li><a href="#Coursefeedback" role="tab" data-toggle="tab">Course feedback</a></li>
+        <li class="help"><a href="#HelpVideos" role="tab" data-toggle="tab">Help Videos</a></li>
+        <li><a href="#FAQ" role="tab" data-toggle="tab">FAQ's</a></li>
+    </ul>
+    <div class="container-fluid " id="PD">
+        <!-- container-fluid-start  -->
+        <div class="profile white-board">
+            <div class="tab-content">
+                <div class="tab-pane active " id="submitATicket">
+                    <h1>Create a Ticket</h1>
+                    <div class="myDetail">
+                        <?php
+                        // gravity_form(33, false, false, false, '', false);
 
-// Retrieve the page object using the slug
-$page = get_page_by_path($slug);
+                        ?>
+                        <a href="<?php
+                                    echo $sal_submit_ticket_page_url
+                                    ?>">
+                            Submit a Ticket
+                        </a>
 
-// Check if the page object exists
-if ($page) {
-    // Get the Elementor data for the page
-    $elementor_data = get_post_meta($page->ID, '_elementor_data', true);
+                    </div>
+                </div>
+                <div class="tab-pane " id="Coursefeedback">
+                    <h1>Submit your feedback</h1>
+                    <div class="myDetail">
+                        <?php
+                        // gravity_form(35, false, false, false, '', false);
+                        ?>
+                        <a href="<?php
+                                    echo $sal_course_feedback_page_url
+                                    ?>">
+                            Feedback Form
+                        </a>
 
-    // Check if Elementor data is available
-    if ($elementor_data) {
-        // Display the Elementor content with its classes
-        echo '<div class="elementor-wrapper">';
-        echo \Elementor\Plugin::$instance->frontend->get_builder_content($page->ID);
-        echo '</div>';
-    } else {
-        // Display the default page content
-        echo apply_filters('the_content', $page->post_content);
-    }
-} else {
-    echo 'Page not found.';
-}
+                    </div>
+                </div>
+                <div class="tab-pane" id="HelpVideos">
+                    <a href="<?php
+                                echo esc_url($sal_help_n_support_page_url)
+                                ?>">
+                        Help & Support
+                    </a>
+
+                </div>
+                <div class="tab-pane" id="FAQ">
+                    <a href="<?php
+                                echo $sal_faq_page_url
+                                ?>">
+                        Faq Sections
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
+    </div><!-- container-fluid-end  -->
+</section>

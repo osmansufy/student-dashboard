@@ -23,7 +23,7 @@ sa-learners-dashboard-sidebar">
         ?>
         <a class="sa-sidebar-btn-expand" id="sa-sidebar-btn-expand" type="button">
 
-            <i class="fas fa-chevron-left"></i>
+            <i class="fas fa-angle-double-left fa-lg"></i>
 
 
         </a>

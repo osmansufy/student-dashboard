@@ -1,6 +1,6 @@
 <?php
 
-$slug = 'unlimited-learning'; // Replace with your actual page slug
+$slug = 'qls-endorsed-certificate'; // Replace with your actual page slug
 
 // Retrieve the page object using the slug
 $page = get_page_by_path($slug);
@@ -17,6 +17,8 @@ if ($page) {
     echo '<h1 class="text-center">' . $page->post_title . '</h1>';
     echo '</div>';
     echo '</div>';
+
+
     // Check if Elementor data is available
     if ($elementor_data) {
         // Display the Elementor content with its classes
