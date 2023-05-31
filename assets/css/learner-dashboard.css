@@ -17,7 +17,9 @@ p,a {
   --sad-secondary-color: #7BA631;
   --sad-button-color: #F0E400;
 }
-
+p{
+  color: var(--sad-primary-color);
+}
 
 img{
     max-width: 100%;
