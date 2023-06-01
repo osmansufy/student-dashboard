@@ -816,6 +816,7 @@ text-align: left;
   background-size: contain;
   margin-bottom: 20px;
   list-style: none;
+  font-size: 13px;
 }
 .col-12.regular-full.white-rounded.achievements ul li a:hover {
   color: #1a1a1a;

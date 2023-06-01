@@ -14,7 +14,7 @@ $user_id = get_current_user_id();
         foreach ($navItems as $key => $value) {
             $active = $key == 'Dashboard' ? 'active' : '';
         ?>
-            <div class="tab-pane  <?php echo $active; ?> " ] id="v-pills-<?php echo $value['id'] ?>" role="tabpanel" aria-labelledby="v-pills-<?php echo $value['id'] ?>-tab">
+            <div class="tab-pane  <?php echo $active; ?> " id="v-pills-<?php echo $value['id'] ?>" role="tabpanel" aria-labelledby="v-pills-<?php echo $value['id'] ?>-tab">
                 <?php
                 $file = $value['id'] . '.php';
                 include_once(plugin_dir_path(__FILE__) . $file);

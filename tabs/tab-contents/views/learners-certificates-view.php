@@ -1,5 +1,5 @@
 <?php
-$page_title = 'My Courses';
+$page_title = 'My Certificates';
 include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
 ?>
 <div class="container-fluid">

@@ -65,15 +65,9 @@ class Learners {
     this.onChangeLeaderBoardReward("monthly_leaderBoard2");
     // bootstrap tab active with external link
     $(function () {
-      var hash = window.location.hash;
-      hash && $('a[href="' + hash + '"]').tab("show");
-
-      $(".nav-tabs a").click(function (e) {
-        $(this).tab("show");
-        var scrollmem = $("body").scrollTop() || $("html").scrollTop();
-        window.location.hash = this.hash;
-        $("html,body").scrollTop(scrollmem);
-      });
+      const hash = window.location.hash;
+      hash && $('#v-pills-tab a[href="' + hash + '"]').tab("show");
+      hash && $('#top-nav-bar a[href="' + hash + '"]').tab("show");
     });
   }
 
@@ -214,10 +208,9 @@ class Learners {
     });
   }
   onClaimReward(e) {
-    // $userId = $(e.target).data("userid");
+    e.preventDefault();
     let reward_used = e.target.dataset.reward;
     let coupon_id = e.target.dataset.couponid;
-
     let userId = e.target.dataset.userid;
     let user_email = e.target.dataset.user_email;
     let nonce = e.target.dataset.nonce;
@@ -239,11 +232,13 @@ class Learners {
         $(`.sal_coupon_${coupon_id}`).html(
           '<i class="fas fa-spinner fa-pulse" style="color: red; font-size: 40px;"></i>'
         );
+
+        // others btm disable
+        $(`.sal-claim-reward`).css("pointer-events", "none");
       },
       success: (data) => {
-        console.log(data);
         if (data.success) {
-          console.log(data.data.message);
+          $(`.sal-claim-reward`).css("pointer-events", "auto");
           let content = `<div>
     <span>Coupon Code:${data.data.coupon_code}</span>
     </div>`;
@@ -252,6 +247,8 @@ class Learners {
           console.log(data.message);
         }
         // reload page for update the reward point and coupon
+
+        location.hash = "#v-pills-my-rewards";
         location.reload();
       },
     });

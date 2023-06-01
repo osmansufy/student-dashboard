@@ -65,9 +65,9 @@ class SaCommon
 
         ],
         [
-            'title' => 'Learners Recommend Friends',
-            'slug' => 'learners-recommend-friends',
-            'template' => 'learners-recommend-friends',
+            'title' => 'Refer & Earn Cash',
+            'slug' => 'refer-earn-cash',
+            'template' => 'refer-earn-cash',
         ],
         [
             'title' => 'User Certificates for Admin',
