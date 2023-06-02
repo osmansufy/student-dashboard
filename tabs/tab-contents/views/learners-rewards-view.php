@@ -40,9 +40,9 @@ include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
     color:#fff;
     " class=" sal-reward-select" name="sa_user_reward">
                         <?php foreach ($rewards_date_types as $rewards_date_type) { ?>
-                            <option value="<?php echo $rewards_date_type['value'] ?>">
-                                <?php echo $rewards_date_type['label'] ?>
-                            </option>
+                        <option value="<?php echo $rewards_date_type['value'] ?>">
+                            <?php echo $rewards_date_type['label'] ?>
+                        </option>
                         <?php
                         }
                         ?>
@@ -64,7 +64,7 @@ include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
                     for ($i = 0; $i < $total_reward; $i++) {
                         $image_src = plugin_dir_url(dirname(__FILE__)) . '../../assets/images/award.png';
                     ?>
-                        <img src="<?php echo $image_src ?>" style="margin:0 5px ;" alt="trophy">
+                    <img src="<?php echo $image_src ?>" style="margin:0 5px ;" alt="trophy">
                     <?php
 
                     }
@@ -94,15 +94,22 @@ include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
                             $user_id,
                             $signedInReward->achievement_id
                         )[0];
-
+                        $achievement_icon = plugin_dir_url(dirname(__FILE__)) . '../../assets/images/trophy-icon.svg';
                     ?>
-                        <li <?php
+                    <li <?php
                             if ($isActive) {
                                 echo 'style="opacity: 0.5;"';
                             }
                             ?>>
-                            <?php echo $signedInReward->achievement_name ?>
-                        </li>
+                        <div class="d-flex align-items-center ">
+                            <img class="" style="width:2rem;" src="<?php echo $achievement_icon ?>" alt="trophy">
+                            <p class="m-0">
+                                <?php echo $signedInReward->achievement_name ?>
+                            </p>
+                        </div>
+
+
+                    </li>
                     <?php
 
                     }
@@ -118,13 +125,20 @@ include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
                         $isActive = SaRewards::get_rewards_from_acchivement_id($user_id, $reward->achievement_id)[0];
 
                     ?>
-                        <li <?php
+                    <li <?php
                             if ($isActive) {
                                 echo 'style="opacity: 0.5;"';
                             }
                             ?>>
-                            <?php echo $reward->achievement_name ?>
-                        </li>
+                        <div class="d-flex align-items-center ">
+                            <img class="" style="width:2rem;" src="<?php echo $achievement_icon ?>" alt="trophy">
+                            <p class="m-0">
+                                <?php echo $signedInReward->achievement_name ?>
+                            </p>
+                        </div>
+
+
+                    </li>
                     <?php
 
                     }
@@ -141,13 +155,20 @@ include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
                         $isActive = SaRewards::get_rewards_from_acchivement_id($user_id, $reward->achievement_id)[0];
 
                     ?>
-                        <li <?php
+                    <li <?php
                             if ($isActive) {
                                 echo 'style="opacity: 0.5;"';
                             }
                             ?>>
-                            <?php echo $reward->achievement_name ?>
-                        </li>
+                        <div class="d-flex align-items-center ">
+                            <img class="" style="width:2rem;" src="<?php echo $achievement_icon ?>" alt="trophy">
+                            <p class="m-0">
+                                <?php echo $signedInReward->achievement_name ?>
+                            </p>
+                        </div>
+
+
+                    </li>
                     <?php
 
                     }

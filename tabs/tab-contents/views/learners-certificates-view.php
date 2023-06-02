@@ -16,19 +16,19 @@ include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
                 <img src="<?php echo esc_url($sal_certificate_banner_image) ?>" alt="Offer">
             </a>
         </div>
-        <h3>
+        <h3 class="mb-4 ">
 
             My Certificates & Transcripts
         </h3>
-        <div style="margin-top: 60px; margin-bottom: 30px; border: 1px solid #e5e5e5;">
+        <div class="my-5 border pt-2">
             <div class="row">
                 <div class="col-12 col-md-12 certificate-list ">
-                    <h4 style="margin-bottom: 30px;">
+                    <h4 class="mb-5">
                         <i class="fas fa-certificate"></i>
                         Completed Courses (<?php echo count($all_certificates) ?>)
 
                     </h4>
-                    <table class="table" id="desktopCerts">
+                    <table class="table m-0" id="desktopCerts">
                         <thead>
                             <tr>
                                 <!-- <th scope="col">Course Id</th> -->
@@ -104,17 +104,17 @@ include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
                 </div>
             </div><!-- row--end  -->
         </div>
-        <div style="margin-top: 60px; margin-bottom: 30px; border: 1px solid #e5e5e5;">
+        <div class="my-5 border pt-2">
             <!-- not completed course certificate -->
             <div class="row">
                 <div class="col-12 col-md-12 certificate-list ">
-                    <h4>
+                    <h4 class="mb-4">
                         <i class="fas fa-certificate"></i>
                         Not Completed Courses (<?php echo count($user_not_completed_courses) ?>)
                     </h4>
                     <caption style="margin-bottom: 30px;"> Pre order Certificates for Your Courses in Progress
                     </caption>
-                    <table class="table" id="desktopCerts">
+                    <table class="table m-0" id="desktopCerts">
                         <thead>
                             <tr>
                                 <!-- <th scope="col">Course Id</th> -->

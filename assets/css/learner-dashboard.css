@@ -13,12 +13,13 @@ p,a {
 
 
 :root{
+  --sad-text-primary-color: #1a1a1a;
   --sad-primary-color: #003a59;
   --sad-secondary-color: #7BA631;
   --sad-button-color: #F0E400;
 }
 p{
-  color: var(--sad-primary-color);
+  color: var(--sad-text-primary-color);
 }
 
 img{
@@ -703,7 +704,7 @@ html {
   margin-bottom: 25px;
 }
   .certificate-list {
-  overflow-y: scroll;
+  overflow-y: auto;
 }
   .certificate-list td {
 text-align: left;
@@ -810,8 +811,8 @@ text-align: left;
 }
 
   .achievements li {
-  padding-left: 25px;
-  background-image: url("../images/trophy-icon.svg") ;
+  /* padding-left: 25px;
+  background-image: url("../images/trophy-icon.svg") ; */
   background-repeat: no-repeat;
   background-size: contain;
   margin-bottom: 20px;
