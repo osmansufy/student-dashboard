@@ -133,7 +133,7 @@ include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
                         <div class="d-flex align-items-center ">
                             <img class="" style="width:2rem;" src="<?php echo $achievement_icon ?>" alt="trophy">
                             <p class="m-0">
-                                <?php echo $signedInReward->achievement_name ?>
+                                <?php echo $reward->achievement_name ?>
                             </p>
                         </div>
 
@@ -163,7 +163,7 @@ include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
                         <div class="d-flex align-items-center ">
                             <img class="" style="width:2rem;" src="<?php echo $achievement_icon ?>" alt="trophy">
                             <p class="m-0">
-                                <?php echo $signedInReward->achievement_name ?>
+                                <?php echo $reward->achievement_name ?>
                             </p>
                         </div>
 
