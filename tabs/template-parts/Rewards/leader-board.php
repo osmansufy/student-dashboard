@@ -4,7 +4,7 @@ $current_date_is = date('Y-m-d H:i:s');
 $leaderBoard = SaRewards::get_all_rewards_of_user_id_with_time_range($current_month, $current_date_is);
 var_dump($leader_board_id);
 ?>
-<div class="leaderboard">
+<div class="d-flex w-100 justify-content-between">
     <h3>Student leaderboard</h3>
     <div id="leader_board_table_loading"></div>
     <div class="form-group">

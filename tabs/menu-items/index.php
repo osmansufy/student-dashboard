@@ -1,5 +1,5 @@
 <nav id="sa-sidebarMenu" class="
-d-lg-block d-none
+d-md-block d-none
 
 sa-learners-dashboard-sidebar">
 
@@ -15,9 +15,9 @@ sa-learners-dashboard-sidebar">
         if (!empty($url)) {
         ?>
 
-            <a class="nav-link my-3" href="<?php echo get_site_url() . '/' ?>" style="max-width: 200px;">
-                <img src="<?php echo vibe_sanitizer($url, 'url'); ?>" alt="<?php echo get_bloginfo('name'); ?>" />
-            </a>
+        <a class="nav-link my-3" href="<?php echo get_site_url() . '/' ?>" style="max-width: 200px;">
+            <img src="<?php echo vibe_sanitizer($url, 'url'); ?>" alt="<?php echo get_bloginfo('name'); ?>" />
+        </a>
         <?php
         }
         ?>
@@ -39,16 +39,18 @@ sa-learners-dashboard-sidebar">
             $icon = $value['icon'];
         ?>
 
-            <a class="nav-link py-3 d-flex sa-sidebar-item my-2
-            <?php echo $active ?>" id="v-pills-<?php echo $id ?>-tab" data-bs-toggle="pill" data-bs-target="#v-pills-<?php echo $id ?>" type="button" role="tab" href="#v-pills-<?php echo $id ?>" role="tab" aria-controls="v-pills-<?php echo $id ?>" aria-selected="<?php echo $ariaSelected ?>">
-                <i class="<?php echo $icon ?> me-2"></i>
+        <a class="nav-link py-3 d-flex sa-sidebar-item my-2
+            <?php echo $active ?>" id="v-pills-<?php echo $id ?>-tab" data-bs-toggle="pill"
+            data-bs-target="#v-pills-<?php echo $id ?>" type="button" role="tab" href="#v-pills-<?php echo $id ?>"
+            role="tab" aria-controls="v-pills-<?php echo $id ?>" aria-selected="<?php echo $ariaSelected ?>">
+            <i class="<?php echo $icon ?> me-2"></i>
 
-                <span>
-                    <?php echo $title ?>
-                </span>
+            <span style="text-align: initial;">
+                <?php echo $title ?>
+            </span>
 
 
-            </a>
+        </a>
 
         <?php
         }
