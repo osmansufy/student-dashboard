@@ -256,7 +256,7 @@ class SaLoginRewards
                         // $login_day_count = get_user_meta($user->ID, 'login_day_count', true);
                         // update_user_meta($user->ID, 'login_day_count', $login_day_count);
                         break;
-                    case $diff > 24:
+                    case $diff > 24 && $diff < 48:
                         // user logged in 2 days in a row
                         $login_day_count = get_user_meta($user->ID, 'login_day_count', true);
                         // if user logged in 2 days in a row then update the login day count
