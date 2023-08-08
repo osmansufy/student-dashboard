@@ -22,7 +22,7 @@ class SaLearnersDbActivator
         $post_id = -1;
         $slug = $data['slug'];
         $title = $data['title'];
-        if (null == get_page_by_title($title)) {
+        if (null == get_page_by_path($slug)) {
             $uploader_page = array(
                 'comment_status'        => 'closed',
                 'ping_status'           => 'closed',
@@ -65,7 +65,7 @@ class SaLearnersDbActivator
     }
     static  function sal_create_coupon($coupon)
     {
-        // create random 6 digit 
+        // create random 6 digit
         $code = $coupon['coupon_code'];
         $coupon_title = SaCommon::coupon_prefix($code);
         $isMultiple = $coupon['isMultiple'];
@@ -105,7 +105,7 @@ class SaLearnersDbActivator
             // $coupon->set_date_created( $date_created ); // (string|integer|null)
             // $coupon->set_date_modified( $date_created ); // (string|integer|null)
             // $coupon->set_usage_count( 1 ); // (integer)
-            $coupon->set_individual_use($coupon_individual_use); // (boolean) 
+            $coupon->set_individual_use($coupon_individual_use); // (boolean)
             // $coupon->set_product_ids( $product_ids ); // (array)
             // $coupon->set_excluded_product_ids( $excl_product_ids ); // (array)
             $coupon->set_usage_limit(1); // (integer)
@@ -116,7 +116,7 @@ class SaLearnersDbActivator
             $coupon->set_minimum_amount($coupon_minimum_amount); // (float)
             $coupon->set_maximum_amount($coupon_maximum_amount); // (float)
             $coupon->set_email_restrictions($admin_email); // (array)
-            // set all products price of cart to 10 
+            // set all products price of cart to 10
 
             $coupon->set_free_shipping(false); // (boolean)
             $coupon->save();
@@ -149,7 +149,7 @@ class SaLearnersDbActivator
     {
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
         global $wpdb;
-        // create table for  Acchivements 
+        // create table for  Acchivements
         $table_name = $wpdb->prefix . 'sa_learner_achievements';
         $charset_collate = $wpdb->get_charset_collate();
         $sql = "CREATE TABLE {$table_name} (

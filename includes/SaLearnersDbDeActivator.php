@@ -7,10 +7,12 @@ class SaLearnersDbDeActivator
         $common = new SaCommon();
         $page_template = $common->all_page_templates;
         foreach ($page_template as $page) {
-            $page1 =  get_page_by_title($page['title']);
-            $pid1 = $page1->ID;
-            if (is_user_logged_in()) {
-                wp_delete_post($pid1, true);
+            // get page by slug
+            $page = get_page_by_path($page['slug']);
+            // delete page
+
+            if ($page) {
+                wp_delete_post($page->ID, true);
             }
         }
 

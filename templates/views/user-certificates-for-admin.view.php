@@ -3,7 +3,7 @@
 
         <!-- container-fluid-start  -->
         <?php
-        include plugin_dir_path(__FILE__) . '../template-parts/page-hero.php';
+        include plugin_dir_path(__FILE__) . '../tab-parts/page-hero.php';
         ?>
 
         <div class="my-certificate">
@@ -66,7 +66,7 @@
                                                     <i class="far fa-file-pdf" style="margin-right:7px;"></i>
                                                     View Certificate</a>
                                             <?php
-                                                include plugin_dir_path(__FILE__) . '../template-parts/certificate/singleCertificateForAdmin.php';
+                                                include plugin_dir_path(__FILE__) . '../tab-parts/certificate/singleCertificateForAdmin.php';
                                             } else { ?>
                                                 <a class="btn btn-primary" target="_blank" href="<?php echo site_url() . '/certificate' ?>">
                                                     <i class="far fa-file-pdf" style="margin-right:7px;"></i>
@@ -77,7 +77,7 @@
                                                     <i class="far fa-file-pdf" style="margin-right:7px;"></i>
                                                     View Transcript</a>
                                             <?php
-                                                include plugin_dir_path(__FILE__) . '../template-parts/transcript/singleTranscriptForAdmin.php';
+                                                include plugin_dir_path(__FILE__) . '../tab-parts/transcript/singleTranscriptForAdmin.php';
                                             } else { ?>
                                                 <a class="btn btn-primary" target="_blank" href="<?php echo site_url() . '/certificate' ?>">
                                                     <i class="far fa-file-pdf" style="margin-right:7px;"></i>
