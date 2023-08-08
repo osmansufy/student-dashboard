@@ -12,32 +12,21 @@ include plugin_dir_path(__FILE__) . '../../tab-parts/page-title.php';
     <div class="row award-section">
         <div class="col-md-4 ">
             <div class="white-rounded dash-details">
-                <div class="count-number">
-                    <span><?php echo count($user_courses['enrolled_courses']) ?></span>
-                </div>
-                <div class="number-text">
-                    <p>Enrolled Courses</p>
-                </div>
+                <span><?php echo count($user_courses['enrolled_courses']) ?></span>
+                <p>Enrolled Courses</p>
             </div>
         </div>
         <div class="col-md-4">
             <div class="white-rounded dash-details">
-                <div class="Reward-number">
-                    <span><?php echo count($user_courses['complete_courses']) ?></span>
-                </div>
-                <div class="number-text">
-                    <p>Completed Courses</p>
-                </div>
+                <span><?php echo count($user_courses['complete_courses']) ?></span>
+
+                <p>Completed Courses</p>
             </div>
         </div>
         <div class="col-md-4">
             <div class="white-rounded dash-details">
-                <div class="Reward-number">
-                    <span><?php echo count($user_courses['inprogress_courses']) ?></span>
-                </div>
-                <div class="number-text">
-                    <p>In Progress Courses</p>
-                </div>
+                <span><?php echo count($user_courses['inprogress_courses']) ?></span>
+                <p>In Progress Courses</p>
             </div>
         </div>
     </div> <!-- Award days banner section END -->
@@ -57,7 +46,7 @@ include plugin_dir_path(__FILE__) . '../../tab-parts/page-title.php';
         <?php
         if ($user_courses['enrolled_courses']) {
         ?>
-            <div class="row" id="sal-my-course">
+        <div class="row" id="sal-my-course">
             <?php
             foreach ($user_courses['enrolled_courses'] as $course) {
                 $course_progress = $course['progress'];
@@ -70,7 +59,7 @@ include plugin_dir_path(__FILE__) . '../../tab-parts/page-title.php';
         }
             ?>
             <!-- row-end -->
-            </div>
+        </div>
 
 
     </div><!-- container-fluid-end  -->

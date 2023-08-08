@@ -1,3 +1,22 @@
+/*
+Utility css Start
+
+*/
+
+.btn-primary {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+.sa-rounded-theme-1{
+  border-radius: 15px;
+ }
+
+
+/*
+Sidebar menu css Start
+*/
 
 .sa-learners-dashboard-sidebar{
     position: sticky;
@@ -43,11 +62,6 @@ a.sa-sidebar-btn-expand:hover {
     color: #7BA631;
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: #337ab7;
-    border-color: #2e6da4;
-}
 
 .sa-learners-dashboard-sidebar.sa-sidebar-expand{
     width: 100px;
@@ -64,4 +78,769 @@ a.sa-sidebar-btn-expand:hover {
 }
 .sa-learners-dashboard-sidebar.sa-sidebar-expand .fa-angle-double-left{
     transform: rotate(180deg);
+}
+
+/*
+Sidebar menu css End
+
+*/
+
+/*
+Dashboard tab css Start
+
+*/
+
+.circle-box-percentage {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: white;
+    border-radius: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  /* progress bar */
+
+  .allcourse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+.circular-progress {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+  }
+  .circular-progress:before {
+    content: "";
+    position: absolute;
+    height: 70%;
+    width: 70%;
+    background-color: #ffffff;
+    border-radius: 50%;
+  }
+
+  .value-container {
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    color: #231c3d;
+  }
+
+
+  .white-rounded {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 7px 15px 10px 10px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+    /* .white-rounded.dash-details p {
+    font-size: 22px;
+    font-family: inherit !important;
+    font-weight: 500;
+  }
+
+    .white-rounded.dash-details span {
+    font-size: 50px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+    .white-rounded.dash-details sup svg {
+    color: #004463;
+  }
+  .white-rounded.dash-banner {
+    background: url(https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/xo-bg-1.png)
+      no-repeat;
+    padding: 15px 15px 15px 15px;
+    background-size: cover;
+    border-radius: 15px;
+    color: #ffffff;
+  }
+    .white-rounded.dash-banner p {
+    font-family: inherit !important;
+    font-size: 21px;
+    color: #fff;
+  }
+
+    .white-rounded.dash-banner a.btn.btn-outline-light {
+    color: #f8f9fa;
+    border-radius: 25px;
+    border-width: 2px;
+    background-color: transparent;
+    background-image: none;
+    border-color: #f8f9fa;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+    .white-rounded.dash-banner .btn-outline-light:hover {
+    color: #1a1a1a !important;
+    background-color: #f8f9fa !important;
+    border-color: #f8f9fa !important;
+  }
+
+    .white-rounded.dash-banner .banner-number img {
+    height: 80px;
+  } */
+
+  .banner-offer {
+    margin: 40px 0;
+    /* box-shadow: -18px -18px 5px -13px rgb(107 44 44 / 37%); */
+  }
+
+    .banner-offer a img {
+
+        max-height: 280px;
+        width: 100%;
+        border-radius: 20px;
+        object-fit: fill;
+
+  }
+
+
+
+
+ .white-rounded.dash-details p {
+  font-size: 22px;
+  font-family: inherit !important;
+  font-weight: 500;
+}
+
+.white-rounded.dash-details span {
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/*
+Dashboard tab css End
+
+
+*/
+
+/*
+My Courses css Start
+
+*/
+
+
+.search-field button.btn.btn-primary {
+  width: 100px;
+  text-align: center;
+  background: var(--sad-primary-color);
+  height: 70px;
+  line-height: 70px;
+  font-size: 22px;
+  color: #ffffff;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+  .search-field input#txtSearch {
+  border: 1px solid #f0eded;
+  color: #1a1a1a;
+  font-size: 22px;
+  height: 70px;
+  padding: 18px 0 18px 40px;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+}
+
+  .search-field input#txtSearch::placeholder {
+  color: #1a1a1a;
+  font-size: 22px;
+}
+  .search-field {
+  margin: 40px 0;
+}
+
+
+.progress-box {
+  width: 100%;
+  height: 335px;
+  background-size: cover;
+  border-radius: 20px;
+  background-position: center center;
+  position: relative;
+  margin-bottom: 20px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+}
+
+  .progress-box .Popular-title-top {
+  background:rgb(123 166 49 );
+  border-top-right-radius: 20px;
+  padding: 10px 0;
+  font-weight: 300;
+  border-top-left-radius: 20px;
+  opacity: 1;
+  transition: 0.6s ease;
+  color: #000000;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+  .progress-box .Popular-title-bottom {
+  background: rgb(123 166 49 /67%);
+  border-bottom-right-radius: 20px;
+  padding: 10px 0;
+  border-bottom-left-radius: 20px;
+  opacity: 1;
+  transition: 0.6s ease;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+  .progress-box .Popular-title-bottom .sal-course-title {
+  text-align: center;
+  font-family: inherit;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 300;
+}
+  .progress-box .progressbar {
+  background-color: #a3cd8c !important;
+  padding: 0;
+  text-indent: 10px;
+  display: flex;
+  align-items: center;
+}
+
+  .progress-box .progress {
+  height: 30px;
+  border-radius: 25px;
+  margin: 0 13px;
+  display: flex;
+  width: auto;
+}
+
+
+.progress-box a.btn.btn-outline-primary.btn-lg.extra-radius {
+  color: #313b3d;
+  background-color: #F0E400;
+  background-image: none;
+  border-color: #f8f9fa;
+  border-radius: 25px;
+  width: 100%;
+  max-width: 200px;
+  border-width: 2px;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/*=======================
+           👇 My Certificates PAGE CODE START 👇
+======================== */
+.my-certificate {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 25px 15px 15px 25px;
+  margin-bottom: 25px;
+}
+  .certificate-list {
+  overflow-y: auto;
+}
+  .certificate-list td {
+text-align: left;
+}
+
+/*=======================
+           👇 My Certificates PAGE CODE START END 👇
+======================== */
+
+
+/*=======================
+           👇 My Reward PAGE CODE 👇
+======================== */
+
+.pointsEarned.pointPicker {
+  display: block;
+  padding: 6px 25px;
+  color: #ffffff;
+}
+.col-12.col-md-2.text-center img {
+  width: 70%;
+}
+.link-box a {
+  color: #f8f8f8;
+}
+  .row.align-items-center {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+  .pointsEarned {
+  background-color: #337ab7;
+  border-radius: 10px;
+  padding: 10px 20px 10px 20px;
+}
+  .regular-full {
+  margin-top: 40px;
+}
+
+  .pointPicker .dropdown-toggle::after {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+}
+  .dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #212529;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+}
+
+  .dropdown-item.active {
+  color: #fff;
+  text-decoration: none;
+  background-color: #007bff;
+}
+  .dropdown-item:hover {
+  color: #16181b;
+  text-decoration: none;
+  background-color: #f8f9fa;
+}
+  .col-12.col-md-10 .pointsEarned {
+  padding: 25px 20px 25px 40px;
+}
+
+  .points.mr-0 h2 {
+  margin: 0;
+  color: #ffffff;
+  font-family: inherit;
+}
+  .points p {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 0;
+  color: #ffffff;
+  font-family: inherit;
+}
+
+  .white-rounded.achievements {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 20px 35px 30px 35px;
+  min-height: inherit;
+  display: inherit;
+}
+
+  .achievements h3,
+  .claimed-rewards h3 {
+  font-weight: 500;
+  font-size: 35px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: "Caveat Brush";
+  text-align: left;
+}
+
+  .achievements li {
+  /* padding-left: 25px;
+  background-image: url("../images/trophy-icon.svg") ; */
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-bottom: 20px;
+  list-style: none;
+  font-size: 13px;
+  border: none;
+}
+.achievements li img{
+  border: none;
+}
+.col-12.regular-full.white-rounded.achievements ul li a:hover {
+  color: #1a1a1a;
+  text-decoration: underline;
+  outline: 0;
+}
+.col-12.regular-full.white-rounded.achievements ul li a {
+  color: #8a99a5;
+  text-decoration: none;
+}
+.achievements li:hover {
+  background-image: url("../images/trophy-icon-grey.svg") ;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+  .achievements ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+  .achievements p {
+  font-size: 16px;
+  font-family: inherit;
+}
+
+  .Claim-reward .white-rounded {
+  background-color: #ffffff;
+
+  padding: 7px 30px 10px 30px;
+  text-align: left;
+  display: inherit;
+}
+
+  .Claim-reward .white-rounded h3 {
+  font-size: 30px;
+}
+  .Claim-reward {
+  margin: 40px 0;
+}
+
+  .rewards-inner {
+  display: inline-block;
+  width: 100%;
+  margin-top: 20px;
+  /* opacity: 0.5; */
+}
+  .sal-not-active {
+  opacity: 0.5;
+}
+
+.col-12.regular-full.white-rounded.achievements ul li aover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+  .rewards-inner a {
+  width: auto;
+  margin-right: 20px;
+  padding: 3px 20px;
+  font-size: 18px;
+  display: inline-table;
+  border-radius: 20px;
+}
+  .rewards-inner p {
+  display: inline-table;
+  font-family: inherit;
+}
+
+  .rewards-inner.active {
+  opacity: 1;
+}
+
+  .find-bg {
+  width: 100%;
+  margin-left: 15px;
+  align-items: center;
+  display: flex;
+  min-height: 120px;
+  padding: 15px 15px;
+  position: relative;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+}
+  .find-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  cursor: pointer;
+}
+  .find-bg p {
+  font-family: inherit;
+  font-size: 20px;
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+
+  .redeem {
+  background: #ffffff
+    url("https://www.trainingexpress.org.uk/wp-content/uploads/2021/10/gift-box.png")
+    no-repeat;
+  background-position: 10px center;
+}
+
+
+/*===============================
+              🎆 MEDIA TAB QUERY 🎆
+================================ */
+@media (min-width: 767px) and (max-width: 1024px) {
+  .circle-box-percentage {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+  /* .row.award-section .col-md-4 {
+  margin: 40px 0;
+} */
+  .btn-expand-collapse {
+  top: 7%;
+}
+  .col-12.col-md-4.no-padding {
+  padding: 0;
+  margin: 15px 0;
+}
+  .find-bg {
+  margin-left: 0px;
+}
+  #hero img {
+  position: inherit;
+  top: inherit;
+  left: inherit;
+  margin-top: 20px;
+}
+  .landingCourses .single {
+  width: 100%;
+}
+  #hero .cta {
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 8px 30px;
+  border-radius: 41px;
+  border: 3px solid #fff;
+  color: #fff;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+  .col-12.col-md-2.text-center img {
+  width: inherit;
+}
+  .brand-log {
+  width: 50px;
+  height: 50px;
+  margin-top: -20px;
+}
+  .wishlist {
+  height: 30px;
+  width: 30px;
+  line-height: 36px;
+}
+  .img-box-gal img {
+  height: 100px;
+  border-radius: 20px;
+  margin: 2%;
+}
+  .col-6.col-md-2.col-lg-2.mb-3.col-sm-3 {
+  margin: 10px 0;
+}
+  a.btn.btn-primary.text-uppercase.extra-radius.visit-xo {
+  width: 100%;
+  padding: 3% 0;
+  margin: 3% 0;
+  border-radius: 25px;
+  font-size: 12px;
+}
+}
+
+/*===============================
+            🎆 MEDIA MOBILE QUERY 🎆
+================================ */
+@media (min-width: 320px) and (max-width: 767px) {
+  .circle-box-percentage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+  .leaderBoard .useFlex {
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-right: 0%;
+}
+  .leaderBoard {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+  .leaderBoard .notification {
+  padding: 35px 15px 15px 25px;
+  margin-bottom: 25px;
+}
+  .btn-expand-collapse {
+  top: 7%;
+}
+  .col-12.col-md-4.no-padding {
+  padding: 0;
+  margin: 15px 0;
+}
+  .find-bg {
+  margin-left: 0px;
+}
+  .panel-heading {
+  flex-direction: column;
+}
+  #accordion {
+  width: 90%;
+}
+  #hero img {
+  position: inherit;
+  top: inherit;
+  left: inherit;
+  width: 100%;
+  display: block;
+  margin-top: 31%;
+}
+  .landingCourses .single {
+  width: 100%;
+}
+  #hero h1 {
+  font-size: 20px;
+}
+  #hero .cta {
+  font-size: 10px;
+  padding: 10px;
+}
+  .access-box .row {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  flex-direction: column;
+}
+  .con-box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+  .landing-stats {
+  padding: 20px;
+}
+  .wider-container {
+  padding: 20px;
+}
+  .landing-stats .stat {
+  font-size: 20px;
+}
+  .landingCourses .single .img {
+  width: 100%;
+}
+  .landingCourses .single .title {
+  width: 100%;
+}
+  h2.section-title.wow.fadeIn {
+  font-size: 18px;
+}
+  #landing {
+  padding: 0 20px;
+}
+  #hero .cta {
+  display: block;
+}
+  .row.align-items-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+  h1.text-uppercase {
+  font-size: 16px;
+}
+  .col-12.col-md-5.text-center.recommend-text {
+  width: 100%;
+}
+  .col-6.col-md-2.col-lg-2.mb-3.col-sm-3 {
+  margin: 10px 0;
+}
+  .img-box-gal img {
+  width: 80%;
+  height: 100px;
+  border-radius: 20px;
+  margin: 2%;
+}
+  .img-box-gal .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+  .brand-log {
+  width: 50px;
+  height: 50px;
+  margin-top: -20px;
+}
+
+  .wishlist {
+  height: 30px;
+  width: 30px;
+  line-height: 33px;
+  font-size: 12px;
+}
+  a.btn.btn-primary.text-uppercase.extra-radius.visit-xo {
+  width: 100%;
+  padding: 3% 0;
+  margin: 3% 0;
+  border-radius: 25px;
+  font-size: 12px;
+}
+  #PD {
+  background: white;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
+}
+  label.custom-file-label {
+  width: 100%;
+}
+  .Profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+  .leaderBoard table.table tbody tr th {
+  font-size: 1rem
+}
+  .certificate-list table {
+  display: block;
+}
+   .certificate-list tbody {
+  display: block;
+}
+
+ .certificate-list table thead {
+  display: none;
+}
+
+  .certificate-list table tr {
+  margin: 10px 0;
+  display: block;
+  border-bottom: 2px solid #ddd;
+}
+
+  .certificate-list table td {
+  display: block;
+  text-align: right;
+  font-size: 13px;
+  text-align: end;
+}
+
+  .certificate-list table td:last-child {
+  border-bottom: 0;
+}
+
+  .certificate-list table td::before {
+  content: attr(data-label);
+  float: left;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+  .rewards-inner {
+
+  text-align: center;
+}
 }

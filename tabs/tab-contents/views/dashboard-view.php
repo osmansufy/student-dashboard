@@ -104,8 +104,8 @@ include plugin_dir_path(__FILE__) . '../../tab-parts/page-title.php';
 " src="<?php echo $ads_banner_url ?>" alt="Offer">
         </a>
     </div>
-    <div class="other-course">
-        <h3 class="Title">Other courses you might like...</h3>
+    <div class="bg-white sa-rounded-theme-1  p-4">
+        <h3 class="fs-2 text-left mb-4">Other courses you might like...</h3>
         <div class="row">
             <?php
             foreach ($get_recomended_courses as $course) {

@@ -180,27 +180,28 @@ include plugin_dir_path(__FILE__) . '../../tab-parts/page-title.php';
 
         </div>
     </div>
-    <div class="d-flex
-    flex-column
-    justify-content-start align-items-start">
-        <div class="Claim-reward">
-            <div class="col-md-8 col-md-8 white-rounded">
+    <div class="row
+    gy-3
+    mt-3
+    justify-content-start ">
+
+        <div class="col-md-8 col-md-8 ">
+            <div class="bg-white text-left p-4 sa-rounded-theme-1">
                 <h3>Claimed Rewards</h3>
                 <?php include plugin_dir_path(__FILE__) . '../../tab-parts/Rewards/claimed-rewards.php'; ?>
-
             </div>
         </div>
-
+        <div class="w-100"></div>
         <div class="leaderBoard mycertificate col-md-8 col-md-8 ">
             <!--leader-Board -->
 
-            <div class=" white-rounded notification ">
-                <?php
-                $leader_board_id = 'monthly_leaderBoard2';
-                include(plugin_dir_path(__FILE__) . '../../tab-parts/Rewards/leader-board.php'); ?>
-            </div><!-- col-notification-end  -->
 
-            <!-- </div>row--end  -->
+            <?php
+            $leader_board_id = 'monthly_leaderBoard2';
+            include(plugin_dir_path(__FILE__) . '../../tab-parts/Rewards/leader-board.php'); ?>
+            <<!-- col-notification-end -->
+
+                <!-- </div>row--end  -->
         </div>
     </div>
     <!--leader-Board  end-->
