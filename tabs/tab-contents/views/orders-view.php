@@ -1,12 +1,12 @@
 <?php
 $page_title = 'Orders';
-include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
+include plugin_dir_path(__FILE__) . '../../tab-parts/page-title.php';
 ?>
 
 <div class="container-fluid">
     <!-- container-fluid-start  -->
     <?php
-    include plugin_dir_path(__FILE__) . '../../template-parts/page-hero.php';
+    include plugin_dir_path(__FILE__) . '../../tab-parts/page-hero.php';
     ?>
     <div class="my-certificate">
 

@@ -10,7 +10,7 @@ if ($page) {
 
     // title
     $page_title = $page->post_title;
-    include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
+    include plugin_dir_path(__FILE__) . '../../tab-parts/page-title.php';
 
     // Get the Elementor data for the page
     $elementor_data = get_post_meta($page->ID, '_elementor_data', true);

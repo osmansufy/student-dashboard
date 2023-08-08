@@ -1,6 +1,6 @@
 <?php
 $page_title = 'Help & Support';
-include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
+include plugin_dir_path(__FILE__) . '../../tab-parts/page-title.php';
 ?>
 
 <section class="content-main-body text-left">

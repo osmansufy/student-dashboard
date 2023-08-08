@@ -1,14 +1,14 @@
 <?php
-    $page_title = 'Dashboard';
-    include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
-    ?>
+$page_title = 'Dashboard';
+include plugin_dir_path(__FILE__) . '../../tab-parts/page-title.php';
+?>
 <div class="container-fluid">
 
     <!-- container-fluid-start  -->
     <?php
 
 
-    include plugin_dir_path(__FILE__) . '../../template-parts/page-hero.php';
+    include plugin_dir_path(__FILE__) . '../../tab-parts/page-hero.php';
     ?>
 
 
@@ -111,12 +111,12 @@
             foreach ($get_recomended_courses as $course) {
             ?>
 
-            <div class="col-12 col-md-6 col-lg-3 col-sm-6">
-                <!-- col-start  -->
-                <?php include
+                <div class="col-12 col-md-6 col-lg-3 col-sm-6">
+                    <!-- col-start  -->
+                    <?php include
                         plugin_dir_path(__FILE__) .
-                        '../../template-parts/course-card.php'; ?>
-            </div><!-- col-end  -->
+                        '../../tab-parts/course-card.php'; ?>
+                </div><!-- col-end  -->
             <?php
             }
             ?>
@@ -125,7 +125,7 @@
     <?php
     $leader_board_id = 'monthly_leaderBoard1';
     include plugin_dir_path(__FILE__) .
-        '../../template-parts/dashboard/leader-board.php';
+        '../../tab-parts/dashboard/leader-board.php';
     ?>
     <!--leader-Board  end-->
 

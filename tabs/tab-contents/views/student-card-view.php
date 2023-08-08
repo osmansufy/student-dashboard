@@ -12,7 +12,7 @@ if ($page) {
 
     // title
     $page_title = $page->post_title;
-    include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
+    include plugin_dir_path(__FILE__) . '../../tab-parts/page-title.php';
 
     echo '<div class="container-fluid">';
 

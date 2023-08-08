@@ -1,11 +1,11 @@
 <?php
 $page_title = 'Messages';
-include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
+include plugin_dir_path(__FILE__) . '../../tab-parts/page-title.php';
 ?>
 
 <div class="container-fluid h-100">
     <!-- container-fluid-start  -->
-    <?php include plugin_dir_path(__FILE__) . '../../template-parts/page-hero.php'; ?>
+    <?php include plugin_dir_path(__FILE__) . '../../tab-parts/page-hero.php'; ?>
     <div class="sal-message">
         <div class="accordion accordion-flush" id="accordionFlushExample">
             <?php

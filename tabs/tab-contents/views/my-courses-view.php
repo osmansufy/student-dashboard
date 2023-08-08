@@ -1,11 +1,11 @@
 <?php
 $page_title = 'My Courses';
-include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
+include plugin_dir_path(__FILE__) . '../../tab-parts/page-title.php';
 ?>
 <div class="container-fluid">
     <!-- container-fluid-start  -->
     <?php
-    include plugin_dir_path(__FILE__) . '../../template-parts/page-hero.php';
+    include plugin_dir_path(__FILE__) . '../../tab-parts/page-hero.php';
     ?>
 
     <!-- Award days banner section -->
@@ -64,7 +64,7 @@ include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
                 if (empty($course_progress)) {
                     $course_progress = 0;
                 }
-                include plugin_dir_path(__FILE__) . '../../template-parts/my-course-card.php';
+                include plugin_dir_path(__FILE__) . '../../tab-parts/my-course-card.php';
             }
             echo "</div>";
         }

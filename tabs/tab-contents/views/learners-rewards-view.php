@@ -26,7 +26,7 @@ $rewards_date_types = array(
 ?>
 <?php
 $page_title = 'Rewards';
-include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
+include plugin_dir_path(__FILE__) . '../../tab-parts/page-title.php';
 ?>
 <div class="container-fluid">
     <!-- container-fluid-start  -->
@@ -40,9 +40,9 @@ include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
     color:#fff;
     " class=" sal-reward-select" name="sa_user_reward">
                         <?php foreach ($rewards_date_types as $rewards_date_type) { ?>
-                        <option value="<?php echo $rewards_date_type['value'] ?>">
-                            <?php echo $rewards_date_type['label'] ?>
-                        </option>
+                            <option value="<?php echo $rewards_date_type['value'] ?>">
+                                <?php echo $rewards_date_type['label'] ?>
+                            </option>
                         <?php
                         }
                         ?>
@@ -64,7 +64,7 @@ include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
                     for ($i = 0; $i < $total_reward; $i++) {
                         $image_src = plugin_dir_url(dirname(__FILE__)) . '../../assets/images/award.png';
                     ?>
-                    <img src="<?php echo $image_src ?>" style="margin:0 5px ;" alt="trophy">
+                        <img src="<?php echo $image_src ?>" style="margin:0 5px ;" alt="trophy">
                     <?php
 
                     }
@@ -96,20 +96,20 @@ include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
                         )[0];
                         $achievement_icon = plugin_dir_url(dirname(__FILE__)) . '../../assets/images/trophy-icon.svg';
                     ?>
-                    <li <?php
+                        <li <?php
                             if ($isActive) {
                                 echo 'style="opacity: 0.5;"';
                             }
                             ?>>
-                        <div class="d-flex align-items-center ">
-                            <img class="" style="width:2rem;" src="<?php echo $achievement_icon ?>" alt="trophy">
-                            <p class="m-0">
-                                <?php echo $signedInReward->achievement_name ?>
-                            </p>
-                        </div>
+                            <div class="d-flex align-items-center ">
+                                <img class="" style="width:2rem;" src="<?php echo $achievement_icon ?>" alt="trophy">
+                                <p class="m-0">
+                                    <?php echo $signedInReward->achievement_name ?>
+                                </p>
+                            </div>
 
 
-                    </li>
+                        </li>
                     <?php
 
                     }
@@ -125,20 +125,20 @@ include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
                         $isActive = SaRewards::get_rewards_from_acchivement_id($user_id, $reward->achievement_id)[0];
 
                     ?>
-                    <li <?php
+                        <li <?php
                             if ($isActive) {
                                 echo 'style="opacity: 0.5;"';
                             }
                             ?>>
-                        <div class="d-flex align-items-center ">
-                            <img class="" style="width:2rem;" src="<?php echo $achievement_icon ?>" alt="trophy">
-                            <p class="m-0">
-                                <?php echo $reward->achievement_name ?>
-                            </p>
-                        </div>
+                            <div class="d-flex align-items-center ">
+                                <img class="" style="width:2rem;" src="<?php echo $achievement_icon ?>" alt="trophy">
+                                <p class="m-0">
+                                    <?php echo $reward->achievement_name ?>
+                                </p>
+                            </div>
 
 
-                    </li>
+                        </li>
                     <?php
 
                     }
@@ -155,20 +155,20 @@ include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
                         $isActive = SaRewards::get_rewards_from_acchivement_id($user_id, $reward->achievement_id)[0];
 
                     ?>
-                    <li <?php
+                        <li <?php
                             if ($isActive) {
                                 echo 'style="opacity: 0.5;"';
                             }
                             ?>>
-                        <div class="d-flex align-items-center ">
-                            <img class="" style="width:2rem;" src="<?php echo $achievement_icon ?>" alt="trophy">
-                            <p class="m-0">
-                                <?php echo $reward->achievement_name ?>
-                            </p>
-                        </div>
+                            <div class="d-flex align-items-center ">
+                                <img class="" style="width:2rem;" src="<?php echo $achievement_icon ?>" alt="trophy">
+                                <p class="m-0">
+                                    <?php echo $reward->achievement_name ?>
+                                </p>
+                            </div>
 
 
-                    </li>
+                        </li>
                     <?php
 
                     }
@@ -186,7 +186,7 @@ include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
         <div class="Claim-reward">
             <div class="col-md-8 col-md-8 white-rounded">
                 <h3>Claimed Rewards</h3>
-                <?php include plugin_dir_path(__FILE__) . '../../template-parts/Rewards/claimed-rewards.php'; ?>
+                <?php include plugin_dir_path(__FILE__) . '../../tab-parts/Rewards/claimed-rewards.php'; ?>
 
             </div>
         </div>
@@ -197,7 +197,7 @@ include plugin_dir_path(__FILE__) . '../../template-parts/page-title.php';
             <div class=" white-rounded notification ">
                 <?php
                 $leader_board_id = 'monthly_leaderBoard2';
-                include(plugin_dir_path(__FILE__) . '../../template-parts/Rewards/leader-board.php'); ?>
+                include(plugin_dir_path(__FILE__) . '../../tab-parts/Rewards/leader-board.php'); ?>
             </div><!-- col-notification-end  -->
 
             <!-- </div>row--end  -->
