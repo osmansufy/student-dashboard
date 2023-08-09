@@ -1,8 +1,8 @@
-<div class="bg-white w-100 sa-rounded-theme-1 ">
-    <div class="mt-3 mb-3">
-        <h3>Messages</h3>
-    </div>
-    <div class="mx-4">
+<div class="bg-white w-100 sa-rounded-theme-1 p-3">
+
+    <h3 class="text-center mt-3 mb-4">Messages</h3>
+
+    <div class="w-75 mx-auto">
 
         <div class="accordion accordion-flush" id="accordionFlushExample">
             <?php

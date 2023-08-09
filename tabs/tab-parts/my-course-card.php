@@ -9,13 +9,14 @@ $course_url = get_site_url() . '/courses/' . $course['slug'];
     <div class="progress-box" style="background-image: url('<?php echo $course['featured_image'] ?>');">
         <div class="Popular-title-top">
             <div class="progress">
-                <div role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" class="progressbar bg-secondary" style="width: <?php echo $course_progress ?>%;">
+                <div role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                    class="progressbar bg-secondary" style="width: <?php echo $course_progress ?>%;">
                     <?php echo $course_progress ?>%</div>
             </div>
         </div>
         <div class="Popular-title-bottom">
-            <h3>
-                <a class="sal-course-title" href="<?php echo $course_url ?>">
+            <h3 class="text-center">
+                <a class="sal-course-title " href="<?php echo $course_url ?>">
                     <?php echo $course['title'] ?>
                 </a>
 
@@ -31,7 +32,8 @@ $course_url = get_site_url() . '/courses/' . $course['slug'];
 
 
                 <a href="<?php
-                            echo get_site_url() . '/certificate' ?>" target="_blank" role="button" class="btn btn-outline-primary btn-lg extra-radius">
+                            echo get_site_url() . '/certificate' ?>" target="_blank" role="button"
+                    class="btn btn-outline-primary btn-lg extra-radius">
                     Order Certificate</a>
             </div>
         </div>

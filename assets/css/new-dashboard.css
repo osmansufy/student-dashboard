@@ -1,18 +1,97 @@
 /*
+Global css Start
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600;700;800&display=swap');
+
+/* root variable */
+:root{
+  --sad-text-primary-color: #1a1a1a;
+  --sad-primary-color: #003a59;
+  --sad-primary-color-dark: #004463;
+  --sad-primary-color-light: #337ab7;
+  --sad-secondary-color: #7BA631;
+  --sad-button-color: #F0E400;
+  --sad-theme-border-radius:15px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,a {
+  font-family: "Poppins", sans-serif ;
+}
+tbody, td, tfoot, th, thead, tr {
+  border: none;
+}
+
+a{
+ text-decoration: none;
+}
+
+p{
+  color: var(--sad-text-primary-color);
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+
+form{
+  margin: 0;
+  padding: 0;
+}
+
+/*
 Utility css Start
 
 */
+.sad-top-nav{
+  background-color: var(--sad-primary-color);
 
+  z-index: 999999;
+}
+.sa-custom-course-button .button {
+  background-color: #F0E400;
+  color: #000;
+  border-radius: 25px;
+  text-decoration: none;
+}
 .btn-primary {
   color: #fff;
-  background-color: #337ab7;
+  background-color: var(--sad-primary-color-light);
   border-color: #2e6da4;
 }
 
 .sa-rounded-theme-1{
-  border-radius: 15px;
+  border-radius: var(--sad-theme-border-radius)
  }
 
+ .subscribeUpsell {
+  border-radius: 15px;
+  color: rgb(255, 255, 255);
+  background: var(--sad-primary-color-dark);
+  text-align: center;
+  padding: 14px;
+  font-size: 25px;
+  font-weight: 600;
+  margin: 20px 0;
+}
+  .subscribeUpsell a {
+  font-family: "Catamaran", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+
+  color: #f8f8f8;
+}
 
 /*
 Sidebar menu css Start
@@ -21,7 +100,7 @@ Sidebar menu css Start
 .sa-learners-dashboard-sidebar{
     position: sticky;
     top: 0;
-    background-color: #003a59;
+    background-color: var(--sad-primary-color);
     height: 100vh;
     width: 300px;
     z-index: 999999;
@@ -50,7 +129,7 @@ a.sa-sidebar-btn-expand {
     position: absolute;
     top: 10%;
     right: -20px;
-    background-color: #7BA631;
+    background-color: var(--sad-secondary-color);
     padding: 20px;
     border-radius: 50%;
     border: 1px solid;
@@ -59,7 +138,7 @@ a.sa-sidebar-btn-expand {
 a.sa-sidebar-btn-expand:hover {
 
     background-color: #fff;
-    color: #7BA631;
+    color: var(--sad-secondary-color);
 }
 
 
@@ -143,61 +222,14 @@ Dashboard tab css Start
     justify-content: center;
     align-items: center;
   }
-    /* .white-rounded.dash-details p {
-    font-size: 22px;
-    font-family: inherit !important;
-    font-weight: 500;
-  }
 
-    .white-rounded.dash-details span {
-    font-size: 50px;
-    font-weight: 500;
-    line-height: 1.2;
-  }
-    .white-rounded.dash-details sup svg {
-    color: #004463;
-  }
-  .white-rounded.dash-banner {
-    background: url(https://www.trainingexpress.org.uk/wp-content/uploads/2021/09/xo-bg-1.png)
-      no-repeat;
-    padding: 15px 15px 15px 15px;
-    background-size: cover;
-    border-radius: 15px;
-    color: #ffffff;
-  }
-    .white-rounded.dash-banner p {
-    font-family: inherit !important;
-    font-size: 21px;
-    color: #fff;
-  }
-
-    .white-rounded.dash-banner a.btn.btn-outline-light {
-    color: #f8f9fa;
-    border-radius: 25px;
-    border-width: 2px;
-    background-color: transparent;
-    background-image: none;
-    border-color: #f8f9fa;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  }
-
-    .white-rounded.dash-banner .btn-outline-light:hover {
-    color: #1a1a1a !important;
-    background-color: #f8f9fa !important;
-    border-color: #f8f9fa !important;
-  }
-
-    .white-rounded.dash-banner .banner-number img {
-    height: 80px;
-  } */
 
   .banner-offer {
     margin: 40px 0;
     /* box-shadow: -18px -18px 5px -13px rgb(107 44 44 / 37%); */
   }
 
-    .banner-offer a img {
+  .banner-offer a img {
 
         max-height: 280px;
         width: 100%;
@@ -219,6 +251,144 @@ Dashboard tab css Start
   font-size: 50px;
   font-weight: 500;
   line-height: 1.2;
+}
+
+
+/* other courses */
+
+
+  .category-box {
+  width: 100%;
+  height: 335px;
+  background-size: cover;
+  border-radius: 20px;
+  background-position: center center;
+  position: relative;
+  margin-bottom: 20px;
+  overflow: hidden;
+
+  background-repeat: no-repeat;
+}
+  .category-box .Popular-title-top {
+  background: var(--sad-secondary-color);
+  border-top-right-radius: 20px;
+  padding: 10px 0;
+  font-weight: 300;
+  border-top-left-radius: 20px;
+  opacity: 1;
+  transition: 0.6s ease;
+  color: #ffffff;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+  .category-box .Popular-title-bottom {
+  text-align: center;
+  color: #ffffff;
+  background: rgb(123 166 49 / 67%);
+  border-bottom-right-radius: 20px;
+  padding: 10px 0;
+  font-weight: 300;
+  border-bottom-left-radius: 20px;
+  opacity: 1;
+  transition: 0.6s ease;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+  .category-box .Popular-title-bottom h3 {
+  color: #fff;
+  font-size: 32px;
+}
+
+  .category-box .category-box:hover .popular-box-overlay {
+  opacity: 1;
+  cursor: pointer;
+}
+  .category-box .popular-box-overlay {
+  opacity: 0;
+  transition: 0.6s ease;
+  text-align: center;
+  color: #ffffff;
+  background: var(--sad-secondary-color);
+
+  background-position: left bottom;
+  padding: 15px 0;
+  font-weight: 300;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 30px 0;
+  transition: 0.6s ease;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+  .category-box .img img {
+  width: 100%;
+  max-width: 100%;
+}
+
+  .category-box:hover .popular-box-overlay {
+  opacity: 1;
+  cursor: pointer;
+}
+/* box hover side flip */
+  .category-box .popular-box-overlay .button-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+  .category-box
+  .popular-box-overlay
+  .button-box
+  button.btn.btn-outline-primary.btn-lg.extra-radius:hover {
+  color: #1a1a1a !important;
+  border-color: #ffffff;
+  background-color: #ffffff;
+}
+
+  .category-box
+  .popular-box-overlay
+  .button-box
+  button.btn.btn-outline-primary.btn-lg.extra-radius {
+  color: #ffffff !important;
+  border-color: #ffffff;
+  border-width: 2px;
+  font-size: 16px;
+  margin-bottom: 5px;
+  background: transparent;
+  border-radius: 30px;
+  margin: 0 5px 5px;
+}
+
+  .category-box
+  .popular-box-overlay
+  .popular-overlay-btn-btm
+  .btn-outline-primary {
+  color: #000 !important;
+  border-color: #F0E400;
+  background-color: #F0E400;
+  border-width: 2px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: inline-table;
+  border-radius: 25px;
+  margin: 0 5px;
+}
+
+  .category-box .popular-box-overlay h3 {
+  color: #fff;
+  font-size: 4.5rem;
+ margin-bottom: 3rem;
 }
 
 /*
@@ -277,7 +447,7 @@ My Courses css Start
 }
 
   .progress-box .Popular-title-top {
-  background:rgb(123 166 49 );
+  background:var(--sad-secondary-color);
   border-top-right-radius: 20px;
   padding: 10px 0;
   font-weight: 300;
@@ -380,7 +550,7 @@ text-align: left;
   align-items: center;
 }
   .pointsEarned {
-  background-color: #337ab7;
+  background-color: var(--sad-primary-color-light);
   border-radius: 10px;
   padding: 10px 20px 10px 20px;
 }
@@ -423,9 +593,9 @@ text-align: left;
   text-decoration: none;
   background-color: #f8f9fa;
 }
-  .col-12.col-md-10 .pointsEarned {
+  /* .col-12.col-md-10 .pointsEarned {
   padding: 25px 20px 25px 40px;
-}
+} */
 
   .points.mr-0 h2 {
   margin: 0;

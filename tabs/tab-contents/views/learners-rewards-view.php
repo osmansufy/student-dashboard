@@ -28,7 +28,7 @@ $rewards_date_types = array(
 $page_title = 'Rewards';
 include plugin_dir_path(__FILE__) . '../../tab-parts/page-title.php';
 ?>
-<div class="container-fluid">
+<div class="container-fluid mb-4">
     <!-- container-fluid-start  -->
     <div class="row pl-3 pr-3">
         <div class="col-12 col-md-2">
@@ -38,9 +38,9 @@ include plugin_dir_path(__FILE__) . '../../tab-parts/page-title.php';
                     <select id="sa_user_reward" data-userid="<?php echo $user_id ?>" style="-webkit-appearance: button;
     background-image: none;
     color:#fff;
-    " class=" sal-reward-select" name="sa_user_reward">
+    " class=" sal-reward-select border-0" name="sa_user_reward">
                         <?php foreach ($rewards_date_types as $rewards_date_type) { ?>
-                            <option value="<?php echo $rewards_date_type['value'] ?>">
+                            <option class="text-dark" value="<?php echo $rewards_date_type['value'] ?>">
                                 <?php echo $rewards_date_type['label'] ?>
                             </option>
                         <?php
@@ -58,7 +58,7 @@ include plugin_dir_path(__FILE__) . '../../tab-parts/page-title.php';
         </div><!-- col end -->
         <div class="col-12 col-md-10">
             <div class=" regular-full pointsEarned align-items-center">
-                <div class="trophy">
+                <div class="text-center">
                     <?php
 
                     for ($i = 0; $i < $total_reward; $i++) {
@@ -77,7 +77,7 @@ include plugin_dir_path(__FILE__) . '../../tab-parts/page-title.php';
         <div>
             <?php
 
-            echo '<h2> Reward Reaimaing: ' . $user_reward . '</h2>';
+            echo '<h2 class="text-center"> Reward Reaimaing: ' . $user_reward . '</h2>';
             ?>
         </div>
     </div> <!-- row end -->
@@ -199,9 +199,9 @@ include plugin_dir_path(__FILE__) . '../../tab-parts/page-title.php';
             <?php
             $leader_board_id = 'monthly_leaderBoard2';
             include(plugin_dir_path(__FILE__) . '../../tab-parts/Rewards/leader-board.php'); ?>
-            <<!-- col-notification-end -->
+            <!-- col-notification-end -->
 
-                <!-- </div>row--end  -->
+            <!-- </div>row--end  -->
         </div>
     </div>
     <!--leader-Board  end-->

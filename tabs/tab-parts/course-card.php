@@ -1,7 +1,7 @@
 <div class="category-box" style="background-image: url('<?php echo $course->featured_image ?>');">
-    <div class="Popular-title-top"><i class="far fa-user"></i> <?php
-                                                                echo $course->student_count;
-                                                                ?> students enrolled
+    <div class="Popular-title-top text-center"><i class="far fa-user"></i> <?php
+                                                                            echo $course->student_count;
+                                                                            ?> students enrolled
     </div>
     <div class="Popular-title-bottom"><?php echo $course->post_title; ?>
         <h3><?php
@@ -11,7 +11,7 @@
             ?></h3>
     </div>
     <div class="popular-box-overlay">
-        <p><strong><?php echo $course->post_title ?></strong></p>
+        <p><strong class="text-white"><?php echo $course->post_title ?></strong></p>
         <div class="button-box">
             <div class="popular-overlay-btn">
                 <button type="button" class="btn btn-outline-primary btn-lg extra-radius">
@@ -40,7 +40,8 @@
             echo $course->regular_price;
             ?></h3>
         <div class="popular-overlay-btn-btm sa-btn_<?php echo $course->product_id ?>">
-            <a target="_blank" href="<?php echo get_site_url() . '/courses/' . $course->post_name ?>" role="button" class="btn btn-outline-primary btn-lg extra-radius nsa_course_more_info">More
+            <a target="_blank" href="<?php echo get_site_url() . '/courses/' . $course->post_name ?>" role="button" class="btn btn-outline-primary btn-lg extra-radius nsa_course_more_info">
+                More
                 Info</a>
             <?php
             if (!is_product_in_cart($course->product_id)) {

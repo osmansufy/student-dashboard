@@ -21,10 +21,7 @@ $topNavItems = array(
     )
 )
 ?>
-<nav style="background-color:#003a59;
-z-index: 400    ;
-
-max-height: 100%;" class="navbar navbar-expand-md
+<nav class="navbar sad-top-nav navbar-expand-md
 w-100 position-sticky top-0 navbar-dark border-0
 py-6
     rounded-0 my-0">
